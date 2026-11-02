@@ -125,20 +125,15 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
-import { WorkNestProvider } from "@/context/WorkNestContext";
-import { AppShell } from "@/components/layout/AppShell";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <WorkNestProvider>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <AppShell>
-          <Outlet />
-        </AppShell>
-      </WorkNestProvider>
+      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <Outlet />
     </QueryClientProvider>
   );
 }
