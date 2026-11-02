@@ -287,6 +287,9 @@ export interface NotificationsSummaryResponse {
 }
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1";
+// The app runs fully on its local fixtures unless a backend URL is explicitly
+// configured (VITE_API_URL); then it upgrades to live API mode on health check.
+const backendConfigured = Boolean(import.meta.env.VITE_API_URL);
 
 export class ApiError extends Error {
   status: number;
