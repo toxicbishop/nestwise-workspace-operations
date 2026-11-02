@@ -583,6 +583,7 @@ export function mapBackendInvoice(b: BackendInvoice): Invoice {
 export const apiClient = {
   // Health & Availability Check
   async checkHealth(): Promise<boolean> {
+    if (!backendConfigured) return false;
     try {
       const res = await fetch(`${API_BASE_URL.replace("/api/v1", "")}/health`, {
         cache: "no-store",
