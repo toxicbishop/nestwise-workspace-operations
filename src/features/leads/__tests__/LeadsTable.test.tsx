@@ -11,26 +11,26 @@ const mockLeads: Lead[] = [
     phone: "123-456-7890",
     company: "Vance Architecture Ltd",
     interestedPlan: "Dedicated Desk",
-    preferredLocation: "Downtown Hub",
+    preferredLocation: "Koramangala Hub",
     teamSize: 2,
     source: "Website Form",
     status: "New",
-    assignedTo: "Marcus Vance",
+    assignedTo: "Rohit Khanna",
     createdAt: "2026-10-18T10:00:00Z",
     updatedAt: "2026-10-18T10:00:00Z",
   },
   {
     id: "lead-2",
-    name: "Jordan Hayes",
+    name: "Kabir Chowdhury",
     email: "john@startup.io",
     phone: "987-654-3210",
     company: "Startup Co",
     interestedPlan: "Private Office",
-    preferredLocation: "Westside Commons",
+    preferredLocation: "BKC Commons",
     teamSize: 5,
     source: "Referral",
     status: "Tour Booked",
-    assignedTo: "Sarah Jenkins",
+    assignedTo: "Priya Raghavan",
     createdAt: "2026-10-17T10:00:00Z",
     updatedAt: "2026-10-17T10:00:00Z",
   },
@@ -52,7 +52,7 @@ describe("LeadsTable", () => {
 
     expect(screen.getByText("Jane Smith")).toBeInTheDocument();
     expect(screen.getByText("Vance Architecture Ltd")).toBeInTheDocument();
-    expect(screen.getByText("Jordan Hayes")).toBeInTheDocument();
+    expect(screen.getByText("Kabir Chowdhury")).toBeInTheDocument();
     expect(screen.getByText("Startup Co")).toBeInTheDocument();
   });
 
@@ -73,7 +73,7 @@ describe("LeadsTable", () => {
     fireEvent.change(searchInput, { target: { value: "Startup" } });
 
     expect(screen.queryByText("Jane Smith")).not.toBeInTheDocument();
-    expect(screen.getByText("Jordan Hayes")).toBeInTheDocument();
+    expect(screen.getByText("Kabir Chowdhury")).toBeInTheDocument();
   });
 
   it("renders empty state when no leads match", () => {

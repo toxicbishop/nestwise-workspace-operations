@@ -58,7 +58,7 @@ function InvoiceFormInner({
   );
 
   const [locationName, setLocationName] = useState(
-    selectedMember?.homeLocation || locations[0]?.name || "Downtown Hub"
+    selectedMember?.homeLocation || locations[0]?.name || "Koramangala Hub"
   );
 
   const todayStr = useMemo(() => new Date().toISOString().split("T")[0], []);

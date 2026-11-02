@@ -190,9 +190,9 @@ function DashboardPage() {
                     <div
                       style={{ left: "37.5%", width: "12.5%" }}
                       className="absolute top-[3px] bottom-[3px] rounded bg-[#E6F0F6] text-[#1B455C] border border-[#B8D4E5] text-[11px] font-semibold flex items-center px-2 truncate"
-                      title="Tour: Sorenson and Co (6 Desks)"
+                      title="Tour: Mehta & Co (6 Desks)"
                     >
-                      Tour: Sorenson
+                      Tour: Mehta
                     </div>
                   </div>
                 </div>
@@ -312,10 +312,10 @@ function DashboardPage() {
                 <div className="w-2 h-2 rounded-full bg-[#1B455C] mt-1.5 shrink-0" />
                 <div className="min-w-0 flex-1">
                   <div className="text-xs font-semibold text-[#141414] truncate">
-                    Sorenson and Co (6 Desks)
+                    Mehta & Co (6 Desks)
                   </div>
                   <div className="text-[11px] text-[#575757] mt-0.5">
-                    <span className="tabular-nums">12:00 - 12:45</span> · Host: Elena Rostova · Glasshouse 01
+                    <span className="tabular-nums">12:00 - 12:45</span> · Host: Neha Kulkarni · Glasshouse 01
                   </div>
                 </div>
               </div>
@@ -327,7 +327,7 @@ function DashboardPage() {
                     Amira Patel (Acoustic Suite)
                   </div>
                   <div className="text-[11px] text-[#575757] mt-0.5">
-                    <span className="tabular-nums">15:30 - 16:15</span> · Host: James Miller · Studio West
+                    <span className="tabular-nums">15:30 - 16:15</span> · Host: Rohit Khanna · Studio West
                   </div>
                 </div>
               </div>
@@ -336,10 +336,10 @@ function DashboardPage() {
                 <div className="w-2 h-2 rounded-full bg-[#1B455C] mt-1.5 shrink-0" />
                 <div className="min-w-0 flex-1">
                   <div className="text-xs font-semibold text-[#141414] truncate">
-                    Kite Mobility (Team 12)
+                    Chakra Mobility (Team 12)
                   </div>
                   <div className="text-[11px] text-[#575757] mt-0.5">
-                    <span className="tabular-nums">16:45 - 17:30</span> · Host: Elena Rostova · Floor 3 Suite
+                    <span className="tabular-nums">16:45 - 17:30</span> · Host: Neha Kulkarni · Floor 3 Suite
                   </div>
                 </div>
               </div>

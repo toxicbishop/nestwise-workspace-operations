@@ -280,13 +280,13 @@ const QUOTES = [
   {
     quote:
       "Occupancy used to be a spreadsheet debate. Now it's a number on the wall that everyone trusts.",
-    name: "Daniel Okafor",
+    name: "Devansh Rao",
     role: "Founder, Foundry Labs",
   },
   {
     quote:
       "Billing was our biggest leak. WorkNest's outstanding balances view paid for itself in the first month.",
-    name: "Marta Kowalczyk",
+    name: "Nikita Bose",
     role: "COO, Northlight Collective",
   },
 ] as const;
@@ -331,7 +331,7 @@ function Testimonials() {
 const TIERS = [
   {
     name: "Starter",
-    price: "$49",
+    price: "₹3,499",
     blurb: "For a single location finding its rhythm.",
     features: ["1 location", "Up to 50 members", "Leads, tours & bookings", "Invoicing & payments"],
     cta: "Start free",
@@ -339,7 +339,7 @@ const TIERS = [
   },
   {
     name: "Growth",
-    price: "$119",
+    price: "₹8,499",
     blurb: "For scaling campuses with a real pipeline.",
     features: [
       "Up to 5 locations",

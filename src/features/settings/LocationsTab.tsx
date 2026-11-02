@@ -319,7 +319,7 @@ export function LocationsTab({
                     required
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
-                    placeholder="e.g. Los Angeles"
+                    placeholder="e.g. Bengaluru"
                     className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                   />
                 </div>
@@ -432,7 +432,7 @@ export function LocationsTab({
                     required
                     value={managerName}
                     onChange={(e) => setManagerName(e.target.value)}
-                    placeholder="e.g. Sarah Jenkins"
+                    placeholder="e.g. Priya Raghavan"
                     className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                   />
                 </div>

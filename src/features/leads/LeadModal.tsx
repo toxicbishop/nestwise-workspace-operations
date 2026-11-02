@@ -33,7 +33,7 @@ function LeadFormInner({
     initialLead?.interestedPlan || "Hot Desk"
   );
   const [preferredLocation, setPreferredLocation] = useState(
-    initialLead?.preferredLocation || "Downtown Hub"
+    initialLead?.preferredLocation || "Koramangala Hub"
   );
   const [teamSize, setTeamSize] = useState<number>(initialLead?.teamSize || 1);
   const [source, setSource] = useState<Lead["source"]>(
@@ -41,7 +41,7 @@ function LeadFormInner({
   );
   const [status, setStatus] = useState<LeadStatus>(initialLead?.status || "New");
   const [assignedTo, setAssignedTo] = useState(
-    initialLead?.assignedTo || "Marcus Vance"
+    initialLead?.assignedTo || "Rohit Khanna"
   );
   const [notes, setNotes] = useState(initialLead?.notes || "");
   const [lostReason, setLostReason] = useState(initialLead?.lostReason || "");
@@ -229,9 +229,13 @@ function LeadFormInner({
               onChange={(e) => setPreferredLocation(e.target.value)}
               className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
             >
-              <option value="Downtown Hub">Downtown Hub</option>
-              <option value="Westside Commons">Westside Commons</option>
-              <option value="Tech District">Tech District</option>
+              <option value="Koramangala Hub">Koramangala Hub</option>
+              <option value="BKC Commons">BKC Commons</option>
+              <option value="HITEC District">HITEC District</option>
+              <option value="Connaught Place Hub">Connaught Place Hub</option>
+              <option value="CyberHub Greens">CyberHub Greens</option>
+              <option value="Baner Commons">Baner Commons</option>
+              <option value="OMR Tech Bay">OMR Tech Bay</option>
             </select>
           </div>
         </div>
@@ -307,8 +311,11 @@ function LeadFormInner({
               onChange={(e) => setAssignedTo(e.target.value)}
               className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
             >
-              <option value="Marcus Vance">Marcus Vance</option>
-              <option value="Sarah Jenkins">Sarah Jenkins</option>
+              <option value="Rohit Khanna">Rohit Khanna</option>
+              <option value="Priya Raghavan">Priya Raghavan</option>
+              <option value="Meera Krishnan">Meera Krishnan</option>
+              <option value="Karan Bhatia">Karan Bhatia</option>
+              <option value="Nandita Bose">Nandita Bose</option>
             </select>
           </div>
         </div>
