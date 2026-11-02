@@ -10,7 +10,7 @@ function SpacesPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1E2922]">
+        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1a1a1a]">
           Spaces & Inventory
         </h1>
         <p className="text-xs text-neutral-500 mt-1">
@@ -27,7 +27,7 @@ function SpacesPage() {
   );
 }
 
-export const Route = createFileRoute("/spaces")({
+export const Route = createFileRoute("/app/spaces")({
   component: SpacesPage,
   head: () => ({
     meta: [

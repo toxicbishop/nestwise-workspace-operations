@@ -39,34 +39,34 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const NAV_OPERATIONS: NavItem[] = [
     {
       name: "Overview",
-      href: "/",
+      href: "/app",
       icon: LayoutDashboard,
     },
     {
       name: "Leads and Tours",
-      href: "/leads",
+      href: "/app/leads",
       icon: Users2,
       badge: openInquiriesCount,
     },
     {
       name: "Spaces and Inventory",
-      href: "/spaces",
+      href: "/app/spaces",
       icon: Building2,
     },
     {
       name: "Live Schedule",
-      href: "/bookings",
+      href: "/app/bookings",
       icon: CalendarCheck2,
       badge: "4 today",
     },
     {
       name: "Members Directory",
-      href: "/members",
+      href: "/app/members",
       icon: UserCheck,
     },
     {
       name: "Invoices and Billing",
-      href: "/billing",
+      href: "/app/billing",
       icon: Receipt,
     },
   ];
@@ -74,7 +74,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const NAV_SETTINGS: NavItem[] = [
     {
       name: "Campuses & Settings",
-      href: "/settings",
+      href: "/app/settings",
       icon: Settings,
     },
   ];
@@ -94,22 +94,22 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       <aside
         data-ui="sidebar"
         className={cn(
-          "fixed top-0 bottom-0 left-0 z-50 w-[248px] bg-[#F7F8F6] border-r border-[#DEE3DE] text-[#131A16] flex flex-col transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:z-auto select-none",
+          "fixed top-0 bottom-0 left-0 z-50 w-[248px] bg-[#f6f5f3] border-r border-[#dedcd8] text-[#141414] flex flex-col transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:z-auto select-none",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
         aria-label="Main Navigation"
       >
         {/* Brand header */}
-        <div className="flex items-center justify-between p-5 pb-4 border-b border-[#DEE3DE]" data-ui="ui-frame">
+        <div className="flex items-center justify-between p-5 pb-4 border-b border-[#dedcd8]" data-ui="ui-frame">
           <div className="flex items-center gap-3">
-            <div className="w-[30px] h-[30px] rounded-md bg-[#20382F] flex items-center justify-center text-white font-bold text-[15px] shrink-0">
+            <div className="w-[30px] h-[30px] rounded-md bg-[#e85d3a] flex items-center justify-center text-white font-bold text-[15px] shrink-0">
               W
             </div>
             <div className="flex flex-col leading-tight">
-              <span className="font-bold text-[15px] tracking-tight text-[#20382F]">
+              <span className="font-bold text-[15px] tracking-tight text-[#1c1c1c]">
                 WorkNest CRM
               </span>
-              <span className="text-[12px] text-[#4E5C54]">
+              <span className="text-[12px] text-[#575757]">
                 Operations Workspace
               </span>
             </div>
@@ -117,7 +117,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           <button
             type="button"
             onClick={onClose}
-            className="p-1 rounded-md text-[#4E5C54] hover:text-[#131A16] hover:bg-[#EFF2EE] lg:hidden"
+            className="p-1 rounded-md text-[#575757] hover:text-[#141414] hover:bg-[#f0efed] lg:hidden"
             aria-label="Close navigation sidebar"
           >
             <X className="w-5 h-5" />
@@ -126,12 +126,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
 
         {/* Location / Campus Switcher */}
         <div className="p-3 pb-2">
-          <div className="bg-white border border-[#DEE3DE] rounded-md p-2.5 flex items-center justify-between cursor-pointer hover:border-[#C4CCC5] transition-colors relative">
+          <div className="bg-white border border-[#dedcd8] rounded-md p-2.5 flex items-center justify-between cursor-pointer hover:border-[#c6c4c0] transition-colors relative">
             <div className="flex-1 min-w-0 pr-2">
-              <span className="text-[11px] font-semibold text-[#4E5C54] block leading-none mb-1">
+              <span className="text-[11px] font-semibold text-[#575757] block leading-none mb-1">
                 Active Campus
               </span>
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-[#131A16] truncate">
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-[#141414] truncate">
                 <span className="w-2 h-2 rounded-full bg-[#144D33] shrink-0" />
                 <span className="truncate">
                   {selectedLocation === "All" ? "All Campus Network" : selectedLocation}
@@ -151,14 +151,14 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                 </option>
               ))}
             </select>
-            <ChevronDown className="w-3.5 h-3.5 text-[#4E5C54] shrink-0 pointer-events-none" />
+            <ChevronDown className="w-3.5 h-3.5 text-[#575757] shrink-0 pointer-events-none" />
           </div>
         </div>
 
         {/* Navigation items */}
         <div className="flex-1 overflow-y-auto px-3 py-2 space-y-4">
           <div>
-            <div className="px-3 pb-1.5 text-[11px] font-bold text-[#4E5C54] tracking-wider">
+            <div className="px-3 pb-1.5 text-[11px] font-bold text-[#575757] tracking-wider">
               OPERATIONS
             </div>
             <nav className="space-y-1">
@@ -176,8 +176,8 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                     className={cn(
                       "flex items-center justify-between px-3 py-2 text-xs font-medium rounded-md transition-colors",
                       isActive
-                        ? "bg-white text-[#20382F] font-semibold border border-[#DEE3DE]"
-                        : "text-[#435048] hover:text-[#131A16] hover:bg-[#EFF2EE]"
+                        ? "bg-white text-[#1c1c1c] font-semibold border border-[#dedcd8]"
+                        : "text-[#4a4a4a] hover:text-[#141414] hover:bg-[#f0efed]"
                     )}
                     aria-current={isActive ? "page" : undefined}
                   >
@@ -185,13 +185,13 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                       <Icon
                         className={cn(
                           "w-4 h-4 shrink-0",
-                          isActive ? "text-[#20382F]" : "text-[#4E5C54]"
+                          isActive ? "text-[#1c1c1c]" : "text-[#575757]"
                         )}
                       />
                       <span className="truncate">{item.name}</span>
                     </div>
                     {item.badge !== undefined && (
-                      <span className="tabular-nums text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#EFF2EE] text-[#435048]">
+                      <span className="tabular-nums text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#f0efed] text-[#4a4a4a]">
                         {item.badge}
                       </span>
                     )}
@@ -202,7 +202,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           </div>
 
           <div>
-            <div className="px-3 pb-1.5 text-[11px] font-bold text-[#4E5C54] tracking-wider">
+            <div className="px-3 pb-1.5 text-[11px] font-bold text-[#575757] tracking-wider">
               SETTINGS
             </div>
             <nav className="space-y-1">
@@ -220,8 +220,8 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                     className={cn(
                       "flex items-center justify-between px-3 py-2 text-xs font-medium rounded-md transition-colors",
                       isActive
-                        ? "bg-white text-[#20382F] font-semibold border border-[#DEE3DE]"
-                        : "text-[#435048] hover:text-[#131A16] hover:bg-[#EFF2EE]"
+                        ? "bg-white text-[#1c1c1c] font-semibold border border-[#dedcd8]"
+                        : "text-[#4a4a4a] hover:text-[#141414] hover:bg-[#f0efed]"
                     )}
                     aria-current={isActive ? "page" : undefined}
                   >
@@ -229,7 +229,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                       <Icon
                         className={cn(
                           "w-4 h-4 shrink-0",
-                          isActive ? "text-[#20382F]" : "text-[#4E5C54]"
+                          isActive ? "text-[#1c1c1c]" : "text-[#575757]"
                         )}
                       />
                       <span className="truncate">{item.name}</span>
@@ -242,16 +242,16 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         </div>
 
         {/* User profile / session footer */}
-        <div className="p-3 border-t border-[#DEE3DE]" data-ui="ui-frame">
-          <div className="flex items-center gap-2.5 p-2 rounded-md hover:bg-[#EFF2EE] transition-colors cursor-pointer">
-            <div className="w-8 h-8 rounded-full bg-[#D8E3DD] text-[#20382F] font-bold text-xs flex items-center justify-center shrink-0">
+        <div className="p-3 border-t border-[#dedcd8]" data-ui="ui-frame">
+          <div className="flex items-center gap-2.5 p-2 rounded-md hover:bg-[#f0efed] transition-colors cursor-pointer">
+            <div className="w-8 h-8 rounded-full bg-[#dbd8d3] text-[#1c1c1c] font-bold text-xs flex items-center justify-center shrink-0">
               ER
             </div>
             <div className="min-w-0 flex-1">
-              <div className="text-xs font-semibold text-[#131A16] truncate">
+              <div className="text-xs font-semibold text-[#141414] truncate">
                 Elena Rostova
               </div>
-              <div className="text-[11px] text-[#4E5C54] truncate">
+              <div className="text-[11px] text-[#575757] truncate">
                 General Manager
               </div>
             </div>

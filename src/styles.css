@@ -146,22 +146,41 @@
 /* ============ WorkNest design tokens (ported from WorkNest globals.css) ============ */
 
 @theme {
-  --color-forest-800: #20382f;
-  --color-forest-900: #172a23;
-  --color-forest-700: #2b4c3f;
-  --color-forest-50: #f2f6f4;
-  --color-forest-100: #e2ece6;
-  --color-nest-bg: #f7f8f6;
+  --color-forest-800: #1c1c1c;
+  --color-forest-900: #111111;
+  --color-forest-700: #2d2d2d;
+  --color-forest-50: #f6f5f3;
+  --color-forest-100: #e9e8e5;
+  --color-nest-bg: #f6f5f3;
   --color-nest-surface: #ffffff;
   --color-nest-border: #e2e8f0;
-  --color-nest-text: #1e2922;
-  --color-nest-muted: #5a6860;
+  --color-nest-text: #1a1a1a;
+  --color-nest-muted: #575757;
+
+  /* Charcoal & Ember brand accents */
+  --color-ember: #e85d3a;
+  --color-ember-deep: #d14a2c;
+  --color-ember-soft: #fdeee8;
+  --color-charcoal-950: #111111;
+  --color-charcoal-900: #1a1a1a;
+  --color-charcoal-800: #2d2d2d;
+  --color-charcoal-700: #4a4a4a;
+  --color-paper: #faf9f7;
+  --color-paper-dim: #f1efec;
+
+  --font-display: "Sora", "Manrope", sans-serif;
+  --font-sans: "Manrope", "Sora", sans-serif;
 }
 
 @layer base {
   body {
-    font-family:
-      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Sora", "Manrope", sans-serif;
   }
 
   /* Subtle scrollbars */

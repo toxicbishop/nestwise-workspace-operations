@@ -1,445 +1,549 @@
-import { createFileRoute } from "@tanstack/react-router";
-import React, { useState } from "react";
-import { Link } from "@tanstack/react-router";
-import { Plus, Calendar } from "lucide-react";
-import { useWorkNest, NewLeadData } from "@/context/WorkNestContext";
-import { MetricCards } from "@/features/dashboard/MetricCards";
-import { LeadsTable } from "@/features/leads/LeadsTable";
-import { LeadModal } from "@/features/leads/LeadModal";
-import { ConvertModal } from "@/features/leads/ConvertModal";
-import { Lead } from "@/types";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useRef } from "react";
+import {
+  ArrowRight,
+  Building2,
+  CalendarCheck2,
+  CreditCard,
+  LayoutDashboard,
+  LineChart,
+  Users2,
+  Check,
+} from "lucide-react";
+import heroImg from "@/assets/hero-workspace.jpg";
 
-function DashboardPage() {
-  const {
-    leads,
-    metrics,
-    selectedLocation,
-    addLead,
-    updateLead,
-    deleteLead,
-    updateLeadStatus,
-    convertLead,
-  } = useWorkNest();
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingLead, setEditingLead] = useState<Lead | null>(null);
-  const [convertingLead, setConvertingLead] = useState<Lead | null>(null);
-
-  const handleEditLead = (lead: Lead) => {
-    setEditingLead(lead);
-    setIsModalOpen(true);
-  };
-
-  const handleOpenNewLead = () => {
-    setEditingLead(null);
-    setIsModalOpen(true);
-  };
-
-  const handleSaveLead = (leadData: NewLeadData) => {
-    if (leadData.id) {
-      updateLead(leadData as Lead);
-    } else {
-      addLead(leadData);
-    }
-  };
-
-  const handleConvertLead = (lead: Lead) => {
-    setConvertingLead(lead);
-  };
-
-  const currentHubName =
-    selectedLocation === "All" ? "Spitalfields Hub" : selectedLocation;
-
+function NavBar() {
   return (
-    <div className="space-y-6">
-      {/* 1. Canvas Header matching design preview */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#131A16]">
-            {currentHubName}: Today&apos;s Operations
-          </h1>
-          <p className="text-xs text-[#4E5C54] mt-1">
-            Real-time workspace capacity, tour walkthroughs, and active prospect conversion.
-          </p>
-        </div>
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-charcoal-950/80 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+        <a href="#top" className="flex items-center gap-2.5">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-ember font-display text-sm font-bold text-white">
+            W
+          </span>
+          <span className="font-display text-[15px] font-bold tracking-tight text-paper">
+            WorkNest
+          </span>
+        </a>
+        <nav className="hidden items-center gap-7 text-sm font-medium text-paper/70 md:flex">
+          {(
+            [
+              ["Features", "features"],
+              ["Product", "product"],
+              ["How it works", "how"],
+              ["Pricing", "pricing"],
+            ] as const
+          ).map(([label, id]) => (
+            <button
+              key={id}
+              onClick={() => scrollTo(id)}
+              className="transition-colors hover:text-paper"
+            >
+              {label}
+            </button>
+          ))}
+        </nav>
+        <Link
+          to="/app"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-ember px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-ember-deep"
+        >
+          Open the App
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
+    </header>
+  );
+}
 
-        <div className="flex items-center gap-2.5">
+function Hero() {
+  return (
+    <section id="top" className="relative overflow-hidden bg-charcoal-950 text-paper">
+      <img
+        src={heroImg}
+        alt="A premium coworking space at dusk with warm ember lighting"
+        className="absolute inset-0 h-full w-full object-cover opacity-40"
+        width={1536}
+        height={1024}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-charcoal-950/60 via-charcoal-950/75 to-charcoal-950" />
+      <div className="relative mx-auto max-w-6xl px-5 pb-24 pt-24 sm:pt-32">
+        <div className="inline-flex items-center gap-2 rounded-full border border-ember/30 bg-ember/10 px-3.5 py-1.5 text-xs font-semibold text-ember">
+          <span className="h-1.5 w-1.5 rounded-full bg-ember" />
+          Coworking operations, unified
+        </div>
+        <h1 className="mt-6 max-w-3xl font-display text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl">
+          Run your coworking space like a flagship operation.
+        </h1>
+        <p className="mt-5 max-w-xl text-base leading-relaxed text-paper/70 sm:text-lg">
+          WorkNest brings leads, tours, members, bookings, and billing into one
+          operational cockpit — so every inquiry becomes a signed membership,
+          and every square metre earns its keep.
+        </p>
+        <div className="mt-8 flex flex-wrap items-center gap-3">
           <Link
-            to="/bookings"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#131A16] bg-white hover:bg-[#EFF2EE] border border-[#DEE3DE] px-3.5 py-2 rounded-md transition-colors"
+            to="/app"
+            className="inline-flex items-center gap-2 rounded-lg bg-ember px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-ember/25 transition-all hover:bg-ember-deep hover:shadow-ember/40"
           >
-            <Calendar className="w-3.5 h-3.5 text-[#4E5C54]" />
-            <span>Schedule Tour</span>
+            Explore the live product
+            <ArrowRight className="h-4 w-4" />
           </Link>
           <button
-            type="button"
-            onClick={handleOpenNewLead}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#20382F] hover:bg-[#162922] px-3.5 py-2 rounded-md transition-colors"
+            onClick={() => scrollTo("product")}
+            className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-paper backdrop-blur transition-colors hover:bg-white/10"
           >
-            <Plus className="w-4 h-4" />
-            <span>Create Booking</span>
+            See it in action
           </button>
         </div>
+        <dl className="mt-16 grid max-w-3xl grid-cols-2 gap-8 border-t border-white/10 pt-8 sm:grid-cols-4">
+          {(
+            [
+              ["+31%", "lead conversion"],
+              ["88%", "avg. occupancy"],
+              ["97.4%", "invoices collected"],
+              ["12 min", "set-up per location"],
+            ] as const
+          ).map(([value, label]) => (
+            <div key={label}>
+              <dt className="font-display text-2xl font-bold text-ember sm:text-3xl">
+                {value}
+              </dt>
+              <dd className="mt-1 text-xs font-medium uppercase tracking-wider text-paper/50">
+                {label}
+              </dd>
+            </div>
+          ))}
+        </dl>
       </div>
+    </section>
+  );
+}
 
-      {/* 2. Daily Pulse Finding Strip */}
-      <div className="bg-white border border-[#DEE3DE] border-l-4 border-l-[#20382F] rounded-lg px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
-        <div className="text-[#131A16]">
-          <strong className="font-semibold text-[#20382F]">Daily Pulse:</strong>{" "}
-          3 prospect tours scheduled today; Studio 4B lease renewed by Arbor Design Ltd; 2 invoices due for collection.
-        </div>
-        <div className="text-[#4E5C54] text-[11px] shrink-0 font-medium">
-          <span className="tabular-nums">Updated 10:42 AM</span> · <span>Staff on duty: 4</span>
+const FEATURES = [
+  {
+    icon: Users2,
+    title: "Lead-to-member pipeline",
+    body: "Track every inquiry from first touch to signed contract — qualification, follow-ups, tours, and one-click conversion with full audit history.",
+  },
+  {
+    icon: CalendarCheck2,
+    title: "Live schedule & conflict guard",
+    body: "Bookings for desks, suites, and studios with real-time availability and automatic double-booking prevention across every location.",
+  },
+  {
+    icon: Building2,
+    title: "Space inventory",
+    body: "Every hot desk, dedicated suite, and virtual office mapped to capacity, rate cards, and amenities — per campus, always current.",
+  },
+  {
+    icon: CreditCard,
+    title: "Billing that collects",
+    body: "Invoicing, payment records, reminders, and outstanding-balance tracking built for recurring memberships, not one-off receipts.",
+  },
+  {
+    icon: LayoutDashboard,
+    title: "Operations dashboard",
+    body: "Today's tours, capacity, MRR, and follow-ups on one screen — your morning stand-up, already prepared.",
+  },
+  {
+    icon: LineChart,
+    title: "Occupancy & revenue analytics",
+    body: "Utilization by space, conversion velocity, retention, and collected revenue — the numbers owners actually ask about.",
+  },
+] as const;
+
+function Features() {
+  return (
+    <section id="features" className="bg-paper py-24">
+      <div className="mx-auto max-w-6xl px-5">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-ember">
+          Everything in one place
+        </p>
+        <h2 className="mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight text-charcoal-950 sm:text-4xl">
+          The complete member lifecycle, minus the spreadsheets.
+        </h2>
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {FEATURES.map(({ icon: Icon, title, body }) => (
+            <div
+              key={title}
+              className="group rounded-2xl border border-charcoal-950/8 bg-white p-7 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-charcoal-950/8"
+            >
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-charcoal-950 text-ember transition-colors group-hover:bg-ember group-hover:text-white">
+                <Icon className="h-5 w-5" />
+              </div>
+              <h3 className="mt-5 font-display text-base font-semibold text-charcoal-950">
+                {title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-700">
+                {body}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
+    </section>
+  );
+}
 
-      {/* 3. Divided KPI Strip */}
-      <MetricCards metrics={metrics} />
+function Product() {
+  return (
+    <section id="product" className="bg-charcoal-950 py-24 text-paper">
+      <div className="mx-auto max-w-6xl px-5">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-ember">
+            The product
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+            One cockpit for the whole floor.
+          </h2>
+          <p className="mt-4 text-sm leading-relaxed text-paper/60 sm:text-base">
+            Purpose-built for coworking operators — not a generic CRM with
+            coworking words bolted on. Live below; nothing to install.
+          </p>
+        </div>
+        <div className="mt-12 overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-black/50">
+          <img
+            src="/worknest-dashboard.png"
+            alt="WorkNest operations dashboard showing capacity, tours, and billing"
+            className="w-full"
+            loading="lazy"
+            width={1280}
+            height={800}
+          />
+        </div>
+        <div className="mt-10 flex justify-center">
+          <Link
+            to="/app"
+            className="inline-flex items-center gap-2 rounded-lg bg-ember px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-ember/25 transition-colors hover:bg-ember-deep"
+          >
+            Try the live workspace
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
 
-      {/* 4. Two-Column Workspace Grid (8fr : 4fr) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-        {/* Left Column (8 cols) */}
-        <div className="lg:col-span-8 space-y-5">
-          {/* Live Resource Availability and Bookings Timeline */}
-          <section className="bg-white border border-[#DEE3DE] rounded-lg p-5">
-            <div className="flex items-center justify-between pb-3 border-b border-[#DEE3DE]" data-ui="ui-frame">
-              <div className="flex items-center gap-2.5">
-                <span className="font-bold text-[15px] text-[#20382F]">
-                  Live Resource Availability and Bookings
+const PIPELINE = [
+  ["Inquiry", "Website, walk-in, or referral lands in the pipeline."],
+  ["Qualify", "Plan interest, team size, and location captured on day one."],
+  ["Tour", "Walkthroughs scheduled with automatic reminders."],
+  ["Convert", "One click turns the lead into a member on a plan."],
+  ["Retain", "Renewals, bookings, and billing keep the desk occupied."],
+] as const;
+
+function HowItWorks() {
+  return (
+    <section id="how" className="bg-paper-dim py-24">
+      <div className="mx-auto max-w-6xl px-5">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-ember">
+            How it works
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-charcoal-950 sm:text-4xl">
+            From first hello to long-term member.
+          </h2>
+        </div>
+        <ol className="mt-14 grid gap-6 md:grid-cols-5">
+          {PIPELINE.map(([title, body], i) => (
+            <li key={title} className="relative">
+              <div className="flex items-center gap-3">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-charcoal-950 font-display text-xs font-bold text-ember">
+                  {i + 1}
                 </span>
-                <span className="tabular-nums text-[11px] font-semibold px-2 py-0.5 rounded bg-[#E4F4EC] text-[#144D33]">
-                  Live Timeline
+                <span className="hidden h-px flex-1 bg-charcoal-950/10 md:block" />
+              </div>
+              <h3 className="mt-4 font-display text-sm font-semibold text-charcoal-950">
+                {title}
+              </h3>
+              <p className="mt-1.5 text-xs leading-relaxed text-charcoal-700">
+                {body}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+const QUOTES = [
+  {
+    quote:
+      "We went from three disconnected tools to one screen. Tour-to-sign-up time dropped by a third in the first quarter.",
+    name: "Priya Nair",
+    role: "Community Director, HIVE Workspaces",
+  },
+  {
+    quote:
+      "Occupancy used to be a spreadsheet debate. Now it's a number on the wall that everyone trusts.",
+    name: "Daniel Okafor",
+    role: "Founder, Foundry Labs",
+  },
+  {
+    quote:
+      "Billing was our biggest leak. WorkNest's outstanding balances view paid for itself in the first month.",
+    name: "Marta Kowalczyk",
+    role: "COO, Northlight Collective",
+  },
+] as const;
+
+function Testimonials() {
+  return (
+    <section className="bg-paper py-24">
+      <div className="mx-auto max-w-6xl px-5">
+        <h2 className="max-w-xl font-display text-3xl font-bold tracking-tight text-charcoal-950 sm:text-4xl">
+          Operators who stopped duct-taping tools together.
+        </h2>
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {QUOTES.map(({ quote, name, role }) => (
+            <figure
+              key={name}
+              className="rounded-2xl border border-charcoal-950/8 bg-white p-7 shadow-sm"
+            >
+              <div className="flex gap-1 text-ember" aria-label="5 out of 5 stars">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <span key={i} className="text-sm">
+                    ★
+                  </span>
+                ))}
+              </div>
+              <blockquote className="mt-4 text-sm leading-relaxed text-charcoal-900">
+                “{quote}”
+              </blockquote>
+              <figcaption className="mt-5 border-t border-charcoal-950/6 pt-4">
+                <div className="font-display text-sm font-semibold text-charcoal-950">
+                  {name}
+                </div>
+                <div className="text-xs text-charcoal-700">{role}</div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const TIERS = [
+  {
+    name: "Starter",
+    price: "$49",
+    blurb: "For a single location finding its rhythm.",
+    features: ["1 location", "Up to 50 members", "Leads, tours & bookings", "Invoicing & payments"],
+    cta: "Start free",
+    featured: false,
+  },
+  {
+    name: "Growth",
+    price: "$119",
+    blurb: "For scaling campuses with a real pipeline.",
+    features: [
+      "Up to 5 locations",
+      "Unlimited members",
+      "Occupancy & revenue analytics",
+      "Conflict-free scheduling",
+      "Priority support",
+    ],
+    cta: "Start free",
+    featured: true,
+  },
+  {
+    name: "Portfolio",
+    price: "Custom",
+    blurb: "For multi-city operators and franchises.",
+    features: ["Unlimited locations", "Multi-currency billing", "API access & SSO", "Dedicated success manager"],
+    cta: "Talk to us",
+    featured: false,
+  },
+] as const;
+
+function Pricing() {
+  return (
+    <section id="pricing" className="bg-paper-dim py-24">
+      <div className="mx-auto max-w-6xl px-5">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-ember">
+            Pricing
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-charcoal-950 sm:text-4xl">
+            Costs less than one empty desk.
+          </h2>
+        </div>
+        <div className="mt-14 grid gap-5 md:grid-cols-3">
+          {TIERS.map((t) => (
+            <div
+              key={t.name}
+              className={
+                t.featured
+                  ? "relative rounded-2xl bg-charcoal-950 p-8 text-paper shadow-2xl shadow-charcoal-950/30 ring-1 ring-ember/40"
+                  : "rounded-2xl border border-charcoal-950/8 bg-white p-8 shadow-sm"
+              }
+            >
+              {t.featured && (
+                <span className="absolute -top-3 left-8 rounded-full bg-ember px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white">
+                  Most popular
                 </span>
-              </div>
-              <div className="flex items-center gap-3 text-xs">
-                <span className="text-[#4E5C54]">Wednesday, 21 Oct</span>
-                <Link
-                  to="/spaces"
-                  className="px-2.5 py-1 text-xs font-medium text-[#131A16] bg-white border border-[#DEE3DE] rounded hover:bg-[#EFF2EE] transition-colors"
-                >
-                  Filter Spaces
-                </Link>
-              </div>
-            </div>
-
-            {/* Timeline Canvas */}
-            <div className="mt-4 overflow-x-auto">
-              <div className="min-w-[620px]">
-                {/* Time Axis */}
-                <div className="grid grid-cols-[140px_repeat(8,1fr)] pb-2.5 border-b border-[#DEE3DE] text-xs text-[#4E5C54] text-center" data-ui="ui-frame">
-                  <span className="text-left font-bold text-[#435048]">RESOURCE</span>
-                  <span>09:00</span>
-                  <span>10:00</span>
-                  <span>11:00</span>
-                  <span>12:00</span>
-                  <span>13:00</span>
-                  <span>14:00</span>
-                  <span>15:00</span>
-                  <span>16:00</span>
-                </div>
-
-                {/* Resource Row 1 */}
-                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#E8ECE8]" data-ui="ui-frame">
-                  <div className="flex flex-col leading-tight pr-2">
-                    <span className="text-xs font-semibold text-[#131A16]">Boardroom Atlas</span>
-                    <span className="text-[11px] text-[#4E5C54]">12p · Video Conf</span>
-                  </div>
-                  <div className="relative h-8 bg-[#EFF2EE] rounded overflow-hidden grid grid-cols-8">
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="h-full" />
-
-                    <div
-                      style={{ left: "12.5%", width: "25%" }}
-                      className="absolute top-[3px] bottom-[3px] rounded bg-[#20382F] text-white text-[11px] font-semibold flex items-center px-2.5 truncate"
-                      title="Finova Labs (Active Strategy)"
-                    >
-                      Finova Labs (Active Strategy)
-                    </div>
-                    <div
-                      style={{ left: "62.5%", width: "25%" }}
-                      className="absolute top-[3px] bottom-[3px] rounded bg-[#E8F0EB] text-[#173827] border border-[#C8D7CF] text-[11px] font-semibold flex items-center px-2.5 truncate"
-                      title="Highline Media (Review)"
-                    >
-                      Highline Media (Review)
-                    </div>
-                  </div>
-                </div>
-
-                {/* Resource Row 2 */}
-                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#E8ECE8]" data-ui="ui-frame">
-                  <div className="flex flex-col leading-tight pr-2">
-                    <span className="text-xs font-semibold text-[#131A16]">Glasshouse 01</span>
-                    <span className="text-[11px] text-[#4E5C54]">4p · Brainstorm</span>
-                  </div>
-                  <div className="relative h-8 bg-[#EFF2EE] rounded overflow-hidden grid grid-cols-8">
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="h-full" />
-
-                    <div
-                      style={{ left: "37.5%", width: "12.5%" }}
-                      className="absolute top-[3px] bottom-[3px] rounded bg-[#E6F0F6] text-[#1B455C] border border-[#B8D4E5] text-[11px] font-semibold flex items-center px-2 truncate"
-                      title="Tour: Sorenson and Co (6 Desks)"
-                    >
-                      Tour: Sorenson
-                    </div>
-                  </div>
-                </div>
-
-                {/* Resource Row 3 */}
-                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#E8ECE8]" data-ui="ui-frame">
-                  <div className="flex flex-col leading-tight pr-2">
-                    <span className="text-xs font-semibold text-[#131A16]">Acoustic Studio</span>
-                    <span className="text-[11px] text-[#4E5C54]">Broadcast audio</span>
-                  </div>
-                  <div className="relative h-8 bg-[#EFF2EE] rounded overflow-hidden grid grid-cols-8">
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="border-r border-dashed border-[#DEE3DE] h-full" />
-                    <div className="h-full" />
-
-                    <div
-                      style={{ left: "50%", width: "25%" }}
-                      className="absolute top-[3px] bottom-[3px] rounded bg-[#20382F] text-white text-[11px] font-semibold flex items-center px-2.5 truncate"
-                      title="Venturecast Ep. 42"
-                    >
-                      Venturecast Ep. 42
-                    </div>
-                  </div>
-                </div>
-
-                {/* Resource Row 4 */}
-                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#E8ECE8]" data-ui="ui-frame">
-                  <div className="flex flex-col leading-tight pr-2">
-                    <span className="text-xs font-semibold text-[#131A16]">Studio 4B</span>
-                    <span className="text-[11px] text-[#4E5C54]">8p Dedicated Suite</span>
-                  </div>
-                  <div className="relative h-8 bg-[#EFF2EE] rounded overflow-hidden">
-                    <div
-                      style={{ left: "0%", width: "100%" }}
-                      className="absolute top-[3px] bottom-[3px] rounded bg-[#E5E9E5] text-[#2F3D35] text-[11px] font-semibold flex items-center px-2.5 truncate"
-                      title="Arbor Design Ltd (Active Contract until Nov 2027)"
-                    >
-                      Arbor Design Ltd (Active Contract until Nov 2027)
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Timeline Legend */}
-            <div className="flex flex-wrap items-center gap-4 mt-3 text-xs text-[#435048]">
-              <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded bg-[#20382F]" />
-                <span>Active Booking</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded bg-[#E6F0F6] border border-[#B8D4E5]" />
-                <span>Tour Walkthrough</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded bg-[#E8F0EB] border border-[#C8D7CF]" />
-                <span>Partner Review</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded bg-[#E5E9E5]" />
-                <span>Dedicated Suite</span>
-              </div>
-            </div>
-          </section>
-
-          {/* Inquiry Pipeline and Tours Table */}
-          <section className="bg-white border border-[#DEE3DE] rounded-lg p-5 space-y-3">
-            <div className="flex items-center justify-between pb-3 border-b border-[#DEE3DE]" data-ui="ui-frame">
-              <div>
-                <h2 className="text-[15px] font-bold text-[#20382F]">
-                  Inquiry Pipeline and Tours
-                </h2>
-                <p className="text-xs text-[#4E5C54]">
-                  Filterable list with instant stage qualification and conversion
-                </p>
-              </div>
-              <Link
-                to="/leads"
-                className="text-xs font-semibold text-[#20382F] hover:underline"
+              )}
+              <h3
+                className={
+                  t.featured
+                    ? "font-display text-lg font-semibold text-paper"
+                    : "font-display text-lg font-semibold text-charcoal-950"
+                }
               >
-                View Full Pipeline →
+                {t.name}
+              </h3>
+              <p
+                className={
+                  t.featured ? "mt-1 text-xs text-paper/60" : "mt-1 text-xs text-charcoal-700"
+                }
+              >
+                {t.blurb}
+              </p>
+              <div className="mt-5 flex items-baseline gap-1">
+                <span
+                  className={
+                    t.featured
+                      ? "font-display text-4xl font-bold text-paper"
+                      : "font-display text-4xl font-bold text-charcoal-950"
+                  }
+                >
+                  {t.price}
+                </span>
+                {t.price !== "Custom" && (
+                  <span
+                    className={
+                      t.featured ? "text-sm text-paper/50" : "text-sm text-charcoal-700"
+                    }
+                  >
+                    /mo per location
+                  </span>
+                )}
+              </div>
+              <ul className="mt-6 space-y-2.5">
+                {t.features.map((f) => (
+                  <li
+                    key={f}
+                    className={
+                      t.featured
+                        ? "flex items-start gap-2 text-sm text-paper/80"
+                        : "flex items-start gap-2 text-sm text-charcoal-900"
+                    }
+                  >
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-ember" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                to="/app"
+                className={
+                  t.featured
+                    ? "mt-8 flex items-center justify-center gap-1.5 rounded-lg bg-ember px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ember-deep"
+                    : "mt-8 flex items-center justify-center gap-1.5 rounded-lg border border-charcoal-950/15 px-4 py-2.5 text-sm font-semibold text-charcoal-950 transition-colors hover:border-ember hover:text-ember"
+                }
+              >
+                {t.cta}
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-
-            <LeadsTable
-              leads={leads}
-              onEditLead={handleEditLead}
-              onDeleteLead={deleteLead}
-              onStatusChange={updateLeadStatus}
-              onConvertLead={handleConvertLead}
-              onOpenNewLead={handleOpenNewLead}
-              selectedLocationFilter={selectedLocation}
-            />
-          </section>
-        </div>
-
-        {/* Right Column (4 cols) */}
-        <div className="lg:col-span-4 space-y-5">
-          {/* 1. Scheduled Walkthroughs */}
-          <section className="bg-white border border-[#DEE3DE] rounded-lg p-5">
-            <div className="flex items-center justify-between pb-3 border-b border-[#DEE3DE]" data-ui="ui-frame">
-              <span className="font-bold text-[15px] text-[#20382F]">
-                Scheduled Walkthroughs
-              </span>
-              <span className="tabular-nums text-xs font-semibold text-[#4E5C54]">
-                3 remaining
-              </span>
-            </div>
-
-            <div className="divide-y divide-[#E8ECE8]" data-ui="ui-list">
-              <div className="py-3 flex items-start gap-2.5">
-                <div className="w-2 h-2 rounded-full bg-[#1B455C] mt-1.5 shrink-0" />
-                <div className="min-w-0 flex-1">
-                  <div className="text-xs font-semibold text-[#131A16] truncate">
-                    Sorenson and Co (6 Desks)
-                  </div>
-                  <div className="text-[11px] text-[#4E5C54] mt-0.5">
-                    <span className="tabular-nums">12:00 - 12:45</span> · Host: Elena Rostova · Glasshouse 01
-                  </div>
-                </div>
-              </div>
-
-              <div className="py-3 flex items-start gap-2.5">
-                <div className="w-2 h-2 rounded-full bg-[#1B455C] mt-1.5 shrink-0" />
-                <div className="min-w-0 flex-1">
-                  <div className="text-xs font-semibold text-[#131A16] truncate">
-                    Amira Patel (Acoustic Suite)
-                  </div>
-                  <div className="text-[11px] text-[#4E5C54] mt-0.5">
-                    <span className="tabular-nums">15:30 - 16:15</span> · Host: James Miller · Studio West
-                  </div>
-                </div>
-              </div>
-
-              <div className="py-3 flex items-start gap-2.5">
-                <div className="w-2 h-2 rounded-full bg-[#1B455C] mt-1.5 shrink-0" />
-                <div className="min-w-0 flex-1">
-                  <div className="text-xs font-semibold text-[#131A16] truncate">
-                    Kite Mobility (Team 12)
-                  </div>
-                  <div className="text-[11px] text-[#4E5C54] mt-0.5">
-                    <span className="tabular-nums">16:45 - 17:30</span> · Host: Elena Rostova · Floor 3 Suite
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* 2. Billing and Renewals Due */}
-          <section className="bg-white border border-[#DEE3DE] rounded-lg p-5">
-            <div className="flex items-center justify-between pb-3 border-b border-[#DEE3DE]" data-ui="ui-frame">
-              <span className="font-bold text-[15px] text-[#20382F]">
-                Billing and Renewals Due
-              </span>
-              <span className="tabular-nums text-[11px] font-semibold px-2 py-0.5 rounded bg-[#FAECEC] text-[#7C1E1E]">
-                2 Due
-              </span>
-            </div>
-
-            <div className="overflow-x-auto mt-2">
-              <table className="w-full text-left text-xs">
-                <thead>
-                  <tr className="border-b border-[#DEE3DE] text-[#4E5C54]" data-ui="ui-frame">
-                    <th className="py-2 font-semibold">MEMBER</th>
-                    <th className="py-2 font-semibold">AMOUNT</th>
-                    <th className="py-2 font-semibold text-right">STATUS</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[#E8ECE8]" data-ui="ui-list">
-                  <tr>
-                    <td className="py-2.5">
-                      <div className="font-bold text-[#131A16]">Helios Robotics</div>
-                      <div className="text-[11px] text-[#4E5C54]">Inv #WN-1048</div>
-                    </td>
-                    <td className="py-2.5 font-semibold text-[#131A16] tabular-nums">$4,200</td>
-                    <td className="py-2.5 text-right">
-                      <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#FAECEC] text-[#7C1E1E]">
-                        Due Today
-                      </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-2.5">
-                      <div className="font-bold text-[#131A16]">Koto Studio</div>
-                      <div className="text-[11px] text-[#4E5C54]">Inv #WN-1051</div>
-                    </td>
-                    <td className="py-2.5 font-semibold text-[#131A16] tabular-nums">$1,850</td>
-                    <td className="py-2.5 text-right">
-                      <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#FAF0DF] text-[#6E3F08]">
-                        Pending ACH
-                      </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="py-2.5">
-                      <div className="font-bold text-[#131A16]">Arbor Design Ltd</div>
-                      <div className="text-[11px] text-[#4E5C54]">Contract Renewal</div>
-                    </td>
-                    <td className="py-2.5 font-semibold text-[#131A16] tabular-nums">$6,400/m</td>
-                    <td className="py-2.5 text-right">
-                      <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#E4F4EC] text-[#144D33]">
-                        Renewed
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
+          ))}
         </div>
       </div>
+    </section>
+  );
+}
 
-      {/* Global Add/Edit Modal */}
-      <LeadModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onSave={handleSaveLead}
-        initialLead={editingLead}
-        existingLeads={leads}
-      />
+function FinalCta() {
+  const ctaRef = useRef<HTMLDivElement>(null);
+  return (
+    <section className="bg-charcoal-950 py-24 text-paper">
+      <div ref={ctaRef} className="mx-auto max-w-3xl px-5 text-center">
+        <h2 className="font-display text-3xl font-bold tracking-tight sm:text-5xl">
+          Your next member is already in the pipeline.
+        </h2>
+        <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-paper/60 sm:text-base">
+          Open the live workspace and see how WorkNest runs a full day of tours,
+          bookings, and billing — with zero setup.
+        </p>
+        <div className="mt-8 flex justify-center">
+          <Link
+            to="/app"
+            className="inline-flex items-center gap-2 rounded-lg bg-ember px-8 py-4 text-base font-semibold text-white shadow-lg shadow-ember/30 transition-all hover:bg-ember-deep"
+          >
+            Open WorkNest
+            <ArrowRight className="h-5 w-5" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
 
-      {/* Global Convert Modal */}
-      <ConvertModal
-        isOpen={!!convertingLead}
-        lead={convertingLead}
-        onClose={() => setConvertingLead(null)}
-        onConfirmConvert={convertLead}
-      />
+function Footer() {
+  return (
+    <footer className="border-t border-white/10 bg-charcoal-950 py-10 text-paper/50">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 sm:flex-row">
+        <div className="flex items-center gap-2.5">
+          <span className="flex h-7 w-7 items-center justify-center rounded-md bg-ember font-display text-xs font-bold text-white">
+            W
+          </span>
+          <span className="font-display text-sm font-semibold text-paper">
+            WorkNest
+          </span>
+        </div>
+        <p className="text-xs">© 2026 WorkNest. All rights reserved.</p>
+        <div className="flex gap-5 text-xs">
+          <Link to="/app" className="transition-colors hover:text-paper">
+            Product
+          </Link>
+          <a href="#pricing" onClick={(e) => { e.preventDefault(); scrollTo("pricing"); }} className="transition-colors hover:text-paper">
+            Pricing
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function MarketingHome() {
+  return (
+    <div className="min-h-screen bg-paper font-sans">
+      <NavBar />
+      <Hero />
+      <Features />
+      <Product />
+      <HowItWorks />
+      <Testimonials />
+      <Pricing />
+      <FinalCta />
+      <Footer />
     </div>
   );
 }
 
 export const Route = createFileRoute("/")({
-  component: DashboardPage,
+  component: MarketingHome,
   head: () => ({
     meta: [
-      { title: "WorkNest CRM — Operations Dashboard" },
-      { name: "description", content: "Real-time workspace capacity, tour walkthroughs, and active prospect conversion." },
-      { property: "og:title", content: "WorkNest CRM — Operations Dashboard" },
-      { property: "og:description", content: "Real-time workspace capacity, tour walkthroughs, and active prospect conversion." },
+      { title: "WorkNest — Coworking Space Management Software" },
+      {
+        name: "description",
+        content:
+          "WorkNest unifies leads, tours, members, bookings, and billing into one operational cockpit for coworking spaces.",
+      },
+      { property: "og:title", content: "WorkNest — Coworking Space Management Software" },
+      {
+        property: "og:description",
+        content:
+          "The operational cockpit for coworking spaces: leads, tours, members, bookings, and billing in one place.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
 });

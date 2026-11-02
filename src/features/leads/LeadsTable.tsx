@@ -111,7 +111,7 @@ export function LeadsTable({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by prospect name, email, or company..."
-              className="w-full text-xs rounded-lg border border-gray-300 pl-9 pr-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#20382F]"
+              className="w-full text-xs rounded-lg border border-gray-300 pl-9 pr-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
             />
           </div>
 
@@ -119,7 +119,7 @@ export function LeadsTable({
             <button
               type="button"
               onClick={onOpenNewLead}
-              className="inline-flex items-center gap-1.5 bg-[#20382F] hover:bg-[#172A23] text-white text-xs font-semibold px-3.5 py-2 rounded-lg  transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#20382F]"
+              className="inline-flex items-center gap-1.5 bg-[#e85d3a] hover:bg-[#d14a2c] text-white text-xs font-semibold px-3.5 py-2 rounded-lg  transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
             >
               <Plus className="w-4 h-4" />
               <span>Add Lead</span>
@@ -137,7 +137,7 @@ export function LeadsTable({
             onClick={() => setSelectedStatus("All")}
             className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors shrink-0 ${
               selectedStatus === "All"
-                ? "bg-[#20382F] text-white"
+                ? "bg-[#e85d3a] text-white"
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             }`}
           >
@@ -153,7 +153,7 @@ export function LeadsTable({
                 onClick={() => setSelectedStatus(status)}
                 className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors shrink-0 ${
                   isSelected
-                    ? "bg-[#20382F] text-white"
+                    ? "bg-[#e85d3a] text-white"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                 }`}
               >
@@ -177,7 +177,7 @@ export function LeadsTable({
           <button
             type="button"
             onClick={resetFilters}
-            className="text-xs font-semibold text-[#20382F] hover:underline"
+            className="text-xs font-semibold text-[#1c1c1c] hover:underline"
           >
             Reset active filters
           </button>
@@ -186,7 +186,7 @@ export function LeadsTable({
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse" aria-label="Leads list">
             <thead>
-              <tr className="border-b border-gray-200 bg-[#F7F8F6] text-[11px] font-semibold text-gray-600 font-semibold" data-ui="ui-frame">
+              <tr className="border-b border-gray-200 bg-[#f6f5f3] text-[11px] font-semibold text-gray-600 font-semibold" data-ui="ui-frame">
                 <th className="py-3 px-4">
                   <button
                     type="button"
@@ -338,7 +338,7 @@ export function LeadsTable({
       )}
 
       {/* Table Footer */}
-      <div className="p-3 bg-[#F7F8F6] border-t border-[#E5E7EB] text-xs text-gray-500 flex items-center justify-between" data-ui="ui-frame">
+      <div className="p-3 bg-[#f6f5f3] border-t border-[#E5E7EB] text-xs text-gray-500 flex items-center justify-between" data-ui="ui-frame">
         <span>
           Showing <strong>{filteredLeads.length}</strong> of <strong>{leads.length}</strong> leads
         </span>

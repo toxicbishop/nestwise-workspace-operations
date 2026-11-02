@@ -128,7 +128,7 @@ export function MembersDirectory({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by name, company, email, or plan..."
-              className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden bg-white "
+              className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white "
             />
           </div>
         </div>
@@ -137,7 +137,7 @@ export function MembersDirectory({
           <button
             type="button"
             onClick={() => setIsAddModalOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#20382F] hover:bg-[#162721] rounded-lg transition-colors "
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#e85d3a] hover:bg-[#d14a2c] rounded-lg transition-colors "
           >
             <Plus className="w-4 h-4" />
             <span>Onboard Member</span>
@@ -155,7 +155,7 @@ export function MembersDirectory({
           onClick={() => setStatusFilter("All")}
           className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors shrink-0 ${
             statusFilter === "All"
-              ? "bg-[#20382F] text-white"
+              ? "bg-[#e85d3a] text-white"
               : "bg-gray-100 text-gray-600 hover:bg-gray-200"
           }`}
         >
@@ -173,7 +173,7 @@ export function MembersDirectory({
               onClick={() => setStatusFilter(st)}
               className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors shrink-0 ${
                 isSelected
-                  ? "bg-[#20382F] text-white"
+                  ? "bg-[#e85d3a] text-white"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >
@@ -188,7 +188,7 @@ export function MembersDirectory({
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs">
             <thead>
-              <tr className="bg-[#F7F8F6] border-b border-[#E5E7EB] text-[#5A6860] font-medium" data-ui="ui-frame">
+              <tr className="bg-[#f6f5f3] border-b border-[#E5E7EB] text-[#5A6860] font-medium" data-ui="ui-frame">
                 <th scope="col" className="px-5 py-3.5">Member & Company</th>
                 <th scope="col" className="px-5 py-3.5">Plan & Monthly Fee</th>
                 <th scope="col" className="px-5 py-3.5">Home Branch</th>
@@ -197,7 +197,7 @@ export function MembersDirectory({
                 <th scope="col" className="px-5 py-3.5 text-right">Details</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100 text-[#1E2922]" data-ui="ui-list">
+            <tbody className="divide-y divide-gray-100 text-[#1a1a1a]" data-ui="ui-list">
               {filteredMembers.length > 0 ? (
                 filteredMembers.map((member) => {
                   const ms = membershipMap.get(member.id);
@@ -209,11 +209,11 @@ export function MembersDirectory({
                     >
                       <td className="px-5 py-3.5">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-[#20382F]/10 text-[#20382F] flex items-center justify-center font-bold text-xs shrink-0">
+                          <div className="w-8 h-8 rounded-full bg-[#1c1c1c]/10 text-[#1c1c1c] flex items-center justify-center font-bold text-xs shrink-0">
                             {member.name.split(" ").map((n) => n[0]).join("")}
                           </div>
                           <div>
-                            <div className="font-medium text-gray-900 group-hover:text-[#20382F] flex items-center gap-1.5">
+                            <div className="font-medium text-gray-900 group-hover:text-[#1c1c1c] flex items-center gap-1.5">
                               {member.name}
                               {member.leadId && (
                                 <span className="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">
@@ -276,7 +276,7 @@ export function MembersDirectory({
                       </td>
 
                       <td className="px-5 py-3.5 text-right">
-                        <span className="inline-flex items-center gap-1 text-xs font-medium text-[#20382F] group-hover:underline">
+                        <span className="inline-flex items-center gap-1 text-xs font-medium text-[#1c1c1c] group-hover:underline">
                           View
                           <ChevronRight className="w-3.5 h-3.5" />
                         </span>

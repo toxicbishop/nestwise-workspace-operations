@@ -10,7 +10,7 @@ function BookingsPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1E2922]">
+        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1a1a1a]">
           Bookings & Tours
         </h1>
         <p className="text-xs text-neutral-500 mt-1">
@@ -27,7 +27,7 @@ function BookingsPage() {
   );
 }
 
-export const Route = createFileRoute("/bookings")({
+export const Route = createFileRoute("/app/bookings")({
   component: BookingsPage,
   head: () => ({
     meta: [

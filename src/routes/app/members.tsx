@@ -21,7 +21,7 @@ function MembersPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1E2922]">
+        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1a1a1a]">
           Members & Subscriptions
         </h1>
         <p className="text-xs text-gray-500 mt-1">
@@ -49,7 +49,7 @@ function MembersPage() {
   );
 }
 
-export const Route = createFileRoute("/members")({
+export const Route = createFileRoute("/app/members")({
   component: MembersPage,
   head: () => ({
     meta: [

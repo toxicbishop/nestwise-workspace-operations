@@ -89,12 +89,12 @@ export function SpaceCard({
                 )}
               </span>
             </div>
-            <h3 className="text-base font-semibold text-[#1E2922] group-hover:text-[#20382F]">
+            <h3 className="text-base font-semibold text-[#1a1a1a] group-hover:text-[#1c1c1c]">
               {space.name}
             </h3>
           </div>
           <div className="text-right">
-            <div className="text-sm font-bold text-[#20382F]">
+            <div className="text-sm font-bold text-[#1c1c1c]">
               {formatCurrency(space.hourlyRateCents, "INR")}
             </div>
             <div className="text-[11px] text-neutral-500">per hour</div>
@@ -166,7 +166,7 @@ export function SpaceCard({
         <div className="flex items-center gap-2">
           <button
             onClick={() => onEdit(space)}
-            className="p-1.5 text-neutral-500 hover:text-[#20382F] hover:bg-white rounded-md transition-all border border-transparent hover:border-neutral-200"
+            className="p-1.5 text-neutral-500 hover:text-[#1c1c1c] hover:bg-white rounded-md transition-all border border-transparent hover:border-neutral-200"
             title="Edit Space"
             aria-label={`Edit ${space.name}`}
           >

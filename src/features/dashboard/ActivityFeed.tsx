@@ -36,7 +36,7 @@ export function ActivityFeed({ activities, onToggleComplete }: ActivityFeedProps
     <div className="bg-white rounded-xl border border-[#E5E7EB] p-5 ">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h3 className="text-sm font-semibold text-[#1E2922]">Follow-ups & Scheduled Tasks</h3>
+          <h3 className="text-sm font-semibold text-[#1a1a1a]">Follow-ups & Scheduled Tasks</h3>
           <p className="text-xs text-gray-500 mt-0.5">
             Pending tour walkthroughs, discovery calls, and outreach
           </p>
@@ -68,7 +68,7 @@ export function ActivityFeed({ activities, onToggleComplete }: ActivityFeedProps
                   className={`mt-0.5 w-5 h-5 rounded flex items-center justify-center border transition-colors ${
                     act.completed
                       ? "bg-emerald-600 border-emerald-600 text-white"
-                      : "border-gray-300 hover:border-[#20382F] text-neutral-900"
+                      : "border-gray-300 hover:border-[#1c1c1c] text-neutral-900"
                   }`}
                   aria-label={act.completed ? "Mark incomplete" : "Mark complete"}
                 >
@@ -94,7 +94,7 @@ export function ActivityFeed({ activities, onToggleComplete }: ActivityFeedProps
                   </div>
 
                   {act.leadName && (
-                    <p className="text-[11px] text-[#20382F] font-medium mt-0.5">
+                    <p className="text-[11px] text-[#1c1c1c] font-medium mt-0.5">
                       {act.leadName}
                     </p>
                   )}

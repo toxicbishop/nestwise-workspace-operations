@@ -53,8 +53,8 @@ export function OrganizationTab({
       {/* General Information Card */}
       <div className="bg-white border border-[#E5E7EB] rounded-xl p-6  space-y-4">
         <div>
-          <h2 className="text-sm font-semibold text-[#1E2922] flex items-center gap-2">
-            <Building className="w-4 h-4 text-[#20382F]" />
+          <h2 className="text-sm font-semibold text-[#1a1a1a] flex items-center gap-2">
+            <Building className="w-4 h-4 text-[#1c1c1c]" />
             Organization Profile
           </h2>
           <p className="text-xs text-[#5A6860] mt-0.5">
@@ -64,7 +64,7 @@ export function OrganizationTab({
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
           <div>
-            <label className="block text-xs font-medium text-[#1E2922] mb-1">
+            <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
               Co-working Brand / Legal Name *
             </label>
             <input
@@ -72,12 +72,12 @@ export function OrganizationTab({
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+              className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-[#1E2922] mb-1">
+            <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
               Support & Inquiries Email *
             </label>
             <div className="relative">
@@ -87,13 +87,13 @@ export function OrganizationTab({
                 required
                 value={supportEmail}
                 onChange={(e) => setSupportEmail(e.target.value)}
-                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-[#1E2922] mb-1">
+            <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
               Official Website URL
             </label>
             <div className="relative">
@@ -102,13 +102,13 @@ export function OrganizationTab({
                 type="url"
                 value={websiteUrl}
                 onChange={(e) => setWebsiteUrl(e.target.value)}
-                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-[#1E2922] mb-1">
+            <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
               Tax ID / EIN
             </label>
             <input
@@ -116,12 +116,12 @@ export function OrganizationTab({
               value={taxId}
               onChange={(e) => setTaxId(e.target.value)}
               placeholder="e.g. 12-3456789"
-              className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+              className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-[#1E2922] mb-1">
+            <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
               Default Currency
             </label>
             <div className="relative">
@@ -129,7 +129,7 @@ export function OrganizationTab({
               <select
                 value={defaultCurrency}
                 onChange={(e) => setDefaultCurrency(e.target.value)}
-                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden bg-white"
+                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
               >
                 <option value="INR (₹)">INR (₹) — Indian Rupee</option>
                 <option value="USD ($)">USD ($) — United States Dollar</option>
@@ -141,7 +141,7 @@ export function OrganizationTab({
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-[#1E2922] mb-1">
+            <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
               Network Reference Timezone
             </label>
             <div className="relative">
@@ -149,7 +149,7 @@ export function OrganizationTab({
               <select
                 value={primaryTimezone}
                 onChange={(e) => setPrimaryTimezone(e.target.value)}
-                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden bg-white"
+                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
               >
                 <option value="America/Los_Angeles (PT)">America/Los_Angeles (PT)</option>
                 <option value="America/Denver (MT)">America/Denver (MT)</option>
@@ -165,7 +165,7 @@ export function OrganizationTab({
       {/* CRM Lead Automation Policies */}
       <div className="bg-white border border-[#E5E7EB] rounded-xl p-6  space-y-4">
         <div>
-          <h2 className="text-sm font-semibold text-[#1E2922]">
+          <h2 className="text-sm font-semibold text-[#1a1a1a]">
             CRM & Pipeline Automation Rules
           </h2>
           <p className="text-xs text-[#5A6860] mt-0.5">
@@ -179,10 +179,10 @@ export function OrganizationTab({
               type="checkbox"
               checked={autoAssignLeads}
               onChange={(e) => setAutoAssignLeads(e.target.checked)}
-              className="mt-0.5 rounded text-[#20382F] focus:ring-[#20382F]"
+              className="mt-0.5 rounded text-[#1c1c1c] focus:ring-[#e85d3a]"
             />
             <div>
-              <span className="text-xs font-medium text-[#1E2922]">
+              <span className="text-xs font-medium text-[#1a1a1a]">
                 Auto-assign incoming web inquiries to location branch managers
               </span>
               <p className="text-[11px] text-[#5A6860]">
@@ -192,7 +192,7 @@ export function OrganizationTab({
           </label>
 
           <div className="max-w-xs">
-            <label className="block text-xs font-medium text-[#1E2922] mb-1">
+            <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
               Target Initial Lead Response SLA (Hours)
             </label>
             <input
@@ -201,7 +201,7 @@ export function OrganizationTab({
               max="72"
               value={leadResponseGoalHours}
               onChange={(e) => setLeadResponseGoalHours(Number(e.target.value))}
-              className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+              className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
             />
             <p className="text-[11px] text-[#5A6860] mt-1">
               Tasks created for new inquiries will be set to overdue if uncontacted past this threshold.
@@ -214,7 +214,7 @@ export function OrganizationTab({
       <div className="flex items-center justify-end">
         <button
           type="submit"
-          className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-white bg-[#20382F] hover:bg-[#162721] rounded-lg transition-colors focus:ring-2 focus:ring-[#20382F] "
+          className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-white bg-[#e85d3a] hover:bg-[#d14a2c] rounded-lg transition-colors focus:ring-2 focus:ring-[#e85d3a] "
         >
           <Check className="w-4 h-4" />
           Save Organization Settings

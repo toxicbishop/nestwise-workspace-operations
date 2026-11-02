@@ -92,7 +92,7 @@ function RecordPaymentInner({
               <CreditCard className="w-4 h-4" />
             </div>
             <div>
-              <h2 id="record-payment-title" className="text-base font-semibold text-[#1E2922]">
+              <h2 id="record-payment-title" className="text-base font-semibold text-[#1a1a1a]">
                 Record Payment
               </h2>
               <p className="text-xs text-neutral-500">
@@ -149,7 +149,7 @@ function RecordPaymentInner({
                 setAmountRupees(parseFloat(e.target.value) || 0);
                 setFormError("");
               }}
-              className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#20382F]/20 focus:border-[#20382F]"
+              className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
             />
           </div>
 
@@ -161,7 +161,7 @@ function RecordPaymentInner({
             <select
               value={paymentMethod}
               onChange={(e) => setPaymentMethod(e.target.value as PaymentMethod)}
-              className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#20382F]/20 focus:border-[#20382F] bg-white"
+              className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c] bg-white"
             >
               {PAYMENT_METHODS.map((pm) => (
                 <option key={pm} value={pm}>
@@ -185,7 +185,7 @@ function RecordPaymentInner({
                 setTransactionRef(e.target.value);
                 setFormError("");
               }}
-              className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#20382F]/20 focus:border-[#20382F]"
+              className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
             />
           </div>
 
@@ -199,7 +199,7 @@ function RecordPaymentInner({
               placeholder="e.g. Scanned QR code at front desk, bank statement verified..."
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#20382F]/20 focus:border-[#20382F]"
+              className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
             />
           </div>
 

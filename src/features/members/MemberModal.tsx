@@ -106,10 +106,10 @@ export function MemberModal({
       aria-labelledby="member-modal-title"
     >
       <div className="bg-white rounded-xl shadow-xl max-w-lg w-full border border-gray-200 overflow-hidden" data-ui="overlay">
-        <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-[#F7F8F6]" data-ui="ui-frame">
+        <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-[#f6f5f3]" data-ui="ui-frame">
           <div className="flex items-center gap-2">
-            <UserPlus className="w-5 h-5 text-[#20382F]" />
-            <h3 id="member-modal-title" className="text-sm font-semibold text-[#1E2922]">
+            <UserPlus className="w-5 h-5 text-[#1c1c1c]" />
+            <h3 id="member-modal-title" className="text-sm font-semibold text-[#1a1a1a]">
               Direct Member Onboarding
             </h3>
           </div>
@@ -133,7 +133,7 @@ export function MemberModal({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="sm:col-span-2">
-              <label className="block text-xs font-medium text-[#1E2922] mb-1">
+              <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                 Full Name *
               </label>
               <input
@@ -142,12 +142,12 @@ export function MemberModal({
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="e.g. Priyesh Mehta"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-[#1E2922] mb-1">
+              <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                 Email Address *
               </label>
               <input
@@ -156,12 +156,12 @@ export function MemberModal({
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="priyesh@company.in"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-[#1E2922] mb-1">
+              <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                 Phone Number
               </label>
               <input
@@ -169,12 +169,12 @@ export function MemberModal({
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="+91 98765 43210"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-[#1E2922] mb-1">
+              <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                 Company / Organization
               </label>
               <input
@@ -182,12 +182,12 @@ export function MemberModal({
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
                 placeholder="e.g. Vance Architecture Ltd"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-[#1E2922] mb-1">
+              <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                 Job Title / Profession
               </label>
               <input
@@ -195,18 +195,18 @@ export function MemberModal({
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="e.g. Founder & CEO"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-[#1E2922] mb-1">
+              <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                 Home Branch Location
               </label>
               <select
                 value={homeLocation}
                 onChange={(e) => setHomeLocation(e.target.value)}
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden bg-white"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
               >
                 {locations.map((loc) => (
                   <option key={loc.id} value={loc.name}>
@@ -217,13 +217,13 @@ export function MemberModal({
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-[#1E2922] mb-1">
+              <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                 Membership Plan
               </label>
               <select
                 value={selectedPlanId}
                 onChange={(e) => setSelectedPlanId(e.target.value)}
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden bg-white"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
               >
                 {plans.map((p) => (
                   <option key={p.id} value={p.id}>
@@ -234,13 +234,13 @@ export function MemberModal({
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-[#1E2922] mb-1">
+              <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                 Billing Cycle
               </label>
               <select
                 value={billingInterval}
                 onChange={(e) => setBillingInterval(e.target.value as Membership["billingInterval"])}
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden bg-white"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
               >
                 <option value="Monthly">Monthly</option>
                 <option value="Quarterly">Quarterly</option>
@@ -249,7 +249,7 @@ export function MemberModal({
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-[#1E2922] mb-1">
+              <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                 Contract Start Date
               </label>
               <input
@@ -257,12 +257,12 @@ export function MemberModal({
                 required
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-[#1E2922] mb-1">
+              <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                 Emergency Contact Name
               </label>
               <input
@@ -270,12 +270,12 @@ export function MemberModal({
                 value={emergencyName}
                 onChange={(e) => setEmergencyName(e.target.value)}
                 placeholder="e.g. Suman Mehta"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-[#1E2922] mb-1">
+              <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                 Emergency Contact Phone
               </label>
               <input
@@ -283,12 +283,12 @@ export function MemberModal({
                 value={emergencyPhone}
                 onChange={(e) => setEmergencyPhone(e.target.value)}
                 placeholder="+91 98765 00000"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
             <div className="sm:col-span-2">
-              <label className="block text-xs font-medium text-[#1E2922] mb-1">
+              <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                 Assigned Desk / Office Suite No. (Optional)
               </label>
               <input
@@ -296,12 +296,12 @@ export function MemberModal({
                 value={deskOrOfficeNumber}
                 onChange={(e) => setDeskOrOfficeNumber(e.target.value)}
                 placeholder="e.g. Desk D-04 or Suite 201"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
             <div className="sm:col-span-2">
-              <label className="block text-xs font-medium text-[#1E2922] mb-1">
+              <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                 Member Notes / Onboarding Requirements
               </label>
               <textarea
@@ -309,7 +309,7 @@ export function MemberModal({
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="Keycard preferences, dietary restrictions, fiber requests..."
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden resize-none"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden resize-none"
               />
             </div>
           </div>
@@ -324,7 +324,7 @@ export function MemberModal({
             </button>
             <button
               type="submit"
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-[#20382F] hover:bg-[#162721] rounded-lg transition-colors focus:ring-2 focus:ring-[#20382F]"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-[#e85d3a] hover:bg-[#d14a2c] rounded-lg transition-colors focus:ring-2 focus:ring-[#e85d3a]"
             >
               <Check className="w-4 h-4" />
               Onboard Member

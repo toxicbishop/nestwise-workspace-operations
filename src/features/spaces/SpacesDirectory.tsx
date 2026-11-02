@@ -113,10 +113,10 @@ export function SpacesDirectory() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-white p-4 rounded-xl border border-neutral-200">
           <div className="flex items-center gap-2 text-xs text-neutral-500 mb-1">
-            <Building2 className="w-4 h-4 text-[#20382F]" />
+            <Building2 className="w-4 h-4 text-[#1c1c1c]" />
             <span>Total Spaces</span>
           </div>
-          <div className="text-2xl font-bold text-[#1E2922]">{spaces.length}</div>
+          <div className="text-2xl font-bold text-[#1a1a1a]">{spaces.length}</div>
           <div className="text-[11px] text-neutral-500 mt-0.5">Across {locations.length} locations</div>
         </div>
 
@@ -159,7 +159,7 @@ export function SpacesDirectory() {
               placeholder="Search spaces, amenities, floors..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#20382F]/20 focus:border-[#20382F]"
+              className="w-full pl-9 pr-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
             />
           </div>
 
@@ -169,7 +169,7 @@ export function SpacesDirectory() {
             <select
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
-              className="px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#20382F]/20 focus:border-[#20382F] bg-white text-neutral-700"
+              className="px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c] bg-white text-neutral-700"
               aria-label="Filter by Location"
             >
               <option value="All">All Locations</option>
@@ -186,7 +186,7 @@ export function SpacesDirectory() {
             <select
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
-              className="w-full sm:w-auto px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#20382F]/20 focus:border-[#20382F] bg-white text-neutral-700"
+              className="w-full sm:w-auto px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c] bg-white text-neutral-700"
               aria-label="Filter by Space Type"
             >
               <option value="All">All Space Types</option>
@@ -208,14 +208,14 @@ export function SpacesDirectory() {
               type="checkbox"
               checked={showActiveOnly}
               onChange={(e) => setShowActiveOnly(e.target.checked)}
-              className="rounded border-neutral-300 text-[#20382F] focus:ring-[#20382F] w-3.5 h-3.5"
+              className="rounded border-neutral-300 text-[#1c1c1c] focus:ring-[#e85d3a] w-3.5 h-3.5"
             />
             <span>Active only</span>
           </label>
 
           <button
             onClick={handleOpenAdd}
-            className="flex items-center gap-1.5 px-4 py-2 bg-[#20382F] hover:bg-[#162720] text-white text-xs font-medium rounded-lg transition-colors "
+            className="flex items-center gap-1.5 px-4 py-2 bg-[#e85d3a] hover:bg-[#d14a2c] text-white text-xs font-medium rounded-lg transition-colors "
           >
             <Plus className="w-4 h-4" />
             Add Space
@@ -257,7 +257,7 @@ export function SpacesDirectory() {
             </button>
             <button
               onClick={handleOpenAdd}
-              className="px-3 py-1.5 bg-[#20382F] text-white rounded-lg text-xs font-medium hover:bg-[#162720]"
+              className="px-3 py-1.5 bg-[#e85d3a] text-white rounded-lg text-xs font-medium hover:bg-[#d14a2c]"
             >
               Add First Space
             </button>

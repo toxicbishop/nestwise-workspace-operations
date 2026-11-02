@@ -7,7 +7,7 @@ function AnalyticsPage() {
   return <AnalyticsDashboard />;
 }
 
-export const Route = createFileRoute("/analytics")({
+export const Route = createFileRoute("/app/analytics")({
   component: AnalyticsPage,
   head: () => ({
     meta: [
