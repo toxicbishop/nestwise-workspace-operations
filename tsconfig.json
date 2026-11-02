@@ -24,10 +24,9 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
+    // Aligned with the imported WorkNest codebase, which targets plain strict mode:
+    // exactOptionalPropertyTypes, noUncheckedIndexedAccess, noPropertyAccessFromIndexSignature
+    // and noImplicitReturns are intentionally omitted.
     "noUncheckedSideEffectImports": true,
     "paths": {
       "@/*": ["./src/*"]
