@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, useRouterState } from "@tanstack/react-router";
 import {
   LayoutDashboard,
   Users2,
@@ -30,7 +29,7 @@ interface NavItem {
 }
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
-  const pathname = usePathname();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   const { selectedLocation, setSelectedLocation, locations, leads } = useWorkNest();
 
   const openInquiriesCount = leads.filter(

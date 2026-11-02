@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useRef, useEffect } from "react";
-import Link from "next/link";
+import { Link } from "@tanstack/react-router";
 import {
   Bell,
   CheckCheck,
