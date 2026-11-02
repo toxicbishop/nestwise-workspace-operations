@@ -1,4 +1,4 @@
-import { Outlet } from "@tanstack/react-router";
+import { Outlet, createFileRoute } from "@tanstack/react-router";
 import { WorkNestProvider } from "@/context/WorkNestContext";
 import { AppShell } from "@/components/layout/AppShell";
 
