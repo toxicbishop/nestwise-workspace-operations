@@ -177,7 +177,7 @@ function SpaceFormInner({
                   setName(e.target.value);
                   setFormError("");
                 }}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
               />
             </div>
 
@@ -188,7 +188,7 @@ function SpaceFormInner({
               <select
                 value={locationId}
                 onChange={(e) => setLocationId(e.target.value)}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c] bg-white"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c] bg-white"
               >
                 {locations.map((loc) => (
                   <option key={loc.id} value={loc.id}>
@@ -205,7 +205,7 @@ function SpaceFormInner({
               <select
                 value={type}
                 onChange={(e) => setType(e.target.value as SpaceType)}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c] bg-white"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c] bg-white"
               >
                 {SPACE_TYPES.map((t) => (
                   <option key={t} value={t}>
@@ -225,7 +225,7 @@ function SpaceFormInner({
                 required
                 value={capacity}
                 onChange={(e) => setCapacity(Math.max(1, parseInt(e.target.value) || 1))}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
               />
             </div>
 
@@ -240,7 +240,7 @@ function SpaceFormInner({
                 required
                 value={hourlyRateRupees}
                 onChange={(e) => setHourlyRateRupees(Math.max(0, parseFloat(e.target.value) || 0))}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
               />
             </div>
 
@@ -253,7 +253,7 @@ function SpaceFormInner({
                 placeholder="e.g. Floor 12 East Wing, Building C 2nd Floor"
                 value={floorOrZone}
                 onChange={(e) => setFloorOrZone(e.target.value)}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
               />
             </div>
 
@@ -266,7 +266,7 @@ function SpaceFormInner({
                 placeholder="e.g. 4K Screen, Polycom AV, Whiteboard"
                 value={amenitiesInput}
                 onChange={(e) => setAmenitiesInput(e.target.value)}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c] mb-1.5"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c] mb-1.5"
               />
               <div className="flex flex-wrap gap-1">
                 <span className="text-[10px] text-neutral-500 self-center mr-1">Suggested:</span>
@@ -292,7 +292,7 @@ function SpaceFormInner({
                 placeholder="Special access instructions, AV setup details, or equipment specs..."
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
               />
             </div>
 
@@ -302,7 +302,7 @@ function SpaceFormInner({
                   type="checkbox"
                   checked={isActive}
                   onChange={(e) => setIsActive(e.target.checked)}
-                  className="rounded border-neutral-300 text-[#1c1c1c] focus:ring-[#1c1c1c] w-4 h-4"
+                  className="rounded border-neutral-300 text-[#1c1c1c] focus:ring-[#e85d3a] w-4 h-4"
                 />
                 <span className="font-medium text-neutral-800">
                   Space is active and open for member bookings & walkthrough tours
@@ -322,7 +322,7 @@ function SpaceFormInner({
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-[#1c1c1c] hover:bg-[#111111] text-white rounded-lg transition-colors font-medium flex items-center gap-1.5"
+              className="px-4 py-2 bg-[#e85d3a] hover:bg-[#d14a2c] text-white rounded-lg transition-colors font-medium flex items-center gap-1.5"
             >
               <Check className="w-4 h-4" />
               {spaceToEdit ? "Save Changes" : "Create Space"}

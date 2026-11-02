@@ -300,7 +300,7 @@ function BookingFormInner({
                     }}
                     className={`py-2 px-3 rounded-lg border text-xs font-medium text-center transition-all ${
                       bookingType === type
-                        ? "bg-[#1c1c1c] text-white border-[#1c1c1c] "
+                        ? "bg-[#e85d3a] text-white border-[#1c1c1c] "
                         : "bg-white text-neutral-700 border-neutral-200 hover:bg-neutral-50"
                     }`}
                   >
@@ -325,7 +325,7 @@ function BookingFormInner({
                 setTitle(e.target.value);
                 setFormError("");
               }}
-              className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+              className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
             />
           </div>
 
@@ -338,7 +338,7 @@ function BookingFormInner({
               <select
                 value={selectedLocationName}
                 onChange={(e) => handleLocationChange(e.target.value)}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c] bg-white"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c] bg-white"
               >
                 {locations.map((loc) => (
                   <option key={loc.id} value={loc.name}>
@@ -358,7 +358,7 @@ function BookingFormInner({
                   setSelectedSpaceId(e.target.value);
                   setFormError("");
                 }}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c] bg-white"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c] bg-white"
               >
                 {locationSpaces.length > 0 ? (
                   locationSpaces.map((sp) => (
@@ -389,7 +389,7 @@ function BookingFormInner({
                   setDate(e.target.value);
                   setFormError("");
                 }}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
               />
             </div>
 
@@ -405,7 +405,7 @@ function BookingFormInner({
                   setStartTime(e.target.value);
                   setFormError("");
                 }}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
               />
             </div>
 
@@ -421,7 +421,7 @@ function BookingFormInner({
                   setEndTime(e.target.value);
                   setFormError("");
                 }}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
               />
             </div>
           </div>
@@ -479,7 +479,7 @@ function BookingFormInner({
                   setAttendeesCount(Math.max(1, parseInt(e.target.value) || 1));
                   setFormError("");
                 }}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
               />
             </div>
 
@@ -527,7 +527,7 @@ function BookingFormInner({
                     name="linkContact"
                     checked={isLinkedMember}
                     onChange={() => setIsLinkedMember(true)}
-                    className="text-[#1c1c1c] focus:ring-[#1c1c1c]"
+                    className="text-[#1c1c1c] focus:ring-[#e85d3a]"
                   />
                   <span>
                     {bookingType === "Prospect Tour" ? "Existing Lead" : "Existing Member"}
@@ -539,7 +539,7 @@ function BookingFormInner({
                     name="linkContact"
                     checked={!isLinkedMember}
                     onChange={() => setIsLinkedMember(false)}
-                    className="text-[#1c1c1c] focus:ring-[#1c1c1c]"
+                    className="text-[#1c1c1c] focus:ring-[#e85d3a]"
                   />
                   <span>Guest / Manual</span>
                 </label>
@@ -649,7 +649,7 @@ function BookingFormInner({
                     type="checkbox"
                     checked={useCredits}
                     onChange={(e) => setUseCredits(e.target.checked)}
-                    className="rounded border-neutral-300 text-[#1c1c1c] focus:ring-[#1c1c1c] w-3.5 h-3.5"
+                    className="rounded border-neutral-300 text-[#1c1c1c] focus:ring-[#e85d3a] w-3.5 h-3.5"
                   />
                   <span>Use Room Credits</span>
                 </label>
@@ -672,7 +672,7 @@ function BookingFormInner({
               placeholder="e.g. Guest badge requirements, HDMI dongle, whiteboards, or catering..."
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+              className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
             />
           </div>
 
@@ -691,7 +691,7 @@ function BookingFormInner({
               className={`px-4 py-2 rounded-lg transition-colors font-medium flex items-center gap-1.5 ${
                 conflictResult.hasConflict || startTime >= endTime
                   ? "bg-neutral-300 text-neutral-500 cursor-not-allowed"
-                  : "bg-[#1c1c1c] hover:bg-[#111111] text-white "
+                  : "bg-[#e85d3a] hover:bg-[#d14a2c] text-white "
               }`}
             >
               <CalendarCheck2 className="w-4 h-4" />

@@ -186,7 +186,7 @@ export function NotificationDropdown() {
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="relative p-2 rounded-lg text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-[#1c1c1c] transition-colors"
+        className="relative p-2 rounded-lg text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-[#e85d3a] transition-colors"
         aria-label="Notifications"
         aria-expanded={isOpen}
         title={`${activeNotifications.length} operational notifications`}

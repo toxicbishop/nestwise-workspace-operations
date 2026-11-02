@@ -59,7 +59,7 @@ function LeadsPage() {
         <button
           type="button"
           onClick={handleOpenNewLead}
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#1c1c1c] hover:bg-[#111111] px-3.5 py-2 rounded-lg transition-colors "
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#e85d3a] hover:bg-[#d14a2c] px-3.5 py-2 rounded-lg transition-colors "
         >
           <Plus className="w-4 h-4" />
           <span>New Lead Inquiry</span>

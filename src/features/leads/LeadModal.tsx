@@ -143,7 +143,7 @@ function LeadFormInner({
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="e.g. Alex Morgan"
-              className={`w-full text-xs rounded-lg border px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c] ${
+              className={`w-full text-xs rounded-lg border px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a] ${
                 errors.name ? "border-rose-400 bg-rose-50/30" : "border-gray-300"
               }`}
             />
@@ -160,7 +160,7 @@ function LeadFormInner({
               value={company}
               onChange={(e) => setCompany(e.target.value)}
               placeholder="e.g. Vance Architecture Ltd"
-              className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c]"
+              className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
             />
           </div>
         </div>
@@ -177,7 +177,7 @@ function LeadFormInner({
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="alex@company.com"
-              className={`w-full text-xs rounded-lg border px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c] ${
+              className={`w-full text-xs rounded-lg border px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a] ${
                 errors.email ? "border-rose-400 bg-rose-50/30" : "border-gray-300"
               }`}
             />
@@ -194,7 +194,7 @@ function LeadFormInner({
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder="+91 98765 43210"
-              className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c]"
+              className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
             />
           </div>
         </div>
@@ -209,7 +209,7 @@ function LeadFormInner({
               id="lead-plan"
               value={interestedPlan}
               onChange={(e) => setInterestedPlan(e.target.value as Lead["interestedPlan"])}
-              className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c]"
+              className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
             >
               <option value="Hot Desk">Hot Desk</option>
               <option value="Dedicated Desk">Dedicated Desk</option>
@@ -227,7 +227,7 @@ function LeadFormInner({
               id="lead-location"
               value={preferredLocation}
               onChange={(e) => setPreferredLocation(e.target.value)}
-              className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c]"
+              className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
             >
               <option value="Downtown Hub">Downtown Hub</option>
               <option value="Westside Commons">Westside Commons</option>
@@ -249,7 +249,7 @@ function LeadFormInner({
               max="500"
               value={teamSize}
               onChange={(e) => setTeamSize(parseInt(e.target.value) || 1)}
-              className={`w-full text-xs rounded-lg border px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c] ${
+              className={`w-full text-xs rounded-lg border px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a] ${
                 errors.teamSize ? "border-rose-400 bg-rose-50/30" : "border-gray-300"
               }`}
             />
@@ -264,7 +264,7 @@ function LeadFormInner({
               id="lead-source"
               value={source}
               onChange={(e) => setSource(e.target.value as Lead["source"])}
-              className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c]"
+              className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
             >
               <option value="Website Form">Website Form</option>
               <option value="Walk-in">Walk-in</option>
@@ -287,7 +287,7 @@ function LeadFormInner({
               id="lead-status"
               value={status}
               onChange={(e) => setStatus(e.target.value as LeadStatus)}
-              className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c]"
+              className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
             >
               <option value="New">New</option>
               <option value="Contacted">Contacted</option>
@@ -305,7 +305,7 @@ function LeadFormInner({
               id="lead-owner"
               value={assignedTo}
               onChange={(e) => setAssignedTo(e.target.value)}
-              className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c]"
+              className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
             >
               <option value="Marcus Vance">Marcus Vance</option>
               <option value="Sarah Jenkins">Sarah Jenkins</option>
@@ -346,7 +346,7 @@ function LeadFormInner({
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
             placeholder="Requirements, move-in timeframe, tech needs..."
-            className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c]"
+            className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
           />
         </div>
 
@@ -363,7 +363,7 @@ function LeadFormInner({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="px-4 py-2 text-xs font-semibold text-white bg-[#1c1c1c] hover:bg-[#111111] rounded-lg  transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c]"
+            className="px-4 py-2 text-xs font-semibold text-white bg-[#e85d3a] hover:bg-[#d14a2c] rounded-lg  transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
           >
             {isSubmitting ? "Saving..." : initialLead ? "Update Lead" : "Create Lead"}
           </button>

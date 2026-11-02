@@ -128,7 +128,7 @@ export function MembersDirectory({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by name, company, email, or plan..."
-              className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden bg-white "
+              className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white "
             />
           </div>
         </div>
@@ -137,7 +137,7 @@ export function MembersDirectory({
           <button
             type="button"
             onClick={() => setIsAddModalOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#1c1c1c] hover:bg-[#162721] rounded-lg transition-colors "
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#e85d3a] hover:bg-[#d14a2c] rounded-lg transition-colors "
           >
             <Plus className="w-4 h-4" />
             <span>Onboard Member</span>
@@ -155,7 +155,7 @@ export function MembersDirectory({
           onClick={() => setStatusFilter("All")}
           className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors shrink-0 ${
             statusFilter === "All"
-              ? "bg-[#1c1c1c] text-white"
+              ? "bg-[#e85d3a] text-white"
               : "bg-gray-100 text-gray-600 hover:bg-gray-200"
           }`}
         >
@@ -173,7 +173,7 @@ export function MembersDirectory({
               onClick={() => setStatusFilter(st)}
               className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors shrink-0 ${
                 isSelected
-                  ? "bg-[#1c1c1c] text-white"
+                  ? "bg-[#e85d3a] text-white"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >

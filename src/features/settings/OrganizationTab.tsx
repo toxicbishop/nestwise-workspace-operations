@@ -72,7 +72,7 @@ export function OrganizationTab({
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+              className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
             />
           </div>
 
@@ -87,7 +87,7 @@ export function OrganizationTab({
                 required
                 value={supportEmail}
                 onChange={(e) => setSupportEmail(e.target.value)}
-                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
           </div>
@@ -102,7 +102,7 @@ export function OrganizationTab({
                 type="url"
                 value={websiteUrl}
                 onChange={(e) => setWebsiteUrl(e.target.value)}
-                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
           </div>
@@ -116,7 +116,7 @@ export function OrganizationTab({
               value={taxId}
               onChange={(e) => setTaxId(e.target.value)}
               placeholder="e.g. 12-3456789"
-              className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+              className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
             />
           </div>
 
@@ -129,7 +129,7 @@ export function OrganizationTab({
               <select
                 value={defaultCurrency}
                 onChange={(e) => setDefaultCurrency(e.target.value)}
-                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden bg-white"
+                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
               >
                 <option value="INR (₹)">INR (₹) — Indian Rupee</option>
                 <option value="USD ($)">USD ($) — United States Dollar</option>
@@ -149,7 +149,7 @@ export function OrganizationTab({
               <select
                 value={primaryTimezone}
                 onChange={(e) => setPrimaryTimezone(e.target.value)}
-                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden bg-white"
+                className="w-full text-xs pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
               >
                 <option value="America/Los_Angeles (PT)">America/Los_Angeles (PT)</option>
                 <option value="America/Denver (MT)">America/Denver (MT)</option>
@@ -179,7 +179,7 @@ export function OrganizationTab({
               type="checkbox"
               checked={autoAssignLeads}
               onChange={(e) => setAutoAssignLeads(e.target.checked)}
-              className="mt-0.5 rounded text-[#1c1c1c] focus:ring-[#1c1c1c]"
+              className="mt-0.5 rounded text-[#1c1c1c] focus:ring-[#e85d3a]"
             />
             <div>
               <span className="text-xs font-medium text-[#1a1a1a]">
@@ -201,7 +201,7 @@ export function OrganizationTab({
               max="72"
               value={leadResponseGoalHours}
               onChange={(e) => setLeadResponseGoalHours(Number(e.target.value))}
-              className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+              className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
             />
             <p className="text-[11px] text-[#5A6860] mt-1">
               Tasks created for new inquiries will be set to overdue if uncontacted past this threshold.
@@ -214,7 +214,7 @@ export function OrganizationTab({
       <div className="flex items-center justify-end">
         <button
           type="submit"
-          className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-white bg-[#1c1c1c] hover:bg-[#162721] rounded-lg transition-colors focus:ring-2 focus:ring-[#1c1c1c] "
+          className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-white bg-[#e85d3a] hover:bg-[#d14a2c] rounded-lg transition-colors focus:ring-2 focus:ring-[#e85d3a] "
         >
           <Check className="w-4 h-4" />
           Save Organization Settings

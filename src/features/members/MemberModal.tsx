@@ -142,7 +142,7 @@ export function MemberModal({
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="e.g. Priyesh Mehta"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
@@ -156,7 +156,7 @@ export function MemberModal({
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="priyesh@company.in"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
@@ -169,7 +169,7 @@ export function MemberModal({
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="+91 98765 43210"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
@@ -182,7 +182,7 @@ export function MemberModal({
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
                 placeholder="e.g. Vance Architecture Ltd"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
@@ -195,7 +195,7 @@ export function MemberModal({
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="e.g. Founder & CEO"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
@@ -206,7 +206,7 @@ export function MemberModal({
               <select
                 value={homeLocation}
                 onChange={(e) => setHomeLocation(e.target.value)}
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden bg-white"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
               >
                 {locations.map((loc) => (
                   <option key={loc.id} value={loc.name}>
@@ -223,7 +223,7 @@ export function MemberModal({
               <select
                 value={selectedPlanId}
                 onChange={(e) => setSelectedPlanId(e.target.value)}
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden bg-white"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
               >
                 {plans.map((p) => (
                   <option key={p.id} value={p.id}>
@@ -240,7 +240,7 @@ export function MemberModal({
               <select
                 value={billingInterval}
                 onChange={(e) => setBillingInterval(e.target.value as Membership["billingInterval"])}
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden bg-white"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
               >
                 <option value="Monthly">Monthly</option>
                 <option value="Quarterly">Quarterly</option>
@@ -257,7 +257,7 @@ export function MemberModal({
                 required
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
@@ -270,7 +270,7 @@ export function MemberModal({
                 value={emergencyName}
                 onChange={(e) => setEmergencyName(e.target.value)}
                 placeholder="e.g. Suman Mehta"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
@@ -283,7 +283,7 @@ export function MemberModal({
                 value={emergencyPhone}
                 onChange={(e) => setEmergencyPhone(e.target.value)}
                 placeholder="+91 98765 00000"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
@@ -296,7 +296,7 @@ export function MemberModal({
                 value={deskOrOfficeNumber}
                 onChange={(e) => setDeskOrOfficeNumber(e.target.value)}
                 placeholder="e.g. Desk D-04 or Suite 201"
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
               />
             </div>
 
@@ -309,7 +309,7 @@ export function MemberModal({
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="Keycard preferences, dietary restrictions, fiber requests..."
-                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden resize-none"
+                className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden resize-none"
               />
             </div>
           </div>
@@ -324,7 +324,7 @@ export function MemberModal({
             </button>
             <button
               type="submit"
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-[#1c1c1c] hover:bg-[#162721] rounded-lg transition-colors focus:ring-2 focus:ring-[#1c1c1c]"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-[#e85d3a] hover:bg-[#d14a2c] rounded-lg transition-colors focus:ring-2 focus:ring-[#e85d3a]"
             >
               <Check className="w-4 h-4" />
               Onboard Member

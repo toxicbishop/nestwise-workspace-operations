@@ -254,7 +254,7 @@ function InvoiceFormInner({
                     name="clientType"
                     checked={isLinkedMember}
                     onChange={() => setIsLinkedMember(true)}
-                    className="text-[#1c1c1c] focus:ring-[#1c1c1c]"
+                    className="text-[#1c1c1c] focus:ring-[#e85d3a]"
                   />
                   <span>Active Member</span>
                 </label>
@@ -264,7 +264,7 @@ function InvoiceFormInner({
                     name="clientType"
                     checked={!isLinkedMember}
                     onChange={() => setIsLinkedMember(false)}
-                    className="text-[#1c1c1c] focus:ring-[#1c1c1c]"
+                    className="text-[#1c1c1c] focus:ring-[#e85d3a]"
                   />
                   <span>Custom Client / External</span>
                 </label>
@@ -366,7 +366,7 @@ function InvoiceFormInner({
                 required
                 value={issueDate}
                 onChange={(e) => setIssueDate(e.target.value)}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
               />
             </div>
 
@@ -379,7 +379,7 @@ function InvoiceFormInner({
                 required
                 value={dueDate}
                 onChange={(e) => setDueDate(e.target.value)}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
               />
             </div>
 
@@ -393,7 +393,7 @@ function InvoiceFormInner({
                 max="100"
                 value={taxRatePercent}
                 onChange={(e) => setTaxRatePercent(parseFloat(e.target.value) || 0)}
-                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+                className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
               />
             </div>
           </div>
@@ -439,7 +439,7 @@ function InvoiceFormInner({
                             onChange={(e) =>
                               handleUpdateLineItem(item.id, "description", e.target.value)
                             }
-                            className="w-full px-2 py-1.5 border border-neutral-200 rounded focus:outline-none focus:ring-1 focus:ring-[#1c1c1c]"
+                            className="w-full px-2 py-1.5 border border-neutral-200 rounded focus:outline-none focus:ring-1 focus:ring-[#e85d3a]"
                           />
                         </td>
                         <td className="p-2">
@@ -455,7 +455,7 @@ function InvoiceFormInner({
                                 Math.max(1, parseInt(e.target.value) || 1)
                               )
                             }
-                            className="w-full px-2 py-1.5 border border-neutral-200 rounded text-center focus:outline-none focus:ring-1 focus:ring-[#1c1c1c]"
+                            className="w-full px-2 py-1.5 border border-neutral-200 rounded text-center focus:outline-none focus:ring-1 focus:ring-[#e85d3a]"
                           />
                         </td>
                         <td className="p-2">
@@ -472,7 +472,7 @@ function InvoiceFormInner({
                                 Math.max(0, parseFloat(e.target.value) || 0)
                               )
                             }
-                            className="w-full px-2 py-1.5 border border-neutral-200 rounded text-right focus:outline-none focus:ring-1 focus:ring-[#1c1c1c]"
+                            className="w-full px-2 py-1.5 border border-neutral-200 rounded text-right focus:outline-none focus:ring-1 focus:ring-[#e85d3a]"
                           />
                         </td>
                         <td className="p-2 text-right font-medium text-neutral-800">
@@ -527,7 +527,7 @@ function InvoiceFormInner({
               rows={2}
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+              className="w-full px-3 py-2 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
             />
           </div>
 
@@ -542,7 +542,7 @@ function InvoiceFormInner({
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-[#1c1c1c] hover:bg-[#111111] text-white rounded-lg transition-colors font-medium flex items-center gap-1.5 "
+              className="px-4 py-2 bg-[#e85d3a] hover:bg-[#d14a2c] text-white rounded-lg transition-colors font-medium flex items-center gap-1.5 "
             >
               <Check className="w-4 h-4" />
               Create Invoice

@@ -171,7 +171,7 @@ export function PlansTab({
                   required
                   value={monthlyRateDollars}
                   onChange={(e) => setMonthlyRateDollars(Number(e.target.value))}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                 />
               </div>
 
@@ -184,7 +184,7 @@ export function PlansTab({
                   min="0"
                   value={meetingCredits}
                   onChange={(e) => setMeetingCredits(Number(e.target.value))}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                 />
               </div>
 
@@ -197,7 +197,7 @@ export function PlansTab({
                   min="0"
                   value={printCredits}
                   onChange={(e) => setPrintCredits(Number(e.target.value))}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                 />
               </div>
 
@@ -209,7 +209,7 @@ export function PlansTab({
                   rows={3}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden resize-none"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden resize-none"
                 />
               </div>
 
@@ -223,7 +223,7 @@ export function PlansTab({
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-[#1c1c1c] hover:bg-[#162721] rounded-lg transition-colors focus:ring-2 focus:ring-[#1c1c1c]"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-[#e85d3a] hover:bg-[#d14a2c] rounded-lg transition-colors focus:ring-2 focus:ring-[#e85d3a]"
                 >
                   <Check className="w-4 h-4" />
                   Save Plan

@@ -147,7 +147,7 @@ export function LocationsTab({
         <button
           type="button"
           onClick={openAddModal}
-          className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-medium rounded-lg text-white bg-[#1c1c1c] hover:bg-[#162721] transition-colors focus:ring-2 focus:ring-[#1c1c1c] focus:ring-offset-2"
+          className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-medium rounded-lg text-white bg-[#e85d3a] hover:bg-[#d14a2c] transition-colors focus:ring-2 focus:ring-[#e85d3a] focus:ring-offset-2"
         >
           <Plus className="w-4 h-4" />
           Add Location
@@ -292,7 +292,7 @@ export function LocationsTab({
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="e.g. Marina Arts Loft"
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                   />
                 </div>
 
@@ -306,7 +306,7 @@ export function LocationsTab({
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     placeholder="e.g. 700 S Grand Ave, 4th Floor"
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                   />
                 </div>
 
@@ -320,7 +320,7 @@ export function LocationsTab({
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     placeholder="e.g. Los Angeles"
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                   />
                 </div>
 
@@ -334,7 +334,7 @@ export function LocationsTab({
                       value={state}
                       onChange={(e) => setState(e.target.value)}
                       placeholder="CA"
-                      className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                      className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                     />
                   </div>
                   <div>
@@ -346,7 +346,7 @@ export function LocationsTab({
                       value={zip}
                       onChange={(e) => setZip(e.target.value)}
                       placeholder="90017"
-                      className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                      className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                     />
                   </div>
                 </div>
@@ -360,7 +360,7 @@ export function LocationsTab({
                     value={operatingHours}
                     onChange={(e) => setOperatingHours(e.target.value)}
                     placeholder="Mon - Fri: 8:00 AM - 8:00 PM"
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                   />
                 </div>
 
@@ -371,7 +371,7 @@ export function LocationsTab({
                   <select
                     value={timezone}
                     onChange={(e) => setTimezone(e.target.value)}
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden bg-white"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
                   >
                     <option value="America/Los_Angeles">Pacific Time (PT)</option>
                     <option value="America/Denver">Mountain Time (MT)</option>
@@ -391,7 +391,7 @@ export function LocationsTab({
                     max="1000"
                     value={totalCapacity}
                     onChange={(e) => setTotalCapacity(Number(e.target.value))}
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                   />
                 </div>
 
@@ -402,7 +402,7 @@ export function LocationsTab({
                   <select
                     value={status}
                     onChange={(e) => setStatus(e.target.value as Location["status"])}
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden bg-white"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
                   >
                     <option value="Active">Active</option>
                     <option value="Maintenance">Maintenance</option>
@@ -419,7 +419,7 @@ export function LocationsTab({
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+91 80 4567 8900"
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                   />
                 </div>
 
@@ -433,7 +433,7 @@ export function LocationsTab({
                     value={managerName}
                     onChange={(e) => setManagerName(e.target.value)}
                     placeholder="e.g. Sarah Jenkins"
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                   />
                 </div>
               </div>
@@ -448,7 +448,7 @@ export function LocationsTab({
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-[#1c1c1c] hover:bg-[#162721] rounded-lg transition-colors focus:ring-2 focus:ring-[#1c1c1c]"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-[#e85d3a] hover:bg-[#d14a2c] rounded-lg transition-colors focus:ring-2 focus:ring-[#e85d3a]"
                 >
                   <Check className="w-4 h-4" />
                   {editingLoc ? "Save Changes" : "Create Location"}

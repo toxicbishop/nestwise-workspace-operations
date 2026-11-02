@@ -74,7 +74,7 @@ function DashboardPage() {
           <button
             type="button"
             onClick={handleOpenNewLead}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#1c1c1c] hover:bg-[#111111] px-3.5 py-2 rounded-md transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#e85d3a] hover:bg-[#d14a2c] px-3.5 py-2 rounded-md transition-colors"
           >
             <Plus className="w-4 h-4" />
             <span>Create Booking</span>
@@ -156,7 +156,7 @@ function DashboardPage() {
 
                     <div
                       style={{ left: "12.5%", width: "25%" }}
-                      className="absolute top-[3px] bottom-[3px] rounded bg-[#1c1c1c] text-white text-[11px] font-semibold flex items-center px-2.5 truncate"
+                      className="absolute top-[3px] bottom-[3px] rounded bg-[#e85d3a] text-white text-[11px] font-semibold flex items-center px-2.5 truncate"
                       title="Finova Labs (Active Strategy)"
                     >
                       Finova Labs (Active Strategy)
@@ -215,7 +215,7 @@ function DashboardPage() {
 
                     <div
                       style={{ left: "50%", width: "25%" }}
-                      className="absolute top-[3px] bottom-[3px] rounded bg-[#1c1c1c] text-white text-[11px] font-semibold flex items-center px-2.5 truncate"
+                      className="absolute top-[3px] bottom-[3px] rounded bg-[#e85d3a] text-white text-[11px] font-semibold flex items-center px-2.5 truncate"
                       title="Venturecast Ep. 42"
                     >
                       Venturecast Ep. 42

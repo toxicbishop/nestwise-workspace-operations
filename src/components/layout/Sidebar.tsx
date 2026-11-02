@@ -102,7 +102,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         {/* Brand header */}
         <div className="flex items-center justify-between p-5 pb-4 border-b border-[#dedcd8]" data-ui="ui-frame">
           <div className="flex items-center gap-3">
-            <div className="w-[30px] h-[30px] rounded-md bg-[#1c1c1c] flex items-center justify-center text-white font-bold text-[15px] shrink-0">
+            <div className="w-[30px] h-[30px] rounded-md bg-[#e85d3a] flex items-center justify-center text-white font-bold text-[15px] shrink-0">
               W
             </div>
             <div className="flex flex-col leading-tight">

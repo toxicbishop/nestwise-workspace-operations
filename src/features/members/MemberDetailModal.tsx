@@ -73,7 +73,7 @@ export function MemberDetailModal({
         {/* Modal Header */}
         <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-[#f6f5f3]" data-ui="ui-frame">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#1c1c1c] text-white flex items-center justify-center font-bold text-sm">
+            <div className="w-10 h-10 rounded-full bg-[#e85d3a] text-white flex items-center justify-center font-bold text-sm">
               {member.name.split(" ").map((n) => n[0]).join("")}
             </div>
             <div>
@@ -194,7 +194,7 @@ export function MemberDetailModal({
                       onChange={(e) =>
                         onUpdateStatus(membership.id, e.target.value as MembershipStatus)
                       }
-                      className="px-2 py-1 border border-gray-300 rounded text-xs bg-white focus:outline-hidden focus:ring-1 focus:ring-[#1c1c1c]"
+                      className="px-2 py-1 border border-gray-300 rounded text-xs bg-white focus:outline-hidden focus:ring-1 focus:ring-[#e85d3a]"
                     >
                       {MEMBERSHIP_STATUSES.map((st) => (
                         <option key={st} value={st}>
@@ -252,7 +252,7 @@ export function MemberDetailModal({
                 />
                 <button
                   type="submit"
-                  className="px-3 py-1.5 bg-[#1c1c1c] hover:bg-[#162721] text-white rounded-lg font-medium text-xs transition-colors"
+                  className="px-3 py-1.5 bg-[#e85d3a] hover:bg-[#d14a2c] text-white rounded-lg font-medium text-xs transition-colors"
                 >
                   Confirm Renewal
                 </button>

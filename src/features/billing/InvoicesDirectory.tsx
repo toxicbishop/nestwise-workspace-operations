@@ -214,7 +214,7 @@ export function InvoicesDirectory() {
               placeholder="Search invoice #, member, company..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
+              className="w-full pl-9 pr-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
             />
           </div>
 
@@ -224,7 +224,7 @@ export function InvoicesDirectory() {
             <select
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
-              className="px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c] bg-white text-neutral-700"
+              className="px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c] bg-white text-neutral-700"
               aria-label="Filter by Hub Location"
             >
               <option value="All">All Coworking Hubs</option>
@@ -241,7 +241,7 @@ export function InvoicesDirectory() {
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
-              className="w-full sm:w-auto px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c] bg-white text-neutral-700"
+              className="w-full sm:w-auto px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c] bg-white text-neutral-700"
               aria-label="Filter by Invoice Status"
             >
               <option value="All">All Statuses</option>
@@ -274,7 +274,7 @@ export function InvoicesDirectory() {
 
         <button
           onClick={() => setIsCreateModalOpen(true)}
-          className="flex items-center justify-center gap-1.5 px-4 py-2 bg-[#1c1c1c] hover:bg-[#111111] text-white text-xs font-medium rounded-lg transition-colors  shrink-0"
+          className="flex items-center justify-center gap-1.5 px-4 py-2 bg-[#e85d3a] hover:bg-[#d14a2c] text-white text-xs font-medium rounded-lg transition-colors  shrink-0"
         >
           <Plus className="w-4 h-4" />
           Create Invoice
@@ -459,7 +459,7 @@ export function InvoicesDirectory() {
               </button>
               <button
                 onClick={() => setIsCreateModalOpen(true)}
-                className="px-3 py-1.5 bg-[#1c1c1c] text-white rounded-lg text-xs font-medium hover:bg-[#111111]"
+                className="px-3 py-1.5 bg-[#e85d3a] text-white rounded-lg text-xs font-medium hover:bg-[#d14a2c]"
               >
                 Create Invoice
               </button>

@@ -103,7 +103,7 @@ export function TeamTab({
         <button
           type="button"
           onClick={openAdd}
-          className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-medium rounded-lg text-white bg-[#1c1c1c] hover:bg-[#162721] transition-colors focus:ring-2 focus:ring-[#1c1c1c]"
+          className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-medium rounded-lg text-white bg-[#e85d3a] hover:bg-[#d14a2c] transition-colors focus:ring-2 focus:ring-[#e85d3a]"
         >
           <Plus className="w-4 h-4" />
           Invite Staff Member
@@ -230,7 +230,7 @@ export function TeamTab({
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Jordan Hayes"
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                 />
               </div>
 
@@ -244,7 +244,7 @@ export function TeamTab({
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@worknest.co"
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                 />
               </div>
 
@@ -255,7 +255,7 @@ export function TeamTab({
                 <select
                   value={role}
                   onChange={(e) => setRole(e.target.value as StaffMember["role"])}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden bg-white"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
                 >
                   <option value="Community Manager">Community Manager (Operations & Tours)</option>
                   <option value="Sales Lead">Sales Lead (Prospect Qualification & Deals)</option>
@@ -271,7 +271,7 @@ export function TeamTab({
                 <select
                   value={assignedLocation}
                   onChange={(e) => setAssignedLocation(e.target.value)}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden bg-white"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
                 >
                   <option value="All">All Network Locations</option>
                   {locations.map((loc) => (
@@ -289,7 +289,7 @@ export function TeamTab({
                 <select
                   value={status}
                   onChange={(e) => setStatus(e.target.value as StaffMember["status"])}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden bg-white"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
                 >
                   <option value="Active">Active</option>
                   <option value="Invited">Invited (Pending Confirmation)</option>
@@ -307,7 +307,7 @@ export function TeamTab({
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-[#1c1c1c] hover:bg-[#162721] rounded-lg transition-colors focus:ring-2 focus:ring-[#1c1c1c]"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-[#e85d3a] hover:bg-[#d14a2c] rounded-lg transition-colors focus:ring-2 focus:ring-[#e85d3a]"
                 >
                   <Check className="w-4 h-4" />
                   {editingStaff ? "Save Member" : "Send Invite"}

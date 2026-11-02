@@ -111,7 +111,7 @@ export function LeadsTable({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by prospect name, email, or company..."
-              className="w-full text-xs rounded-lg border border-gray-300 pl-9 pr-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c]"
+              className="w-full text-xs rounded-lg border border-gray-300 pl-9 pr-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
             />
           </div>
 
@@ -119,7 +119,7 @@ export function LeadsTable({
             <button
               type="button"
               onClick={onOpenNewLead}
-              className="inline-flex items-center gap-1.5 bg-[#1c1c1c] hover:bg-[#111111] text-white text-xs font-semibold px-3.5 py-2 rounded-lg  transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c]"
+              className="inline-flex items-center gap-1.5 bg-[#e85d3a] hover:bg-[#d14a2c] text-white text-xs font-semibold px-3.5 py-2 rounded-lg  transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
             >
               <Plus className="w-4 h-4" />
               <span>Add Lead</span>
@@ -137,7 +137,7 @@ export function LeadsTable({
             onClick={() => setSelectedStatus("All")}
             className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors shrink-0 ${
               selectedStatus === "All"
-                ? "bg-[#1c1c1c] text-white"
+                ? "bg-[#e85d3a] text-white"
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             }`}
           >
@@ -153,7 +153,7 @@ export function LeadsTable({
                 onClick={() => setSelectedStatus(status)}
                 className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors shrink-0 ${
                   isSelected
-                    ? "bg-[#1c1c1c] text-white"
+                    ? "bg-[#e85d3a] text-white"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                 }`}
               >
