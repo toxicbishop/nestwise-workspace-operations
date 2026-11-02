@@ -245,11 +245,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         <div className="p-3 border-t border-[#dedcd8]" data-ui="ui-frame">
           <div className="flex items-center gap-2.5 p-2 rounded-md hover:bg-[#f0efed] transition-colors cursor-pointer">
             <div className="w-8 h-8 rounded-full bg-[#dbd8d3] text-[#1c1c1c] font-bold text-xs flex items-center justify-center shrink-0">
-              ER
+              AM
             </div>
             <div className="min-w-0 flex-1">
               <div className="text-xs font-semibold text-[#141414] truncate">
-                Elena Rostova
+                Arjun Malhotra
               </div>
               <div className="text-[11px] text-[#575757] truncate">
                 General Manager

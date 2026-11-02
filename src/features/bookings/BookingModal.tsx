@@ -69,7 +69,7 @@ function BookingFormInner({
 
   const [bookingType, setBookingType] = useState<BookingType>("Meeting Room");
   const [selectedLocationName, setSelectedLocationName] = useState<string>(
-    defaultInitialSpace?.locationName || locations[0]?.name || "Downtown Hub"
+    defaultInitialSpace?.locationName || locations[0]?.name || "Koramangala Hub"
   );
 
   // Filter spaces matching selected location

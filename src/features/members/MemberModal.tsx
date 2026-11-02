@@ -27,7 +27,7 @@ export function MemberModal({
   const [phone, setPhone] = useState("");
   const [company, setCompany] = useState("");
   const [title, setTitle] = useState("");
-  const [homeLocation, setHomeLocation] = useState(locations[0]?.name || "Downtown Hub");
+  const [homeLocation, setHomeLocation] = useState(locations[0]?.name || "Koramangala Hub");
   const [selectedPlanId, setSelectedPlanId] = useState(plans[0]?.id || "");
   const [billingInterval, setBillingInterval] = useState<Membership["billingInterval"]>("Monthly");
   const [startDate, setStartDate] = useState(new Date().toISOString().split("T")[0]);

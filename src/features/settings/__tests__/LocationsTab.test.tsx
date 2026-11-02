@@ -14,9 +14,9 @@ describe("LocationsTab Component", () => {
       />
     );
 
-    expect(screen.getByText("Downtown Hub")).toBeInTheDocument();
-    expect(screen.getByText("Westside Commons")).toBeInTheDocument();
-    expect(screen.getByText("Tech District")).toBeInTheDocument();
+    expect(screen.getByText("Koramangala Hub")).toBeInTheDocument();
+    expect(screen.getByText("BKC Commons")).toBeInTheDocument();
+    expect(screen.getByText("HITEC District")).toBeInTheDocument();
   });
 
   it("opens add location modal and submits new location", () => {
@@ -39,10 +39,10 @@ describe("LocationsTab Component", () => {
     fireEvent.change(screen.getByPlaceholderText("e.g. 700 S Grand Ave, 4th Floor"), {
       target: { value: "100 Boardwalk Ave" },
     });
-    fireEvent.change(screen.getByPlaceholderText("e.g. Los Angeles"), {
+    fireEvent.change(screen.getByPlaceholderText("e.g. Bengaluru"), {
       target: { value: "Venice" },
     });
-    fireEvent.change(screen.getByPlaceholderText("e.g. Sarah Jenkins"), {
+    fireEvent.change(screen.getByPlaceholderText("e.g. Priya Raghavan"), {
       target: { value: "David Kim" },
     });
 

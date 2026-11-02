@@ -29,10 +29,10 @@ describe("AnalyticsDashboard Component", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText("Downtown Hub")).toBeInTheDocument();
+      expect(screen.getByText("Koramangala Hub")).toBeInTheDocument();
     });
 
-    expect(screen.getByText("Westside Commons")).toBeInTheDocument();
-    expect(screen.getByText("Tech District")).toBeInTheDocument();
+    expect(screen.getByText("BKC Commons")).toBeInTheDocument();
+    expect(screen.getByText("HITEC District")).toBeInTheDocument();
   });
 });

@@ -229,7 +229,7 @@ export function TeamTab({
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="e.g. Jordan Hayes"
+                  placeholder="e.g. Kabir Chowdhury"
                   className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
                 />
               </div>
