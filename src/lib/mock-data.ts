@@ -703,8 +703,6 @@ export const INITIAL_SPACES: Space[] = [
     floorOrZone: "Building C 1st Floor",
     isActive: true,
   },
-];
-
   {
     id: "spc-delhi-1",
     locationId: "loc-delhi",
