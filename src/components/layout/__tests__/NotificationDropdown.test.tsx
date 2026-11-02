@@ -1,19 +1,31 @@
 import { describe, it, expect } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { RouterProvider, createRouter, createMemoryHistory } from "@tanstack/react-router";
+import {
+  RouterProvider,
+  createRouter,
+  createMemoryHistory,
+  createRootRoute,
+  createRoute,
+  Outlet,
+} from "@tanstack/react-router";
 import { NotificationDropdown } from "@/components/layout/NotificationDropdown";
 import { WorkNestProvider } from "@/context/WorkNestContext";
-import { routeTree } from "@/routeTree.gen";
 
 // The dropdown renders TanStack Links, so it needs a router context in tests.
 const renderWithRouter = (ui: React.ReactElement) => {
+  const rootRoute = createRootRoute({ component: () => <Outlet /> });
+  const indexRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: "/",
+    component: () => ui,
+  });
   const router = createRouter({
-    routeTree,
+    routeTree: rootRoute.addChildren([indexRoute]),
     history: createMemoryHistory({ initialEntries: ["/"] }),
   });
   return render(
     <WorkNestProvider>
-      <RouterProvider router={router}>{ui}</RouterProvider>
+      <RouterProvider router={router} />
     </WorkNestProvider>
   );
 };
