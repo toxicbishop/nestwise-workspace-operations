@@ -235,7 +235,7 @@ export function NotificationDropdown() {
               activeNotifications.map((notif) => (
                 <Link
                   key={notif.id}
-                  href={notif.href}
+                  to={notif.href}
                   onClick={() => setIsOpen(false)}
                   className="p-3.5 hover:bg-neutral-50/80 transition-colors flex items-start gap-3 block group"
                 >

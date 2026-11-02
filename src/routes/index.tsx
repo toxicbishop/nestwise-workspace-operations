@@ -65,7 +65,7 @@ function DashboardPage() {
 
         <div className="flex items-center gap-2.5">
           <Link
-            href="/bookings"
+            to="/bookings"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#131A16] bg-white hover:bg-[#EFF2EE] border border-[#DEE3DE] px-3.5 py-2 rounded-md transition-colors"
           >
             <Calendar className="w-3.5 h-3.5 text-[#4E5C54]" />
@@ -114,7 +114,7 @@ function DashboardPage() {
               <div className="flex items-center gap-3 text-xs">
                 <span className="text-[#4E5C54]">Wednesday, 21 Oct</span>
                 <Link
-                  href="/spaces"
+                  to="/spaces"
                   className="px-2.5 py-1 text-xs font-medium text-[#131A16] bg-white border border-[#DEE3DE] rounded hover:bg-[#EFF2EE] transition-colors"
                 >
                   Filter Spaces
@@ -275,7 +275,7 @@ function DashboardPage() {
                 </p>
               </div>
               <Link
-                href="/leads"
+                to="/leads"
                 className="text-xs font-semibold text-[#20382F] hover:underline"
               >
                 View Full Pipeline →

@@ -169,7 +169,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                 return (
                   <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     onClick={() => {
                       if (window.innerWidth < 1024) onClose();
                     }}
@@ -213,7 +213,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                 return (
                   <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     onClick={() => {
                       if (window.innerWidth < 1024) onClose();
                     }}
