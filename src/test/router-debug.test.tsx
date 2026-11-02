@@ -1,9 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
-import { RouterProvider, createRouter, createMemoryHistory, createRootRoute, createRoute, Outlet } from "@tanstack/react-router";
+import { render, screen, act } from "@testing-library/react";
+import { RouterProvider, createRouter, createMemoryHistory, createRootRoute, createRoute, Outlet, createBrowserHistory } from "@tanstack/react-router";
 
 describe("debug", () => {
-  it("renders via router", () => {
+  it("renders via router", async () => {
     const rootRoute = createRootRoute({ component: () => <Outlet /> });
     const indexRoute = createRoute({
       getParentRoute: () => rootRoute,
@@ -12,9 +12,14 @@ describe("debug", () => {
     });
     const router = createRouter({
       routeTree: rootRoute.addChildren([indexRoute]),
-      history: createMemoryHistory({ initialEntries: ["/"] }),
+      history: createBrowserHistory(),
     });
-    render(<RouterProvider router={router} />);
+    const { container } = render(<RouterProvider router={router} />);
+    console.log("HTML1:", container.innerHTML.slice(0, 200));
+    await act(async () => {
+      await router.load();
+    });
+    console.log("HTML2:", container.innerHTML.slice(0, 200));
     expect(screen.getByRole("button", { name: /notifications/i })).toBeInTheDocument();
   });
 });
