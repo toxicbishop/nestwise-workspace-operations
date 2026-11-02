@@ -125,7 +125,6 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
