@@ -430,7 +430,7 @@ function DashboardPage() {
   );
 }
 
-export const Route = createFileRoute("/app")({
+export const Route = createFileRoute("/app/")({
   component: DashboardPage,
   head: () => ({
     meta: [

@@ -9,201 +9,201 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AnalyticsRouteImport } from './routes/analytics'
-import { Route as BillingRouteImport } from './routes/billing'
-import { Route as BookingsRouteImport } from './routes/bookings'
-import { Route as LeadsRouteImport } from './routes/leads'
-import { Route as MembersRouteImport } from './routes/members'
-import { Route as SettingsRouteImport } from './routes/settings'
-import { Route as SpacesRouteImport } from './routes/spaces'
+import { Route as AppIndexRouteImport } from './routes/app/index'
+import { Route as AppAnalyticsRouteImport } from './routes/app/analytics'
+import { Route as AppBillingRouteImport } from './routes/app/billing'
+import { Route as AppBookingsRouteImport } from './routes/app/bookings'
+import { Route as AppLeadsRouteImport } from './routes/app/leads'
+import { Route as AppMembersRouteImport } from './routes/app/members'
+import { Route as AppSettingsRouteImport } from './routes/app/settings'
+import { Route as AppSpacesRouteImport } from './routes/app/spaces'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/app/',
+  path: '/app/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AnalyticsRoute = AnalyticsRouteImport.update({
-  id: '/analytics',
-  path: '/analytics',
+const AppAnalyticsRoute = AppAnalyticsRouteImport.update({
+  id: '/app/analytics',
+  path: '/app/analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BillingRoute = BillingRouteImport.update({
-  id: '/billing',
-  path: '/billing',
+const AppBillingRoute = AppBillingRouteImport.update({
+  id: '/app/billing',
+  path: '/app/billing',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BookingsRoute = BookingsRouteImport.update({
-  id: '/bookings',
-  path: '/bookings',
+const AppBookingsRoute = AppBookingsRouteImport.update({
+  id: '/app/bookings',
+  path: '/app/bookings',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LeadsRoute = LeadsRouteImport.update({
-  id: '/leads',
-  path: '/leads',
+const AppLeadsRoute = AppLeadsRouteImport.update({
+  id: '/app/leads',
+  path: '/app/leads',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MembersRoute = MembersRouteImport.update({
-  id: '/members',
-  path: '/members',
+const AppMembersRoute = AppMembersRouteImport.update({
+  id: '/app/members',
+  path: '/app/members',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SettingsRoute = SettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/app/settings',
+  path: '/app/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SpacesRoute = SpacesRouteImport.update({
-  id: '/spaces',
-  path: '/spaces',
+const AppSpacesRoute = AppSpacesRouteImport.update({
+  id: '/app/spaces',
+  path: '/app/spaces',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/analytics': typeof AnalyticsRoute
-  '/billing': typeof BillingRoute
-  '/bookings': typeof BookingsRoute
-  '/leads': typeof LeadsRoute
-  '/members': typeof MembersRoute
-  '/settings': typeof SettingsRoute
-  '/spaces': typeof SpacesRoute
+  '/app/analytics': typeof AppAnalyticsRoute
+  '/app/billing': typeof AppBillingRoute
+  '/app/bookings': typeof AppBookingsRoute
+  '/app/leads': typeof AppLeadsRoute
+  '/app/members': typeof AppMembersRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/spaces': typeof AppSpacesRoute
+  '/app/': typeof AppIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/analytics': typeof AnalyticsRoute
-  '/billing': typeof BillingRoute
-  '/bookings': typeof BookingsRoute
-  '/leads': typeof LeadsRoute
-  '/members': typeof MembersRoute
-  '/settings': typeof SettingsRoute
-  '/spaces': typeof SpacesRoute
+  '/app/analytics': typeof AppAnalyticsRoute
+  '/app/billing': typeof AppBillingRoute
+  '/app/bookings': typeof AppBookingsRoute
+  '/app/leads': typeof AppLeadsRoute
+  '/app/members': typeof AppMembersRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/spaces': typeof AppSpacesRoute
+  '/app': typeof AppIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/analytics': typeof AnalyticsRoute
-  '/billing': typeof BillingRoute
-  '/bookings': typeof BookingsRoute
-  '/leads': typeof LeadsRoute
-  '/members': typeof MembersRoute
-  '/settings': typeof SettingsRoute
-  '/spaces': typeof SpacesRoute
+  '/app/analytics': typeof AppAnalyticsRoute
+  '/app/billing': typeof AppBillingRoute
+  '/app/bookings': typeof AppBookingsRoute
+  '/app/leads': typeof AppLeadsRoute
+  '/app/members': typeof AppMembersRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/spaces': typeof AppSpacesRoute
+  '/app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/analytics'
-    | '/billing'
-    | '/bookings'
-    | '/leads'
-    | '/members'
-    | '/settings'
-    | '/spaces'
+    | '/app/analytics'
+    | '/app/billing'
+    | '/app/bookings'
+    | '/app/leads'
+    | '/app/members'
+    | '/app/settings'
+    | '/app/spaces'
+    | '/app/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | '/analytics'
-    | '/billing'
-    | '/bookings'
-    | '/leads'
-    | '/members'
-    | '/settings'
-    | '/spaces'
+    | '/app/analytics'
+    | '/app/billing'
+    | '/app/bookings'
+    | '/app/leads'
+    | '/app/members'
+    | '/app/settings'
+    | '/app/spaces'
+    | '/app'
   id:
     | '__root__'
-    | '/'
-    | '/analytics'
-    | '/billing'
-    | '/bookings'
-    | '/leads'
-    | '/members'
-    | '/settings'
-    | '/spaces'
+    | '/app/analytics'
+    | '/app/billing'
+    | '/app/bookings'
+    | '/app/leads'
+    | '/app/members'
+    | '/app/settings'
+    | '/app/spaces'
+    | '/app/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AnalyticsRoute: typeof AnalyticsRoute
-  BillingRoute: typeof BillingRoute
-  BookingsRoute: typeof BookingsRoute
-  LeadsRoute: typeof LeadsRoute
-  MembersRoute: typeof MembersRoute
-  SettingsRoute: typeof SettingsRoute
-  SpacesRoute: typeof SpacesRoute
+  AppAnalyticsRoute: typeof AppAnalyticsRoute
+  AppBillingRoute: typeof AppBillingRoute
+  AppBookingsRoute: typeof AppBookingsRoute
+  AppLeadsRoute: typeof AppLeadsRoute
+  AppMembersRoute: typeof AppMembersRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppSpacesRoute: typeof AppSpacesRoute
+  AppIndexRoute: typeof AppIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/app/': {
+      id: '/app/'
+      path: '/app'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/analytics': {
-      id: '/analytics'
-      path: '/analytics'
-      fullPath: '/analytics'
-      preLoaderRoute: typeof AnalyticsRouteImport
+    '/app/analytics': {
+      id: '/app/analytics'
+      path: '/app/analytics'
+      fullPath: '/app/analytics'
+      preLoaderRoute: typeof AppAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/billing': {
-      id: '/billing'
-      path: '/billing'
-      fullPath: '/billing'
-      preLoaderRoute: typeof BillingRouteImport
+    '/app/billing': {
+      id: '/app/billing'
+      path: '/app/billing'
+      fullPath: '/app/billing'
+      preLoaderRoute: typeof AppBillingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/bookings': {
-      id: '/bookings'
-      path: '/bookings'
-      fullPath: '/bookings'
-      preLoaderRoute: typeof BookingsRouteImport
+    '/app/bookings': {
+      id: '/app/bookings'
+      path: '/app/bookings'
+      fullPath: '/app/bookings'
+      preLoaderRoute: typeof AppBookingsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/leads': {
-      id: '/leads'
-      path: '/leads'
-      fullPath: '/leads'
-      preLoaderRoute: typeof LeadsRouteImport
+    '/app/leads': {
+      id: '/app/leads'
+      path: '/app/leads'
+      fullPath: '/app/leads'
+      preLoaderRoute: typeof AppLeadsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/members': {
-      id: '/members'
-      path: '/members'
-      fullPath: '/members'
-      preLoaderRoute: typeof MembersRouteImport
+    '/app/members': {
+      id: '/app/members'
+      path: '/app/members'
+      fullPath: '/app/members'
+      preLoaderRoute: typeof AppMembersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/settings': {
-      id: '/settings'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof SettingsRouteImport
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/app/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/spaces': {
-      id: '/spaces'
-      path: '/spaces'
-      fullPath: '/spaces'
-      preLoaderRoute: typeof SpacesRouteImport
+    '/app/spaces': {
+      id: '/app/spaces'
+      path: '/app/spaces'
+      fullPath: '/app/spaces'
+      preLoaderRoute: typeof AppSpacesRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AnalyticsRoute: AnalyticsRoute,
-  BillingRoute: BillingRoute,
-  BookingsRoute: BookingsRoute,
-  LeadsRoute: LeadsRoute,
-  MembersRoute: MembersRoute,
-  SettingsRoute: SettingsRoute,
-  SpacesRoute: SpacesRoute,
+  AppAnalyticsRoute: AppAnalyticsRoute,
+  AppBillingRoute: AppBillingRoute,
+  AppBookingsRoute: AppBookingsRoute,
+  AppLeadsRoute: AppLeadsRoute,
+  AppMembersRoute: AppMembersRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppSpacesRoute: AppSpacesRoute,
+  AppIndexRoute: AppIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
