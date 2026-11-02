@@ -424,6 +424,15 @@ function Pricing() {
                   </span>
                 )}
               </div>
+              {t.price !== "Custom" && (
+                <p
+                  className={
+                    t.featured ? "mt-1 text-[11px] text-paper/40" : "mt-1 text-[11px] text-charcoal-700"
+                  }
+                >
+                  + GST (18%) added at checkout
+                </p>
+              )}
               <ul className="mt-6 space-y-2.5">
                 {t.features.map((f) => (
                   <li
