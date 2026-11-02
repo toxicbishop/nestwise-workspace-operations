@@ -32,7 +32,7 @@ function SettingsPage() {
     <div className="space-y-6">
       {/* Page Header */}
       <div>
-        <h1 className="text-xl font-bold text-[#1E2922]">Workspace Settings</h1>
+        <h1 className="text-xl font-bold text-[#1a1a1a]">Workspace Settings</h1>
         <p className="text-xs text-[#5A6860] mt-1">
           Manage your co-working network locations, brand configuration, membership pricing, and staff roles.
         </p>
@@ -45,8 +45,8 @@ function SettingsPage() {
           onClick={() => setActiveTab("locations")}
           className={`inline-flex items-center gap-2 px-4 py-3 text-xs font-medium border-b-2 transition-colors whitespace-nowrap cursor-pointer ${
             activeTab === "locations"
-              ? "border-[#20382F] text-[#20382F]"
-              : "border-transparent text-[#5A6860] hover:text-[#1E2922] hover:border-gray-300"
+              ? "border-[#1c1c1c] text-[#1c1c1c]"
+              : "border-transparent text-[#5A6860] hover:text-[#1a1a1a] hover:border-gray-300"
           }`}
         >
           <MapPin className="w-4 h-4" />
@@ -58,8 +58,8 @@ function SettingsPage() {
           onClick={() => setActiveTab("organization")}
           className={`inline-flex items-center gap-2 px-4 py-3 text-xs font-medium border-b-2 transition-colors whitespace-nowrap cursor-pointer ${
             activeTab === "organization"
-              ? "border-[#20382F] text-[#20382F]"
-              : "border-transparent text-[#5A6860] hover:text-[#1E2922] hover:border-gray-300"
+              ? "border-[#1c1c1c] text-[#1c1c1c]"
+              : "border-transparent text-[#5A6860] hover:text-[#1a1a1a] hover:border-gray-300"
           }`}
         >
           <Building2 className="w-4 h-4" />
@@ -71,8 +71,8 @@ function SettingsPage() {
           onClick={() => setActiveTab("plans")}
           className={`inline-flex items-center gap-2 px-4 py-3 text-xs font-medium border-b-2 transition-colors whitespace-nowrap cursor-pointer ${
             activeTab === "plans"
-              ? "border-[#20382F] text-[#20382F]"
-              : "border-transparent text-[#5A6860] hover:text-[#1E2922] hover:border-gray-300"
+              ? "border-[#1c1c1c] text-[#1c1c1c]"
+              : "border-transparent text-[#5A6860] hover:text-[#1a1a1a] hover:border-gray-300"
           }`}
         >
           <CreditCard className="w-4 h-4" />
@@ -84,8 +84,8 @@ function SettingsPage() {
           onClick={() => setActiveTab("team")}
           className={`inline-flex items-center gap-2 px-4 py-3 text-xs font-medium border-b-2 transition-colors whitespace-nowrap cursor-pointer ${
             activeTab === "team"
-              ? "border-[#20382F] text-[#20382F]"
-              : "border-transparent text-[#5A6860] hover:text-[#1E2922] hover:border-gray-300"
+              ? "border-[#1c1c1c] text-[#1c1c1c]"
+              : "border-transparent text-[#5A6860] hover:text-[#1a1a1a] hover:border-gray-300"
           }`}
         >
           <Users2 className="w-4 h-4" />

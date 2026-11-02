@@ -160,10 +160,10 @@ export function InvoicesDirectory() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-white p-4 rounded-xl border border-neutral-200">
           <div className="flex items-center gap-2 text-xs text-neutral-500 mb-1">
-            <Receipt className="w-4 h-4 text-[#20382F]" />
+            <Receipt className="w-4 h-4 text-[#1c1c1c]" />
             <span>Total Invoiced</span>
           </div>
-          <div className="text-2xl font-bold text-[#1E2922]">
+          <div className="text-2xl font-bold text-[#1a1a1a]">
             {formatCurrency(totalBilledCents, "INR")}
           </div>
           <div className="text-[11px] text-neutral-500 mt-0.5">Recognized billings</div>
@@ -214,7 +214,7 @@ export function InvoicesDirectory() {
               placeholder="Search invoice #, member, company..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#20382F]/20 focus:border-[#20382F]"
+              className="w-full pl-9 pr-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c]"
             />
           </div>
 
@@ -224,7 +224,7 @@ export function InvoicesDirectory() {
             <select
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
-              className="px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#20382F]/20 focus:border-[#20382F] bg-white text-neutral-700"
+              className="px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c] bg-white text-neutral-700"
               aria-label="Filter by Hub Location"
             >
               <option value="All">All Coworking Hubs</option>
@@ -241,7 +241,7 @@ export function InvoicesDirectory() {
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
-              className="w-full sm:w-auto px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#20382F]/20 focus:border-[#20382F] bg-white text-neutral-700"
+              className="w-full sm:w-auto px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1c1c1c]/20 focus:border-[#1c1c1c] bg-white text-neutral-700"
               aria-label="Filter by Invoice Status"
             >
               <option value="All">All Statuses</option>
@@ -262,7 +262,7 @@ export function InvoicesDirectory() {
                 onClick={() => setPeriodFilter(period)}
                 className={`px-2.5 py-1 rounded-md font-medium transition-all ${
                   periodFilter === period
-                    ? "bg-white text-[#20382F] "
+                    ? "bg-white text-[#1c1c1c] "
                     : "text-neutral-600 hover:text-neutral-900"
                 }`}
               >
@@ -274,7 +274,7 @@ export function InvoicesDirectory() {
 
         <button
           onClick={() => setIsCreateModalOpen(true)}
-          className="flex items-center justify-center gap-1.5 px-4 py-2 bg-[#20382F] hover:bg-[#162720] text-white text-xs font-medium rounded-lg transition-colors  shrink-0"
+          className="flex items-center justify-center gap-1.5 px-4 py-2 bg-[#1c1c1c] hover:bg-[#111111] text-white text-xs font-medium rounded-lg transition-colors  shrink-0"
         >
           <Plus className="w-4 h-4" />
           Create Invoice
@@ -459,7 +459,7 @@ export function InvoicesDirectory() {
               </button>
               <button
                 onClick={() => setIsCreateModalOpen(true)}
-                className="px-3 py-1.5 bg-[#20382F] text-white rounded-lg text-xs font-medium hover:bg-[#162720]"
+                className="px-3 py-1.5 bg-[#1c1c1c] text-white rounded-lg text-xs font-medium hover:bg-[#111111]"
               >
                 Create Invoice
               </button>

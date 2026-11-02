@@ -186,7 +186,7 @@ export function NotificationDropdown() {
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="relative p-2 rounded-lg text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-[#20382F] transition-colors"
+        className="relative p-2 rounded-lg text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-[#1c1c1c] transition-colors"
         aria-label="Notifications"
         aria-expanded={isOpen}
         title={`${activeNotifications.length} operational notifications`}
@@ -210,7 +210,7 @@ export function NotificationDropdown() {
           {/* Header */}
           <div className="px-4 py-3 bg-neutral-50/80 border-b border-neutral-100 flex items-center justify-between" data-ui="ui-frame">
             <div className="flex items-center gap-2">
-              <span className="font-semibold text-xs text-[#1E2922]">
+              <span className="font-semibold text-xs text-[#1a1a1a]">
                 Notifications & Alerts
               </span>
               <span className="text-[10px] bg-neutral-200 text-neutral-700 px-1.5 py-0.5 rounded-full font-medium">
@@ -221,7 +221,7 @@ export function NotificationDropdown() {
             {activeNotifications.length > 0 && (
               <button
                 onClick={handleMarkAllRead}
-                className="text-[11px] text-[#20382F] hover:text-[#162720] font-medium flex items-center gap-1 transition-colors"
+                className="text-[11px] text-[#1c1c1c] hover:text-[#111111] font-medium flex items-center gap-1 transition-colors"
               >
                 <CheckCheck className="w-3.5 h-3.5" />
                 Clear All
@@ -245,7 +245,7 @@ export function NotificationDropdown() {
 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-1">
-                      <h4 className="text-xs font-semibold text-neutral-900 group-hover:text-[#20382F] truncate">
+                      <h4 className="text-xs font-semibold text-neutral-900 group-hover:text-[#1c1c1c] truncate">
                         {notif.title}
                       </h4>
                       <button

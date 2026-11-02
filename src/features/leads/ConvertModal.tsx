@@ -44,10 +44,10 @@ export function ConvertModal({
     >
       <div className="bg-white rounded-xl shadow-xl max-w-md w-full border border-gray-200 overflow-hidden" data-ui="overlay">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-[#F7F8F6]" data-ui="ui-frame">
+        <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-[#f6f5f3]" data-ui="ui-frame">
           <div className="flex items-center gap-2">
             <UserCheck className="w-5 h-5 text-emerald-700" />
-            <h2 id="convert-modal-title" className="text-sm font-semibold text-[#1E2922]">
+            <h2 id="convert-modal-title" className="text-sm font-semibold text-[#1a1a1a]">
               Convert Lead to Active Member
             </h2>
           </div>
@@ -100,7 +100,7 @@ export function ConvertModal({
                 id="convert-plan"
                 value={selectedPlan}
                 onChange={(e) => setSelectedPlan(e.target.value as Lead["interestedPlan"])}
-                className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-hidden focus:ring-2 focus:ring-[#20382F]"
+                className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 bg-white focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c]"
               >
                 <option value="Hot Desk">Hot Desk</option>
                 <option value="Dedicated Desk">Dedicated Desk</option>
@@ -119,7 +119,7 @@ export function ConvertModal({
                 type="date"
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
-                className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#20382F]"
+                className="w-full text-xs rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c]"
               />
             </div>
 

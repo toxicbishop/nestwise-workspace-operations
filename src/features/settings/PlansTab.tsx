@@ -47,7 +47,7 @@ export function PlansTab({
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-base font-semibold text-[#1E2922]">
+        <h2 className="text-base font-semibold text-[#1a1a1a]">
           Membership Plans & Pricing ({plans.length})
         </h2>
         <p className="text-xs text-[#5A6860] mt-0.5">
@@ -66,7 +66,7 @@ export function PlansTab({
             <div>
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <h3 className="text-sm font-semibold text-[#1E2922]">{plan.name}</h3>
+                  <h3 className="text-sm font-semibold text-[#1a1a1a]">{plan.name}</h3>
                   <span className="text-[11px] tabular-nums text-[#5A6860] uppercase">{plan.code}</span>
                 </div>
                 <span
@@ -82,7 +82,7 @@ export function PlansTab({
 
               <div className="mt-4">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-2xl font-bold text-[#1E2922]">
+                  <span className="text-2xl font-bold text-[#1a1a1a]">
                     {formatCurrency(plan.monthlyRateCents)}
                   </span>
                   <span className="text-xs text-[#5A6860]">/ month</span>
@@ -123,7 +123,7 @@ export function PlansTab({
               <button
                 type="button"
                 onClick={() => openEdit(plan)}
-                className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-[#20382F] hover:bg-[#20382F]/10 rounded-md transition-colors"
+                className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-[#1c1c1c] hover:bg-[#1c1c1c]/10 rounded-md transition-colors"
               >
                 <Edit2 className="w-3.5 h-3.5" />
                 Edit Plan
@@ -142,10 +142,10 @@ export function PlansTab({
           aria-labelledby="plan-modal-title"
         >
           <div className="bg-white rounded-xl shadow-xl max-w-md w-full border border-gray-200 overflow-hidden" data-ui="overlay">
-            <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-[#F7F8F6]" data-ui="ui-frame">
+            <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-[#f6f5f3]" data-ui="ui-frame">
               <div className="flex items-center gap-2">
-                <CreditCard className="w-5 h-5 text-[#20382F]" />
-                <h3 id="plan-modal-title" className="text-sm font-semibold text-[#1E2922]">
+                <CreditCard className="w-5 h-5 text-[#1c1c1c]" />
+                <h3 id="plan-modal-title" className="text-sm font-semibold text-[#1a1a1a]">
                   Edit Plan: {editingPlan.name}
                 </h3>
               </div>
@@ -161,7 +161,7 @@ export function PlansTab({
 
             <form onSubmit={handleSave} className="p-6 space-y-4">
               <div>
-                <label className="block text-xs font-medium text-[#1E2922] mb-1">
+                <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                   Monthly Rate (INR ₹) *
                 </label>
                 <input
@@ -171,12 +171,12 @@ export function PlansTab({
                   required
                   value={monthlyRateDollars}
                   onChange={(e) => setMonthlyRateDollars(Number(e.target.value))}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#1E2922] mb-1">
+                <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                   Meeting Room Credits (Hours/mo)
                 </label>
                 <input
@@ -184,12 +184,12 @@ export function PlansTab({
                   min="0"
                   value={meetingCredits}
                   onChange={(e) => setMeetingCredits(Number(e.target.value))}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#1E2922] mb-1">
+                <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                   Monthly Printing Allowance (Pages)
                 </label>
                 <input
@@ -197,19 +197,19 @@ export function PlansTab({
                   min="0"
                   value={printCredits}
                   onChange={(e) => setPrintCredits(Number(e.target.value))}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#1E2922] mb-1">
+                <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
                   Public Description
                 </label>
                 <textarea
                   rows={3}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#20382F] focus:outline-hidden resize-none"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1c1c1c] focus:outline-hidden resize-none"
                 />
               </div>
 
@@ -223,7 +223,7 @@ export function PlansTab({
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-[#20382F] hover:bg-[#162721] rounded-lg transition-colors focus:ring-2 focus:ring-[#20382F]"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-[#1c1c1c] hover:bg-[#162721] rounded-lg transition-colors focus:ring-2 focus:ring-[#1c1c1c]"
                 >
                   <Check className="w-4 h-4" />
                   Save Plan

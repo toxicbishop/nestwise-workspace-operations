@@ -71,13 +71,13 @@ export function MemberDetailModal({
     >
       <div className="bg-white rounded-xl shadow-xl max-w-xl w-full border border-gray-200 overflow-hidden" data-ui="overlay">
         {/* Modal Header */}
-        <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-[#F7F8F6]" data-ui="ui-frame">
+        <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-[#f6f5f3]" data-ui="ui-frame">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#20382F] text-white flex items-center justify-center font-bold text-sm">
+            <div className="w-10 h-10 rounded-full bg-[#1c1c1c] text-white flex items-center justify-center font-bold text-sm">
               {member.name.split(" ").map((n) => n[0]).join("")}
             </div>
             <div>
-              <h2 id="member-detail-title" className="text-sm font-semibold text-[#1E2922]">
+              <h2 id="member-detail-title" className="text-sm font-semibold text-[#1a1a1a]">
                 {member.name}
               </h2>
               <p className="text-xs text-[#5A6860]">
@@ -131,8 +131,8 @@ export function MemberDetailModal({
           {/* Current Membership Contract Details */}
           <div>
             <div className="flex items-center justify-between mb-3">
-              <h3 className="text-xs font-semibold text-[#1E2922] font-semibold flex items-center gap-1.5">
-                <CreditCard className="w-4 h-4 text-[#20382F]" />
+              <h3 className="text-xs font-semibold text-[#1a1a1a] font-semibold flex items-center gap-1.5">
+                <CreditCard className="w-4 h-4 text-[#1c1c1c]" />
                 Active Membership Contract
               </h3>
               {membership && (
@@ -157,7 +157,7 @@ export function MemberDetailModal({
                     </p>
                   </div>
                   <div className="text-right">
-                    <span className="text-base font-bold text-[#1E2922]">
+                    <span className="text-base font-bold text-[#1a1a1a]">
                       {formatCurrency(membership.monthlyRateCents)}
                     </span>
                     <span className="text-xs text-[#5A6860] block">/ month</span>
@@ -194,7 +194,7 @@ export function MemberDetailModal({
                       onChange={(e) =>
                         onUpdateStatus(membership.id, e.target.value as MembershipStatus)
                       }
-                      className="px-2 py-1 border border-gray-300 rounded text-xs bg-white focus:outline-hidden focus:ring-1 focus:ring-[#20382F]"
+                      className="px-2 py-1 border border-gray-300 rounded text-xs bg-white focus:outline-hidden focus:ring-1 focus:ring-[#1c1c1c]"
                     >
                       {MEMBERSHIP_STATUSES.map((st) => (
                         <option key={st} value={st}>
@@ -212,7 +212,7 @@ export function MemberDetailModal({
                       current.setMonth(current.getMonth() + 1);
                       setNewRenewalDate(current.toISOString().split("T")[0]);
                     }}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#20382F] hover:underline"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#1c1c1c] hover:underline"
                   >
                     <RotateCw className="w-3.5 h-3.5" />
                     Renew Contract
@@ -252,7 +252,7 @@ export function MemberDetailModal({
                 />
                 <button
                   type="submit"
-                  className="px-3 py-1.5 bg-[#20382F] hover:bg-[#162721] text-white rounded-lg font-medium text-xs transition-colors"
+                  className="px-3 py-1.5 bg-[#1c1c1c] hover:bg-[#162721] text-white rounded-lg font-medium text-xs transition-colors"
                 >
                   Confirm Renewal
                 </button>

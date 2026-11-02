@@ -19,7 +19,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   } = useWorkNest();
 
   return (
-    <div className="h-screen bg-[#F7F8F6] text-[#1E2922] flex overflow-hidden font-sans">
+    <div className="h-screen bg-[#f6f5f3] text-[#1a1a1a] flex overflow-hidden font-sans">
       {/* Navigation Sidebar (fixed/static to full screen height) */}
       <Sidebar
         isOpen={isSidebarOpen}

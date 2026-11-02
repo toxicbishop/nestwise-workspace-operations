@@ -167,7 +167,7 @@ export function AnalyticsDashboard() {
   if (loading || !report) {
     return (
       <div className="flex flex-col items-center justify-center p-16 space-y-4">
-        <RefreshCw className="w-8 h-8 text-[#20382F] animate-spin" />
+        <RefreshCw className="w-8 h-8 text-[#1c1c1c] animate-spin" />
         <p className="text-sm font-medium text-neutral-600">Generating operations & occupancy report...</p>
       </div>
     );
@@ -198,7 +198,7 @@ export function AnalyticsDashboard() {
 
         <div className="text-right">
           <p className="text-xs font-medium text-neutral-400">Selected Location Scope</p>
-          <p className="text-sm font-semibold text-[#20382F]">{selectedLocation}</p>
+          <p className="text-sm font-semibold text-[#1c1c1c]">{selectedLocation}</p>
         </div>
       </div>
 
@@ -229,7 +229,7 @@ export function AnalyticsDashboard() {
         <div className="p-5 bg-white rounded-2xl border border-neutral-200 ">
           <div className="flex items-center justify-between text-neutral-500">
             <span className="text-xs font-semibold font-semibold">Recognized MRR</span>
-            <ArrowUpRight className="w-4 h-4 text-[#20382F]" />
+            <ArrowUpRight className="w-4 h-4 text-[#1c1c1c]" />
           </div>
           <p className="text-2xl font-bold text-neutral-900 mt-2">{formatCurrency(report.revenue.mrr_cents)}</p>
           <p className="text-xs text-neutral-500 mt-1">Contracted recurring run-rate</p>
@@ -264,13 +264,13 @@ export function AnalyticsDashboard() {
             <div key={loc.location_id} className="p-5 rounded-xl border border-neutral-100 bg-neutral-50/70">
               <div className="flex items-center justify-between">
                 <h3 className="font-semibold text-neutral-900">{loc.location_name}</h3>
-                <span className="text-sm font-bold text-[#20382F]">{loc.occupancy_rate}%</span>
+                <span className="text-sm font-bold text-[#1c1c1c]">{loc.occupancy_rate}%</span>
               </div>
 
               {/* Progress bar */}
               <div className="w-full bg-neutral-200 rounded-full h-2.5 mt-3 overflow-hidden">
                 <div
-                  className="bg-[#20382F] h-2.5 rounded-full transition-all duration-500"
+                  className="bg-[#1c1c1c] h-2.5 rounded-full transition-all duration-500"
                   style={{ width: `${Math.min(100, loc.occupancy_rate)}%` }}
                 />
               </div>
@@ -302,7 +302,7 @@ export function AnalyticsDashboard() {
               return (
                 <div key={src} className="flex items-center justify-between p-3 rounded-lg bg-neutral-50">
                   <div className="flex items-center gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-[#20382F]" />
+                    <span className="w-2 h-2 rounded-full bg-[#1c1c1c]" />
                     <span className="text-sm font-medium text-neutral-800">{src}</span>
                   </div>
                   <div className="flex items-center gap-3">
@@ -351,7 +351,7 @@ export function AnalyticsDashboard() {
                     </p>
                   </div>
                   <div className="text-right">
-                    <span className="text-sm font-bold text-[#20382F]">{sp.booked_hours} hrs</span>
+                    <span className="text-sm font-bold text-[#1c1c1c]">{sp.booked_hours} hrs</span>
                     <p className="text-xs text-neutral-400">{sp.bookings_count} bookings</p>
                   </div>
                 </div>

@@ -24,14 +24,14 @@ export function Header({
         <button
           type="button"
           onClick={onOpenSidebar}
-          className="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 lg:hidden focus:outline-hidden focus:ring-2 focus:ring-[#20382F]"
+          className="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 lg:hidden focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c]"
           aria-label="Open navigation sidebar"
         >
           <Menu className="w-5 h-5" />
         </button>
 
         {/* Location Selector */}
-        <div className="flex items-center gap-2 bg-[#F7F8F6] border border-[#E5E7EB] rounded-lg px-2.5 py-1.5 text-xs text-[#1E2922]">
+        <div className="flex items-center gap-2 bg-[#f6f5f3] border border-[#E5E7EB] rounded-lg px-2.5 py-1.5 text-xs text-[#1a1a1a]">
           <MapPin className="w-3.5 h-3.5 text-[#5A6860] shrink-0" aria-hidden="true" />
           <label htmlFor="location-select" className="sr-only">
             Select Location Scope
@@ -40,7 +40,7 @@ export function Header({
             id="location-select"
             value={selectedLocation}
             onChange={(e) => onLocationChange(e.target.value)}
-            className="bg-transparent font-medium text-[#1E2922] focus:outline-hidden cursor-pointer"
+            className="bg-transparent font-medium text-[#1a1a1a] focus:outline-hidden cursor-pointer"
           >
             <option value="All">All Locations (Network)</option>
             {locations.map((loc) => (
@@ -59,7 +59,7 @@ export function Header({
           <button
             type="button"
             onClick={onOpenNewLead}
-            className="inline-flex items-center gap-1.5 bg-[#20382F] hover:bg-[#172A23] text-white text-xs font-semibold px-3 py-2 rounded-lg  transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#20382F] focus:ring-offset-2"
+            className="inline-flex items-center gap-1.5 bg-[#1c1c1c] hover:bg-[#111111] text-white text-xs font-semibold px-3 py-2 rounded-lg  transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#1c1c1c] focus:ring-offset-2"
           >
             <Plus className="w-4 h-4" />
             <span className="hidden sm:inline">New Lead</span>
