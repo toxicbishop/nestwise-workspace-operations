@@ -12,7 +12,7 @@ import { NotificationDropdown } from "@/components/layout/NotificationDropdown";
 import { WorkNestProvider } from "@/context/WorkNestContext";
 
 // The dropdown renders TanStack Links, so it needs a router context in tests.
-const renderWithRouter = (ui: React.ReactElement) => {
+const renderWithRouter = async (ui: React.ReactElement) => {
   const rootRoute = createRootRoute({ component: () => <Outlet /> });
   const indexRoute = createRoute({
     getParentRoute: () => rootRoute,
@@ -23,6 +23,7 @@ const renderWithRouter = (ui: React.ReactElement) => {
     routeTree: rootRoute.addChildren([indexRoute]),
     history: createMemoryHistory({ initialEntries: ["/"] }),
   });
+  await router.load();
   return render(
     <WorkNestProvider>
       <RouterProvider router={router} />
@@ -31,15 +32,15 @@ const renderWithRouter = (ui: React.ReactElement) => {
 };
 
 describe("NotificationDropdown Component", () => {
-  it("renders notification bell button with active count badge", () => {
-    renderWithRouter(<NotificationDropdown />);
+  it("renders notification bell button with active count badge", async () => {
+    await renderWithRouter(<NotificationDropdown />);
 
     const bellBtn = screen.getByRole("button", { name: /notifications/i });
     expect(bellBtn).toBeInTheDocument();
   });
 
-  it("opens popover with live operational alerts when clicked", () => {
-    renderWithRouter(<NotificationDropdown />);
+  it("opens popover with live operational alerts when clicked", async () => {
+    await renderWithRouter(<NotificationDropdown />);
 
     const bellBtn = screen.getByRole("button", { name: /notifications/i });
     fireEvent.click(bellBtn);
@@ -48,8 +49,8 @@ describe("NotificationDropdown Component", () => {
     expect(screen.getByText("Clear All")).toBeInTheDocument();
   });
 
-  it("clears notifications when Clear All is clicked", () => {
-    renderWithRouter(<NotificationDropdown />);
+  it("clears notifications when Clear All is clicked", async () => {
+    await renderWithRouter(<NotificationDropdown />);
 
     const bellBtn = screen.getByRole("button", { name: /notifications/i });
     fireEvent.click(bellBtn);
