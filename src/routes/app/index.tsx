@@ -245,7 +245,7 @@ function DashboardPage() {
             {/* Timeline Legend */}
             <div className="flex flex-wrap items-center gap-4 mt-3 text-xs text-[#4a4a4a]">
               <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded bg-[#1c1c1c]" />
+                <span className="w-3 h-3 rounded bg-[#e85d3a]" />
                 <span>Active Booking</span>
               </div>
               <div className="flex items-center gap-1.5">
