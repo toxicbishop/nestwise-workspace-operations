@@ -97,7 +97,7 @@ function LeadsPage() {
   );
 }
 
-export const Route = createFileRoute("/leads")({
+export const Route = createFileRoute("/app/leads")({
   component: LeadsPage,
   head: () => ({
     meta: [

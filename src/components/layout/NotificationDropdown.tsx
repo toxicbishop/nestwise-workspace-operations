@@ -75,7 +75,7 @@ export function NotificationDropdown() {
           title: act.title,
           description: `Follow-up assigned to ${act.staffName}: ${act.description}`,
           timestamp: "Action Required",
-          href: "/leads",
+          href: "/app/leads",
           severity: "warning",
         });
       });
@@ -96,7 +96,7 @@ export function NotificationDropdown() {
           title: `Overdue Invoice: ${inv.invoiceNumber}`,
           description: `${formatCurrency(bal, "INR")} pending collection from ${inv.memberName}.`,
           timestamp: `Due: ${inv.dueDate}`,
-          href: "/billing",
+          href: "/app/billing",
           severity: "urgent",
         });
       });
@@ -112,7 +112,7 @@ export function NotificationDropdown() {
           title: `Scheduled Walkthrough: ${tour.bookedByName}`,
           description: `Tour at ${tour.spaceName} (${tour.locationName}) on ${tour.date} at ${tour.startTime}.`,
           timestamp: `${tour.date} · ${tour.startTime}`,
-          href: "/bookings",
+          href: "/app/bookings",
           severity: "info",
         });
       });
@@ -128,7 +128,7 @@ export function NotificationDropdown() {
           title: `New Lead: ${l.name}`,
           description: `Inquired about ${l.interestedPlan} at ${l.preferredLocation}.`,
           timestamp: "Just Now",
-          href: "/leads",
+          href: "/app/leads",
           severity: "info",
         });
       });
@@ -144,7 +144,7 @@ export function NotificationDropdown() {
           title: `Membership ${m.status}: ${m.planName}`,
           description: `Renewal scheduled for ${m.renewalDate}. Review payment status.`,
           timestamp: m.renewalDate,
-          href: "/members",
+          href: "/app/members",
           severity: "warning",
         });
       });

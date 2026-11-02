@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import React from "react";
 import { useWorkNest } from "@/context/WorkNestContext";
-import { SpacesDirectory } from "@/features/spaces/SpacesDirectory";
+import { BookingsDirectory } from "@/features/bookings/BookingsDirectory";
 
-function SpacesPage() {
+function BookingsPage() {
   const { selectedLocation } = useWorkNest();
 
   return (
@@ -11,10 +11,10 @@ function SpacesPage() {
       {/* Header */}
       <div>
         <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1a1a1a]">
-          Spaces & Inventory
+          Bookings & Tours
         </h1>
         <p className="text-xs text-neutral-500 mt-1">
-          Catalog of meeting rooms, private office suites, podcast studios, and desk bays across{" "}
+          Schedule meeting rooms, manage prospect walkthroughs, prevent reservation overlaps, and track space check-ins across{" "}
           <span className="font-semibold text-neutral-700">
             {selectedLocation === "All" ? "all coworking hubs" : selectedLocation}
           </span>
@@ -22,19 +22,19 @@ function SpacesPage() {
         </p>
       </div>
 
-      <SpacesDirectory />
+      <BookingsDirectory />
     </div>
   );
 }
 
-export const Route = createFileRoute("/spaces")({
-  component: SpacesPage,
+export const Route = createFileRoute("/app/bookings")({
+  component: BookingsPage,
   head: () => ({
     meta: [
-      { title: "WorkNest CRM — Spaces & Inventory" },
-      { name: "description", content: "Space inventory and availability across campuses." },
-      { property: "og:title", content: "WorkNest CRM — Spaces & Inventory" },
-      { property: "og:description", content: "Space inventory and availability across campuses." },
+      { title: "WorkNest CRM — Live Schedule" },
+      { name: "description", content: "Bookings, walkthroughs and scheduling operations." },
+      { property: "og:title", content: "WorkNest CRM — Live Schedule" },
+      { property: "og:description", content: "Bookings, walkthroughs and scheduling operations." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

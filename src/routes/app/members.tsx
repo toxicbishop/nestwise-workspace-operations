@@ -49,7 +49,7 @@ function MembersPage() {
   );
 }
 
-export const Route = createFileRoute("/members")({
+export const Route = createFileRoute("/app/members")({
   component: MembersPage,
   head: () => ({
     meta: [

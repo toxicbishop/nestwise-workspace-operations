@@ -133,7 +133,7 @@ function SettingsPage() {
   );
 }
 
-export const Route = createFileRoute("/settings")({
+export const Route = createFileRoute("/app/settings")({
   component: SettingsPage,
   head: () => ({
     meta: [

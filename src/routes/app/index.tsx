@@ -65,7 +65,7 @@ function DashboardPage() {
 
         <div className="flex items-center gap-2.5">
           <Link
-            to="/bookings"
+            to="/app/bookings"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#141414] bg-white hover:bg-[#f0efed] border border-[#dedcd8] px-3.5 py-2 rounded-md transition-colors"
           >
             <Calendar className="w-3.5 h-3.5 text-[#575757]" />
@@ -114,7 +114,7 @@ function DashboardPage() {
               <div className="flex items-center gap-3 text-xs">
                 <span className="text-[#575757]">Wednesday, 21 Oct</span>
                 <Link
-                  to="/spaces"
+                  to="/app/spaces"
                   className="px-2.5 py-1 text-xs font-medium text-[#141414] bg-white border border-[#dedcd8] rounded hover:bg-[#f0efed] transition-colors"
                 >
                   Filter Spaces
@@ -275,7 +275,7 @@ function DashboardPage() {
                 </p>
               </div>
               <Link
-                to="/leads"
+                to="/app/leads"
                 className="text-xs font-semibold text-[#1c1c1c] hover:underline"
               >
                 View Full Pipeline →
@@ -430,7 +430,7 @@ function DashboardPage() {
   );
 }
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/app")({
   component: DashboardPage,
   head: () => ({
     meta: [

@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import React from "react";
 import { useWorkNest } from "@/context/WorkNestContext";
-import { BookingsDirectory } from "@/features/bookings/BookingsDirectory";
+import { InvoicesDirectory } from "@/features/billing/InvoicesDirectory";
 
-function BookingsPage() {
+function BillingPage() {
   const { selectedLocation } = useWorkNest();
 
   return (
@@ -11,10 +11,10 @@ function BookingsPage() {
       {/* Header */}
       <div>
         <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1a1a1a]">
-          Bookings & Tours
+          Invoices & Billing
         </h1>
         <p className="text-xs text-neutral-500 mt-1">
-          Schedule meeting rooms, manage prospect walkthroughs, prevent reservation overlaps, and track space check-ins across{" "}
+          GST-compliant billing, member subscriptions, room overage invoicing, and payment reconciliations across{" "}
           <span className="font-semibold text-neutral-700">
             {selectedLocation === "All" ? "all coworking hubs" : selectedLocation}
           </span>
@@ -22,19 +22,19 @@ function BookingsPage() {
         </p>
       </div>
 
-      <BookingsDirectory />
+      <InvoicesDirectory />
     </div>
   );
 }
 
-export const Route = createFileRoute("/bookings")({
-  component: BookingsPage,
+export const Route = createFileRoute("/app/billing")({
+  component: BillingPage,
   head: () => ({
     meta: [
-      { title: "WorkNest CRM — Live Schedule" },
-      { name: "description", content: "Bookings, walkthroughs and scheduling operations." },
-      { property: "og:title", content: "WorkNest CRM — Live Schedule" },
-      { property: "og:description", content: "Bookings, walkthroughs and scheduling operations." },
+      { title: "WorkNest CRM — Invoices & Billing" },
+      { name: "description", content: "Invoicing, payments collection and outstanding balances." },
+      { property: "og:title", content: "WorkNest CRM — Invoices & Billing" },
+      { property: "og:description", content: "Invoicing, payments collection and outstanding balances." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

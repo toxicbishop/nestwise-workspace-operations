@@ -39,34 +39,34 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const NAV_OPERATIONS: NavItem[] = [
     {
       name: "Overview",
-      href: "/",
+      href: "/app",
       icon: LayoutDashboard,
     },
     {
       name: "Leads and Tours",
-      href: "/leads",
+      href: "/app/leads",
       icon: Users2,
       badge: openInquiriesCount,
     },
     {
       name: "Spaces and Inventory",
-      href: "/spaces",
+      href: "/app/spaces",
       icon: Building2,
     },
     {
       name: "Live Schedule",
-      href: "/bookings",
+      href: "/app/bookings",
       icon: CalendarCheck2,
       badge: "4 today",
     },
     {
       name: "Members Directory",
-      href: "/members",
+      href: "/app/members",
       icon: UserCheck,
     },
     {
       name: "Invoices and Billing",
-      href: "/billing",
+      href: "/app/billing",
       icon: Receipt,
     },
   ];
@@ -74,7 +74,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const NAV_SETTINGS: NavItem[] = [
     {
       name: "Campuses & Settings",
-      href: "/settings",
+      href: "/app/settings",
       icon: Settings,
     },
   ];
