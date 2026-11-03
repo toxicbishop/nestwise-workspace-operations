@@ -187,7 +187,7 @@ export function LeadsTable({
           <table className="w-full text-left border-collapse" aria-label="Leads list">
             <thead>
               <tr className="border-b border-gray-200 bg-paper text-[10px] font-bold text-charcoal-700 uppercase tracking-[0.08em]" data-ui="ui-frame">
-                <th className="py-3 px-4">
+                <th className="py-3 px-3">
                   <button
                     type="button"
                     onClick={() => toggleSort("name")}
@@ -197,10 +197,10 @@ export function LeadsTable({
                     <ArrowUpDown className="w-3 h-3" />
                   </button>
                 </th>
-                <th className="py-3 px-4">Status</th>
-                <th className="py-3 px-4">Plan & Location</th>
-                <th className="py-3 px-4">Assigned To</th>
-                <th className="py-3 px-4">
+                <th className="py-3 px-3">Status</th>
+                <th className="py-3 px-3">Plan & Location</th>
+                <th className="hidden 2xl:table-cell py-3 px-3">Assigned To</th>
+                <th className="py-3 px-3">
                   <button
                     type="button"
                     onClick={() => toggleSort("createdAt")}
@@ -217,7 +217,7 @@ export function LeadsTable({
               {filteredLeads.map((lead) => (
                 <tr key={lead.id} className="hover:bg-paper-dim/70 transition-colors">
                   {/* Prospect & Contact */}
-                  <td className="py-3.5 px-4">
+                  <td className="py-3.5 px-3">
                     <div className="font-semibold text-gray-900">{lead.name}</div>
                     {lead.company && (
                       <div className="text-[11px] text-gray-500 flex items-center gap-1 mt-0.5">
@@ -230,7 +230,7 @@ export function LeadsTable({
                         )}
                       </div>
                     )}
-                    <div className="text-[11px] text-gray-500 flex items-center gap-2 mt-1">
+                    <div className="text-[11px] text-gray-500 flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1">
                       {lead.email && (
                         <span className="flex items-center gap-1">
                           <Mail className="w-3 h-3 text-gray-400" />
@@ -247,7 +247,7 @@ export function LeadsTable({
                   </td>
 
                   {/* Status Dropdown */}
-                  <td className="py-3.5 px-4">
+                  <td className="py-3.5 px-3">
                     <div className="flex items-center gap-2">
                       <StatusBadge status={lead.status} />
                       <label htmlFor={`status-select-${lead.id}`} className="sr-only">
@@ -274,13 +274,13 @@ export function LeadsTable({
                   </td>
 
                   {/* Plan & Location */}
-                  <td className="py-3.5 px-4">
+                  <td className="py-3.5 px-3">
                     <div className="font-medium text-gray-900">{lead.interestedPlan}</div>
                     <div className="text-[11px] text-gray-500 mt-0.5">{lead.preferredLocation}</div>
                   </td>
 
                   {/* Assigned Owner */}
-                  <td className="py-3.5 px-4">
+                  <td className="hidden 2xl:table-cell py-3.5 px-3">
                     <span className="inline-flex items-center gap-1.5 text-gray-700">
                       <span className="w-2 h-2 rounded-full bg-emerald-600/40" />
                       {lead.assignedTo}

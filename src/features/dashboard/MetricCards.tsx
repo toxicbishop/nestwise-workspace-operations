@@ -24,7 +24,7 @@ export function MetricCards({ metrics }: MetricCardsProps) {
             </span>
             <span className="text-xs font-semibold text-charcoal-700">Active Members</span>
           </div>
-          <span className="inline-flex items-center gap-0.5 tabular-nums text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200/60">
+          <span className="inline-flex items-center gap-0.5 whitespace-nowrap tabular-nums text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200/60">
             <ArrowUpRight className="w-2.5 h-2.5" />
             +8 this mo
           </span>
@@ -46,7 +46,7 @@ export function MetricCards({ metrics }: MetricCardsProps) {
             </span>
             <span className="text-xs font-semibold text-charcoal-700">Occupancy Rate</span>
           </div>
-          <span className="inline-flex items-center gap-0.5 tabular-nums text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-ember-soft text-ember-deep ring-1 ring-ember/25">
+          <span className="inline-flex items-center gap-0.5 whitespace-nowrap tabular-nums text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-ember-soft text-ember-deep ring-1 ring-ember/25">
             <TrendingUp className="w-2.5 h-2.5" />
             88.4%
           </span>
@@ -71,7 +71,7 @@ export function MetricCards({ metrics }: MetricCardsProps) {
             </span>
             <span className="text-xs font-semibold text-charcoal-700">Tours Today</span>
           </div>
-          <span className="tabular-nums text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-[#f0efec] text-charcoal-800 ring-1 ring-black/[0.06]">
+          <span className="whitespace-nowrap tabular-nums text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-[#f0efec] text-charcoal-800 ring-1 ring-black/[0.06]">
             {metrics.toursScheduledThisWeek} pending
           </span>
         </div>
@@ -92,7 +92,7 @@ export function MetricCards({ metrics }: MetricCardsProps) {
             </span>
             <span className="text-xs font-semibold text-charcoal-700">Recognized MRR</span>
           </div>
-          <span className="tabular-nums text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200/60">
+          <span className="whitespace-nowrap tabular-nums text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200/60">
             98.2% coll.
           </span>
         </div>
