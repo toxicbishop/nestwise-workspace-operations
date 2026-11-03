@@ -48,17 +48,26 @@ function DashboardPage() {
   };
 
   const currentHubName =
-    selectedLocation === "All" ? "Spitalfields Hub" : selectedLocation;
+    selectedLocation === "All" ? "All Campus Network" : selectedLocation;
+
+  const todayLabel = new Date().toLocaleDateString("en-IN", {
+    weekday: "long",
+    day: "numeric",
+    month: "short",
+  });
 
   return (
     <div className="space-y-6">
-      {/* 1. Canvas Header matching design preview */}
+      {/* 1. Canvas Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#141414]">
+          <span className="text-[10px] font-bold text-charcoal-700 tracking-[0.14em] uppercase">
+            Operations · Overview
+          </span>
+          <h1 className="text-xl sm:text-2xl font-display font-bold tracking-tight text-charcoal-950 mt-0.5">
             {currentHubName}: Today&apos;s Operations
           </h1>
-          <p className="text-xs text-[#575757] mt-1">
+          <p className="text-xs text-charcoal-700 mt-1">
             Real-time workspace capacity, tour walkthroughs, and active prospect conversion.
           </p>
         </div>
@@ -66,15 +75,15 @@ function DashboardPage() {
         <div className="flex items-center gap-2.5">
           <Link
             to="/app/bookings"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#141414] bg-white hover:bg-[#f0efed] border border-[#dedcd8] px-3.5 py-2 rounded-md transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-charcoal-950 bg-white hover:bg-paper-dim border border-[#dedcd8] px-3.5 py-2 rounded-lg shadow-[0_1px_2px_rgba(17,17,17,0.04)] hover:border-[#c9c7c3] transition-colors"
           >
-            <Calendar className="w-3.5 h-3.5 text-[#575757]" />
+            <Calendar className="w-3.5 h-3.5 text-charcoal-700" />
             <span>Schedule Tour</span>
           </Link>
           <button
             type="button"
             onClick={handleOpenNewLead}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#e85d3a] hover:bg-[#d14a2c] px-3.5 py-2 rounded-md transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-ember hover:bg-ember-deep px-3.5 py-2 rounded-lg shadow-[0_2px_8px_rgba(232,93,58,0.3)] hover:shadow-[0_3px_12px_rgba(232,93,58,0.4)] transition-all"
           >
             <Plus className="w-4 h-4" />
             <span>Create Booking</span>
@@ -83,13 +92,18 @@ function DashboardPage() {
       </div>
 
       {/* 2. Daily Pulse Finding Strip */}
-      <div className="bg-white border border-[#dedcd8] border-l-4 border-l-[#1c1c1c] rounded-lg px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
-        <div className="text-[#141414]">
-          <strong className="font-semibold text-[#1c1c1c]">Daily Pulse:</strong>{" "}
-          3 prospect tours scheduled today; Studio 4B lease renewed by Arbor Design Ltd; 2 invoices due for collection.
+      <div className="bg-charcoal-900 rounded-xl px-4 sm:px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs shadow-[0_2px_12px_rgba(17,17,17,0.15)]">
+        <div className="text-white/90 flex items-center gap-2.5 min-w-0">
+          <span className="w-6 h-6 rounded-md bg-ember flex items-center justify-center shrink-0">
+            <Calendar className="w-3.5 h-3.5 text-white" />
+          </span>
+          <span className="truncate">
+            <strong className="font-semibold text-white">Daily Pulse:</strong>{" "}
+            3 prospect tours scheduled today; Studio 4B lease renewed by Arbor Design Ltd; 2 invoices due for collection.
+          </span>
         </div>
-        <div className="text-[#575757] text-[11px] shrink-0 font-medium">
-          <span className="tabular-nums">Updated 10:42 AM</span> · <span>Staff on duty: 4</span>
+        <div className="text-white/60 text-[11px] shrink-0 font-medium">
+          <span suppressHydrationWarning className="tabular-nums">{todayLabel}</span> · <span>Staff on duty: 4</span>
         </div>
       </div>
 
