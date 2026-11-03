@@ -126,7 +126,7 @@ function DashboardPage() {
                 </span>
               </div>
               <div className="flex items-center gap-3 text-xs">
-                <span className="text-[#575757]">Wednesday, 21 Oct</span>
+                <span suppressHydrationWarning className="text-charcoal-700">{todayLabel}</span>
                 <Link
                   to="/app/spaces"
                   className="px-2.5 py-1 text-xs font-medium text-[#141414] bg-white border border-[#dedcd8] rounded hover:bg-[#f0efed] transition-colors"
@@ -383,10 +383,10 @@ function DashboardPage() {
                 <tbody className="divide-y divide-[#e8e7e5]" data-ui="ui-list">
                   <tr>
                     <td className="py-2.5">
-                      <div className="font-bold text-[#141414]">Helios Robotics</div>
-                      <div className="text-[11px] text-[#575757]">Inv #WN-1048</div>
+                      <div className="font-bold text-charcoal-950">Helios Robotics</div>
+                      <div className="text-[11px] text-charcoal-700">Inv #WN-1048</div>
                     </td>
-                    <td className="py-2.5 font-semibold text-[#141414] tabular-nums">$4,200</td>
+                    <td className="py-2.5 font-semibold text-charcoal-950 tabular-nums">₹42,000</td>
                     <td className="py-2.5 text-right">
                       <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#FAECEC] text-[#7C1E1E]">
                         Due Today
@@ -395,22 +395,22 @@ function DashboardPage() {
                   </tr>
                   <tr>
                     <td className="py-2.5">
-                      <div className="font-bold text-[#141414]">Koto Studio</div>
-                      <div className="text-[11px] text-[#575757]">Inv #WN-1051</div>
+                      <div className="font-bold text-charcoal-950">Koto Studio</div>
+                      <div className="text-[11px] text-charcoal-700">Inv #WN-1051</div>
                     </td>
-                    <td className="py-2.5 font-semibold text-[#141414] tabular-nums">$1,850</td>
+                    <td className="py-2.5 font-semibold text-charcoal-950 tabular-nums">₹18,500</td>
                     <td className="py-2.5 text-right">
                       <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#FAF0DF] text-[#6E3F08]">
-                        Pending ACH
+                        Pending NEFT
                       </span>
                     </td>
                   </tr>
                   <tr>
                     <td className="py-2.5">
-                      <div className="font-bold text-[#141414]">Arbor Design Ltd</div>
-                      <div className="text-[11px] text-[#575757]">Contract Renewal</div>
+                      <div className="font-bold text-charcoal-950">Arbor Design Ltd</div>
+                      <div className="text-[11px] text-charcoal-700">Contract Renewal</div>
                     </td>
-                    <td className="py-2.5 font-semibold text-[#141414] tabular-nums">$6,400/m</td>
+                    <td className="py-2.5 font-semibold text-charcoal-950 tabular-nums">₹64,000/m</td>
                     <td className="py-2.5 text-right">
                       <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#E4F4EC] text-[#144D33]">
                         Renewed
