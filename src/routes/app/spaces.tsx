@@ -10,7 +10,7 @@ function SpacesPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1a1a1a]">
+        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-charcoal-950">
           Spaces & Inventory
         </h1>
         <p className="text-xs text-neutral-500 mt-1">

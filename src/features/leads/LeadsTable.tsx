@@ -99,9 +99,9 @@ export function LeadsTable({
   };
 
   return (
-    <div className="bg-white rounded-xl border border-[#E5E7EB]  overflow-hidden">
+    <div className="bg-white rounded-xl border border-[#e5e3df]  overflow-hidden">
       {/* Search and Filters Header */}
-      <div className="p-4 sm:p-5 border-b border-[#E5E7EB] space-y-3" data-ui="ui-frame">
+      <div className="p-4 sm:p-5 border-b border-[#e5e3df] space-y-3" data-ui="ui-frame">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
           {/* Search box */}
           <div className="relative flex-1 max-w-md">
@@ -111,7 +111,7 @@ export function LeadsTable({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by prospect name, email, or company..."
-              className="w-full text-xs rounded-lg border border-gray-300 pl-9 pr-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
+              className="w-full text-xs rounded-lg border border-gray-300 pl-9 pr-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-ember"
             />
           </div>
 
@@ -119,7 +119,7 @@ export function LeadsTable({
             <button
               type="button"
               onClick={onOpenNewLead}
-              className="inline-flex items-center gap-1.5 bg-[#e85d3a] hover:bg-[#d14a2c] text-white text-xs font-semibold px-3.5 py-2 rounded-lg  transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
+              className="inline-flex items-center gap-1.5 bg-ember hover:bg-ember-deep text-white text-xs font-semibold px-3.5 py-2 rounded-lg  transition-colors focus:outline-hidden focus:ring-2 focus:ring-ember"
             >
               <Plus className="w-4 h-4" />
               <span>Add Lead</span>
@@ -137,7 +137,7 @@ export function LeadsTable({
             onClick={() => setSelectedStatus("All")}
             className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors shrink-0 ${
               selectedStatus === "All"
-                ? "bg-[#e85d3a] text-white"
+                ? "bg-ember text-white"
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             }`}
           >
@@ -153,7 +153,7 @@ export function LeadsTable({
                 onClick={() => setSelectedStatus(status)}
                 className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors shrink-0 ${
                   isSelected
-                    ? "bg-[#e85d3a] text-white"
+                    ? "bg-ember text-white"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                 }`}
               >
@@ -177,7 +177,7 @@ export function LeadsTable({
           <button
             type="button"
             onClick={resetFilters}
-            className="text-xs font-semibold text-[#1c1c1c] hover:underline"
+            className="text-xs font-semibold text-charcoal-950 hover:underline"
           >
             Reset active filters
           </button>
@@ -186,7 +186,7 @@ export function LeadsTable({
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse" aria-label="Leads list">
             <thead>
-              <tr className="border-b border-gray-200 bg-[#f6f5f3] text-[11px] font-semibold text-gray-600 font-semibold" data-ui="ui-frame">
+              <tr className="border-b border-gray-200 bg-paper text-[11px] font-semibold text-gray-600 font-semibold" data-ui="ui-frame">
                 <th className="py-3 px-4">
                   <button
                     type="button"
@@ -215,7 +215,7 @@ export function LeadsTable({
             </thead>
             <tbody className="divide-y divide-gray-100 text-xs text-gray-700" data-ui="ui-list">
               {filteredLeads.map((lead) => (
-                <tr key={lead.id} className="hover:bg-gray-50/80 transition-colors">
+                <tr key={lead.id} className="hover:bg-paper-dim/70 transition-colors">
                   {/* Prospect & Contact */}
                   <td className="py-3.5 px-4">
                     <div className="font-semibold text-gray-900">{lead.name}</div>
@@ -338,7 +338,7 @@ export function LeadsTable({
       )}
 
       {/* Table Footer */}
-      <div className="p-3 bg-[#f6f5f3] border-t border-[#E5E7EB] text-xs text-gray-500 flex items-center justify-between" data-ui="ui-frame">
+      <div className="p-3 bg-paper border-t border-[#e5e3df] text-xs text-gray-500 flex items-center justify-between" data-ui="ui-frame">
         <span>
           Showing <strong>{filteredLeads.length}</strong> of <strong>{leads.length}</strong> leads
         </span>

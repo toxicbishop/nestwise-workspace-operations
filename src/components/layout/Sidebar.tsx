@@ -146,7 +146,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       <aside
         data-ui="sidebar"
         className={cn(
-          "fixed top-0 bottom-0 left-0 z-50 w-[252px] bg-paper border-r border-[#dedcd8] text-charcoal-950 flex flex-col transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:z-auto select-none",
+          "fixed top-0 bottom-0 left-0 z-50 w-[252px] bg-paper border-r border-[#e5e3df] text-charcoal-950 flex flex-col transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:z-auto select-none",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
         aria-label="Main Navigation"

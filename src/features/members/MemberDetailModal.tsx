@@ -71,16 +71,16 @@ export function MemberDetailModal({
     >
       <div className="bg-white rounded-xl shadow-xl max-w-xl w-full border border-gray-200 overflow-hidden" data-ui="overlay">
         {/* Modal Header */}
-        <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-[#f6f5f3]" data-ui="ui-frame">
+        <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper" data-ui="ui-frame">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#e85d3a] text-white flex items-center justify-center font-bold text-sm">
+            <div className="w-10 h-10 rounded-full bg-ember text-white flex items-center justify-center font-bold text-sm">
               {member.name.split(" ").map((n) => n[0]).join("")}
             </div>
             <div>
-              <h2 id="member-detail-title" className="text-sm font-semibold text-[#1a1a1a]">
+              <h2 id="member-detail-title" className="text-sm font-semibold text-charcoal-950">
                 {member.name}
               </h2>
-              <p className="text-xs text-[#5A6860]">
+              <p className="text-xs text-charcoal-700">
                 {member.title ? `${member.title} • ` : ""}{member.company || "Independent Professional"}
               </p>
             </div>
@@ -99,28 +99,28 @@ export function MemberDetailModal({
           {/* Contact & Branch Grid */}
           <div className="grid grid-cols-2 gap-4 text-xs bg-gray-50/70 p-4 rounded-lg border border-gray-100">
             <div>
-              <span className="text-[#5A6860] block font-medium">Email Address</span>
+              <span className="text-charcoal-700 block font-medium">Email Address</span>
               <span className="text-gray-900 font-medium flex items-center gap-1.5 mt-0.5">
                 <Mail className="w-3.5 h-3.5 text-gray-400" />
                 {member.email}
               </span>
             </div>
             <div>
-              <span className="text-[#5A6860] block font-medium">Phone Number</span>
+              <span className="text-charcoal-700 block font-medium">Phone Number</span>
               <span className="text-gray-900 font-medium flex items-center gap-1.5 mt-0.5">
                 <Phone className="w-3.5 h-3.5 text-gray-400" />
                 {member.phone}
               </span>
             </div>
             <div>
-              <span className="text-[#5A6860] block font-medium">Home Branch Location</span>
+              <span className="text-charcoal-700 block font-medium">Home Branch Location</span>
               <span className="text-gray-900 font-medium flex items-center gap-1.5 mt-0.5">
                 <Building className="w-3.5 h-3.5 text-gray-400" />
                 {member.homeLocation}
               </span>
             </div>
             <div>
-              <span className="text-[#5A6860] block font-medium">Member Since</span>
+              <span className="text-charcoal-700 block font-medium">Member Since</span>
               <span className="text-gray-900 font-medium flex items-center gap-1.5 mt-0.5">
                 <Calendar className="w-3.5 h-3.5 text-gray-400" />
                 {formatDate(member.joinedDate)}
@@ -131,8 +131,8 @@ export function MemberDetailModal({
           {/* Current Membership Contract Details */}
           <div>
             <div className="flex items-center justify-between mb-3">
-              <h3 className="text-xs font-semibold text-[#1a1a1a] font-semibold flex items-center gap-1.5">
-                <CreditCard className="w-4 h-4 text-[#1c1c1c]" />
+              <h3 className="text-xs font-semibold text-charcoal-950 font-semibold flex items-center gap-1.5">
+                <CreditCard className="w-4 h-4 text-charcoal-950" />
                 Active Membership Contract
               </h3>
               {membership && (
@@ -151,28 +151,28 @@ export function MemberDetailModal({
                 <div className="flex items-start justify-between">
                   <div>
                     <h4 className="text-sm font-semibold text-gray-900">{membership.planName}</h4>
-                    <p className="text-xs text-[#5A6860]">
+                    <p className="text-xs text-charcoal-700">
                       {membership.deskOrOfficeNumber ? `Assigned to ${membership.deskOrOfficeNumber} • ` : ""}
                       {membership.billingInterval} billing
                     </p>
                   </div>
                   <div className="text-right">
-                    <span className="text-base font-bold text-[#1a1a1a]">
+                    <span className="text-base font-bold text-charcoal-950">
                       {formatCurrency(membership.monthlyRateCents)}
                     </span>
-                    <span className="text-xs text-[#5A6860] block">/ month</span>
+                    <span className="text-xs text-charcoal-700 block">/ month</span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 text-xs pt-2 border-t border-gray-100" data-ui="ui-frame">
                   <div>
-                    <span className="text-[#5A6860]">Contract Period:</span>
+                    <span className="text-charcoal-700">Contract Period:</span>
                     <div className="font-medium text-gray-900 mt-0.5">
                       {formatDate(membership.startDate)} — {formatDate(membership.renewalDate)}
                     </div>
                   </div>
                   <div>
-                    <span className="text-[#5A6860]">Auto-Renew:</span>
+                    <span className="text-charcoal-700">Auto-Renew:</span>
                     <div className="font-medium text-gray-900 mt-0.5">
                       {membership.autoRenew ? "Enabled (Recurring)" : "Manual Review Required"}
                     </div>
@@ -180,7 +180,7 @@ export function MemberDetailModal({
                 </div>
 
                 {membership.notes && (
-                  <p className="text-xs text-[#5A6860] bg-gray-50 p-2.5 rounded-lg border border-gray-100">
+                  <p className="text-xs text-charcoal-700 bg-gray-50 p-2.5 rounded-lg border border-gray-100">
                     <strong>Contract Note:</strong> {membership.notes}
                   </p>
                 )}
@@ -194,7 +194,7 @@ export function MemberDetailModal({
                       onChange={(e) =>
                         onUpdateStatus(membership.id, e.target.value as MembershipStatus)
                       }
-                      className="px-2 py-1 border border-gray-300 rounded text-xs bg-white focus:outline-hidden focus:ring-1 focus:ring-[#e85d3a]"
+                      className="px-2 py-1 border border-gray-300 rounded text-xs bg-white focus:outline-hidden focus:ring-1 focus:ring-ember"
                     >
                       {MEMBERSHIP_STATUSES.map((st) => (
                         <option key={st} value={st}>
@@ -212,7 +212,7 @@ export function MemberDetailModal({
                       current.setMonth(current.getMonth() + 1);
                       setNewRenewalDate(current.toISOString().split("T")[0]);
                     }}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#1c1c1c] hover:underline"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-charcoal-950 hover:underline"
                   >
                     <RotateCw className="w-3.5 h-3.5" />
                     Renew Contract
@@ -252,7 +252,7 @@ export function MemberDetailModal({
                 />
                 <button
                   type="submit"
-                  className="px-3 py-1.5 bg-[#e85d3a] hover:bg-[#d14a2c] text-white rounded-lg font-medium text-xs transition-colors"
+                  className="px-3 py-1.5 bg-ember hover:bg-ember-deep text-white rounded-lg font-medium text-xs transition-colors"
                 >
                   Confirm Renewal
                 </button>

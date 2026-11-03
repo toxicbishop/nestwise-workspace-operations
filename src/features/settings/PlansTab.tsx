@@ -47,10 +47,10 @@ export function PlansTab({
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-base font-semibold text-[#1a1a1a]">
+        <h2 className="text-base font-semibold text-charcoal-950">
           Membership Plans & Pricing ({plans.length})
         </h2>
-        <p className="text-xs text-[#5A6860] mt-0.5">
+        <p className="text-xs text-charcoal-700 mt-0.5">
           Define recurring subscription tiers, monthly credits, and booking entitlements.
         </p>
       </div>
@@ -60,14 +60,14 @@ export function PlansTab({
           <div
             key={plan.id}
             className={`bg-white border rounded-xl p-5  flex flex-col justify-between transition-all ${
-              plan.isActive ? "border-[#E5E7EB]" : "border-gray-200 opacity-60 bg-gray-50/50"
+              plan.isActive ? "border-[#e5e3df]" : "border-gray-200 opacity-60 bg-gray-50/50"
             }`}
           >
             <div>
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <h3 className="text-sm font-semibold text-[#1a1a1a]">{plan.name}</h3>
-                  <span className="text-[11px] tabular-nums text-[#5A6860] uppercase">{plan.code}</span>
+                  <h3 className="text-sm font-semibold text-charcoal-950">{plan.name}</h3>
+                  <span className="text-[11px] tabular-nums text-charcoal-700 uppercase">{plan.code}</span>
                 </div>
                 <span
                   className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium ${
@@ -82,17 +82,17 @@ export function PlansTab({
 
               <div className="mt-4">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-2xl font-bold text-[#1a1a1a]">
+                  <span className="text-2xl font-bold text-charcoal-950">
                     {formatCurrency(plan.monthlyRateCents)}
                   </span>
-                  <span className="text-xs text-[#5A6860]">/ month</span>
+                  <span className="text-xs text-charcoal-700">/ month</span>
                 </div>
-                <p className="mt-2 text-xs text-[#5A6860] min-h-[36px]">
+                <p className="mt-2 text-xs text-charcoal-700 min-h-[36px]">
                   {plan.description}
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-gray-100 space-y-1.5 text-xs text-[#5A6860]" data-ui="ui-frame">
+              <div className="mt-4 pt-3 border-t border-gray-100 space-y-1.5 text-xs text-charcoal-700" data-ui="ui-frame">
                 <div className="flex items-center justify-between">
                   <span>Meeting Room Credits:</span>
                   <strong className="text-gray-800 font-medium">{plan.meetingRoomCreditsHours} hrs/mo</strong>
@@ -123,7 +123,7 @@ export function PlansTab({
               <button
                 type="button"
                 onClick={() => openEdit(plan)}
-                className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-[#1c1c1c] hover:bg-[#1c1c1c]/10 rounded-md transition-colors"
+                className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-charcoal-950 hover:bg-charcoal-900/10 rounded-md transition-colors"
               >
                 <Edit2 className="w-3.5 h-3.5" />
                 Edit Plan
@@ -142,10 +142,10 @@ export function PlansTab({
           aria-labelledby="plan-modal-title"
         >
           <div className="bg-white rounded-xl shadow-xl max-w-md w-full border border-gray-200 overflow-hidden" data-ui="overlay">
-            <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-[#f6f5f3]" data-ui="ui-frame">
+            <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper" data-ui="ui-frame">
               <div className="flex items-center gap-2">
-                <CreditCard className="w-5 h-5 text-[#1c1c1c]" />
-                <h3 id="plan-modal-title" className="text-sm font-semibold text-[#1a1a1a]">
+                <CreditCard className="w-5 h-5 text-charcoal-950" />
+                <h3 id="plan-modal-title" className="text-sm font-semibold text-charcoal-950">
                   Edit Plan: {editingPlan.name}
                 </h3>
               </div>
@@ -161,7 +161,7 @@ export function PlansTab({
 
             <form onSubmit={handleSave} className="p-6 space-y-4">
               <div>
-                <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                <label className="block text-xs font-medium text-charcoal-950 mb-1">
                   Monthly Rate (INR ₹) *
                 </label>
                 <input
@@ -171,12 +171,12 @@ export function PlansTab({
                   required
                   value={monthlyRateDollars}
                   onChange={(e) => setMonthlyRateDollars(Number(e.target.value))}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                <label className="block text-xs font-medium text-charcoal-950 mb-1">
                   Meeting Room Credits (Hours/mo)
                 </label>
                 <input
@@ -184,12 +184,12 @@ export function PlansTab({
                   min="0"
                   value={meetingCredits}
                   onChange={(e) => setMeetingCredits(Number(e.target.value))}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                <label className="block text-xs font-medium text-charcoal-950 mb-1">
                   Monthly Printing Allowance (Pages)
                 </label>
                 <input
@@ -197,19 +197,19 @@ export function PlansTab({
                   min="0"
                   value={printCredits}
                   onChange={(e) => setPrintCredits(Number(e.target.value))}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                <label className="block text-xs font-medium text-charcoal-950 mb-1">
                   Public Description
                 </label>
                 <textarea
                   rows={3}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden resize-none"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden resize-none"
                 />
               </div>
 
@@ -223,7 +223,7 @@ export function PlansTab({
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-[#e85d3a] hover:bg-[#d14a2c] rounded-lg transition-colors focus:ring-2 focus:ring-[#e85d3a]"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-ember hover:bg-ember-deep rounded-lg transition-colors focus:ring-2 focus:ring-ember"
                 >
                   <Check className="w-4 h-4" />
                   Save Plan

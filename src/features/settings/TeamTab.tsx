@@ -93,28 +93,28 @@ export function TeamTab({
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-base font-semibold text-[#1a1a1a]">
+          <h2 className="text-base font-semibold text-charcoal-950">
             Team Members & Roles ({staff.length})
           </h2>
-          <p className="text-xs text-[#5A6860] mt-0.5">
+          <p className="text-xs text-charcoal-700 mt-0.5">
             Manage staff accounts, administrative roles, and branch assignment permissions.
           </p>
         </div>
         <button
           type="button"
           onClick={openAdd}
-          className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-medium rounded-lg text-white bg-[#e85d3a] hover:bg-[#d14a2c] transition-colors focus:ring-2 focus:ring-[#e85d3a]"
+          className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-medium rounded-lg text-white bg-ember hover:bg-ember-deep transition-colors focus:ring-2 focus:ring-ember"
         >
           <Plus className="w-4 h-4" />
           Invite Staff Member
         </button>
       </div>
 
-      <div className="bg-white border border-[#E5E7EB] rounded-xl overflow-hidden ">
+      <div className="bg-white border border-[#e5e3df] rounded-xl overflow-hidden ">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs">
             <thead>
-              <tr className="bg-[#f6f5f3] border-b border-[#E5E7EB] text-[#5A6860] font-medium" data-ui="ui-frame">
+              <tr className="bg-paper border-b border-[#e5e3df] text-charcoal-700 font-medium" data-ui="ui-frame">
                 <th scope="col" className="px-5 py-3.5">Staff Member</th>
                 <th scope="col" className="px-5 py-3.5">System Role</th>
                 <th scope="col" className="px-5 py-3.5">Assigned Location</th>
@@ -122,13 +122,13 @@ export function TeamTab({
                 <th scope="col" className="px-5 py-3.5 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100 text-[#1a1a1a]" data-ui="ui-list">
+            <tbody className="divide-y divide-gray-100 text-charcoal-950" data-ui="ui-list">
               {staff.map((member) => (
-                <tr key={member.id} className="hover:bg-gray-50/70 transition-colors">
+                <tr key={member.id} className="hover:bg-paper-dim/70 transition-colors">
                   <td className="px-5 py-3.5">
                     <div>
-                      <div className="font-medium text-[#1a1a1a]">{member.name}</div>
-                      <div className="text-[11px] text-[#5A6860] flex items-center gap-1 mt-0.5">
+                      <div className="font-medium text-charcoal-950">{member.name}</div>
+                      <div className="text-[11px] text-charcoal-700 flex items-center gap-1 mt-0.5">
                         <Mail className="w-3 h-3 text-gray-400" />
                         {member.email}
                       </div>
@@ -141,7 +141,7 @@ export function TeamTab({
                     </span>
                   </td>
                   <td className="px-5 py-3.5">
-                    <span className="inline-flex items-center gap-1 text-[#5A6860]">
+                    <span className="inline-flex items-center gap-1 text-charcoal-700">
                       <MapPin className="w-3.5 h-3.5 text-gray-400" />
                       {member.assignedLocations.join(", ")}
                     </span>
@@ -195,10 +195,10 @@ export function TeamTab({
           aria-labelledby="team-modal-title"
         >
           <div className="bg-white rounded-xl shadow-xl max-w-md w-full border border-gray-200 overflow-hidden" data-ui="overlay">
-            <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-[#f6f5f3]" data-ui="ui-frame">
+            <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper" data-ui="ui-frame">
               <div className="flex items-center gap-2">
-                <Users2 className="w-5 h-5 text-[#1c1c1c]" />
-                <h3 id="team-modal-title" className="text-sm font-semibold text-[#1a1a1a]">
+                <Users2 className="w-5 h-5 text-charcoal-950" />
+                <h3 id="team-modal-title" className="text-sm font-semibold text-charcoal-950">
                   {editingStaff ? `Edit: ${editingStaff.name}` : "Invite Staff Member"}
                 </h3>
               </div>
@@ -221,7 +221,7 @@ export function TeamTab({
               )}
 
               <div>
-                <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                <label className="block text-xs font-medium text-charcoal-950 mb-1">
                   Full Name *
                 </label>
                 <input
@@ -230,12 +230,12 @@ export function TeamTab({
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Kabir Chowdhury"
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                <label className="block text-xs font-medium text-charcoal-950 mb-1">
                   Email Address *
                 </label>
                 <input
@@ -244,18 +244,18 @@ export function TeamTab({
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@worknest.co"
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                <label className="block text-xs font-medium text-charcoal-950 mb-1">
                   Role & Permissions
                 </label>
                 <select
                   value={role}
                   onChange={(e) => setRole(e.target.value as StaffMember["role"])}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden bg-white"
                 >
                   <option value="Community Manager">Community Manager (Operations & Tours)</option>
                   <option value="Sales Lead">Sales Lead (Prospect Qualification & Deals)</option>
@@ -265,13 +265,13 @@ export function TeamTab({
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                <label className="block text-xs font-medium text-charcoal-950 mb-1">
                   Primary Location Scope
                 </label>
                 <select
                   value={assignedLocation}
                   onChange={(e) => setAssignedLocation(e.target.value)}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden bg-white"
                 >
                   <option value="All">All Network Locations</option>
                   {locations.map((loc) => (
@@ -283,13 +283,13 @@ export function TeamTab({
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                <label className="block text-xs font-medium text-charcoal-950 mb-1">
                   Status
                 </label>
                 <select
                   value={status}
                   onChange={(e) => setStatus(e.target.value as StaffMember["status"])}
-                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
+                  className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden bg-white"
                 >
                   <option value="Active">Active</option>
                   <option value="Invited">Invited (Pending Confirmation)</option>
@@ -307,7 +307,7 @@ export function TeamTab({
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-[#e85d3a] hover:bg-[#d14a2c] rounded-lg transition-colors focus:ring-2 focus:ring-[#e85d3a]"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-ember hover:bg-ember-deep rounded-lg transition-colors focus:ring-2 focus:ring-ember"
                 >
                   <Check className="w-4 h-4" />
                   {editingStaff ? "Save Member" : "Send Invite"}

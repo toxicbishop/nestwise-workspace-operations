@@ -47,7 +47,7 @@ function LeadsPage() {
         <div>
           <div className="flex items-center gap-2">
             <Users2 className="w-5 h-5 text-emerald-800" />
-            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1a1a1a]">
+            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-charcoal-950">
               Leads & Opportunity Pipeline
             </h1>
           </div>
@@ -59,7 +59,7 @@ function LeadsPage() {
         <button
           type="button"
           onClick={handleOpenNewLead}
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#e85d3a] hover:bg-[#d14a2c] px-3.5 py-2 rounded-lg transition-colors "
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-ember hover:bg-ember-deep px-3.5 py-2 rounded-lg transition-colors "
         >
           <Plus className="w-4 h-4" />
           <span>New Lead Inquiry</span>
