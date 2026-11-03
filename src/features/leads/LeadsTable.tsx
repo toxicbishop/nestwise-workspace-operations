@@ -253,21 +253,25 @@ export function LeadsTable({
                   <td className="py-3.5 px-3">
                     <div className="flex items-center gap-2">
                       <StatusBadge status={lead.status} />
-                      <label htmlFor={`status-select-${lead.id}`} className="sr-only">
-                        Change status for {lead.name}
-                      </label>
-                      <select
-                        id={`status-select-${lead.id}`}
-                        value={lead.status}
-                        onChange={(e) => onStatusChange(lead.id, e.target.value as LeadStatus)}
-                        className="text-[11px] border border-gray-200 rounded px-1.5 py-1 text-gray-700 bg-white hover:border-gray-400 focus:outline-hidden cursor-pointer"
-                      >
-                        <option value="New">Move to New</option>
-                        <option value="Contacted">Move to Contacted</option>
-                        <option value="Tour Booked">Move to Tour Booked</option>
-                        <option value="Converted">Move to Converted</option>
-                        <option value="Lost">Move to Lost</option>
-                      </select>
+                      {!condensed && (
+                        <>
+                          <label htmlFor={`status-select-${lead.id}`} className="sr-only">
+                            Change status for {lead.name}
+                          </label>
+                          <select
+                            id={`status-select-${lead.id}`}
+                            value={lead.status}
+                            onChange={(e) => onStatusChange(lead.id, e.target.value as LeadStatus)}
+                            className="text-[11px] border border-gray-200 rounded px-1.5 py-1 text-gray-700 bg-white hover:border-gray-400 focus:outline-hidden cursor-pointer"
+                          >
+                            <option value="New">Move to New</option>
+                            <option value="Contacted">Move to Contacted</option>
+                            <option value="Tour Booked">Move to Tour Booked</option>
+                            <option value="Converted">Move to Converted</option>
+                            <option value="Lost">Move to Lost</option>
+                          </select>
+                        </>
+                      )}
                     </div>
                     {lead.status === "Lost" && lead.lostReason && (
                       <p className="text-[10px] text-rose-600 italic mt-1 max-w-xs truncate">
