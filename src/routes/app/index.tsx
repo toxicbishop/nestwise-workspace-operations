@@ -312,6 +312,7 @@ function DashboardPage() {
               onConvertLead={handleConvertLead}
               onOpenNewLead={handleOpenNewLead}
               selectedLocationFilter={selectedLocation}
+              condensed
             />
           </section>
         </div>
