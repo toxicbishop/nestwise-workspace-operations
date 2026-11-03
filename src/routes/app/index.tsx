@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import React, { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Plus, Calendar } from "lucide-react";
+import { Plus, Calendar, Users2, Clock, Receipt } from "lucide-react";
 import { useWorkNest, NewLeadData } from "@/context/WorkNestContext";
 import { MetricCards } from "@/features/dashboard/MetricCards";
 import { LeadsTable } from "@/features/leads/LeadsTable";
@@ -321,9 +321,14 @@ function DashboardPage() {
           {/* 1. Scheduled Walkthroughs */}
           <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)]">
             <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
-              <span className="font-bold text-[15px] text-charcoal-950">
-                Scheduled Walkthroughs
-              </span>
+              <div className="flex items-center gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-[#1B455C] flex items-center justify-center shrink-0">
+                  <Clock className="w-3.5 h-3.5 text-white" />
+                </span>
+                <span className="font-display font-bold text-[15px] text-charcoal-950">
+                  Scheduled Walkthroughs
+                </span>
+              </div>
               <span className="tabular-nums text-xs font-semibold text-charcoal-700">
                 3 remaining
               </span>
@@ -371,9 +376,14 @@ function DashboardPage() {
           {/* 2. Billing and Renewals Due */}
           <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)]">
             <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
-              <span className="font-bold text-[15px] text-charcoal-950">
-                Billing and Renewals Due
-              </span>
+              <div className="flex items-center gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-emerald-700 flex items-center justify-center shrink-0">
+                  <Receipt className="w-3.5 h-3.5 text-white" />
+                </span>
+                <span className="font-display font-bold text-[15px] text-charcoal-950">
+                  Billing and Renewals Due
+                </span>
+              </div>
               <span className="tabular-nums text-[11px] font-semibold px-2 py-0.5 rounded bg-[#FAECEC] text-[#7C1E1E]">
                 2 Due
               </span>
