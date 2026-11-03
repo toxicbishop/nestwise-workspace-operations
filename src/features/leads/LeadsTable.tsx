@@ -203,7 +203,7 @@ export function LeadsTable({
                 <th className="py-3 px-3">Status</th>
                 <th className={condensed ? "hidden" : "py-3 px-3"}>Plan & Location</th>
                 <th className="hidden 2xl:table-cell py-3 px-3">Assigned To</th>
-                <th className="py-3 px-3">
+                <th className={condensed ? "hidden" : "py-3 px-3"}>
                   <button
                     type="button"
                     onClick={() => toggleSort("createdAt")}
@@ -213,7 +213,7 @@ export function LeadsTable({
                     <ArrowUpDown className="w-3 h-3" />
                   </button>
                 </th>
-                <th className="py-3 px-4 text-right">Actions</th>
+                <th className="py-3 px-3 text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 text-xs text-gray-700" data-ui="ui-list">
@@ -227,7 +227,7 @@ export function LeadsTable({
                         <Building className="w-3 h-3 text-gray-400" />
                         <span>{lead.company}</span>
                         {lead.teamSize && lead.teamSize > 1 && (
-                          <span className="text-[10px] bg-gray-100 px-1.5 py-0.2 rounded text-gray-600">
+                          <span className="whitespace-nowrap text-[10px] bg-gray-100 px-1.5 py-0.2 rounded text-gray-600">
                             {lead.teamSize} people
                           </span>
                         )}
@@ -291,12 +291,12 @@ export function LeadsTable({
                   </td>
 
                   {/* Date Created */}
-                  <td className="py-3.5 px-4 text-gray-500 whitespace-nowrap">
+                  <td className={condensed ? "hidden" : "py-3.5 px-3 text-gray-500 whitespace-nowrap"}>
                     {formatDate(lead.createdAt)}
                   </td>
 
                   {/* Actions */}
-                  <td className="py-3.5 px-4 text-right whitespace-nowrap">
+                  <td className="py-3.5 px-3 text-right whitespace-nowrap">
                     <div className="flex items-center justify-end gap-1.5">
                       {lead.status !== "Converted" && (
                         <button
