@@ -135,7 +135,7 @@ export function InvoiceDetailModal({
           {/* Invoice Header */}
           <div className="flex items-start justify-between border-b border-neutral-200 pb-6" data-ui="ui-frame">
             <div>
-              <div className="flex items-center gap-2 text-[#1c1c1c] font-bold text-lg mb-1">
+              <div className="flex items-center gap-2 text-charcoal-950 font-bold text-lg mb-1">
                 <Receipt className="w-5 h-5" />
                 <span>WorkNest Coworking</span>
               </div>
@@ -152,7 +152,7 @@ export function InvoiceDetailModal({
               <h1 id="invoice-detail-title" className="text-xl font-bold tracking-tight text-neutral-900">
                 TAX INVOICE
               </h1>
-              <div className="text-sm font-semibold text-[#1c1c1c] mt-1">
+              <div className="text-sm font-semibold text-charcoal-950 mt-1">
                 {invoice.invoiceNumber}
               </div>
               <div className="text-[11px] text-neutral-500 mt-1">
@@ -247,7 +247,7 @@ export function InvoiceDetailModal({
               </div>
               <div className="flex justify-between text-sm font-bold text-neutral-900 pt-2 border-t border-neutral-200" data-ui="ui-frame">
                 <span>Total Amount:</span>
-                <span className="text-[#1c1c1c]">
+                <span className="text-charcoal-950">
                   {formatCurrency(invoice.totalAmountCents, "INR")}
                 </span>
               </div>
@@ -329,7 +329,7 @@ export function InvoiceDetailModal({
             {balanceDueCents > 0 && invoice.status !== "Void" && (
               <button
                 onClick={handleSendReminderClick}
-                className="text-neutral-600 hover:text-[#1c1c1c] font-medium flex items-center gap-1 transition-colors ml-3"
+                className="text-neutral-600 hover:text-charcoal-950 font-medium flex items-center gap-1 transition-colors ml-3"
               >
                 <Send className="w-3.5 h-3.5" />
                 Send Overdue Reminder

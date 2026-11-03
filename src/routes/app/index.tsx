@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import React, { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Plus, Calendar } from "lucide-react";
+import { Plus, Calendar, Users2, Clock, Receipt } from "lucide-react";
 import { useWorkNest, NewLeadData } from "@/context/WorkNestContext";
 import { MetricCards } from "@/features/dashboard/MetricCards";
 import { LeadsTable } from "@/features/leads/LeadsTable";
@@ -48,17 +48,26 @@ function DashboardPage() {
   };
 
   const currentHubName =
-    selectedLocation === "All" ? "Spitalfields Hub" : selectedLocation;
+    selectedLocation === "All" ? "All Campus Network" : selectedLocation;
+
+  const todayLabel = new Date().toLocaleDateString("en-IN", {
+    weekday: "long",
+    day: "numeric",
+    month: "short",
+  });
 
   return (
     <div className="space-y-6">
-      {/* 1. Canvas Header matching design preview */}
+      {/* 1. Canvas Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#141414]">
+          <span className="text-[10px] font-bold text-charcoal-700 tracking-[0.14em] uppercase">
+            Operations · Overview
+          </span>
+          <h1 className="text-xl sm:text-2xl font-display font-bold tracking-tight text-charcoal-950 mt-0.5">
             {currentHubName}: Today&apos;s Operations
           </h1>
-          <p className="text-xs text-[#575757] mt-1">
+          <p className="text-xs text-charcoal-700 mt-1">
             Real-time workspace capacity, tour walkthroughs, and active prospect conversion.
           </p>
         </div>
@@ -66,15 +75,15 @@ function DashboardPage() {
         <div className="flex items-center gap-2.5">
           <Link
             to="/app/bookings"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#141414] bg-white hover:bg-[#f0efed] border border-[#dedcd8] px-3.5 py-2 rounded-md transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-charcoal-950 bg-white hover:bg-paper-dim border border-[#e5e3df] px-3.5 py-2 rounded-lg shadow-[0_1px_2px_rgba(17,17,17,0.04)] hover:border-[#c9c7c3] transition-colors"
           >
-            <Calendar className="w-3.5 h-3.5 text-[#575757]" />
+            <Calendar className="w-3.5 h-3.5 text-charcoal-700" />
             <span>Schedule Tour</span>
           </Link>
           <button
             type="button"
             onClick={handleOpenNewLead}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#e85d3a] hover:bg-[#d14a2c] px-3.5 py-2 rounded-md transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-ember hover:bg-ember-deep px-3.5 py-2 rounded-lg shadow-[0_2px_8px_rgba(232,93,58,0.3)] hover:shadow-[0_3px_12px_rgba(232,93,58,0.4)] transition-all"
           >
             <Plus className="w-4 h-4" />
             <span>Create Booking</span>
@@ -83,13 +92,18 @@ function DashboardPage() {
       </div>
 
       {/* 2. Daily Pulse Finding Strip */}
-      <div className="bg-white border border-[#dedcd8] border-l-4 border-l-[#1c1c1c] rounded-lg px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
-        <div className="text-[#141414]">
-          <strong className="font-semibold text-[#1c1c1c]">Daily Pulse:</strong>{" "}
-          3 prospect tours scheduled today; Studio 4B lease renewed by Arbor Design Ltd; 2 invoices due for collection.
+      <div className="bg-charcoal-900 rounded-xl px-4 sm:px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs shadow-[0_2px_12px_rgba(17,17,17,0.15)]">
+        <div className="text-white/90 flex items-center gap-2.5 min-w-0">
+          <span className="w-6 h-6 rounded-md bg-ember flex items-center justify-center shrink-0">
+            <Calendar className="w-3.5 h-3.5 text-white" />
+          </span>
+          <span className="truncate">
+            <strong className="font-semibold text-white">Daily Pulse:</strong>{" "}
+            3 prospect tours scheduled today; Studio 4B lease renewed by Arbor Design Ltd; 2 invoices due for collection.
+          </span>
         </div>
-        <div className="text-[#575757] text-[11px] shrink-0 font-medium">
-          <span className="tabular-nums">Updated 10:42 AM</span> · <span>Staff on duty: 4</span>
+        <div className="text-white/60 text-[11px] shrink-0 font-medium">
+          <span suppressHydrationWarning className="tabular-nums">{todayLabel}</span> · <span>Staff on duty: 4</span>
         </div>
       </div>
 
@@ -101,10 +115,13 @@ function DashboardPage() {
         {/* Left Column (8 cols) */}
         <div className="lg:col-span-8 space-y-5">
           {/* Live Resource Availability and Bookings Timeline */}
-          <section className="bg-white border border-[#dedcd8] rounded-lg p-5">
-            <div className="flex items-center justify-between pb-3 border-b border-[#dedcd8]" data-ui="ui-frame">
+          <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)]">
+            <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
               <div className="flex items-center gap-2.5">
-                <span className="font-bold text-[15px] text-[#1c1c1c]">
+                <span className="w-7 h-7 rounded-lg bg-charcoal-900 flex items-center justify-center shrink-0">
+                  <Calendar className="w-3.5 h-3.5 text-white" />
+                </span>
+                <span className="font-display font-bold text-[15px] text-charcoal-950">
                   Live Resource Availability and Bookings
                 </span>
                 <span className="tabular-nums text-[11px] font-semibold px-2 py-0.5 rounded bg-[#E4F4EC] text-[#144D33]">
@@ -112,10 +129,10 @@ function DashboardPage() {
                 </span>
               </div>
               <div className="flex items-center gap-3 text-xs">
-                <span className="text-[#575757]">Wednesday, 21 Oct</span>
+                <span suppressHydrationWarning className="text-charcoal-700">{todayLabel}</span>
                 <Link
                   to="/app/spaces"
-                  className="px-2.5 py-1 text-xs font-medium text-[#141414] bg-white border border-[#dedcd8] rounded hover:bg-[#f0efed] transition-colors"
+                  className="px-2.5 py-1 text-xs font-medium text-charcoal-950 bg-white border border-[#e5e3df] rounded hover:bg-paper-dim transition-colors"
                 >
                   Filter Spaces
                 </Link>
@@ -126,8 +143,8 @@ function DashboardPage() {
             <div className="mt-4 overflow-x-auto">
               <div className="min-w-[620px]">
                 {/* Time Axis */}
-                <div className="grid grid-cols-[140px_repeat(8,1fr)] pb-2.5 border-b border-[#dedcd8] text-xs text-[#575757] text-center" data-ui="ui-frame">
-                  <span className="text-left font-bold text-[#4a4a4a]">RESOURCE</span>
+                <div className="grid grid-cols-[140px_repeat(8,1fr)] pb-2.5 border-b border-[#e5e3df] text-xs text-charcoal-700 text-center" data-ui="ui-frame">
+                  <span className="text-left font-bold text-charcoal-800">RESOURCE</span>
                   <span>09:00</span>
                   <span>10:00</span>
                   <span>11:00</span>
@@ -139,24 +156,24 @@ function DashboardPage() {
                 </div>
 
                 {/* Resource Row 1 */}
-                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#e8e7e5]" data-ui="ui-frame">
+                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#eeedeb]" data-ui="ui-frame">
                   <div className="flex flex-col leading-tight pr-2">
-                    <span className="text-xs font-semibold text-[#141414]">Boardroom Atlas</span>
-                    <span className="text-[11px] text-[#575757]">12p · Video Conf</span>
+                    <span className="text-xs font-semibold text-charcoal-950">Boardroom Atlas</span>
+                    <span className="text-[11px] text-charcoal-700">12p · Video Conf</span>
                   </div>
-                  <div className="relative h-8 bg-[#f0efed] rounded overflow-hidden grid grid-cols-8">
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
+                  <div className="relative h-8 bg-paper-dim rounded overflow-hidden grid grid-cols-8">
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
                     <div className="h-full" />
 
                     <div
                       style={{ left: "12.5%", width: "25%" }}
-                      className="absolute top-[3px] bottom-[3px] rounded bg-[#e85d3a] text-white text-[11px] font-semibold flex items-center px-2.5 truncate"
+                      className="absolute top-[3px] bottom-[3px] rounded bg-ember text-white text-[11px] font-semibold flex items-center px-2.5 truncate"
                       title="Finova Labs (Active Strategy)"
                     >
                       Finova Labs (Active Strategy)
@@ -172,19 +189,19 @@ function DashboardPage() {
                 </div>
 
                 {/* Resource Row 2 */}
-                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#e8e7e5]" data-ui="ui-frame">
+                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#eeedeb]" data-ui="ui-frame">
                   <div className="flex flex-col leading-tight pr-2">
-                    <span className="text-xs font-semibold text-[#141414]">Glasshouse 01</span>
-                    <span className="text-[11px] text-[#575757]">4p · Brainstorm</span>
+                    <span className="text-xs font-semibold text-charcoal-950">Glasshouse 01</span>
+                    <span className="text-[11px] text-charcoal-700">4p · Brainstorm</span>
                   </div>
-                  <div className="relative h-8 bg-[#f0efed] rounded overflow-hidden grid grid-cols-8">
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
+                  <div className="relative h-8 bg-paper-dim rounded overflow-hidden grid grid-cols-8">
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
                     <div className="h-full" />
 
                     <div
@@ -198,24 +215,24 @@ function DashboardPage() {
                 </div>
 
                 {/* Resource Row 3 */}
-                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#e8e7e5]" data-ui="ui-frame">
+                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#eeedeb]" data-ui="ui-frame">
                   <div className="flex flex-col leading-tight pr-2">
-                    <span className="text-xs font-semibold text-[#141414]">Acoustic Studio</span>
-                    <span className="text-[11px] text-[#575757]">Broadcast audio</span>
+                    <span className="text-xs font-semibold text-charcoal-950">Acoustic Studio</span>
+                    <span className="text-[11px] text-charcoal-700">Broadcast audio</span>
                   </div>
-                  <div className="relative h-8 bg-[#f0efed] rounded overflow-hidden grid grid-cols-8">
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
-                    <div className="border-r border-dashed border-[#dedcd8] h-full" />
+                  <div className="relative h-8 bg-paper-dim rounded overflow-hidden grid grid-cols-8">
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
+                    <div className="border-r border-dashed border-[#e5e3df] h-full" />
                     <div className="h-full" />
 
                     <div
                       style={{ left: "50%", width: "25%" }}
-                      className="absolute top-[3px] bottom-[3px] rounded bg-[#e85d3a] text-white text-[11px] font-semibold flex items-center px-2.5 truncate"
+                      className="absolute top-[3px] bottom-[3px] rounded bg-ember text-white text-[11px] font-semibold flex items-center px-2.5 truncate"
                       title="Venturecast Ep. 42"
                     >
                       Venturecast Ep. 42
@@ -224,12 +241,12 @@ function DashboardPage() {
                 </div>
 
                 {/* Resource Row 4 */}
-                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#e8e7e5]" data-ui="ui-frame">
+                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#eeedeb]" data-ui="ui-frame">
                   <div className="flex flex-col leading-tight pr-2">
-                    <span className="text-xs font-semibold text-[#141414]">Studio 4B</span>
-                    <span className="text-[11px] text-[#575757]">8p Dedicated Suite</span>
+                    <span className="text-xs font-semibold text-charcoal-950">Studio 4B</span>
+                    <span className="text-[11px] text-charcoal-700">8p Dedicated Suite</span>
                   </div>
-                  <div className="relative h-8 bg-[#f0efed] rounded overflow-hidden">
+                  <div className="relative h-8 bg-paper-dim rounded overflow-hidden">
                     <div
                       style={{ left: "0%", width: "100%" }}
                       className="absolute top-[3px] bottom-[3px] rounded bg-[#E5E9E5] text-[#2F3D35] text-[11px] font-semibold flex items-center px-2.5 truncate"
@@ -243,9 +260,9 @@ function DashboardPage() {
             </div>
 
             {/* Timeline Legend */}
-            <div className="flex flex-wrap items-center gap-4 mt-3 text-xs text-[#4a4a4a]">
+            <div className="flex flex-wrap items-center gap-4 mt-3 text-xs text-charcoal-800">
               <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded bg-[#e85d3a]" />
+                <span className="w-3 h-3 rounded bg-ember" />
                 <span>Active Booking</span>
               </div>
               <div className="flex items-center gap-1.5">
@@ -264,19 +281,24 @@ function DashboardPage() {
           </section>
 
           {/* Inquiry Pipeline and Tours Table */}
-          <section className="bg-white border border-[#dedcd8] rounded-lg p-5 space-y-3">
-            <div className="flex items-center justify-between pb-3 border-b border-[#dedcd8]" data-ui="ui-frame">
-              <div>
-                <h2 className="text-[15px] font-bold text-[#1c1c1c]">
-                  Inquiry Pipeline and Tours
-                </h2>
-                <p className="text-xs text-[#575757]">
-                  Filterable list with instant stage qualification and conversion
-                </p>
+          <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)] space-y-3">
+            <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
+              <div className="flex items-center gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-ember flex items-center justify-center shrink-0">
+                  <Users2 className="w-3.5 h-3.5 text-white" />
+                </span>
+                <div>
+                  <h2 className="text-[15px] font-display font-bold text-charcoal-950">
+                    Inquiry Pipeline and Tours
+                  </h2>
+                  <p className="text-xs text-charcoal-700">
+                    Filterable list with instant stage qualification and conversion
+                  </p>
+                </div>
               </div>
               <Link
                 to="/app/leads"
-                className="text-xs font-semibold text-[#1c1c1c] hover:underline"
+                className="text-xs font-semibold text-charcoal-950 hover:underline"
               >
                 View Full Pipeline →
               </Link>
@@ -290,6 +312,7 @@ function DashboardPage() {
               onConvertLead={handleConvertLead}
               onOpenNewLead={handleOpenNewLead}
               selectedLocationFilter={selectedLocation}
+              condensed
             />
           </section>
         </div>
@@ -297,24 +320,29 @@ function DashboardPage() {
         {/* Right Column (4 cols) */}
         <div className="lg:col-span-4 space-y-5">
           {/* 1. Scheduled Walkthroughs */}
-          <section className="bg-white border border-[#dedcd8] rounded-lg p-5">
-            <div className="flex items-center justify-between pb-3 border-b border-[#dedcd8]" data-ui="ui-frame">
-              <span className="font-bold text-[15px] text-[#1c1c1c]">
-                Scheduled Walkthroughs
-              </span>
-              <span className="tabular-nums text-xs font-semibold text-[#575757]">
+          <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)]">
+            <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
+              <div className="flex items-center gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-[#1B455C] flex items-center justify-center shrink-0">
+                  <Clock className="w-3.5 h-3.5 text-white" />
+                </span>
+                <span className="font-display font-bold text-[15px] text-charcoal-950">
+                  Scheduled Walkthroughs
+                </span>
+              </div>
+              <span className="tabular-nums text-xs font-semibold text-charcoal-700">
                 3 remaining
               </span>
             </div>
 
-            <div className="divide-y divide-[#e8e7e5]" data-ui="ui-list">
+            <div className="divide-y divide-[#eeedeb]" data-ui="ui-list">
               <div className="py-3 flex items-start gap-2.5">
                 <div className="w-2 h-2 rounded-full bg-[#1B455C] mt-1.5 shrink-0" />
                 <div className="min-w-0 flex-1">
-                  <div className="text-xs font-semibold text-[#141414] truncate">
+                  <div className="text-xs font-semibold text-charcoal-950 truncate">
                     Mehta & Co (6 Desks)
                   </div>
-                  <div className="text-[11px] text-[#575757] mt-0.5">
+                  <div className="text-[11px] text-charcoal-700 mt-0.5">
                     <span className="tabular-nums">12:00 - 12:45</span> · Host: Neha Kulkarni · Glasshouse 01
                   </div>
                 </div>
@@ -323,10 +351,10 @@ function DashboardPage() {
               <div className="py-3 flex items-start gap-2.5">
                 <div className="w-2 h-2 rounded-full bg-[#1B455C] mt-1.5 shrink-0" />
                 <div className="min-w-0 flex-1">
-                  <div className="text-xs font-semibold text-[#141414] truncate">
+                  <div className="text-xs font-semibold text-charcoal-950 truncate">
                     Amira Patel (Acoustic Suite)
                   </div>
-                  <div className="text-[11px] text-[#575757] mt-0.5">
+                  <div className="text-[11px] text-charcoal-700 mt-0.5">
                     <span className="tabular-nums">15:30 - 16:15</span> · Host: Rohit Khanna · Studio West
                   </div>
                 </div>
@@ -335,10 +363,10 @@ function DashboardPage() {
               <div className="py-3 flex items-start gap-2.5">
                 <div className="w-2 h-2 rounded-full bg-[#1B455C] mt-1.5 shrink-0" />
                 <div className="min-w-0 flex-1">
-                  <div className="text-xs font-semibold text-[#141414] truncate">
+                  <div className="text-xs font-semibold text-charcoal-950 truncate">
                     Chakra Mobility (Team 12)
                   </div>
-                  <div className="text-[11px] text-[#575757] mt-0.5">
+                  <div className="text-[11px] text-charcoal-700 mt-0.5">
                     <span className="tabular-nums">16:45 - 17:30</span> · Host: Neha Kulkarni · Floor 3 Suite
                   </div>
                 </div>
@@ -347,11 +375,16 @@ function DashboardPage() {
           </section>
 
           {/* 2. Billing and Renewals Due */}
-          <section className="bg-white border border-[#dedcd8] rounded-lg p-5">
-            <div className="flex items-center justify-between pb-3 border-b border-[#dedcd8]" data-ui="ui-frame">
-              <span className="font-bold text-[15px] text-[#1c1c1c]">
-                Billing and Renewals Due
-              </span>
+          <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)]">
+            <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
+              <div className="flex items-center gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-emerald-700 flex items-center justify-center shrink-0">
+                  <Receipt className="w-3.5 h-3.5 text-white" />
+                </span>
+                <span className="font-display font-bold text-[15px] text-charcoal-950">
+                  Billing and Renewals Due
+                </span>
+              </div>
               <span className="tabular-nums text-[11px] font-semibold px-2 py-0.5 rounded bg-[#FAECEC] text-[#7C1E1E]">
                 2 Due
               </span>
@@ -360,19 +393,19 @@ function DashboardPage() {
             <div className="overflow-x-auto mt-2">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#dedcd8] text-[#575757]" data-ui="ui-frame">
+                  <tr className="border-b border-[#e5e3df] text-charcoal-700" data-ui="ui-frame">
                     <th className="py-2 font-semibold">MEMBER</th>
                     <th className="py-2 font-semibold">AMOUNT</th>
                     <th className="py-2 font-semibold text-right">STATUS</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#e8e7e5]" data-ui="ui-list">
+                <tbody className="divide-y divide-[#eeedeb]" data-ui="ui-list">
                   <tr>
                     <td className="py-2.5">
-                      <div className="font-bold text-[#141414]">Helios Robotics</div>
-                      <div className="text-[11px] text-[#575757]">Inv #WN-1048</div>
+                      <div className="font-bold text-charcoal-950">Helios Robotics</div>
+                      <div className="text-[11px] text-charcoal-700">Inv #WN-1048</div>
                     </td>
-                    <td className="py-2.5 font-semibold text-[#141414] tabular-nums">$4,200</td>
+                    <td className="py-2.5 font-semibold text-charcoal-950 tabular-nums">₹42,000</td>
                     <td className="py-2.5 text-right">
                       <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#FAECEC] text-[#7C1E1E]">
                         Due Today
@@ -381,22 +414,22 @@ function DashboardPage() {
                   </tr>
                   <tr>
                     <td className="py-2.5">
-                      <div className="font-bold text-[#141414]">Koto Studio</div>
-                      <div className="text-[11px] text-[#575757]">Inv #WN-1051</div>
+                      <div className="font-bold text-charcoal-950">Koto Studio</div>
+                      <div className="text-[11px] text-charcoal-700">Inv #WN-1051</div>
                     </td>
-                    <td className="py-2.5 font-semibold text-[#141414] tabular-nums">$1,850</td>
+                    <td className="py-2.5 font-semibold text-charcoal-950 tabular-nums">₹18,500</td>
                     <td className="py-2.5 text-right">
                       <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#FAF0DF] text-[#6E3F08]">
-                        Pending ACH
+                        Pending NEFT
                       </span>
                     </td>
                   </tr>
                   <tr>
                     <td className="py-2.5">
-                      <div className="font-bold text-[#141414]">Arbor Design Ltd</div>
-                      <div className="text-[11px] text-[#575757]">Contract Renewal</div>
+                      <div className="font-bold text-charcoal-950">Arbor Design Ltd</div>
+                      <div className="text-[11px] text-charcoal-700">Contract Renewal</div>
                     </td>
-                    <td className="py-2.5 font-semibold text-[#141414] tabular-nums">$6,400/m</td>
+                    <td className="py-2.5 font-semibold text-charcoal-950 tabular-nums">₹64,000/m</td>
                     <td className="py-2.5 text-right">
                       <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#E4F4EC] text-[#144D33]">
                         Renewed

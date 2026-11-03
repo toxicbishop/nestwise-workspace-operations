@@ -111,16 +111,16 @@ export function SpacesDirectory() {
     <div className="space-y-6">
       {/* Top Inventory Metrics */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-white p-4 rounded-xl border border-neutral-200">
+        <div className="bg-white p-4 rounded-xl border border-[#e5e3df] shadow-[0_1px_3px_rgba(17,17,17,0.04)]">
           <div className="flex items-center gap-2 text-xs text-neutral-500 mb-1">
-            <Building2 className="w-4 h-4 text-[#1c1c1c]" />
+            <Building2 className="w-4 h-4 text-charcoal-950" />
             <span>Total Spaces</span>
           </div>
-          <div className="text-2xl font-bold text-[#1a1a1a]">{spaces.length}</div>
+          <div className="text-2xl font-bold text-charcoal-950">{spaces.length}</div>
           <div className="text-[11px] text-neutral-500 mt-0.5">Across {locations.length} locations</div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl border border-neutral-200">
+        <div className="bg-white p-4 rounded-xl border border-[#e5e3df] shadow-[0_1px_3px_rgba(17,17,17,0.04)]">
           <div className="flex items-center gap-2 text-xs text-neutral-500 mb-1">
             <CheckCircle2 className="w-4 h-4 text-emerald-600" />
             <span>Active & Bookable</span>
@@ -129,7 +129,7 @@ export function SpacesDirectory() {
           <div className="text-[11px] text-neutral-500 mt-0.5">Open for reservation</div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl border border-neutral-200">
+        <div className="bg-white p-4 rounded-xl border border-[#e5e3df] shadow-[0_1px_3px_rgba(17,17,17,0.04)]">
           <div className="flex items-center gap-2 text-xs text-neutral-500 mb-1">
             <DoorOpen className="w-4 h-4 text-blue-600" />
             <span>Meeting Rooms & Pods</span>
@@ -138,7 +138,7 @@ export function SpacesDirectory() {
           <div className="text-[11px] text-neutral-500 mt-0.5">Equipped with AV & screens</div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl border border-neutral-200">
+        <div className="bg-white p-4 rounded-xl border border-[#e5e3df] shadow-[0_1px_3px_rgba(17,17,17,0.04)]">
           <div className="flex items-center gap-2 text-xs text-neutral-500 mb-1">
             <Users className="w-4 h-4 text-sky-600" />
             <span>Total Seat Capacity</span>
@@ -149,7 +149,7 @@ export function SpacesDirectory() {
       </div>
 
       {/* Filter and Control Bar */}
-      <div className="bg-white p-4 rounded-xl border border-neutral-200  flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+      <div className="bg-white p-4 rounded-xl border border-[#e5e3df] shadow-[0_1px_3px_rgba(17,17,17,0.04)]  flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
         <div className="flex flex-1 flex-col sm:flex-row gap-3 items-stretch sm:items-center">
           {/* Search Box */}
           <div className="relative flex-1">
@@ -159,7 +159,7 @@ export function SpacesDirectory() {
               placeholder="Search spaces, amenities, floors..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
+              className="w-full pl-9 pr-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-ember/25 focus:border-charcoal-900"
             />
           </div>
 
@@ -169,7 +169,7 @@ export function SpacesDirectory() {
             <select
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
-              className="px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c] bg-white text-neutral-700"
+              className="px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-ember/25 focus:border-charcoal-900 bg-white text-neutral-700"
               aria-label="Filter by Location"
             >
               <option value="All">All Locations</option>
@@ -186,7 +186,7 @@ export function SpacesDirectory() {
             <select
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
-              className="w-full sm:w-auto px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c] bg-white text-neutral-700"
+              className="w-full sm:w-auto px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-ember/25 focus:border-charcoal-900 bg-white text-neutral-700"
               aria-label="Filter by Space Type"
             >
               <option value="All">All Space Types</option>
@@ -208,14 +208,14 @@ export function SpacesDirectory() {
               type="checkbox"
               checked={showActiveOnly}
               onChange={(e) => setShowActiveOnly(e.target.checked)}
-              className="rounded border-neutral-300 text-[#1c1c1c] focus:ring-[#e85d3a] w-3.5 h-3.5"
+              className="rounded border-neutral-300 text-charcoal-950 focus:ring-ember w-3.5 h-3.5"
             />
             <span>Active only</span>
           </label>
 
           <button
             onClick={handleOpenAdd}
-            className="flex items-center gap-1.5 px-4 py-2 bg-[#e85d3a] hover:bg-[#d14a2c] text-white text-xs font-medium rounded-lg transition-colors "
+            className="flex items-center gap-1.5 px-4 py-2 bg-ember hover:bg-ember-deep text-white text-xs font-medium rounded-lg transition-colors "
           >
             <Plus className="w-4 h-4" />
             Add Space
@@ -257,7 +257,7 @@ export function SpacesDirectory() {
             </button>
             <button
               onClick={handleOpenAdd}
-              className="px-3 py-1.5 bg-[#e85d3a] text-white rounded-lg text-xs font-medium hover:bg-[#d14a2c]"
+              className="px-3 py-1.5 bg-ember text-white rounded-lg text-xs font-medium hover:bg-ember-deep"
             >
               Add First Space
             </button>

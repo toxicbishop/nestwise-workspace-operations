@@ -148,10 +148,10 @@ export function BookingsDirectory() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-white p-4 rounded-xl border border-neutral-200">
           <div className="flex items-center gap-2 text-xs text-neutral-500 mb-1">
-            <Calendar className="w-4 h-4 text-[#1c1c1c]" />
+            <Calendar className="w-4 h-4 text-charcoal-950" />
             <span>Today&apos;s Reservations</span>
           </div>
-          <div className="text-2xl font-bold text-[#1a1a1a]">{todayBookingsCount}</div>
+          <div className="text-2xl font-bold text-charcoal-950">{todayBookingsCount}</div>
           <div className="text-[11px] text-neutral-500 mt-0.5">Scheduled for today</div>
         </div>
 
@@ -178,7 +178,7 @@ export function BookingsDirectory() {
             <IndianRupee className="w-4 h-4 text-amber-600" />
             <span>Booking Volume</span>
           </div>
-          <div className="text-2xl font-bold text-[#1a1a1a]">
+          <div className="text-2xl font-bold text-charcoal-950">
             {formatCurrency(totalRevenuePaise, "INR")}
           </div>
           <div className="text-[11px] text-neutral-500 mt-0.5">Recognized space bookings</div>
@@ -196,7 +196,7 @@ export function BookingsDirectory() {
               placeholder="Search title, member, space, location..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c]"
+              className="w-full pl-9 pr-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-ember/25 focus:border-charcoal-900"
             />
           </div>
 
@@ -206,7 +206,7 @@ export function BookingsDirectory() {
             <select
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
-              className="px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c] bg-white text-neutral-700"
+              className="px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-ember/25 focus:border-charcoal-900 bg-white text-neutral-700"
               aria-label="Filter by Hub Location"
             >
               <option value="All">All Coworking Hubs</option>
@@ -223,7 +223,7 @@ export function BookingsDirectory() {
             <select
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
-              className="w-full sm:w-auto px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c] bg-white text-neutral-700"
+              className="w-full sm:w-auto px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-ember/25 focus:border-charcoal-900 bg-white text-neutral-700"
               aria-label="Filter by Booking Type"
             >
               <option value="All">All Types</option>
@@ -239,7 +239,7 @@ export function BookingsDirectory() {
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
-              className="w-full sm:w-auto px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e85d3a]/20 focus:border-[#1c1c1c] bg-white text-neutral-700"
+              className="w-full sm:w-auto px-3 py-2 text-xs border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-ember/25 focus:border-charcoal-900 bg-white text-neutral-700"
               aria-label="Filter by Status"
             >
               <option value="All">All Statuses</option>
@@ -259,7 +259,7 @@ export function BookingsDirectory() {
                 onClick={() => setDateFilter(period)}
                 className={`px-2.5 py-1 rounded-md font-medium transition-all ${
                   dateFilter === period
-                    ? "bg-white text-[#1c1c1c] "
+                    ? "bg-white text-charcoal-950 "
                     : "text-neutral-600 hover:text-neutral-900"
                 }`}
               >
@@ -271,7 +271,7 @@ export function BookingsDirectory() {
 
         <button
           onClick={() => setIsModalOpen(true)}
-          className="flex items-center justify-center gap-1.5 px-4 py-2 bg-[#e85d3a] hover:bg-[#d14a2c] text-white text-xs font-medium rounded-lg transition-colors  shrink-0"
+          className="flex items-center justify-center gap-1.5 px-4 py-2 bg-ember hover:bg-ember-deep text-white text-xs font-medium rounded-lg transition-colors  shrink-0"
         >
           <Plus className="w-4 h-4" />
           New Reservation
@@ -373,7 +373,7 @@ export function BookingsDirectory() {
                           {b.creditsUsedHours} hrs credit
                         </div>
                       ) : (
-                        <div className="font-semibold text-[#1c1c1c]">
+                        <div className="font-semibold text-charcoal-950">
                           {formatCurrency(b.totalCostCents, "INR")}
                         </div>
                       )}
@@ -463,7 +463,7 @@ export function BookingsDirectory() {
               </button>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="px-3 py-1.5 bg-[#e85d3a] text-white rounded-lg text-xs font-medium hover:bg-[#d14a2c]"
+                className="px-3 py-1.5 bg-ember text-white rounded-lg text-xs font-medium hover:bg-ember-deep"
               >
                 New Reservation
               </button>

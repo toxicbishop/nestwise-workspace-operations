@@ -137,17 +137,17 @@ export function LocationsTab({
       {/* Top Action Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-base font-semibold text-[#1a1a1a]">
+          <h2 className="text-base font-semibold text-charcoal-950">
             Co-working Locations ({locations.length})
           </h2>
-          <p className="text-xs text-[#5A6860] mt-0.5">
+          <p className="text-xs text-charcoal-700 mt-0.5">
             Configure branches, building operating hours, capacity limits, and local management staff.
           </p>
         </div>
         <button
           type="button"
           onClick={openAddModal}
-          className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-medium rounded-lg text-white bg-[#e85d3a] hover:bg-[#d14a2c] transition-colors focus:ring-2 focus:ring-[#e85d3a] focus:ring-offset-2"
+          className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-medium rounded-lg text-white bg-ember hover:bg-ember-deep transition-colors focus:ring-2 focus:ring-ember focus:ring-offset-2"
         >
           <Plus className="w-4 h-4" />
           Add Location
@@ -159,17 +159,17 @@ export function LocationsTab({
         {locations.map((loc) => (
           <div
             key={loc.id}
-            className="bg-white border border-[#E5E7EB] rounded-xl p-5  flex flex-col justify-between hover:border-gray-300 transition-all"
+            className="bg-white border border-[#e5e3df] rounded-xl p-5  flex flex-col justify-between hover:border-gray-300 transition-all"
           >
             <div>
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-2">
-                  <div className="p-2 rounded-lg bg-[#1c1c1c]/10 text-[#1c1c1c]">
+                  <div className="p-2 rounded-lg bg-charcoal-900/10 text-charcoal-950">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-[#1a1a1a]">{loc.name}</h3>
-                    <p className="text-xs text-[#5A6860]">{loc.city}, {loc.state}</p>
+                    <h3 className="text-sm font-semibold text-charcoal-950">{loc.name}</h3>
+                    <p className="text-xs text-charcoal-700">{loc.city}, {loc.state}</p>
                   </div>
                 </div>
                 <span
@@ -186,7 +186,7 @@ export function LocationsTab({
               </div>
 
               {/* Details List */}
-              <div className="mt-4 space-y-2 text-xs text-[#5A6860]">
+              <div className="mt-4 space-y-2 text-xs text-charcoal-700">
                 <div className="flex items-start gap-2">
                   <span className="font-medium text-gray-700 shrink-0">Address:</span>
                   <span className="truncate">{loc.address}, {loc.zip}</span>
@@ -208,11 +208,11 @@ export function LocationsTab({
               {/* Capacity & Occupancy indicator */}
               <div className="mt-4 pt-3 border-t border-gray-100" data-ui="ui-frame">
                 <div className="flex items-center justify-between text-xs mb-1">
-                  <span className="text-[#5A6860] flex items-center gap-1.5">
+                  <span className="text-charcoal-700 flex items-center gap-1.5">
                     <Users className="w-3.5 h-3.5" />
                     Capacity: {loc.totalCapacity} desks
                   </span>
-                  <span className="font-semibold text-[#1a1a1a]">{loc.currentOccupancyRate}% Occupied</span>
+                  <span className="font-semibold text-charcoal-950">{loc.currentOccupancyRate}% Occupied</span>
                 </div>
                 <div className="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
                   <div
@@ -256,10 +256,10 @@ export function LocationsTab({
           aria-labelledby="location-modal-title"
         >
           <div className="bg-white rounded-xl shadow-xl max-w-lg w-full border border-gray-200 overflow-hidden" data-ui="overlay">
-            <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-[#f6f5f3]" data-ui="ui-frame">
+            <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper" data-ui="ui-frame">
               <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-[#1c1c1c]" />
-                <h3 id="location-modal-title" className="text-sm font-semibold text-[#1a1a1a]">
+                <MapPin className="w-5 h-5 text-charcoal-950" />
+                <h3 id="location-modal-title" className="text-sm font-semibold text-charcoal-950">
                   {editingLoc ? `Edit Location: ${editingLoc.name}` : "Add New Co-working Location"}
                 </h3>
               </div>
@@ -283,7 +283,7 @@ export function LocationsTab({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                  <label className="block text-xs font-medium text-charcoal-950 mb-1">
                     Location Name *
                   </label>
                   <input
@@ -292,12 +292,12 @@ export function LocationsTab({
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="e.g. Marina Arts Loft"
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden"
                   />
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                  <label className="block text-xs font-medium text-charcoal-950 mb-1">
                     Street Address *
                   </label>
                   <input
@@ -306,12 +306,12 @@ export function LocationsTab({
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     placeholder="e.g. 700 S Grand Ave, 4th Floor"
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                  <label className="block text-xs font-medium text-charcoal-950 mb-1">
                     City *
                   </label>
                   <input
@@ -320,13 +320,13 @@ export function LocationsTab({
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     placeholder="e.g. Bengaluru"
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
                   <div>
-                    <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                    <label className="block text-xs font-medium text-charcoal-950 mb-1">
                       State
                     </label>
                     <input
@@ -334,11 +334,11 @@ export function LocationsTab({
                       value={state}
                       onChange={(e) => setState(e.target.value)}
                       placeholder="CA"
-                      className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
+                      className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                    <label className="block text-xs font-medium text-charcoal-950 mb-1">
                       ZIP
                     </label>
                     <input
@@ -346,13 +346,13 @@ export function LocationsTab({
                       value={zip}
                       onChange={(e) => setZip(e.target.value)}
                       placeholder="90017"
-                      className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
+                      className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                  <label className="block text-xs font-medium text-charcoal-950 mb-1">
                     Operating Hours
                   </label>
                   <input
@@ -360,18 +360,18 @@ export function LocationsTab({
                     value={operatingHours}
                     onChange={(e) => setOperatingHours(e.target.value)}
                     placeholder="Mon - Fri: 8:00 AM - 8:00 PM"
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                  <label className="block text-xs font-medium text-charcoal-950 mb-1">
                     Timezone
                   </label>
                   <select
                     value={timezone}
                     onChange={(e) => setTimezone(e.target.value)}
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden bg-white"
                   >
                     <option value="America/Los_Angeles">Pacific Time (PT)</option>
                     <option value="America/Denver">Mountain Time (MT)</option>
@@ -382,7 +382,7 @@ export function LocationsTab({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                  <label className="block text-xs font-medium text-charcoal-950 mb-1">
                     Total Desk Capacity
                   </label>
                   <input
@@ -391,18 +391,18 @@ export function LocationsTab({
                     max="1000"
                     value={totalCapacity}
                     onChange={(e) => setTotalCapacity(Number(e.target.value))}
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                  <label className="block text-xs font-medium text-charcoal-950 mb-1">
                     Status
                   </label>
                   <select
                     value={status}
                     onChange={(e) => setStatus(e.target.value as Location["status"])}
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden bg-white"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden bg-white"
                   >
                     <option value="Active">Active</option>
                     <option value="Maintenance">Maintenance</option>
@@ -411,7 +411,7 @@ export function LocationsTab({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                  <label className="block text-xs font-medium text-charcoal-950 mb-1">
                     Contact Phone
                   </label>
                   <input
@@ -419,12 +419,12 @@ export function LocationsTab({
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+91 80 4567 8900"
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[#1a1a1a] mb-1">
+                  <label className="block text-xs font-medium text-charcoal-950 mb-1">
                     Branch Manager Name *
                   </label>
                   <input
@@ -433,7 +433,7 @@ export function LocationsTab({
                     value={managerName}
                     onChange={(e) => setManagerName(e.target.value)}
                     placeholder="e.g. Priya Raghavan"
-                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e85d3a] focus:outline-hidden"
+                    className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden"
                   />
                 </div>
               </div>
@@ -448,7 +448,7 @@ export function LocationsTab({
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-[#e85d3a] hover:bg-[#d14a2c] rounded-lg transition-colors focus:ring-2 focus:ring-[#e85d3a]"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-ember hover:bg-ember-deep rounded-lg transition-colors focus:ring-2 focus:ring-ember"
                 >
                   <Check className="w-4 h-4" />
                   {editingLoc ? "Save Changes" : "Create Location"}

@@ -175,7 +175,15 @@
 @layer base {
   body {
     font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
+  ::selection {
+    background: var(--color-ember-soft);
+    color: var(--color-charcoal-900);
+  }
+
 
   h1,
   h2,
