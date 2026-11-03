@@ -274,7 +274,7 @@ export function LeadsTable({
                       )}
                     </div>
                     {lead.status === "Lost" && lead.lostReason && (
-                      <p className="text-[10px] text-rose-600 italic mt-1 max-w-xs truncate">
+                      <p className={`text-[10px] text-rose-600 italic mt-1 truncate ${condensed ? "max-w-[180px]" : "max-w-xs"}`}>
                         Reason: {lead.lostReason}
                       </p>
                     )}
