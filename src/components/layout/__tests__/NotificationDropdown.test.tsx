@@ -27,7 +27,7 @@ const renderWithRouter = async (ui: React.ReactElement) => {
   return render(
     <WorkNestProvider>
       <RouterProvider router={router} />
-    </WorkNestProvider>
+    </WorkNestProvider>,
   );
 };
 

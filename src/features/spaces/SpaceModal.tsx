@@ -49,20 +49,18 @@ function SpaceFormInner({
   locations: Location[];
 }) {
   const [name, setName] = useState(spaceToEdit?.name || "");
-  const [locationId, setLocationId] = useState(
-    spaceToEdit?.locationId || locations[0]?.id || ""
-  );
+  const [locationId, setLocationId] = useState(spaceToEdit?.locationId || locations[0]?.id || "");
   const [type, setType] = useState<SpaceType>(spaceToEdit?.type || "Meeting Room");
   const [capacity, setCapacity] = useState(spaceToEdit?.capacity || 6);
   const [hourlyRateRupees, setHourlyRateRupees] = useState(
-    spaceToEdit ? spaceToEdit.hourlyRateCents / 100 : 800
+    spaceToEdit ? spaceToEdit.hourlyRateCents / 100 : 800,
   );
   const [floorOrZone, setFloorOrZone] = useState(spaceToEdit?.floorOrZone || "");
   const [amenitiesInput, setAmenitiesInput] = useState(
-    spaceToEdit?.amenities?.join(", ") || "4K Display, Whiteboard, High-speed Fiber"
+    spaceToEdit?.amenities?.join(", ") || "4K Display, Whiteboard, High-speed Fiber",
   );
   const [isActive, setIsActive] = useState(
-    spaceToEdit !== undefined && spaceToEdit !== null ? spaceToEdit.isActive : true
+    spaceToEdit !== undefined && spaceToEdit !== null ? spaceToEdit.isActive : true,
   );
   const [notes, setNotes] = useState(spaceToEdit?.notes || "");
   const [formError, setFormError] = useState("");
@@ -129,9 +127,15 @@ function SpaceFormInner({
       aria-modal="true"
       aria-labelledby="modal-title"
     >
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-lg border border-neutral-200 overflow-hidden flex flex-col max-h-[90vh]" data-ui="overlay">
+      <div
+        className="bg-white rounded-xl shadow-xl w-full max-w-lg border border-neutral-200 overflow-hidden flex flex-col max-h-[90vh]"
+        data-ui="overlay"
+      >
         {/* Header */}
-        <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50" data-ui="ui-frame">
+        <div
+          className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50"
+          data-ui="ui-frame"
+        >
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-charcoal-900/10 flex items-center justify-center text-charcoal-950">
               <Building2 className="w-4 h-4" />
@@ -245,9 +249,7 @@ function SpaceFormInner({
             </div>
 
             <div className="sm:col-span-2">
-              <label className="block font-medium text-neutral-700 mb-1">
-                Floor / Zone
-              </label>
+              <label className="block font-medium text-neutral-700 mb-1">Floor / Zone</label>
               <input
                 type="text"
                 placeholder="e.g. Floor 12 East Wing, Building C 2nd Floor"
@@ -284,9 +286,7 @@ function SpaceFormInner({
             </div>
 
             <div className="sm:col-span-2">
-              <label className="block font-medium text-neutral-700 mb-1">
-                Operational Notes
-              </label>
+              <label className="block font-medium text-neutral-700 mb-1">Operational Notes</label>
               <textarea
                 rows={2}
                 placeholder="Special access instructions, AV setup details, or equipment specs..."
@@ -312,7 +312,10 @@ function SpaceFormInner({
           </div>
 
           {/* Footer */}
-          <div className="pt-4 border-t border-neutral-100 flex items-center justify-end gap-2" data-ui="ui-frame">
+          <div
+            className="pt-4 border-t border-neutral-100 flex items-center justify-end gap-2"
+            data-ui="ui-frame"
+          >
             <button
               type="button"
               onClick={onClose}
@@ -334,13 +337,7 @@ function SpaceFormInner({
   );
 }
 
-export function SpaceModal({
-  isOpen,
-  onClose,
-  onSave,
-  spaceToEdit,
-  locations,
-}: SpaceModalProps) {
+export function SpaceModal({ isOpen, onClose, onSave, spaceToEdit, locations }: SpaceModalProps) {
   if (!isOpen) return null;
 
   return (

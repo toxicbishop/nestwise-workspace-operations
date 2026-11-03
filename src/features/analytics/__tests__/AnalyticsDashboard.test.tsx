@@ -8,7 +8,7 @@ describe("AnalyticsDashboard Component", () => {
     render(
       <WorkNestProvider>
         <AnalyticsDashboard />
-      </WorkNestProvider>
+      </WorkNestProvider>,
     );
 
     await waitFor(() => {
@@ -25,7 +25,7 @@ describe("AnalyticsDashboard Component", () => {
     render(
       <WorkNestProvider>
         <AnalyticsDashboard />
-      </WorkNestProvider>
+      </WorkNestProvider>,
     );
 
     await waitFor(() => {

@@ -1,7 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
-import { Users2, Plus, Mail, Shield, MapPin, Trash2, Edit2, X, Check, AlertCircle } from "lucide-react";
+import {
+  Users2,
+  Plus,
+  Mail,
+  Shield,
+  MapPin,
+  Trash2,
+  Edit2,
+  X,
+  Check,
+  AlertCircle,
+} from "lucide-react";
 import { StaffMember, Location } from "@/types";
 
 interface TeamTabProps {
@@ -114,12 +125,25 @@ export function TeamTab({
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs">
             <thead>
-              <tr className="bg-paper border-b border-[#e5e3df] text-charcoal-700 font-medium" data-ui="ui-frame">
-                <th scope="col" className="px-5 py-3.5">Staff Member</th>
-                <th scope="col" className="px-5 py-3.5">System Role</th>
-                <th scope="col" className="px-5 py-3.5">Assigned Location</th>
-                <th scope="col" className="px-5 py-3.5">Status</th>
-                <th scope="col" className="px-5 py-3.5 text-right">Actions</th>
+              <tr
+                className="bg-paper border-b border-[#e5e3df] text-charcoal-700 font-medium"
+                data-ui="ui-frame"
+              >
+                <th scope="col" className="px-5 py-3.5">
+                  Staff Member
+                </th>
+                <th scope="col" className="px-5 py-3.5">
+                  System Role
+                </th>
+                <th scope="col" className="px-5 py-3.5">
+                  Assigned Location
+                </th>
+                <th scope="col" className="px-5 py-3.5">
+                  Status
+                </th>
+                <th scope="col" className="px-5 py-3.5 text-right">
+                  Actions
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 text-charcoal-950" data-ui="ui-list">
@@ -152,8 +176,8 @@ export function TeamTab({
                         member.status === "Active"
                           ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
                           : member.status === "Invited"
-                          ? "bg-blue-50 text-blue-700 border border-blue-200"
-                          : "bg-gray-100 text-gray-600 border border-gray-200"
+                            ? "bg-blue-50 text-blue-700 border border-blue-200"
+                            : "bg-gray-100 text-gray-600 border border-gray-200"
                       }`}
                     >
                       {member.status}
@@ -194,8 +218,14 @@ export function TeamTab({
           aria-modal="true"
           aria-labelledby="team-modal-title"
         >
-          <div className="bg-white rounded-xl shadow-xl max-w-md w-full border border-gray-200 overflow-hidden" data-ui="overlay">
-            <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper" data-ui="ui-frame">
+          <div
+            className="bg-white rounded-xl shadow-xl max-w-md w-full border border-gray-200 overflow-hidden"
+            data-ui="overlay"
+          >
+            <div
+              className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper"
+              data-ui="ui-frame"
+            >
               <div className="flex items-center gap-2">
                 <Users2 className="w-5 h-5 text-charcoal-950" />
                 <h3 id="team-modal-title" className="text-sm font-semibold text-charcoal-950">
@@ -283,9 +313,7 @@ export function TeamTab({
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-charcoal-950 mb-1">
-                  Status
-                </label>
+                <label className="block text-xs font-medium text-charcoal-950 mb-1">Status</label>
                 <select
                   value={status}
                   onChange={(e) => setStatus(e.target.value as StaffMember["status"])}
@@ -297,7 +325,10 @@ export function TeamTab({
                 </select>
               </div>
 
-              <div className="pt-4 border-t border-gray-100 flex items-center justify-end gap-3" data-ui="ui-frame">
+              <div
+                className="pt-4 border-t border-gray-100 flex items-center justify-end gap-3"
+                data-ui="ui-frame"
+              >
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}

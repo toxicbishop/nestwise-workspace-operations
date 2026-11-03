@@ -14,7 +14,8 @@ function BillingPage() {
           Invoices & Billing
         </h1>
         <p className="text-xs text-neutral-500 mt-1">
-          GST-compliant billing, member subscriptions, room overage invoicing, and payment reconciliations across{" "}
+          GST-compliant billing, member subscriptions, room overage invoicing, and payment
+          reconciliations across{" "}
           <span className="font-semibold text-neutral-700">
             {selectedLocation === "All" ? "all coworking hubs" : selectedLocation}
           </span>
@@ -34,7 +35,10 @@ export const Route = createFileRoute("/app/billing")({
       { title: "WorkNest CRM — Invoices & Billing" },
       { name: "description", content: "Invoicing, payments collection and outstanding balances." },
       { property: "og:title", content: "WorkNest CRM — Invoices & Billing" },
-      { property: "og:description", content: "Invoicing, payments collection and outstanding balances." },
+      {
+        property: "og:description",
+        content: "Invoicing, payments collection and outstanding balances.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

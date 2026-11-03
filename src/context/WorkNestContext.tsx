@@ -72,7 +72,10 @@ interface WorkNestContextType {
   updateStaffMember: (member: StaffMember) => void;
   deleteStaffMember: (staffId: string) => void;
   // Phase 3 Members & Memberships methods
-  addMember: (memberData: Omit<Member, "id" | "joinedDate">, membershipData?: Omit<Membership, "id" | "memberId">) => void;
+  addMember: (
+    memberData: Omit<Member, "id" | "joinedDate">,
+    membershipData?: Omit<Membership, "id" | "memberId">,
+  ) => void;
   updateMember: (member: Member) => void;
   deleteMember: (memberId: string) => void;
   updateMembershipStatus: (membershipId: string, status: MembershipStatus) => void;
@@ -87,24 +90,26 @@ interface WorkNestContextType {
     date: string,
     startTime: string,
     endTime: string,
-    excludeBookingId?: string
+    excludeBookingId?: string,
   ) => { hasConflict: boolean; conflictingBooking?: Booking };
-  createBooking: (
-    booking: Omit<Booking, "id" | "createdAt">
-  ) => { success: boolean; error?: string; booking?: Booking };
+  createBooking: (booking: Omit<Booking, "id" | "createdAt">) => {
+    success: boolean;
+    error?: string;
+    booking?: Booking;
+  };
   updateBookingStatus: (bookingId: string, status: BookingStatus) => void;
   cancelBooking: (bookingId: string) => void;
   deleteBooking: (bookingId: string) => void;
   // Phase 5 Invoicing, Billing & Payments
   createInvoice: (
-    invoiceData: Omit<Invoice, "id" | "createdAt" | "paidAmountCents" | "paymentRecords">
+    invoiceData: Omit<Invoice, "id" | "createdAt" | "paidAmountCents" | "paymentRecords">,
   ) => Invoice;
   recordPayment: (
     invoiceId: string,
     amountCents: number,
     paymentMethod: PaymentMethod,
     transactionRef: string,
-    notes?: string
+    notes?: string,
   ) => { success: boolean; invoice?: Invoice };
   updateInvoiceStatus: (invoiceId: string, status: InvoiceStatus) => void;
   sendInvoiceReminder: (invoiceId: string) => void;
@@ -289,8 +294,7 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
       pipelineCounts[l.status] = (pipelineCounts[l.status] || 0) + 1;
     });
 
-    const openLeads =
-      pipelineCounts.New + pipelineCounts.Contacted + pipelineCounts["Tour Booked"];
+    const openLeads = pipelineCounts.New + pipelineCounts.Contacted + pipelineCounts["Tour Booked"];
 
     return {
       activeMembers: INITIAL_METRICS.activeMembers + pipelineCounts.Converted - 14,
@@ -332,10 +336,8 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
   const updateLead = (updated: Lead) => {
     setLeads((prev) =>
       prev.map((l) =>
-        l.id === updated.id
-          ? { ...updated, updatedAt: new Date().toISOString() }
-          : l
-      )
+        l.id === updated.id ? { ...updated, updatedAt: new Date().toISOString() } : l,
+      ),
     );
   };
 
@@ -355,7 +357,7 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
           };
         }
         return l;
-      })
+      }),
     );
   };
 
@@ -376,11 +378,13 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
           };
         }
         return l;
-      })
+      }),
     );
 
     // 2. Prevent duplicate member creation if already converted
-    const existingMember = members.find((m) => m.leadId === leadId || m.email.toLowerCase() === targetLead.email.toLowerCase());
+    const existingMember = members.find(
+      (m) => m.leadId === leadId || m.email.toLowerCase() === targetLead.email.toLowerCase(),
+    );
     if (existingMember) return;
 
     // 3. Match membership plan
@@ -430,16 +434,14 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
 
   const toggleActivityComplete = (activityId: string) => {
     setActivities((prev) =>
-      prev.map((act) =>
-        act.id === activityId ? { ...act, completed: !act.completed } : act
-      )
+      prev.map((act) => (act.id === activityId ? { ...act, completed: !act.completed } : act)),
     );
   };
 
   // Phase 3 Members & Memberships methods
   const addMember = (
     memberData: Omit<Member, "id" | "joinedDate">,
-    membershipData?: Omit<Membership, "id" | "memberId">
+    membershipData?: Omit<Membership, "id" | "memberId">,
   ) => {
     const newMemberId = `mbr-${Date.now()}`;
     const now = new Date().toISOString().split("T")[0];
@@ -466,9 +468,7 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
   };
 
   const updateMember = (updatedMember: Member) => {
-    setMembers((prev) =>
-      prev.map((m) => (m.id === updatedMember.id ? updatedMember : m))
-    );
+    setMembers((prev) => prev.map((m) => (m.id === updatedMember.id ? updatedMember : m)));
   };
 
   const deleteMember = (memberId: string) => {
@@ -483,7 +483,7 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
           return { ...ms, status };
         }
         return ms;
-      })
+      }),
     );
 
     // Sync member status accordingly
@@ -494,22 +494,20 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
             status === "Active" || status === "Trial" || status === "Expiring"
               ? "Active"
               : status === "Past Due"
-              ? "Past Due"
-              : "Former";
+                ? "Past Due"
+                : "Former";
           return { ...m, status: newMemberStatus };
         }
         return m;
-      })
+      }),
     );
   };
 
   const renewMembership = (membershipId: string, nextRenewalDate: string) => {
     setMemberships((prev) =>
       prev.map((ms) =>
-        ms.id === membershipId
-          ? { ...ms, status: "Active", renewalDate: nextRenewalDate }
-          : ms
-      )
+        ms.id === membershipId ? { ...ms, status: "Active", renewalDate: nextRenewalDate } : ms,
+      ),
     );
   };
 
@@ -527,9 +525,7 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
   };
 
   const updateLocation = (updatedLoc: Location) => {
-    setLocations((prev) =>
-      prev.map((loc) => (loc.id === updatedLoc.id ? updatedLoc : loc))
-    );
+    setLocations((prev) => prev.map((loc) => (loc.id === updatedLoc.id ? updatedLoc : loc)));
   };
 
   const deleteLocation = (locationId: string) => {
@@ -542,15 +538,11 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
   };
 
   const togglePlanActive = (planId: string) => {
-    setPlans((prev) =>
-      prev.map((p) => (p.id === planId ? { ...p, isActive: !p.isActive } : p))
-    );
+    setPlans((prev) => prev.map((p) => (p.id === planId ? { ...p, isActive: !p.isActive } : p)));
   };
 
   const updatePlan = (updatedPlan: MembershipPlan) => {
-    setPlans((prev) =>
-      prev.map((p) => (p.id === updatedPlan.id ? updatedPlan : p))
-    );
+    setPlans((prev) => prev.map((p) => (p.id === updatedPlan.id ? updatedPlan : p)));
   };
 
   const addStaffMember = (staffData: Omit<StaffMember, "id">) => {
@@ -562,9 +554,7 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
   };
 
   const updateStaffMember = (updatedMember: StaffMember) => {
-    setStaff((prev) =>
-      prev.map((s) => (s.id === updatedMember.id ? updatedMember : s))
-    );
+    setStaff((prev) => prev.map((s) => (s.id === updatedMember.id ? updatedMember : s)));
   };
 
   const deleteStaffMember = (staffId: string) => {
@@ -581,9 +571,7 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
   };
 
   const updateSpace = (updatedSpace: Space) => {
-    setSpaces((prev) =>
-      prev.map((s) => (s.id === updatedSpace.id ? updatedSpace : s))
-    );
+    setSpaces((prev) => prev.map((s) => (s.id === updatedSpace.id ? updatedSpace : s)));
   };
 
   const deleteSpace = (spaceId: string) => {
@@ -591,9 +579,7 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
   };
 
   const toggleSpaceActive = (spaceId: string) => {
-    setSpaces((prev) =>
-      prev.map((s) => (s.id === spaceId ? { ...s, isActive: !s.isActive } : s))
-    );
+    setSpaces((prev) => prev.map((s) => (s.id === spaceId ? { ...s, isActive: !s.isActive } : s)));
   };
 
   // Phase 4 Booking Conflict Prevention Engine
@@ -602,7 +588,7 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
     date: string,
     startTime: string,
     endTime: string,
-    excludeBookingId?: string
+    excludeBookingId?: string,
   ) => {
     const conflicting = bookings.find((b) => {
       if (b.id === excludeBookingId) return false;
@@ -625,7 +611,7 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
       bookingData.spaceId,
       bookingData.date,
       bookingData.startTime,
-      bookingData.endTime
+      bookingData.endTime,
     );
 
     if (conflictCheck.hasConflict) {
@@ -651,8 +637,8 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
         prev.map((l) =>
           l.id === newBooking.leadId && (l.status === "New" || l.status === "Contacted")
             ? { ...l, status: "Tour Booked", updatedAt: now }
-            : l
-        )
+            : l,
+        ),
       );
 
       // Record a follow-up tour activity
@@ -678,14 +664,12 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
   };
 
   const updateBookingStatus = (bookingId: string, status: BookingStatus) => {
-    setBookings((prev) =>
-      prev.map((b) => (b.id === bookingId ? { ...b, status } : b))
-    );
+    setBookings((prev) => prev.map((b) => (b.id === bookingId ? { ...b, status } : b)));
   };
 
   const cancelBooking = (bookingId: string) => {
     setBookings((prev) =>
-      prev.map((b) => (b.id === bookingId ? { ...b, status: "Cancelled" } : b))
+      prev.map((b) => (b.id === bookingId ? { ...b, status: "Cancelled" } : b)),
     );
   };
 
@@ -695,7 +679,7 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
 
   // Phase 5 Invoicing, Billing & Payment Operations
   const createInvoice = (
-    invoiceData: Omit<Invoice, "id" | "createdAt" | "paidAmountCents" | "paymentRecords">
+    invoiceData: Omit<Invoice, "id" | "createdAt" | "paidAmountCents" | "paymentRecords">,
   ): Invoice => {
     const now = new Date().toISOString();
     const newInvoice: Invoice = {
@@ -714,7 +698,7 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
     amountCents: number,
     paymentMethod: PaymentMethod,
     transactionRef: string,
-    notes?: string
+    notes?: string,
   ) => {
     const invoice = invoices.find((inv) => inv.id === invoiceId);
     if (!invoice) {
@@ -743,18 +727,14 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
       paymentRecords: [...invoice.paymentRecords, paymentRecord],
     };
 
-    setInvoices((prev) =>
-      prev.map((inv) => (inv.id === invoiceId ? updatedInvoice : inv))
-    );
+    setInvoices((prev) => prev.map((inv) => (inv.id === invoiceId ? updatedInvoice : inv)));
 
     // If paid and member was past due, update member status to Active
     if (newStatus === "Paid" && invoice.memberId) {
       setMembers((prev) =>
         prev.map((m) =>
-          m.id === invoice.memberId && m.status === "Past Due"
-            ? { ...m, status: "Active" }
-            : m
-        )
+          m.id === invoice.memberId && m.status === "Past Due" ? { ...m, status: "Active" } : m,
+        ),
       );
     }
 
@@ -762,9 +742,7 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
   };
 
   const updateInvoiceStatus = (invoiceId: string, status: InvoiceStatus) => {
-    setInvoices((prev) =>
-      prev.map((inv) => (inv.id === invoiceId ? { ...inv, status } : inv))
-    );
+    setInvoices((prev) => prev.map((inv) => (inv.id === invoiceId ? { ...inv, status } : inv)));
   };
 
   const sendInvoiceReminder = (invoiceId: string) => {
@@ -779,7 +757,7 @@ export function WorkNestProvider({ children }: { children: React.ReactNode }) {
       title: `Payment Overdue Notice: ${invoice.invoiceNumber}`,
       description: `Dispatched payment reminder for ${formatCurrency(
         balanceRemaining,
-        "INR"
+        "INR",
       )} to ${invoice.memberName} (${invoice.memberEmail}).`,
       dueDate: now,
       completed: true,

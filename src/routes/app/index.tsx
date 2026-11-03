@@ -47,8 +47,7 @@ function DashboardPage() {
     setConvertingLead(lead);
   };
 
-  const currentHubName =
-    selectedLocation === "All" ? "All Campus Network" : selectedLocation;
+  const currentHubName = selectedLocation === "All" ? "All Campus Network" : selectedLocation;
 
   const todayLabel = new Date().toLocaleDateString("en-IN", {
     weekday: "long",
@@ -98,12 +97,16 @@ function DashboardPage() {
             <Calendar className="w-3.5 h-3.5 text-white" />
           </span>
           <span className="truncate">
-            <strong className="font-semibold text-white">Daily Pulse:</strong>{" "}
-            3 prospect tours scheduled today; Studio 4B lease renewed by Arbor Design Ltd; 2 invoices due for collection.
+            <strong className="font-semibold text-white">Daily Pulse:</strong> 3 prospect tours
+            scheduled today; Studio 4B lease renewed by Arbor Design Ltd; 2 invoices due for
+            collection.
           </span>
         </div>
         <div className="text-white/60 text-[11px] shrink-0 font-medium">
-          <span suppressHydrationWarning className="tabular-nums">{todayLabel}</span> · <span>Staff on duty: 4</span>
+          <span suppressHydrationWarning className="tabular-nums">
+            {todayLabel}
+          </span>{" "}
+          · <span>Staff on duty: 4</span>
         </div>
       </div>
 
@@ -116,7 +119,10 @@ function DashboardPage() {
         <div className="lg:col-span-8 space-y-5">
           {/* Live Resource Availability and Bookings Timeline */}
           <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)]">
-            <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
+            <div
+              className="flex items-center justify-between pb-3 border-b border-[#e5e3df]"
+              data-ui="ui-frame"
+            >
               <div className="flex items-center gap-2.5">
                 <span className="w-7 h-7 rounded-lg bg-charcoal-900 flex items-center justify-center shrink-0">
                   <Calendar className="w-3.5 h-3.5 text-white" />
@@ -129,7 +135,9 @@ function DashboardPage() {
                 </span>
               </div>
               <div className="flex items-center gap-3 text-xs">
-                <span suppressHydrationWarning className="text-charcoal-700">{todayLabel}</span>
+                <span suppressHydrationWarning className="text-charcoal-700">
+                  {todayLabel}
+                </span>
                 <Link
                   to="/app/spaces"
                   className="px-2.5 py-1 text-xs font-medium text-charcoal-950 bg-white border border-[#e5e3df] rounded hover:bg-paper-dim transition-colors"
@@ -143,7 +151,10 @@ function DashboardPage() {
             <div className="mt-4 overflow-x-auto">
               <div className="min-w-[620px]">
                 {/* Time Axis */}
-                <div className="grid grid-cols-[140px_repeat(8,1fr)] pb-2.5 border-b border-[#e5e3df] text-xs text-charcoal-700 text-center" data-ui="ui-frame">
+                <div
+                  className="grid grid-cols-[140px_repeat(8,1fr)] pb-2.5 border-b border-[#e5e3df] text-xs text-charcoal-700 text-center"
+                  data-ui="ui-frame"
+                >
                   <span className="text-left font-bold text-charcoal-800">RESOURCE</span>
                   <span>09:00</span>
                   <span>10:00</span>
@@ -156,7 +167,10 @@ function DashboardPage() {
                 </div>
 
                 {/* Resource Row 1 */}
-                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#eeedeb]" data-ui="ui-frame">
+                <div
+                  className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#eeedeb]"
+                  data-ui="ui-frame"
+                >
                   <div className="flex flex-col leading-tight pr-2">
                     <span className="text-xs font-semibold text-charcoal-950">Boardroom Atlas</span>
                     <span className="text-[11px] text-charcoal-700">12p · Video Conf</span>
@@ -189,7 +203,10 @@ function DashboardPage() {
                 </div>
 
                 {/* Resource Row 2 */}
-                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#eeedeb]" data-ui="ui-frame">
+                <div
+                  className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#eeedeb]"
+                  data-ui="ui-frame"
+                >
                   <div className="flex flex-col leading-tight pr-2">
                     <span className="text-xs font-semibold text-charcoal-950">Glasshouse 01</span>
                     <span className="text-[11px] text-charcoal-700">4p · Brainstorm</span>
@@ -215,7 +232,10 @@ function DashboardPage() {
                 </div>
 
                 {/* Resource Row 3 */}
-                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#eeedeb]" data-ui="ui-frame">
+                <div
+                  className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#eeedeb]"
+                  data-ui="ui-frame"
+                >
                   <div className="flex flex-col leading-tight pr-2">
                     <span className="text-xs font-semibold text-charcoal-950">Acoustic Studio</span>
                     <span className="text-[11px] text-charcoal-700">Broadcast audio</span>
@@ -241,7 +261,10 @@ function DashboardPage() {
                 </div>
 
                 {/* Resource Row 4 */}
-                <div className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#eeedeb]" data-ui="ui-frame">
+                <div
+                  className="grid grid-cols-[140px_1fr] items-center py-2.5 border-b border-[#eeedeb]"
+                  data-ui="ui-frame"
+                >
                   <div className="flex flex-col leading-tight pr-2">
                     <span className="text-xs font-semibold text-charcoal-950">Studio 4B</span>
                     <span className="text-[11px] text-charcoal-700">8p Dedicated Suite</span>
@@ -282,7 +305,10 @@ function DashboardPage() {
 
           {/* Inquiry Pipeline and Tours Table */}
           <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)] space-y-3">
-            <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
+            <div
+              className="flex items-center justify-between pb-3 border-b border-[#e5e3df]"
+              data-ui="ui-frame"
+            >
               <div className="flex items-center gap-2.5">
                 <span className="w-7 h-7 rounded-lg bg-ember flex items-center justify-center shrink-0">
                   <Users2 className="w-3.5 h-3.5 text-white" />
@@ -321,7 +347,10 @@ function DashboardPage() {
         <div className="lg:col-span-4 space-y-5">
           {/* 1. Scheduled Walkthroughs */}
           <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)]">
-            <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
+            <div
+              className="flex items-center justify-between pb-3 border-b border-[#e5e3df]"
+              data-ui="ui-frame"
+            >
               <div className="flex items-center gap-2.5">
                 <span className="w-7 h-7 rounded-lg bg-[#1B455C] flex items-center justify-center shrink-0">
                   <Clock className="w-3.5 h-3.5 text-white" />
@@ -343,7 +372,8 @@ function DashboardPage() {
                     Mehta & Co (6 Desks)
                   </div>
                   <div className="text-[11px] text-charcoal-700 mt-0.5">
-                    <span className="tabular-nums">12:00 - 12:45</span> · Host: Neha Kulkarni · Glasshouse 01
+                    <span className="tabular-nums">12:00 - 12:45</span> · Host: Neha Kulkarni ·
+                    Glasshouse 01
                   </div>
                 </div>
               </div>
@@ -355,7 +385,8 @@ function DashboardPage() {
                     Amira Patel (Acoustic Suite)
                   </div>
                   <div className="text-[11px] text-charcoal-700 mt-0.5">
-                    <span className="tabular-nums">15:30 - 16:15</span> · Host: Rohit Khanna · Studio West
+                    <span className="tabular-nums">15:30 - 16:15</span> · Host: Rohit Khanna ·
+                    Studio West
                   </div>
                 </div>
               </div>
@@ -367,7 +398,8 @@ function DashboardPage() {
                     Chakra Mobility (Team 12)
                   </div>
                   <div className="text-[11px] text-charcoal-700 mt-0.5">
-                    <span className="tabular-nums">16:45 - 17:30</span> · Host: Neha Kulkarni · Floor 3 Suite
+                    <span className="tabular-nums">16:45 - 17:30</span> · Host: Neha Kulkarni ·
+                    Floor 3 Suite
                   </div>
                 </div>
               </div>
@@ -376,7 +408,10 @@ function DashboardPage() {
 
           {/* 2. Billing and Renewals Due */}
           <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)]">
-            <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
+            <div
+              className="flex items-center justify-between pb-3 border-b border-[#e5e3df]"
+              data-ui="ui-frame"
+            >
               <div className="flex items-center gap-2.5">
                 <span className="w-7 h-7 rounded-lg bg-emerald-700 flex items-center justify-center shrink-0">
                   <Receipt className="w-3.5 h-3.5 text-white" />
@@ -429,7 +464,9 @@ function DashboardPage() {
                       <div className="font-bold text-charcoal-950">Arbor Design Ltd</div>
                       <div className="text-[11px] text-charcoal-700">Contract Renewal</div>
                     </td>
-                    <td className="py-2.5 font-semibold text-charcoal-950 tabular-nums">₹64,000/m</td>
+                    <td className="py-2.5 font-semibold text-charcoal-950 tabular-nums">
+                      ₹64,000/m
+                    </td>
                     <td className="py-2.5 text-right">
                       <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-[#E4F4EC] text-[#144D33]">
                         Renewed
@@ -468,9 +505,15 @@ export const Route = createFileRoute("/app/")({
   head: () => ({
     meta: [
       { title: "WorkNest CRM — Operations Dashboard" },
-      { name: "description", content: "Real-time workspace capacity, tour walkthroughs, and active prospect conversion." },
+      {
+        name: "description",
+        content: "Real-time workspace capacity, tour walkthroughs, and active prospect conversion.",
+      },
       { property: "og:title", content: "WorkNest CRM — Operations Dashboard" },
-      { property: "og:description", content: "Real-time workspace capacity, tour walkthroughs, and active prospect conversion." },
+      {
+        property: "og:description",
+        content: "Real-time workspace capacity, tour walkthroughs, and active prospect conversion.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

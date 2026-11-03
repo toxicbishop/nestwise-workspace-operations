@@ -1,15 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import {
-  X,
-  Receipt,
-  Plus,
-  Trash2,
-  Check,
-  AlertCircle,
-  User,
-} from "lucide-react";
+import { X, Receipt, Plus, Trash2, Check, AlertCircle, User } from "lucide-react";
 import { Invoice, InvoiceLineItem, Member, Location } from "@/types";
 import { formatCurrency } from "@/lib/utils";
 
@@ -17,7 +9,7 @@ interface InvoiceModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSave: (
-    invoice: Omit<Invoice, "id" | "createdAt" | "paidAmountCents" | "paymentRecords">
+    invoice: Omit<Invoice, "id" | "createdAt" | "paidAmountCents" | "paymentRecords">,
   ) => void;
   members: Member[];
   locations: Location[];
@@ -40,7 +32,7 @@ function InvoiceFormInner({
 }: {
   onClose: () => void;
   onSave: (
-    invoice: Omit<Invoice, "id" | "createdAt" | "paidAmountCents" | "paymentRecords">
+    invoice: Omit<Invoice, "id" | "createdAt" | "paidAmountCents" | "paymentRecords">,
   ) => void;
   members: Member[];
   locations: Location[];
@@ -54,11 +46,11 @@ function InvoiceFormInner({
 
   const selectedMember = useMemo(
     () => members.find((m) => m.id === selectedMemberId),
-    [members, selectedMemberId]
+    [members, selectedMemberId],
   );
 
   const [locationName, setLocationName] = useState(
-    selectedMember?.homeLocation || locations[0]?.name || "Koramangala Hub"
+    selectedMember?.homeLocation || locations[0]?.name || "Koramangala Hub",
   );
 
   const todayStr = useMemo(() => new Date().toISOString().split("T")[0], []);
@@ -71,7 +63,9 @@ function InvoiceFormInner({
   const [issueDate, setIssueDate] = useState(todayStr);
   const [dueDate, setDueDate] = useState(defaultDueStr);
   const [taxRatePercent, setTaxRatePercent] = useState(18); // 18% GST standard in India
-  const [notes, setNotes] = useState("Payment due within 14 days of issue. Bank & UPI details included.");
+  const [notes, setNotes] = useState(
+    "Payment due within 14 days of issue. Bank & UPI details included.",
+  );
   const [formError, setFormError] = useState("");
 
   const [lineItems, setLineItems] = useState<EditableLineItem[]>([
@@ -103,17 +97,17 @@ function InvoiceFormInner({
   const handleUpdateLineItem = (
     id: string,
     field: keyof EditableLineItem,
-    val: string | number
+    val: string | number,
   ) => {
-    setLineItems((prev) =>
-      prev.map((item) => (item.id === id ? { ...item, [field]: val } : item))
-    );
+    setLineItems((prev) => prev.map((item) => (item.id === id ? { ...item, [field]: val } : item)));
   };
 
   // Calculations
   const subtotalCents = useMemo(() => {
     return lineItems.reduce((sum, item) => {
-      const itemCents = Math.round(Number(item.quantity || 0) * Number(item.unitPriceRupees || 0) * 100);
+      const itemCents = Math.round(
+        Number(item.quantity || 0) * Number(item.unitPriceRupees || 0) * 100,
+      );
       return sum + itemCents;
     }, 0);
   }, [lineItems]);
@@ -206,9 +200,15 @@ function InvoiceFormInner({
       aria-modal="true"
       aria-labelledby="invoice-modal-title"
     >
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-2xl border border-neutral-200 overflow-hidden flex flex-col max-h-[92vh]" data-ui="overlay">
+      <div
+        className="bg-white rounded-xl shadow-xl w-full max-w-2xl border border-neutral-200 overflow-hidden flex flex-col max-h-[92vh]"
+        data-ui="overlay"
+      >
         {/* Header */}
-        <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50" data-ui="ui-frame">
+        <div
+          className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50"
+          data-ui="ui-frame"
+        >
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-charcoal-900/10 flex items-center justify-center text-charcoal-950">
               <Receipt className="w-4 h-4" />
@@ -340,9 +340,7 @@ function InvoiceFormInner({
                   />
                 </div>
                 <div>
-                  <label className="block text-neutral-600 text-[11px] mb-1">
-                    Company Name
-                  </label>
+                  <label className="block text-neutral-600 text-[11px] mb-1">Company Name</label>
                   <input
                     type="text"
                     placeholder="e.g. Vance Architecture Ltd"
@@ -384,9 +382,7 @@ function InvoiceFormInner({
             </div>
 
             <div>
-              <label className="block font-medium text-neutral-700 mb-1">
-                GST / Tax Rate (%)
-              </label>
+              <label className="block font-medium text-neutral-700 mb-1">GST / Tax Rate (%)</label>
               <input
                 type="number"
                 min="0"
@@ -401,9 +397,7 @@ function InvoiceFormInner({
           {/* Line Items Table */}
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <label className="block font-medium text-neutral-700">
-                Itemized Line Items
-              </label>
+              <label className="block font-medium text-neutral-700">Itemized Line Items</label>
               <button
                 type="button"
                 onClick={handleAddLineItem}
@@ -417,7 +411,10 @@ function InvoiceFormInner({
             <div className="border border-neutral-200 rounded-lg overflow-hidden">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="bg-neutral-50 border-b border-neutral-200 text-neutral-500 font-medium" data-ui="ui-frame">
+                  <tr
+                    className="bg-neutral-50 border-b border-neutral-200 text-neutral-500 font-medium"
+                    data-ui="ui-frame"
+                  >
                     <th className="py-2 px-3">Description</th>
                     <th className="py-2 px-3 w-20 text-center">Qty</th>
                     <th className="py-2 px-3 w-28 text-right">Rate (₹)</th>
@@ -452,7 +449,7 @@ function InvoiceFormInner({
                               handleUpdateLineItem(
                                 item.id,
                                 "quantity",
-                                Math.max(1, parseInt(e.target.value) || 1)
+                                Math.max(1, parseInt(e.target.value) || 1),
                               )
                             }
                             className="w-full px-2 py-1.5 border border-neutral-200 rounded text-center focus:outline-none focus:ring-1 focus:ring-ember"
@@ -469,7 +466,7 @@ function InvoiceFormInner({
                               handleUpdateLineItem(
                                 item.id,
                                 "unitPriceRupees",
-                                Math.max(0, parseFloat(e.target.value) || 0)
+                                Math.max(0, parseFloat(e.target.value) || 0),
                               )
                             }
                             className="w-full px-2 py-1.5 border border-neutral-200 rounded text-right focus:outline-none focus:ring-1 focus:ring-ember"
@@ -512,7 +509,10 @@ function InvoiceFormInner({
                 {formatCurrency(taxAmountCents, "INR")}
               </span>
             </div>
-            <div className="flex justify-between text-sm font-bold text-charcoal-950 pt-2 border-t border-neutral-200" data-ui="ui-frame">
+            <div
+              className="flex justify-between text-sm font-bold text-charcoal-950 pt-2 border-t border-neutral-200"
+              data-ui="ui-frame"
+            >
               <span>Total Payable:</span>
               <span>{formatCurrency(totalAmountCents, "INR")}</span>
             </div>
@@ -532,7 +532,10 @@ function InvoiceFormInner({
           </div>
 
           {/* Footer */}
-          <div className="pt-4 border-t border-neutral-100 flex items-center justify-end gap-2" data-ui="ui-frame">
+          <div
+            className="pt-4 border-t border-neutral-100 flex items-center justify-end gap-2"
+            data-ui="ui-frame"
+          >
             <button
               type="button"
               onClick={onClose}

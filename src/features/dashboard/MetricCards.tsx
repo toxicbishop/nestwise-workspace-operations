@@ -11,10 +11,7 @@ interface MetricCardsProps {
 
 export function MetricCards({ metrics }: MetricCardsProps) {
   return (
-    <section
-      data-ui="kpi-strip"
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-    >
+    <section data-ui="kpi-strip" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {/* 1. Active Members */}
       <div className="group bg-white border border-[#e5e3df] rounded-xl p-4 sm:p-5 shadow-[0_1px_2px_rgba(17,17,17,0.04)] hover:shadow-[0_4px_16px_rgba(17,17,17,0.08)] hover:-translate-y-0.5 transition-all duration-200">
         <div className="flex items-center justify-between">
@@ -32,9 +29,7 @@ export function MetricCards({ metrics }: MetricCardsProps) {
         <div className="mt-4 text-[28px] leading-none font-display font-bold tracking-tight text-charcoal-950 tabular-nums">
           {metrics.activeMembers.toLocaleString("en-IN")}
         </div>
-        <div className="mt-2 text-[11px] text-charcoal-700">
-          Across 160 hot desks and 24 suites
-        </div>
+        <div className="mt-2 text-[11px] text-charcoal-700">Across 160 hot desks and 24 suites</div>
       </div>
 
       {/* 2. Occupancy Rate */}
@@ -52,8 +47,7 @@ export function MetricCards({ metrics }: MetricCardsProps) {
           </span>
         </div>
         <div className="mt-4 text-[28px] leading-none font-display font-bold tracking-tight text-charcoal-950 tabular-nums">
-          142{" "}
-          <span className="text-base font-medium text-charcoal-700">/ 160</span>
+          142 <span className="text-base font-medium text-charcoal-700">/ 160</span>
         </div>
         {/* Occupancy bar */}
         <div className="mt-3 h-1.5 rounded-full bg-[#f0efec] overflow-hidden">
@@ -78,9 +72,7 @@ export function MetricCards({ metrics }: MetricCardsProps) {
         <div className="mt-4 text-[28px] leading-none font-display font-bold tracking-tight text-charcoal-950 tabular-nums">
           {Math.max(4, metrics.toursScheduledThisWeek)}
         </div>
-        <div className="mt-2 text-[11px] text-charcoal-700">
-          1 walkthrough completed at 09:30
-        </div>
+        <div className="mt-2 text-[11px] text-charcoal-700">1 walkthrough completed at 09:30</div>
       </div>
 
       {/* 4. Recognized MRR */}

@@ -11,15 +11,10 @@ interface ConvertModalProps {
   onConfirmConvert: (leadId: string, plan: Lead["interestedPlan"], startDate: string) => void;
 }
 
-export function ConvertModal({
-  isOpen,
-  lead,
-  onClose,
-  onConfirmConvert,
-}: ConvertModalProps) {
+export function ConvertModal({ isOpen, lead, onClose, onConfirmConvert }: ConvertModalProps) {
   const [startDate, setStartDate] = useState("2026-11-01");
   const [selectedPlan, setSelectedPlan] = useState<Lead["interestedPlan"]>(
-    lead?.interestedPlan || "Dedicated Desk"
+    lead?.interestedPlan || "Dedicated Desk",
   );
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -42,9 +37,15 @@ export function ConvertModal({
       aria-modal="true"
       aria-labelledby="convert-modal-title"
     >
-      <div className="bg-white rounded-xl shadow-xl max-w-md w-full border border-gray-200 overflow-hidden" data-ui="overlay">
+      <div
+        className="bg-white rounded-xl shadow-xl max-w-md w-full border border-gray-200 overflow-hidden"
+        data-ui="overlay"
+      >
         {/* Header */}
-        <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper" data-ui="ui-frame">
+        <div
+          className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper"
+          data-ui="ui-frame"
+        >
           <div className="flex items-center gap-2">
             <UserCheck className="w-5 h-5 text-emerald-700" />
             <h2 id="convert-modal-title" className="text-sm font-semibold text-charcoal-950">
@@ -64,17 +65,17 @@ export function ConvertModal({
         {isSuccess ? (
           <div className="p-8 text-center space-y-3">
             <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto " />
-            <h3 className="text-base font-semibold text-gray-900">
-              Successfully Converted!
-            </h3>
+            <h3 className="text-base font-semibold text-gray-900">Successfully Converted!</h3>
             <p className="text-xs text-gray-600">
-              {lead.name} has been transitioned to <strong>Converted</strong>. A member profile and {selectedPlan} membership will be created in Phase 3.
+              {lead.name} has been transitioned to <strong>Converted</strong>. A member profile and{" "}
+              {selectedPlan} membership will be created in Phase 3.
             </p>
           </div>
         ) : (
           <form onSubmit={handleConvert} className="p-6 space-y-4">
             <p className="text-xs text-gray-600">
-              Converting <strong>{lead.name}</strong> ({lead.company || "Individual"}) into an active member will update their pipeline stage and create audit records.
+              Converting <strong>{lead.name}</strong> ({lead.company || "Individual"}) into an
+              active member will update their pipeline stage and create audit records.
             </p>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 text-xs space-y-1.5">
@@ -93,7 +94,10 @@ export function ConvertModal({
             </div>
 
             <div>
-              <label htmlFor="convert-plan" className="block text-xs font-semibold text-gray-700 mb-1">
+              <label
+                htmlFor="convert-plan"
+                className="block text-xs font-semibold text-gray-700 mb-1"
+              >
                 Finalized Membership Plan
               </label>
               <select
@@ -111,7 +115,10 @@ export function ConvertModal({
             </div>
 
             <div>
-              <label htmlFor="convert-start-date" className="block text-xs font-semibold text-gray-700 mb-1">
+              <label
+                htmlFor="convert-start-date"
+                className="block text-xs font-semibold text-gray-700 mb-1"
+              >
                 Membership Start Date
               </label>
               <input
@@ -123,7 +130,10 @@ export function ConvertModal({
               />
             </div>
 
-            <div className="pt-2 border-t border-gray-100 flex items-center justify-end gap-3" data-ui="ui-frame">
+            <div
+              className="pt-2 border-t border-gray-100 flex items-center justify-end gap-3"
+              data-ui="ui-frame"
+            >
               <button
                 type="button"
                 onClick={onClose}

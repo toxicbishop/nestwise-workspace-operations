@@ -9,10 +9,7 @@ interface OrganizationTabProps {
   onUpdateOrganization: (settings: Partial<OrganizationSettings>) => void;
 }
 
-export function OrganizationTab({
-  organization,
-  onUpdateOrganization,
-}: OrganizationTabProps) {
+export function OrganizationTab({ organization, onUpdateOrganization }: OrganizationTabProps) {
   const [name, setName] = useState(organization.name);
   const [supportEmail, setSupportEmail] = useState(organization.supportEmail);
   const [defaultCurrency, setDefaultCurrency] = useState(organization.defaultCurrency);
@@ -21,7 +18,7 @@ export function OrganizationTab({
   const [websiteUrl, setWebsiteUrl] = useState(organization.websiteUrl);
   const [autoAssignLeads, setAutoAssignLeads] = useState(organization.autoAssignLeads);
   const [leadResponseGoalHours, setLeadResponseGoalHours] = useState(
-    organization.leadResponseGoalHours
+    organization.leadResponseGoalHours,
   );
   const [savedSuccess, setSavedSuccess] = useState(false);
 
@@ -108,9 +105,7 @@ export function OrganizationTab({
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-charcoal-950 mb-1">
-              Tax ID / EIN
-            </label>
+            <label className="block text-xs font-medium text-charcoal-950 mb-1">Tax ID / EIN</label>
             <input
               type="text"
               value={taxId}
@@ -186,7 +181,8 @@ export function OrganizationTab({
                 Auto-assign incoming web inquiries to location branch managers
               </span>
               <p className="text-[11px] text-charcoal-700">
-                When enabled, new leads are routed directly to the staff manager of their preferred location.
+                When enabled, new leads are routed directly to the staff manager of their preferred
+                location.
               </p>
             </div>
           </label>
@@ -204,7 +200,8 @@ export function OrganizationTab({
               className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden"
             />
             <p className="text-[11px] text-charcoal-700 mt-1">
-              Tasks created for new inquiries will be set to overdue if uncontacted past this threshold.
+              Tasks created for new inquiries will be set to overdue if uncontacted past this
+              threshold.
             </p>
           </div>
         </div>

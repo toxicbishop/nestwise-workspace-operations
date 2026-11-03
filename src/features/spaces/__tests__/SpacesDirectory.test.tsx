@@ -8,7 +8,7 @@ describe("SpacesDirectory Component", () => {
     render(
       <WorkNestProvider>
         <SpacesDirectory />
-      </WorkNestProvider>
+      </WorkNestProvider>,
     );
 
     expect(screen.getByText("Total Spaces")).toBeInTheDocument();
@@ -21,7 +21,7 @@ describe("SpacesDirectory Component", () => {
     render(
       <WorkNestProvider>
         <SpacesDirectory />
-      </WorkNestProvider>
+      </WorkNestProvider>,
     );
 
     const searchInput = screen.getByPlaceholderText("Search spaces, amenities, floors...");
@@ -35,7 +35,7 @@ describe("SpacesDirectory Component", () => {
     render(
       <WorkNestProvider>
         <SpacesDirectory />
-      </WorkNestProvider>
+      </WorkNestProvider>,
     );
 
     const addBtn = screen.getByRole("button", { name: /Add Space/i });

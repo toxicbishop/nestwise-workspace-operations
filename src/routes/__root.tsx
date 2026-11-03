@@ -79,10 +79,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "WorkNest CRM — Coworking Space Management" },
-      { name: "description", content: "Operations and CRM interface for co-working communities, tours, and bookings." },
+      {
+        name: "description",
+        content: "Operations and CRM interface for co-working communities, tours, and bookings.",
+      },
       { name: "author", content: "WorkNest" },
       { property: "og:title", content: "WorkNest CRM — Coworking Space Management" },
-      { property: "og:description", content: "Operations and CRM interface for co-working communities, tours, and bookings." },
+      {
+        property: "og:description",
+        content: "Operations and CRM interface for co-working communities, tours, and bookings.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
@@ -124,7 +130,6 @@ function RootShell({ children }: { children: ReactNode }) {
     </html>
   );
 }
-
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();

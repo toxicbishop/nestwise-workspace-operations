@@ -13,7 +13,7 @@ describe("InvoiceModal Component", () => {
         members={INITIAL_MEMBERS}
         locations={INITIAL_LOCATIONS}
         existingInvoicesCount={5}
-      />
+      />,
     );
 
     expect(screen.getByText("Generate New Invoice")).toBeInTheDocument();
@@ -31,7 +31,7 @@ describe("InvoiceModal Component", () => {
         members={INITIAL_MEMBERS}
         locations={INITIAL_LOCATIONS}
         existingInvoicesCount={5}
-      />
+      />,
     );
 
     // Initial item is 6500. GST 18% is 1170. Total is 7670.
@@ -54,7 +54,7 @@ describe("InvoiceModal Component", () => {
         members={INITIAL_MEMBERS}
         locations={INITIAL_LOCATIONS}
         existingInvoicesCount={5}
-      />
+      />,
     );
 
     const submitBtn = screen.getByText("Create Invoice");
@@ -68,7 +68,7 @@ describe("InvoiceModal Component", () => {
         currency: "INR",
         taxRatePercent: 18,
         status: "Open",
-      })
+      }),
     );
   });
 });

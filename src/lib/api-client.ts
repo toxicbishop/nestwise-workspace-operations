@@ -650,7 +650,12 @@ export const apiClient = {
       });
       return mapBackendLead(raw);
     },
-    async convert(id: string, plan: string, startDate: string, billingInterval = "Monthly"): Promise<Member> {
+    async convert(
+      id: string,
+      plan: string,
+      startDate: string,
+      billingInterval = "Monthly",
+    ): Promise<Member> {
       const raw = await request<BackendMember>(`/leads/${id}/convert`, {
         method: "POST",
         body: JSON.stringify({ plan, start_date: startDate, billing_interval: billingInterval }),
@@ -690,7 +695,7 @@ export const apiClient = {
     },
     async create(
       member: Omit<Member, "id" | "joinedDate">,
-      initialMembership?: Omit<Membership, "id" | "memberId">
+      initialMembership?: Omit<Membership, "id" | "memberId">,
     ): Promise<Member> {
       const raw = await request<BackendMember>("/members", {
         method: "POST",
@@ -825,7 +830,7 @@ export const apiClient = {
       date: string,
       startTime: string,
       endTime: string,
-      excludeBookingId?: string
+      excludeBookingId?: string,
     ): Promise<BookingConflictCheckResponse> {
       return request<BookingConflictCheckResponse>("/bookings/check-conflict", {
         method: "POST",
@@ -891,7 +896,7 @@ export const apiClient = {
       return raw.map(mapBackendInvoice);
     },
     async create(
-      invoice: Omit<Invoice, "id" | "createdAt" | "paidAmountCents" | "paymentRecords">
+      invoice: Omit<Invoice, "id" | "createdAt" | "paidAmountCents" | "paymentRecords">,
     ): Promise<Invoice> {
       const raw = await request<BackendInvoice>("/invoices", {
         method: "POST",
@@ -931,7 +936,7 @@ export const apiClient = {
         transactionRef: string;
         paidAt: string;
         notes?: string;
-      }
+      },
     ): Promise<Invoice> {
       const raw = await request<BackendInvoice>(`/invoices/${invoiceId}/payments`, {
         method: "POST",

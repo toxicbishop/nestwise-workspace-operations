@@ -1,12 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BookingModal } from "@/features/bookings/BookingModal";
-import {
-  INITIAL_SPACES,
-  INITIAL_LOCATIONS,
-  INITIAL_MEMBERS,
-  INITIAL_LEADS,
-} from "@/lib/mock-data";
+import { INITIAL_SPACES, INITIAL_LOCATIONS, INITIAL_MEMBERS, INITIAL_LEADS } from "@/lib/mock-data";
 
 describe("BookingModal Component", () => {
   const mockCheckConflict = vi.fn().mockImplementation((spaceId, date, startTime, endTime) => {
@@ -44,7 +39,7 @@ describe("BookingModal Component", () => {
         checkConflict={mockCheckConflict}
         initialDate="2026-10-25"
         initialSpaceId="spc-downtown-1"
-      />
+      />,
     );
 
     expect(screen.getByText("New Space Reservation / Tour")).toBeInTheDocument();
@@ -65,7 +60,7 @@ describe("BookingModal Component", () => {
         checkConflict={mockCheckConflict}
         initialDate="2026-10-19"
         initialSpaceId="spc-downtown-1"
-      />
+      />,
     );
 
     // Default start/end are 10:00 - 11:00 on 2026-10-19 for spc-downtown-1
@@ -90,7 +85,7 @@ describe("BookingModal Component", () => {
         checkConflict={mockCheckConflict}
         initialDate="2026-10-25"
         initialSpaceId="spc-downtown-1"
-      />
+      />,
     );
 
     // Free slot
@@ -109,7 +104,7 @@ describe("BookingModal Component", () => {
         spaceId: "spc-downtown-1",
         date: "2026-10-25",
         status: "Confirmed",
-      })
+      }),
     );
   });
 });

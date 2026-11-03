@@ -47,7 +47,7 @@ describe("LeadsTable", () => {
         onConvertLead={vi.fn()}
         onOpenNewLead={vi.fn()}
         selectedLocationFilter="All"
-      />
+      />,
     );
 
     expect(screen.getByText("Jane Smith")).toBeInTheDocument();
@@ -66,7 +66,7 @@ describe("LeadsTable", () => {
         onConvertLead={vi.fn()}
         onOpenNewLead={vi.fn()}
         selectedLocationFilter="All"
-      />
+      />,
     );
 
     const searchInput = screen.getByPlaceholderText(/search by prospect name/i);
@@ -86,7 +86,7 @@ describe("LeadsTable", () => {
         onConvertLead={vi.fn()}
         onOpenNewLead={vi.fn()}
         selectedLocationFilter="All"
-      />
+      />,
     );
 
     const searchInput = screen.getByPlaceholderText(/search by prospect name/i);
@@ -106,10 +106,12 @@ describe("LeadsTable", () => {
         onConvertLead={handleConvert}
         onOpenNewLead={vi.fn()}
         selectedLocationFilter="All"
-      />
+      />,
     );
 
-    const convertButton = screen.getByRole("button", { name: `Convert ${mockLeads[0].name} to member` });
+    const convertButton = screen.getByRole("button", {
+      name: `Convert ${mockLeads[0].name} to member`,
+    });
     fireEvent.click(convertButton);
 
     expect(handleConvert).toHaveBeenCalledWith(mockLeads[0]);

@@ -1,14 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import {
-  X,
-  CalendarCheck2,
-  AlertTriangle,
-  CheckCircle2,
-  Users,
-  User,
-} from "lucide-react";
+import { X, CalendarCheck2, AlertTriangle, CheckCircle2, Users, User } from "lucide-react";
 import { Booking, BookingType, Space, Location, Member, Lead } from "@/types";
 import { formatCurrency } from "@/lib/utils";
 
@@ -25,7 +18,7 @@ interface BookingModalProps {
     date: string,
     startTime: string,
     endTime: string,
-    excludeBookingId?: string
+    excludeBookingId?: string,
   ) => { hasConflict: boolean; conflictingBooking?: Booking };
   initialDate?: string;
   initialSpaceId?: string;
@@ -53,7 +46,7 @@ function BookingFormInner({
     date: string,
     startTime: string,
     endTime: string,
-    excludeBookingId?: string
+    excludeBookingId?: string,
   ) => { hasConflict: boolean; conflictingBooking?: Booking };
   initialDate?: string;
   initialSpaceId?: string;
@@ -69,7 +62,7 @@ function BookingFormInner({
 
   const [bookingType, setBookingType] = useState<BookingType>("Meeting Room");
   const [selectedLocationName, setSelectedLocationName] = useState<string>(
-    defaultInitialSpace?.locationName || locations[0]?.name || "Koramangala Hub"
+    defaultInitialSpace?.locationName || locations[0]?.name || "Koramangala Hub",
   );
 
   // Filter spaces matching selected location
@@ -78,13 +71,11 @@ function BookingFormInner({
   }, [activeSpaces, selectedLocationName]);
 
   const [selectedSpaceId, setSelectedSpaceId] = useState<string>(
-    defaultInitialSpace?.id || locationSpaces[0]?.id || activeSpaces[0]?.id || ""
+    defaultInitialSpace?.id || locationSpaces[0]?.id || activeSpaces[0]?.id || "",
   );
 
   const [title, setTitle] = useState("");
-  const [date, setDate] = useState<string>(
-    initialDate || new Date().toISOString().split("T")[0]
-  );
+  const [date, setDate] = useState<string>(initialDate || new Date().toISOString().split("T")[0]);
   const [startTime, setStartTime] = useState("10:00");
   const [endTime, setEndTime] = useState("11:00");
   const [attendeesCount, setAttendeesCount] = useState(2);
@@ -174,7 +165,7 @@ function BookingFormInner({
 
     if (conflictResult.hasConflict) {
       setFormError(
-        `Time slot conflict: ${conflictResult.conflictingBooking?.title || "Another booking"} already occupies this space.`
+        `Time slot conflict: ${conflictResult.conflictingBooking?.title || "Another booking"} already occupies this space.`,
       );
       return;
     }
@@ -244,9 +235,15 @@ function BookingFormInner({
       aria-modal="true"
       aria-labelledby="booking-modal-title"
     >
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-xl border border-neutral-200 overflow-hidden flex flex-col max-h-[92vh]" data-ui="overlay">
+      <div
+        className="bg-white rounded-xl shadow-xl w-full max-w-xl border border-neutral-200 overflow-hidden flex flex-col max-h-[92vh]"
+        data-ui="overlay"
+      >
         {/* Header */}
-        <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50" data-ui="ui-frame">
+        <div
+          className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50"
+          data-ui="ui-frame"
+        >
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-charcoal-900/10 flex items-center justify-center text-charcoal-950">
               <CalendarCheck2 className="w-4 h-4" />
@@ -280,34 +277,30 @@ function BookingFormInner({
 
           {/* Booking Type Pill Selector */}
           <div>
-            <label className="block font-medium text-neutral-700 mb-1.5">
-              Reservation Type
-            </label>
+            <label className="block font-medium text-neutral-700 mb-1.5">Reservation Type</label>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              {(["Meeting Room", "Prospect Tour", "Event", "Desk"] as BookingType[]).map(
-                (type) => (
-                  <button
-                    key={type}
-                    type="button"
-                    onClick={() => {
-                      setBookingType(type);
-                      setFormError("");
-                      if (type === "Prospect Tour") {
-                        setTitle(`Tour - ${leads[0]?.name || "Prospective Client"}`);
-                      } else {
-                        setTitle("");
-                      }
-                    }}
-                    className={`py-2 px-3 rounded-lg border text-xs font-medium text-center transition-all ${
-                      bookingType === type
-                        ? "bg-ember text-white border-[#1c1c1c] "
-                        : "bg-white text-neutral-700 border-neutral-200 hover:bg-neutral-50"
-                    }`}
-                  >
-                    {type}
-                  </button>
-                )
-              )}
+              {(["Meeting Room", "Prospect Tour", "Event", "Desk"] as BookingType[]).map((type) => (
+                <button
+                  key={type}
+                  type="button"
+                  onClick={() => {
+                    setBookingType(type);
+                    setFormError("");
+                    if (type === "Prospect Tour") {
+                      setTitle(`Tour - ${leads[0]?.name || "Prospective Client"}`);
+                    } else {
+                      setTitle("");
+                    }
+                  }}
+                  className={`py-2 px-3 rounded-lg border text-xs font-medium text-center transition-all ${
+                    bookingType === type
+                      ? "bg-ember text-white border-[#1c1c1c] "
+                      : "bg-white text-neutral-700 border-neutral-200 hover:bg-neutral-50"
+                  }`}
+                >
+                  {type}
+                </button>
+              ))}
             </div>
           </div>
 
@@ -446,10 +439,8 @@ function BookingFormInner({
                   {conflictResult.conflictingBooking?.startTime}
                 </span>{" "}
                 to{" "}
-                <span className="font-semibold">
-                  {conflictResult.conflictingBooking?.endTime}
-                </span>
-                . Please select another time or room.
+                <span className="font-semibold">{conflictResult.conflictingBooking?.endTime}</span>.
+                Please select another time or room.
               </div>
             </div>
           ) : (
@@ -634,11 +625,11 @@ function BookingFormInner({
                 {bookingType === "Prospect Tour"
                   ? "Complimentary tour walkthrough"
                   : useCredits
-                  ? `Applied ${durationHours} member meeting room credits`
-                  : `${durationHours} hrs × ${formatCurrency(
-                      selectedSpace?.hourlyRateCents || 0,
-                      "INR"
-                    )}/hr`}
+                    ? `Applied ${durationHours} member meeting room credits`
+                    : `${durationHours} hrs × ${formatCurrency(
+                        selectedSpace?.hourlyRateCents || 0,
+                        "INR",
+                      )}/hr`}
               </div>
             </div>
 
@@ -677,7 +668,10 @@ function BookingFormInner({
           </div>
 
           {/* Footer */}
-          <div className="pt-4 border-t border-neutral-100 flex items-center justify-end gap-2" data-ui="ui-frame">
+          <div
+            className="pt-4 border-t border-neutral-100 flex items-center justify-end gap-2"
+            data-ui="ui-frame"
+          >
             <button
               type="button"
               onClick={onClose}

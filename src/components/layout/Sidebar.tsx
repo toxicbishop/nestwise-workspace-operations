@@ -34,7 +34,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const { selectedLocation, setSelectedLocation, locations, leads } = useWorkNest();
 
   const openInquiriesCount = leads.filter(
-    (l) => l.status === "New" || l.status === "Contacted" || l.status === "Tour Booked"
+    (l) => l.status === "New" || l.status === "Contacted" || l.status === "Tour Booked",
   ).length;
 
   const NAV_OPERATIONS: NavItem[] = [
@@ -95,7 +95,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           "group relative flex items-center justify-between pl-4 pr-3 py-2 text-xs rounded-lg transition-all duration-150",
           isActive
             ? "bg-white text-charcoal-900 font-semibold shadow-[0_1px_3px_rgba(17,17,17,0.06)] ring-1 ring-black/[0.04]"
-            : "text-charcoal-700 font-medium hover:text-charcoal-900 hover:bg-black/[0.035]"
+            : "text-charcoal-700 font-medium hover:text-charcoal-900 hover:bg-black/[0.035]",
         )}
         aria-current={isActive ? "page" : undefined}
       >
@@ -103,7 +103,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         <span
           className={cn(
             "absolute left-0 top-1/2 -translate-y-1/2 w-[3px] rounded-full bg-ember transition-all duration-150",
-            isActive ? "h-4 opacity-100" : "h-0 opacity-0"
+            isActive ? "h-4 opacity-100" : "h-0 opacity-0",
           )}
           aria-hidden="true"
         />
@@ -111,7 +111,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           <Icon
             className={cn(
               "w-4 h-4 shrink-0 transition-colors",
-              isActive ? "text-ember" : "text-charcoal-700/70 group-hover:text-charcoal-900"
+              isActive ? "text-ember" : "text-charcoal-700/70 group-hover:text-charcoal-900",
             )}
           />
           <span className="truncate">{item.name}</span>
@@ -120,9 +120,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           <span
             className={cn(
               "tabular-nums text-[10px] font-semibold px-1.5 py-0.5 rounded-md transition-colors",
-              isActive
-                ? "bg-ember-soft text-ember-deep"
-                : "bg-black/[0.05] text-charcoal-700"
+              isActive ? "bg-ember-soft text-ember-deep" : "bg-black/[0.05] text-charcoal-700",
             )}
           >
             {item.badge}
@@ -147,12 +145,15 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         data-ui="sidebar"
         className={cn(
           "fixed top-0 bottom-0 left-0 z-50 w-[252px] bg-paper border-r border-[#e5e3df] text-charcoal-950 flex flex-col transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:z-auto select-none",
-          isOpen ? "translate-x-0" : "-translate-x-full"
+          isOpen ? "translate-x-0" : "-translate-x-full",
         )}
         aria-label="Main Navigation"
       >
         {/* Brand header */}
-        <div className="flex items-center justify-between p-5 pb-4 border-b border-[#e5e3df]" data-ui="ui-frame">
+        <div
+          className="flex items-center justify-between p-5 pb-4 border-b border-[#e5e3df]"
+          data-ui="ui-frame"
+        >
           <Link to="/app" className="flex items-center gap-3 group" aria-label="WorkNest CRM home">
             <div className="w-[34px] h-[34px] rounded-lg bg-gradient-to-br from-ember to-ember-deep flex items-center justify-center text-white font-bold text-[15px] shrink-0 shadow-[0_2px_8px_rgba(232,93,58,0.35)] group-hover:shadow-[0_3px_12px_rgba(232,93,58,0.45)] transition-shadow">
               W
@@ -238,12 +239,8 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               AM
             </div>
             <div className="min-w-0 flex-1">
-              <div className="text-xs font-semibold text-charcoal-950 truncate">
-                Arjun Malhotra
-              </div>
-              <div className="text-[10px] text-charcoal-700 truncate">
-                General Manager · Mumbai
-              </div>
+              <div className="text-xs font-semibold text-charcoal-950 truncate">Arjun Malhotra</div>
+              <div className="text-[10px] text-charcoal-700 truncate">General Manager · Mumbai</div>
             </div>
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" />
           </div>

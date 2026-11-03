@@ -101,7 +101,8 @@ export function BookingsDirectory() {
   }, [bookings]);
 
   const upcomingToursCount = useMemo(() => {
-    return bookings.filter((b) => b.bookingType === "Prospect Tour" && b.status === "Confirmed").length;
+    return bookings.filter((b) => b.bookingType === "Prospect Tour" && b.status === "Confirmed")
+      .length;
   }, [bookings]);
 
   const totalRevenuePaise = useMemo(() => {
@@ -284,7 +285,10 @@ export function BookingsDirectory() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="bg-neutral-50/75 border-b border-neutral-200 text-neutral-500 font-medium" data-ui="ui-frame">
+                <tr
+                  className="bg-neutral-50/75 border-b border-neutral-200 text-neutral-500 font-medium"
+                  data-ui="ui-frame"
+                >
                   <th className="py-3 px-4">Date & Time</th>
                   <th className="py-3 px-4">Space & Location</th>
                   <th className="py-3 px-4">Title & Type</th>
@@ -327,7 +331,7 @@ export function BookingsDirectory() {
                       <div className="flex items-center gap-1.5 mt-1">
                         <span
                           className={`text-[10px] px-2 py-0.5 rounded-full font-medium border ${getTypeBadge(
-                            b.bookingType
+                            b.bookingType,
                           )}`}
                         >
                           {b.bookingType}
@@ -386,7 +390,7 @@ export function BookingsDirectory() {
                     <td className="py-3.5 px-4 whitespace-nowrap">
                       <span
                         className={`inline-flex items-center text-xs px-2.5 py-1 rounded-full font-medium border ${getStatusBadge(
-                          b.status
+                          b.status,
                         )}`}
                       >
                         {b.status}
@@ -442,11 +446,10 @@ export function BookingsDirectory() {
         ) : (
           <div className="p-12 text-center">
             <CalendarCheck2 className="w-10 h-10 text-neutral-300 mx-auto mb-3" />
-            <h3 className="text-sm font-semibold text-neutral-800 mb-1">
-              No reservations found
-            </h3>
+            <h3 className="text-sm font-semibold text-neutral-800 mb-1">No reservations found</h3>
             <p className="text-xs text-neutral-500 max-w-sm mx-auto mb-4">
-              No bookings match your current filter parameters. Try clearing filters or create a new reservation.
+              No bookings match your current filter parameters. Try clearing filters or create a new
+              reservation.
             </p>
             <div className="flex items-center justify-center gap-2">
               <button

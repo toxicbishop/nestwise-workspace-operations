@@ -355,7 +355,8 @@ export const INITIAL_MEMBERSHIP_PLANS: MembershipPlan[] = [
     meetingRoomCreditsHours: 24,
     printingCreditsPages: 500,
     includedLocations: ["All"],
-    description: "Sound-isolated private office suite with frosted privacy glass and company signage.",
+    description:
+      "Sound-isolated private office suite with frosted privacy glass and company signage.",
     isActive: true,
   },
   {
@@ -367,7 +368,8 @@ export const INITIAL_MEMBERSHIP_PLANS: MembershipPlan[] = [
     meetingRoomCreditsHours: 2,
     printingCreditsPages: 0,
     includedLocations: ["All"],
-    description: "Prestigious commercial mailing address, secure mail forwarding, and member portal.",
+    description:
+      "Prestigious commercial mailing address, secure mail forwarding, and member portal.",
     isActive: true,
   },
   {
@@ -583,7 +585,13 @@ export const INITIAL_SPACES: Space[] = [
     type: "Meeting Room",
     capacity: 14,
     hourlyRateCents: 120000, // ₹1,200/hr
-    amenities: ["4K Display", "Polycom Video Conf", "Whiteboard", "High-speed Fiber", "Air Conditioned"],
+    amenities: [
+      "4K Display",
+      "Polycom Video Conf",
+      "Whiteboard",
+      "High-speed Fiber",
+      "Air Conditioned",
+    ],
     floorOrZone: "Floor 12 East",
     isActive: true,
     notes: "Primary boardroom equipped with 4K PTZ camera and acoustic sound baffling.",
@@ -609,7 +617,13 @@ export const INITIAL_SPACES: Space[] = [
     type: "Event Space",
     capacity: 80,
     hourlyRateCents: 600000, // ₹6,000/hr
-    amenities: ["Stage & Podium", "JBL PA System", "Ceiling Projector", "Wireless Microphones", "Catering Bar"],
+    amenities: [
+      "Stage & Podium",
+      "JBL PA System",
+      "Ceiling Projector",
+      "Wireless Microphones",
+      "Catering Bar",
+    ],
     floorOrZone: "Floor 12 North Wing",
     isActive: true,
     notes: "Town halls, product launches, and community mixers. Catering kitchen attached.",
@@ -634,7 +648,12 @@ export const INITIAL_SPACES: Space[] = [
     type: "Private Office Suite",
     capacity: 10,
     hourlyRateCents: 250000, // ₹2,500/hr
-    amenities: ["Private Balcony", "65-inch Smart TV", "Dedicated High-speed Fiber", "Ergonomic Chairs"],
+    amenities: [
+      "Private Balcony",
+      "65-inch Smart TV",
+      "Dedicated High-speed Fiber",
+      "Ergonomic Chairs",
+    ],
     floorOrZone: "Floor 3 South",
     isActive: true,
     notes: "Lockable suite with custom company branding panel.",
@@ -647,7 +666,12 @@ export const INITIAL_SPACES: Space[] = [
     type: "Meeting Room",
     capacity: 8,
     hourlyRateCents: 80000, // ₹800/hr
-    amenities: ["Interactive Smart Board", "Dual Displays", "Magnetic Glassboard", "Modular Tables"],
+    amenities: [
+      "Interactive Smart Board",
+      "Dual Displays",
+      "Magnetic Glassboard",
+      "Modular Tables",
+    ],
     floorOrZone: "Floor 3 Central",
     isActive: true,
     notes: "Configurable seating for interactive workshops and design jams.",
@@ -660,7 +684,12 @@ export const INITIAL_SPACES: Space[] = [
     type: "Podcast Studio",
     capacity: 4,
     hourlyRateCents: 150000, // ₹1,500/hr
-    amenities: ["Shure SM7B Mics", "Rodecaster Pro II", "Acoustic Wall Panelling", "Sony 4K Stream Cam"],
+    amenities: [
+      "Shure SM7B Mics",
+      "Rodecaster Pro II",
+      "Acoustic Wall Panelling",
+      "Sony 4K Stream Cam",
+    ],
     floorOrZone: "Floor 3 Sound Wing",
     isActive: true,
     notes: "Turnkey audio/video recording studio with sound isolation booth.",
@@ -673,7 +702,13 @@ export const INITIAL_SPACES: Space[] = [
     type: "Event Space",
     capacity: 120,
     hourlyRateCents: 1000000, // ₹10,000/hr
-    amenities: ["LED Video Wall", "Line Array Audio", "Livestream Rig", "Handheld & Lapel Mics", "Tiered Seating"],
+    amenities: [
+      "LED Video Wall",
+      "Line Array Audio",
+      "Livestream Rig",
+      "Handheld & Lapel Mics",
+      "Tiered Seating",
+    ],
     floorOrZone: "Building C Ground Floor",
     isActive: true,
     notes: "Large auditorium style space for developer conferences and investor showcases.",
@@ -699,7 +734,12 @@ export const INITIAL_SPACES: Space[] = [
     type: "Hot Desk Zone",
     capacity: 30,
     hourlyRateCents: 20000, // ₹200/hr
-    amenities: ["Motorized Standing Desks", "Herman Miller Chairs", "Dual Monitor Arms", "Gbps Fiber"],
+    amenities: [
+      "Motorized Standing Desks",
+      "Herman Miller Chairs",
+      "Dual Monitor Arms",
+      "Gbps Fiber",
+    ],
     floorOrZone: "Building C 1st Floor",
     isActive: true,
   },
@@ -1092,6 +1132,3 @@ export const INITIAL_INVOICES: Invoice[] = [
     notes: "First notice sent on Sept 20. Second notice sent Oct 01.",
   },
 ];
-
-
-

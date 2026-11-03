@@ -1,12 +1,6 @@
 export type LeadStatus = "New" | "Contacted" | "Tour Booked" | "Converted" | "Lost";
 
-export const LEAD_STATUSES: LeadStatus[] = [
-  "New",
-  "Contacted",
-  "Tour Booked",
-  "Converted",
-  "Lost",
-];
+export const LEAD_STATUSES: LeadStatus[] = ["New", "Contacted", "Tour Booked", "Converted", "Lost"];
 
 export interface Lead {
   id: string;
@@ -14,10 +8,12 @@ export interface Lead {
   email: string;
   phone: string;
   company?: string;
-  interestedPlan: "Hot Desk" | "Dedicated Desk" | "Private Office" | "Virtual Office" | "Enterprise Suite";
+  interestedPlan:
+    "Hot Desk" | "Dedicated Desk" | "Private Office" | "Virtual Office" | "Enterprise Suite";
   preferredLocation: string;
   teamSize?: number;
-  source: "Website Form" | "Walk-in" | "Referral" | "Event" | "Phone Call" | "Social Media" | "Partner";
+  source:
+    "Website Form" | "Walk-in" | "Referral" | "Event" | "Phone Call" | "Social Media" | "Partner";
   status: LeadStatus;
   assignedTo: string;
   createdAt: string;
@@ -108,12 +104,7 @@ export interface StaffMember {
 }
 
 export type MembershipStatus =
-  | "Trial"
-  | "Active"
-  | "Past Due"
-  | "Expiring"
-  | "Cancelled"
-  | "Expired";
+  "Trial" | "Active" | "Past Due" | "Expiring" | "Cancelled" | "Expired";
 
 export const MEMBERSHIP_STATUSES: MembershipStatus[] = [
   "Active",
@@ -214,13 +205,7 @@ export interface Booking {
 }
 
 export type InvoiceStatus =
-  | "Draft"
-  | "Open"
-  | "Paid"
-  | "Partially Paid"
-  | "Overdue"
-  | "Void"
-  | "Refunded";
+  "Draft" | "Open" | "Paid" | "Partially Paid" | "Overdue" | "Void" | "Refunded";
 
 export interface InvoiceLineItem {
   id: string;
@@ -231,12 +216,7 @@ export interface InvoiceLineItem {
 }
 
 export type PaymentMethod =
-  | "UPI / NetBanking"
-  | "Credit Card"
-  | "Debit Card"
-  | "Bank Transfer"
-  | "Cash"
-  | "Cheque";
+  "UPI / NetBanking" | "Credit Card" | "Debit Card" | "Bank Transfer" | "Cash" | "Cheque";
 
 export interface PaymentRecord {
   id: string;
@@ -272,5 +252,3 @@ export interface Invoice {
   notes?: string;
   createdAt: string;
 }
-
-

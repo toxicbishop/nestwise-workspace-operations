@@ -30,19 +30,15 @@ function LeadFormInner({
   const [phone, setPhone] = useState(initialLead?.phone || "");
   const [company, setCompany] = useState(initialLead?.company || "");
   const [interestedPlan, setInterestedPlan] = useState<Lead["interestedPlan"]>(
-    initialLead?.interestedPlan || "Hot Desk"
+    initialLead?.interestedPlan || "Hot Desk",
   );
   const [preferredLocation, setPreferredLocation] = useState(
-    initialLead?.preferredLocation || "Koramangala Hub"
+    initialLead?.preferredLocation || "Koramangala Hub",
   );
   const [teamSize, setTeamSize] = useState<number>(initialLead?.teamSize || 1);
-  const [source, setSource] = useState<Lead["source"]>(
-    initialLead?.source || "Website Form"
-  );
+  const [source, setSource] = useState<Lead["source"]>(initialLead?.source || "Website Form");
   const [status, setStatus] = useState<LeadStatus>(initialLead?.status || "New");
-  const [assignedTo, setAssignedTo] = useState(
-    initialLead?.assignedTo || "Rohit Khanna"
-  );
+  const [assignedTo, setAssignedTo] = useState(initialLead?.assignedTo || "Rohit Khanna");
   const [notes, setNotes] = useState(initialLead?.notes || "");
   const [lostReason, setLostReason] = useState(initialLead?.lostReason || "");
 
@@ -74,8 +70,7 @@ function LeadFormInner({
     if (email.trim()) {
       const isDuplicate = existingLeads.some(
         (lead) =>
-          lead.email.toLowerCase() === email.trim().toLowerCase() &&
-          lead.id !== initialLead?.id
+          lead.email.toLowerCase() === email.trim().toLowerCase() && lead.id !== initialLead?.id,
       );
       if (isDuplicate) {
         newErrors.email = "A lead with this email already exists.";
@@ -113,9 +108,15 @@ function LeadFormInner({
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-xl max-w-lg w-full border border-gray-200 overflow-hidden" data-ui="overlay">
+    <div
+      className="bg-white rounded-xl shadow-xl max-w-lg w-full border border-gray-200 overflow-hidden"
+      data-ui="overlay"
+    >
       {/* Modal Header */}
-      <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper" data-ui="ui-frame">
+      <div
+        className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper"
+        data-ui="ui-frame"
+      >
         <h2 id="modal-title" className="text-base font-semibold text-charcoal-950">
           {initialLead ? "Edit Lead Details" : "Create New Lead Inquiry"}
         </h2>
@@ -151,7 +152,10 @@ function LeadFormInner({
           </div>
 
           <div>
-            <label htmlFor="lead-company" className="block text-xs font-semibold text-gray-700 mb-1">
+            <label
+              htmlFor="lead-company"
+              className="block text-xs font-semibold text-gray-700 mb-1"
+            >
               Company / Studio (Optional)
             </label>
             <input
@@ -220,7 +224,10 @@ function LeadFormInner({
           </div>
 
           <div>
-            <label htmlFor="lead-location" className="block text-xs font-semibold text-gray-700 mb-1">
+            <label
+              htmlFor="lead-location"
+              className="block text-xs font-semibold text-gray-700 mb-1"
+            >
               Preferred Location
             </label>
             <select
@@ -243,7 +250,10 @@ function LeadFormInner({
         {/* Team Size & Lead Source */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="lead-teamsize" className="block text-xs font-semibold text-gray-700 mb-1">
+            <label
+              htmlFor="lead-teamsize"
+              className="block text-xs font-semibold text-gray-700 mb-1"
+            >
               Team Size
             </label>
             <input
@@ -322,24 +332,27 @@ function LeadFormInner({
 
         {/* Lost Reason (Required when status is Lost) */}
         {status === "Lost" && (
-            <div className="p-3 bg-rose-50/60 border border-rose-200 rounded-lg">
-              <label htmlFor="lead-lost-reason" className="block text-xs font-semibold text-rose-800 mb-1">
-                Reason for Lost Status <span className="text-rose-600">*</span>
-              </label>
-              <input
-                id="lead-lost-reason"
-                type="text"
-                value={lostReason}
-                onChange={(e) => setLostReason(e.target.value)}
-                placeholder="e.g. Budget mismatch, chose competitor, moved area"
-                className={`w-full text-xs rounded-lg border px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-rose-500 ${
-                  errors.lostReason ? "border-rose-500 bg-rose-50" : "border-rose-300 bg-white"
-                }`}
-              />
-              {errors.lostReason && (
-                <p className="text-[11px] text-rose-600 mt-1">{errors.lostReason}</p>
-              )}
-            </div>
+          <div className="p-3 bg-rose-50/60 border border-rose-200 rounded-lg">
+            <label
+              htmlFor="lead-lost-reason"
+              className="block text-xs font-semibold text-rose-800 mb-1"
+            >
+              Reason for Lost Status <span className="text-rose-600">*</span>
+            </label>
+            <input
+              id="lead-lost-reason"
+              type="text"
+              value={lostReason}
+              onChange={(e) => setLostReason(e.target.value)}
+              placeholder="e.g. Budget mismatch, chose competitor, moved area"
+              className={`w-full text-xs rounded-lg border px-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-rose-500 ${
+                errors.lostReason ? "border-rose-500 bg-rose-50" : "border-rose-300 bg-white"
+              }`}
+            />
+            {errors.lostReason && (
+              <p className="text-[11px] text-rose-600 mt-1">{errors.lostReason}</p>
+            )}
+          </div>
         )}
 
         {/* Notes */}
@@ -358,7 +371,10 @@ function LeadFormInner({
         </div>
 
         {/* Actions */}
-        <div className="pt-2 border-t border-gray-100 flex items-center justify-end gap-3" data-ui="ui-frame">
+        <div
+          className="pt-2 border-t border-gray-100 flex items-center justify-end gap-3"
+          data-ui="ui-frame"
+        >
           <button
             type="button"
             onClick={onClose}

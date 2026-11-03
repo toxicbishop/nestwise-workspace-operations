@@ -14,7 +14,8 @@ function BookingsPage() {
           Bookings & Tours
         </h1>
         <p className="text-xs text-neutral-500 mt-1">
-          Schedule meeting rooms, manage prospect walkthroughs, prevent reservation overlaps, and track space check-ins across{" "}
+          Schedule meeting rooms, manage prospect walkthroughs, prevent reservation overlaps, and
+          track space check-ins across{" "}
           <span className="font-semibold text-neutral-700">
             {selectedLocation === "All" ? "all coworking hubs" : selectedLocation}
           </span>

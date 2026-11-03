@@ -11,7 +11,7 @@ describe("LocationsTab Component", () => {
         onAddLocation={vi.fn()}
         onUpdateLocation={vi.fn()}
         onDeleteLocation={vi.fn()}
-      />
+      />,
     );
 
     expect(screen.getByText("Koramangala Hub")).toBeInTheDocument();
@@ -27,7 +27,7 @@ describe("LocationsTab Component", () => {
         onAddLocation={handleAdd}
         onUpdateLocation={vi.fn()}
         onDeleteLocation={vi.fn()}
-      />
+      />,
     );
 
     fireEvent.click(screen.getByText("Add Location"));
@@ -53,7 +53,7 @@ describe("LocationsTab Component", () => {
         name: "Marina Arts Loft",
         city: "Venice",
         managerName: "David Kim",
-      })
+      }),
     );
   });
 });

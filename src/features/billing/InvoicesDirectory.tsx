@@ -63,7 +63,11 @@ export function InvoicesDirectory() {
       if (periodFilter === "Paid" && inv.status !== "Paid") {
         return false;
       }
-      if (periodFilter === "Overdue" && inv.status !== "Overdue" && !(inv.dueDate < todayStr && inv.paidAmountCents < inv.totalAmountCents)) {
+      if (
+        periodFilter === "Overdue" &&
+        inv.status !== "Overdue" &&
+        !(inv.dueDate < todayStr && inv.paidAmountCents < inv.totalAmountCents)
+      ) {
         return false;
       }
       if (periodFilter === "Due Soon") {
@@ -110,7 +114,8 @@ export function InvoicesDirectory() {
     return invoices.filter(
       (inv) =>
         inv.status !== "Void" &&
-        (inv.status === "Overdue" || (inv.dueDate < todayStr && inv.paidAmountCents < inv.totalAmountCents))
+        (inv.status === "Overdue" ||
+          (inv.dueDate < todayStr && inv.paidAmountCents < inv.totalAmountCents)),
     ).length;
   }, [invoices, todayStr]);
 
@@ -144,7 +149,7 @@ export function InvoicesDirectory() {
     amountCents: number,
     paymentMethod: PaymentMethod,
     transactionRef: string,
-    notes?: string
+    notes?: string,
   ) => {
     recordPayment(invoiceId, amountCents, paymentMethod, transactionRef, notes);
     // Refresh selected invoice if detail modal is open
@@ -196,9 +201,7 @@ export function InvoicesDirectory() {
             <AlertTriangle className="w-4 h-4 text-amber-600" />
             <span>Overdue Invoices</span>
           </div>
-          <div className="text-2xl font-bold text-amber-700">
-            {overdueInvoicesCount}
-          </div>
+          <div className="text-2xl font-bold text-amber-700">{overdueInvoicesCount}</div>
           <div className="text-[11px] text-neutral-500 mt-0.5">Requires reminder notice</div>
         </div>
       </div>
@@ -287,7 +290,10 @@ export function InvoicesDirectory() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="bg-neutral-50/75 border-b border-neutral-200 text-neutral-500 font-medium" data-ui="ui-frame">
+                <tr
+                  className="bg-neutral-50/75 border-b border-neutral-200 text-neutral-500 font-medium"
+                  data-ui="ui-frame"
+                >
                   <th className="py-3 px-4">Invoice # & Date</th>
                   <th className="py-3 px-4">Billed Member / Client</th>
                   <th className="py-3 px-4">Servicing Hub</th>
@@ -374,7 +380,7 @@ export function InvoicesDirectory() {
                       <td className="py-3.5 px-4 whitespace-nowrap">
                         <span
                           className={`inline-flex items-center text-xs px-2.5 py-1 rounded-full font-semibold border ${getStatusBadge(
-                            inv.status
+                            inv.status,
                           )}`}
                         >
                           {inv.status}

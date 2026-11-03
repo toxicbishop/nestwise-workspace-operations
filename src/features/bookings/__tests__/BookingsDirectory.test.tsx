@@ -8,7 +8,7 @@ describe("BookingsDirectory Component", () => {
     render(
       <WorkNestProvider>
         <BookingsDirectory />
-      </WorkNestProvider>
+      </WorkNestProvider>,
     );
 
     expect(screen.getByText("Today's Reservations")).toBeInTheDocument();
@@ -21,7 +21,7 @@ describe("BookingsDirectory Component", () => {
     render(
       <WorkNestProvider>
         <BookingsDirectory />
-      </WorkNestProvider>
+      </WorkNestProvider>,
     );
 
     const searchInput = screen.getByPlaceholderText("Search title, member, space, location...");
@@ -35,7 +35,7 @@ describe("BookingsDirectory Component", () => {
     render(
       <WorkNestProvider>
         <BookingsDirectory />
-      </WorkNestProvider>
+      </WorkNestProvider>,
     );
 
     const newBtn = screen.getByRole("button", { name: /New Reservation/i });

@@ -16,7 +16,8 @@ import { apiClient, AnalyticsReport } from "@/lib/api-client";
 import { formatCurrency } from "@/lib/utils";
 
 export function AnalyticsDashboard() {
-  const { selectedLocation, locations, leads, members, memberships, spaces, bookings, invoices } = useWorkNest();
+  const { selectedLocation, locations, leads, members, memberships, spaces, bookings, invoices } =
+    useWorkNest();
   const [report, setReport] = useState<AnalyticsReport | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [isLiveApi, setIsLiveApi] = useState<boolean>(false);
@@ -75,7 +76,9 @@ export function AnalyticsDashboard() {
       const totalLeads = filteredLeads.length;
       const converted = filteredLeads.filter((l) => l.status === "Converted").length;
       const lost = filteredLeads.filter((l) => l.status === "Lost").length;
-      const open = filteredLeads.filter((l) => ["New", "Contacted", "Tour Booked"].includes(l.status)).length;
+      const open = filteredLeads.filter((l) =>
+        ["New", "Contacted", "Tour Booked"].includes(l.status),
+      ).length;
       const convRate = totalLeads > 0 ? (converted / totalLeads) * 100 : 0;
 
       const sources: Record<string, number> = {};
@@ -85,7 +88,9 @@ export function AnalyticsDashboard() {
       });
 
       const activeM = filteredMemberships.filter((m) => m.status === "Active").length;
-      const churnedM = filteredMemberships.filter((m) => ["Cancelled", "Expired"].includes(m.status)).length;
+      const churnedM = filteredMemberships.filter((m) =>
+        ["Cancelled", "Expired"].includes(m.status),
+      ).length;
       const totalCont = activeM + churnedM;
       const retRate = totalCont > 0 ? (activeM / totalCont) * 100 : 100;
 
@@ -109,7 +114,9 @@ export function AnalyticsDashboard() {
           location_name: loc.name,
           capacity: loc.totalCapacity,
           occupancy_rate: loc.currentOccupancyRate,
-          active_members_count: members.filter((m) => m.homeLocation === loc.name && m.status === "Active").length,
+          active_members_count: members.filter(
+            (m) => m.homeLocation === loc.name && m.status === "Active",
+          ).length,
           total_spaces_count: spaces.filter((s) => s.locationId === loc.id).length,
         })),
         conversion: {
@@ -122,7 +129,8 @@ export function AnalyticsDashboard() {
         },
         utilization: filteredSpaces.map((sp) => {
           const spBookings = filteredBookings.filter(
-            (b) => b.spaceId === sp.id && ["Confirmed", "Checked In", "Completed"].includes(b.status)
+            (b) =>
+              b.spaceId === sp.id && ["Confirmed", "Checked In", "Completed"].includes(b.status),
           );
           let hours = 0;
           spBookings.forEach((b) => {
@@ -168,7 +176,9 @@ export function AnalyticsDashboard() {
     return (
       <div className="flex flex-col items-center justify-center p-16 space-y-4">
         <RefreshCw className="w-8 h-8 text-charcoal-950 animate-spin" />
-        <p className="text-sm font-medium text-neutral-600">Generating operations & occupancy report...</p>
+        <p className="text-sm font-medium text-neutral-600">
+          Generating operations & occupancy report...
+        </p>
       </div>
     );
   }
@@ -192,7 +202,8 @@ export function AnalyticsDashboard() {
             )}
           </div>
           <p className="text-sm text-neutral-500 mt-1">
-            Authoritative utilization, customer acquisition velocity, and financial retention metrics.
+            Authoritative utilization, customer acquisition velocity, and financial retention
+            metrics.
           </p>
         </div>
 
@@ -209,9 +220,12 @@ export function AnalyticsDashboard() {
             <span className="text-xs font-semibold font-semibold">Conversion Rate</span>
             <TrendingUp className="w-4 h-4 text-emerald-600" />
           </div>
-          <p className="text-2xl font-bold text-neutral-900 mt-2">{report.conversion.conversion_rate_percent}%</p>
+          <p className="text-2xl font-bold text-neutral-900 mt-2">
+            {report.conversion.conversion_rate_percent}%
+          </p>
           <p className="text-xs text-neutral-500 mt-1">
-            {report.conversion.converted_leads} of {report.conversion.total_leads} inquiries converted
+            {report.conversion.converted_leads} of {report.conversion.total_leads} inquiries
+            converted
           </p>
         </div>
 
@@ -220,7 +234,9 @@ export function AnalyticsDashboard() {
             <span className="text-xs font-semibold font-semibold">Membership Retention</span>
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
           </div>
-          <p className="text-2xl font-bold text-neutral-900 mt-2">{report.revenue.retention_rate_percent}%</p>
+          <p className="text-2xl font-bold text-neutral-900 mt-2">
+            {report.revenue.retention_rate_percent}%
+          </p>
           <p className="text-xs text-neutral-500 mt-1">
             {report.revenue.active_memberships} active, {report.revenue.churned_memberships} churned
           </p>
@@ -231,7 +247,9 @@ export function AnalyticsDashboard() {
             <span className="text-xs font-semibold font-semibold">Recognized MRR</span>
             <ArrowUpRight className="w-4 h-4 text-charcoal-950" />
           </div>
-          <p className="text-2xl font-bold text-neutral-900 mt-2">{formatCurrency(report.revenue.mrr_cents)}</p>
+          <p className="text-2xl font-bold text-neutral-900 mt-2">
+            {formatCurrency(report.revenue.mrr_cents)}
+          </p>
           <p className="text-xs text-neutral-500 mt-1">Contracted recurring run-rate</p>
         </div>
 
@@ -254,14 +272,19 @@ export function AnalyticsDashboard() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 className="text-lg font-bold text-neutral-900">Location Occupancy & Capacity</h2>
-            <p className="text-xs text-neutral-500 mt-0.5">Real-time floor occupancy across operating locations.</p>
+            <p className="text-xs text-neutral-500 mt-0.5">
+              Real-time floor occupancy across operating locations.
+            </p>
           </div>
           <Building className="w-5 h-5 text-neutral-400" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {report.occupancy.map((loc) => (
-            <div key={loc.location_id} className="p-5 rounded-xl border border-neutral-100 bg-neutral-50/70">
+            <div
+              key={loc.location_id}
+              className="p-5 rounded-xl border border-neutral-100 bg-neutral-50/70"
+            >
               <div className="flex items-center justify-between">
                 <h3 className="font-semibold text-neutral-900">{loc.location_name}</h3>
                 <span className="text-sm font-bold text-charcoal-950">{loc.occupancy_rate}%</span>
@@ -291,16 +314,24 @@ export function AnalyticsDashboard() {
           <div className="flex items-center justify-between mb-5">
             <div>
               <h2 className="text-lg font-bold text-neutral-900">Inquiry Acquisition Sources</h2>
-              <p className="text-xs text-neutral-500 mt-0.5">Where high-converting prospects originate.</p>
+              <p className="text-xs text-neutral-500 mt-0.5">
+                Where high-converting prospects originate.
+              </p>
             </div>
             <PieIcon className="w-5 h-5 text-neutral-400" />
           </div>
 
           <div className="space-y-3">
             {Object.entries(report.conversion.lead_sources).map(([src, count]) => {
-              const pct = report.conversion.total_leads > 0 ? (count / report.conversion.total_leads) * 100 : 0;
+              const pct =
+                report.conversion.total_leads > 0
+                  ? (count / report.conversion.total_leads) * 100
+                  : 0;
               return (
-                <div key={src} className="flex items-center justify-between p-3 rounded-lg bg-neutral-50">
+                <div
+                  key={src}
+                  className="flex items-center justify-between p-3 rounded-lg bg-neutral-50"
+                >
                   <div className="flex items-center gap-2.5">
                     <span className="w-2 h-2 rounded-full bg-[#1c1c1c]" />
                     <span className="text-sm font-medium text-neutral-800">{src}</span>
@@ -314,18 +345,27 @@ export function AnalyticsDashboard() {
             })}
           </div>
 
-          <div className="grid grid-cols-3 gap-3 mt-6 pt-5 border-t border-neutral-100 text-center" data-ui="ui-frame">
+          <div
+            className="grid grid-cols-3 gap-3 mt-6 pt-5 border-t border-neutral-100 text-center"
+            data-ui="ui-frame"
+          >
             <div className="p-2.5 rounded-lg bg-emerald-50">
               <p className="text-xs text-emerald-700 font-medium">Converted</p>
-              <p className="text-lg font-bold text-emerald-900 mt-0.5">{report.conversion.converted_leads}</p>
+              <p className="text-lg font-bold text-emerald-900 mt-0.5">
+                {report.conversion.converted_leads}
+              </p>
             </div>
             <div className="p-2.5 rounded-lg bg-blue-50">
               <p className="text-xs text-blue-700 font-medium">In Pipeline</p>
-              <p className="text-lg font-bold text-blue-900 mt-0.5">{report.conversion.open_leads}</p>
+              <p className="text-lg font-bold text-blue-900 mt-0.5">
+                {report.conversion.open_leads}
+              </p>
             </div>
             <div className="p-2.5 rounded-lg bg-neutral-100">
               <p className="text-xs text-neutral-600 font-medium">Lost</p>
-              <p className="text-lg font-bold text-neutral-800 mt-0.5">{report.conversion.lost_leads}</p>
+              <p className="text-lg font-bold text-neutral-800 mt-0.5">
+                {report.conversion.lost_leads}
+              </p>
             </div>
           </div>
         </div>
@@ -334,15 +374,22 @@ export function AnalyticsDashboard() {
         <div className="p-6 bg-white rounded-2xl border border-neutral-200 ">
           <div className="flex items-center justify-between mb-5">
             <div>
-              <h2 className="text-lg font-bold text-neutral-900">Meeting Room & Space Utilization</h2>
-              <p className="text-xs text-neutral-500 mt-0.5">Booking intensity and booked hours per facility.</p>
+              <h2 className="text-lg font-bold text-neutral-900">
+                Meeting Room & Space Utilization
+              </h2>
+              <p className="text-xs text-neutral-500 mt-0.5">
+                Booking intensity and booked hours per facility.
+              </p>
             </div>
             <Clock className="w-5 h-5 text-neutral-400" />
           </div>
 
           <div className="space-y-3 overflow-y-auto max-h-[340px] pr-1">
             {report.utilization.map((sp) => (
-              <div key={sp.space_id} className="p-3.5 rounded-xl border border-neutral-100 bg-neutral-50/80">
+              <div
+                key={sp.space_id}
+                className="p-3.5 rounded-xl border border-neutral-100 bg-neutral-50/80"
+              >
                 <div className="flex items-center justify-between">
                   <div>
                     <h4 className="text-sm font-semibold text-neutral-900">{sp.space_name}</h4>
@@ -351,7 +398,9 @@ export function AnalyticsDashboard() {
                     </p>
                   </div>
                   <div className="text-right">
-                    <span className="text-sm font-bold text-charcoal-950">{sp.booked_hours} hrs</span>
+                    <span className="text-sm font-bold text-charcoal-950">
+                      {sp.booked_hours} hrs
+                    </span>
                     <p className="text-xs text-neutral-400">{sp.bookings_count} bookings</p>
                   </div>
                 </div>

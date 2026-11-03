@@ -6,13 +6,7 @@ interface PipelineBreakdownProps {
   pipelineCounts: DashboardMetrics["pipelineCounts"];
 }
 
-const STAGE_ORDER: LeadStatus[] = [
-  "New",
-  "Contacted",
-  "Tour Booked",
-  "Converted",
-  "Lost",
-];
+const STAGE_ORDER: LeadStatus[] = ["New", "Contacted", "Tour Booked", "Converted", "Lost"];
 
 const STAGE_COLORS: Record<LeadStatus, string> = {
   New: "bg-blue-500",
@@ -37,7 +31,10 @@ export function PipelineBreakdown({ pipelineCounts }: PipelineBreakdownProps) {
       </div>
 
       {/* Progress Bar Distribution */}
-      <div className="w-full h-3 rounded-full overflow-hidden flex bg-gray-100 my-4" aria-label="Pipeline distribution bar">
+      <div
+        className="w-full h-3 rounded-full overflow-hidden flex bg-gray-100 my-4"
+        aria-label="Pipeline distribution bar"
+      >
         {STAGE_ORDER.map((stage) => {
           const count = pipelineCounts[stage] || 0;
           const percentage = total > 0 ? (count / total) * 100 : 0;

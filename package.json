@@ -1,6 +1,7 @@
 {
   "name": "tanstack_start_ts",
   "private": true,
+  "packageManager": "pnpm@12.3.4",
   "sideEffects": false,
   "type": "module",
   "scripts": {
@@ -15,6 +16,11 @@
   },
   "overrides": {
     "rolldown": "1.2.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "rolldown": "1.2.1"
+    }
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

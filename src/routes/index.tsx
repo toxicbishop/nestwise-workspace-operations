@@ -78,9 +78,8 @@ function Hero() {
           Run your coworking space like a flagship operation.
         </h1>
         <p className="mt-5 max-w-xl text-base leading-relaxed text-paper/70 sm:text-lg">
-          WorkNest brings leads, tours, members, bookings, and billing into one
-          operational cockpit — so every inquiry becomes a signed membership,
-          and every square metre earns its keep.
+          WorkNest brings leads, tours, members, bookings, and billing into one operational cockpit
+          — so every inquiry becomes a signed membership, and every square metre earns its keep.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Link
@@ -107,9 +106,7 @@ function Hero() {
             ] as const
           ).map(([value, label]) => (
             <div key={label}>
-              <dt className="font-display text-2xl font-bold text-ember sm:text-3xl">
-                {value}
-              </dt>
+              <dt className="font-display text-2xl font-bold text-ember sm:text-3xl">{value}</dt>
               <dd className="mt-1 text-xs font-medium uppercase tracking-wider text-paper/50">
                 {label}
               </dd>
@@ -176,9 +173,7 @@ function Features() {
               <h3 className="mt-5 font-display text-base font-semibold text-charcoal-950">
                 {title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-charcoal-700">
-                {body}
-              </p>
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-700">{body}</p>
             </div>
           ))}
         </div>
@@ -192,15 +187,13 @@ function Product() {
     <section id="product" className="bg-charcoal-950 py-24 text-paper">
       <div className="mx-auto max-w-6xl px-5">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-ember">
-            The product
-          </p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-ember">The product</p>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
             One cockpit for the whole floor.
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-paper/60 sm:text-base">
-            Purpose-built for coworking operators — not a generic CRM with
-            coworking words bolted on. Live below; nothing to install.
+            Purpose-built for coworking operators — not a generic CRM with coworking words bolted
+            on. Live below; nothing to install.
           </p>
         </div>
         <div className="mt-12 overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-black/50">
@@ -240,9 +233,7 @@ function HowItWorks() {
     <section id="how" className="bg-paper-dim py-24">
       <div className="mx-auto max-w-6xl px-5">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-ember">
-            How it works
-          </p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-ember">How it works</p>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-charcoal-950 sm:text-4xl">
             From first hello to long-term member.
           </h2>
@@ -256,12 +247,8 @@ function HowItWorks() {
                 </span>
                 <span className="hidden h-px flex-1 bg-charcoal-950/10 md:block" />
               </div>
-              <h3 className="mt-4 font-display text-sm font-semibold text-charcoal-950">
-                {title}
-              </h3>
-              <p className="mt-1.5 text-xs leading-relaxed text-charcoal-700">
-                {body}
-              </p>
+              <h3 className="mt-4 font-display text-sm font-semibold text-charcoal-950">{title}</h3>
+              <p className="mt-1.5 text-xs leading-relaxed text-charcoal-700">{body}</p>
             </li>
           ))}
         </ol>
@@ -315,9 +302,7 @@ function Testimonials() {
                 “{quote}”
               </blockquote>
               <figcaption className="mt-5 border-t border-charcoal-950/6 pt-4">
-                <div className="font-display text-sm font-semibold text-charcoal-950">
-                  {name}
-                </div>
+                <div className="font-display text-sm font-semibold text-charcoal-950">{name}</div>
                 <div className="text-xs text-charcoal-700">{role}</div>
               </figcaption>
             </figure>
@@ -355,7 +340,12 @@ const TIERS = [
     name: "Portfolio",
     price: "Custom",
     blurb: "For multi-city operators and franchises.",
-    features: ["Unlimited locations", "Multi-currency billing", "API access & SSO", "Dedicated success manager"],
+    features: [
+      "Unlimited locations",
+      "Multi-currency billing",
+      "API access & SSO",
+      "Dedicated success manager",
+    ],
     cta: "Talk to us",
     featured: false,
   },
@@ -366,9 +356,7 @@ function Pricing() {
     <section id="pricing" className="bg-paper-dim py-24">
       <div className="mx-auto max-w-6xl px-5">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-ember">
-            Pricing
-          </p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-ember">Pricing</p>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-charcoal-950 sm:text-4xl">
             Costs less than one empty desk.
           </h2>
@@ -416,9 +404,7 @@ function Pricing() {
                 </span>
                 {t.price !== "Custom" && (
                   <span
-                    className={
-                      t.featured ? "text-sm text-paper/50" : "text-sm text-charcoal-700"
-                    }
+                    className={t.featured ? "text-sm text-paper/50" : "text-sm text-charcoal-700"}
                   >
                     /mo per location
                   </span>
@@ -427,7 +413,9 @@ function Pricing() {
               {t.price !== "Custom" && (
                 <p
                   className={
-                    t.featured ? "mt-1 text-[11px] text-paper/40" : "mt-1 text-[11px] text-charcoal-700"
+                    t.featured
+                      ? "mt-1 text-[11px] text-paper/40"
+                      : "mt-1 text-[11px] text-charcoal-700"
                   }
                 >
                   + GST (18%) added at checkout
@@ -476,8 +464,8 @@ function FinalCta() {
           Your next member is already in the pipeline.
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-paper/60 sm:text-base">
-          Open the live workspace and see how WorkNest runs a full day of tours,
-          bookings, and billing — with zero setup.
+          Open the live workspace and see how WorkNest runs a full day of tours, bookings, and
+          billing — with zero setup.
         </p>
         <div className="mt-8 flex justify-center">
           <Link
@@ -501,16 +489,21 @@ function Footer() {
           <span className="flex h-7 w-7 items-center justify-center rounded-md bg-ember font-display text-xs font-bold text-white">
             W
           </span>
-          <span className="font-display text-sm font-semibold text-paper">
-            WorkNest
-          </span>
+          <span className="font-display text-sm font-semibold text-paper">WorkNest</span>
         </div>
         <p className="text-xs">© 2026 WorkNest. All rights reserved.</p>
         <div className="flex gap-5 text-xs">
           <Link to="/app" className="transition-colors hover:text-paper">
             Product
           </Link>
-          <a href="#pricing" onClick={(e) => { e.preventDefault(); scrollTo("pricing"); }} className="transition-colors hover:text-paper">
+          <a
+            href="#pricing"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollTo("pricing");
+            }}
+            className="transition-colors hover:text-paper"
+          >
             Pricing
           </a>
         </div>

@@ -14,7 +14,7 @@ interface RecordPaymentModalProps {
     amountCents: number,
     paymentMethod: PaymentMethod,
     transactionRef: string,
-    notes?: string
+    notes?: string,
   ) => void;
 }
 
@@ -39,13 +39,15 @@ function RecordPaymentInner({
     amountCents: number,
     paymentMethod: PaymentMethod,
     transactionRef: string,
-    notes?: string
+    notes?: string,
   ) => void;
 }) {
   const balanceRemainingCents = invoice.totalAmountCents - invoice.paidAmountCents;
   const [amountRupees, setAmountRupees] = useState<number>(balanceRemainingCents / 100);
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("UPI / NetBanking");
-  const [transactionRef, setTransactionRef] = useState(`TXN-${invoice.invoiceNumber.replace("INV-", "")}`);
+  const [transactionRef, setTransactionRef] = useState(
+    `TXN-${invoice.invoiceNumber.replace("INV-", "")}`,
+  );
   const [notes, setNotes] = useState("");
   const [formError, setFormError] = useState("");
 
@@ -72,7 +74,7 @@ function RecordPaymentInner({
       amountCents,
       paymentMethod,
       transactionRef.trim(),
-      notes.trim() || undefined
+      notes.trim() || undefined,
     );
     onClose();
   };
@@ -84,9 +86,15 @@ function RecordPaymentInner({
       aria-modal="true"
       aria-labelledby="record-payment-title"
     >
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-md border border-neutral-200 overflow-hidden flex flex-col" data-ui="overlay">
+      <div
+        className="bg-white rounded-xl shadow-xl w-full max-w-md border border-neutral-200 overflow-hidden flex flex-col"
+        data-ui="overlay"
+      >
         {/* Header */}
-        <div className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50" data-ui="ui-frame">
+        <div
+          className="px-6 py-4 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/50"
+          data-ui="ui-frame"
+        >
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center">
               <CreditCard className="w-4 h-4" />
@@ -191,9 +199,7 @@ function RecordPaymentInner({
 
           {/* Notes */}
           <div>
-            <label className="block font-medium text-neutral-700 mb-1">
-              Audit Notes
-            </label>
+            <label className="block font-medium text-neutral-700 mb-1">Audit Notes</label>
             <textarea
               rows={2}
               placeholder="e.g. Scanned QR code at front desk, bank statement verified..."
@@ -204,7 +210,10 @@ function RecordPaymentInner({
           </div>
 
           {/* Footer */}
-          <div className="pt-4 border-t border-neutral-100 flex items-center justify-end gap-2" data-ui="ui-frame">
+          <div
+            className="pt-4 border-t border-neutral-100 flex items-center justify-end gap-2"
+            data-ui="ui-frame"
+          >
             <button
               type="button"
               onClick={onClose}

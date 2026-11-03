@@ -43,7 +43,10 @@ function LeadsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-gray-200" data-ui="ui-frame">
+      <div
+        className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-gray-200"
+        data-ui="ui-frame"
+      >
         <div>
           <div className="flex items-center gap-2">
             <Users2 className="w-5 h-5 text-ember" />
@@ -52,7 +55,8 @@ function LeadsPage() {
             </h1>
           </div>
           <p className="text-xs text-gray-500 mt-1">
-            Qualify incoming prospects, schedule tours, and convert approved inquiries to active members.
+            Qualify incoming prospects, schedule tours, and convert approved inquiries to active
+            members.
           </p>
         </div>
 

@@ -1,16 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  X,
-  CreditCard,
-  Building,
-  Mail,
-  Phone,
-  Calendar,
-  RotateCw,
-  Trash2,
-} from "lucide-react";
+import { X, CreditCard, Building, Mail, Phone, Calendar, RotateCw, Trash2 } from "lucide-react";
 import { Member, Membership, MembershipStatus, MEMBERSHIP_STATUSES } from "@/types";
 import { formatCurrency, formatDate } from "@/lib/utils";
 
@@ -69,19 +60,29 @@ export function MemberDetailModal({
       aria-modal="true"
       aria-labelledby="member-detail-title"
     >
-      <div className="bg-white rounded-xl shadow-xl max-w-xl w-full border border-gray-200 overflow-hidden" data-ui="overlay">
+      <div
+        className="bg-white rounded-xl shadow-xl max-w-xl w-full border border-gray-200 overflow-hidden"
+        data-ui="overlay"
+      >
         {/* Modal Header */}
-        <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper" data-ui="ui-frame">
+        <div
+          className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper"
+          data-ui="ui-frame"
+        >
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-ember text-white flex items-center justify-center font-bold text-sm">
-              {member.name.split(" ").map((n) => n[0]).join("")}
+              {member.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")}
             </div>
             <div>
               <h2 id="member-detail-title" className="text-sm font-semibold text-charcoal-950">
                 {member.name}
               </h2>
               <p className="text-xs text-charcoal-700">
-                {member.title ? `${member.title} • ` : ""}{member.company || "Independent Professional"}
+                {member.title ? `${member.title} • ` : ""}
+                {member.company || "Independent Professional"}
               </p>
             </div>
           </div>
@@ -138,7 +139,7 @@ export function MemberDetailModal({
               {membership && (
                 <span
                   className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border ${getStatusBadge(
-                    membership.status
+                    membership.status,
                   )}`}
                 >
                   {membership.status}
@@ -152,7 +153,9 @@ export function MemberDetailModal({
                   <div>
                     <h4 className="text-sm font-semibold text-gray-900">{membership.planName}</h4>
                     <p className="text-xs text-charcoal-700">
-                      {membership.deskOrOfficeNumber ? `Assigned to ${membership.deskOrOfficeNumber} • ` : ""}
+                      {membership.deskOrOfficeNumber
+                        ? `Assigned to ${membership.deskOrOfficeNumber} • `
+                        : ""}
                       {membership.billingInterval} billing
                     </p>
                   </div>
@@ -164,7 +167,10 @@ export function MemberDetailModal({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 text-xs pt-2 border-t border-gray-100" data-ui="ui-frame">
+                <div
+                  className="grid grid-cols-2 gap-3 text-xs pt-2 border-t border-gray-100"
+                  data-ui="ui-frame"
+                >
                   <div>
                     <span className="text-charcoal-700">Contract Period:</span>
                     <div className="font-medium text-gray-900 mt-0.5">
@@ -186,7 +192,10 @@ export function MemberDetailModal({
                 )}
 
                 {/* Status Quick Switcher */}
-                <div className="pt-2 border-t border-gray-100 flex items-center justify-between gap-3 text-xs" data-ui="ui-frame">
+                <div
+                  className="pt-2 border-t border-gray-100 flex items-center justify-between gap-3 text-xs"
+                  data-ui="ui-frame"
+                >
                   <div className="flex items-center gap-2">
                     <span className="text-gray-500 font-medium">Status:</span>
                     <select
@@ -261,7 +270,10 @@ export function MemberDetailModal({
           )}
 
           {/* Footer Actions */}
-          <div className="pt-4 border-t border-gray-100 flex items-center justify-between" data-ui="ui-frame">
+          <div
+            className="pt-4 border-t border-gray-100 flex items-center justify-between"
+            data-ui="ui-frame"
+          >
             <button
               type="button"
               onClick={() => {

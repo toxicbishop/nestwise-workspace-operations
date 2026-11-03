@@ -34,12 +34,16 @@ function SettingsPage() {
       <div>
         <h1 className="text-xl font-bold text-charcoal-950">Workspace Settings</h1>
         <p className="text-xs text-charcoal-700 mt-1">
-          Manage your co-working network locations, brand configuration, membership pricing, and staff roles.
+          Manage your co-working network locations, brand configuration, membership pricing, and
+          staff roles.
         </p>
       </div>
 
       {/* Settings Navigation Tabs */}
-      <div className="border-b border-[#e5e3df] flex items-center gap-2 overflow-x-auto" data-ui="ui-frame">
+      <div
+        className="border-b border-[#e5e3df] flex items-center gap-2 overflow-x-auto"
+        data-ui="ui-frame"
+      >
         <button
           type="button"
           onClick={() => setActiveTab("locations")}
@@ -105,18 +109,11 @@ function SettingsPage() {
         )}
 
         {activeTab === "organization" && (
-          <OrganizationTab
-            organization={organization}
-            onUpdateOrganization={updateOrganization}
-          />
+          <OrganizationTab organization={organization} onUpdateOrganization={updateOrganization} />
         )}
 
         {activeTab === "plans" && (
-          <PlansTab
-            plans={plans}
-            onTogglePlanActive={togglePlanActive}
-            onUpdatePlan={updatePlan}
-          />
+          <PlansTab plans={plans} onTogglePlanActive={togglePlanActive} onUpdatePlan={updatePlan} />
         )}
 
         {activeTab === "team" && (
@@ -138,9 +135,15 @@ export const Route = createFileRoute("/app/settings")({
   head: () => ({
     meta: [
       { title: "WorkNest CRM — Campuses & Settings" },
-      { name: "description", content: "Organization, locations, membership plans and team management." },
+      {
+        name: "description",
+        content: "Organization, locations, membership plans and team management.",
+      },
       { property: "og:title", content: "WorkNest CRM — Campuses & Settings" },
-      { property: "og:description", content: "Organization, locations, membership plans and team management." },
+      {
+        property: "og:description",
+        content: "Organization, locations, membership plans and team management.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

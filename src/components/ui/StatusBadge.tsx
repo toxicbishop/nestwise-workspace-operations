@@ -58,7 +58,7 @@ export function StatusBadge({ status, className }: StatusBadgeProps) {
         config.bg,
         config.text,
         config.border,
-        className
+        className,
       )}
       data-testid={`status-badge-${status.toLowerCase().replace(/\s+/g, "-")}`}
     >

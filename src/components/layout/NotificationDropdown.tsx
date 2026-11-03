@@ -85,7 +85,9 @@ export function NotificationDropdown() {
       .filter(
         (inv) =>
           inv.status === "Overdue" ||
-          (inv.dueDate < todayStr && inv.paidAmountCents < inv.totalAmountCents && inv.status !== "Void")
+          (inv.dueDate < todayStr &&
+            inv.paidAmountCents < inv.totalAmountCents &&
+            inv.status !== "Void"),
       )
       .slice(0, 3)
       .forEach((inv) => {
@@ -206,9 +208,15 @@ export function NotificationDropdown() {
 
       {/* Popover Dropdown */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white rounded-xl shadow-xl border border-neutral-200 z-50 overflow-hidden animate-in fade-in slide-in-from-top-2" data-ui="overlay">
+        <div
+          className="absolute right-0 mt-2 w-80 sm:w-96 bg-white rounded-xl shadow-xl border border-neutral-200 z-50 overflow-hidden animate-in fade-in slide-in-from-top-2"
+          data-ui="overlay"
+        >
           {/* Header */}
-          <div className="px-4 py-3 bg-neutral-50/80 border-b border-neutral-100 flex items-center justify-between" data-ui="ui-frame">
+          <div
+            className="px-4 py-3 bg-neutral-50/80 border-b border-neutral-100 flex items-center justify-between"
+            data-ui="ui-frame"
+          >
             <div className="flex items-center gap-2">
               <span className="font-semibold text-xs text-charcoal-950">
                 Notifications & Alerts
@@ -278,7 +286,10 @@ export function NotificationDropdown() {
           </div>
 
           {/* Footer Link */}
-          <div className="p-2.5 bg-neutral-50/50 border-t border-neutral-100 text-center" data-ui="ui-frame">
+          <div
+            className="p-2.5 bg-neutral-50/50 border-t border-neutral-100 text-center"
+            data-ui="ui-frame"
+          >
             <span className="text-[11px] text-neutral-500">
               WorkNest Automated Operational Alerts
             </span>

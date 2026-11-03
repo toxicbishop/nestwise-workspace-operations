@@ -8,7 +8,7 @@ describe("InvoicesDirectory Component", () => {
     render(
       <WorkNestProvider>
         <InvoicesDirectory />
-      </WorkNestProvider>
+      </WorkNestProvider>,
     );
 
     expect(screen.getByText("Total Invoiced")).toBeInTheDocument();
@@ -23,7 +23,7 @@ describe("InvoicesDirectory Component", () => {
     render(
       <WorkNestProvider>
         <InvoicesDirectory />
-      </WorkNestProvider>
+      </WorkNestProvider>,
     );
 
     const searchInput = screen.getByPlaceholderText("Search invoice #, member, company...");
@@ -37,7 +37,7 @@ describe("InvoicesDirectory Component", () => {
     render(
       <WorkNestProvider>
         <InvoicesDirectory />
-      </WorkNestProvider>
+      </WorkNestProvider>,
     );
 
     const createBtn = screen.getByRole("button", { name: /Create Invoice/i });
@@ -50,7 +50,7 @@ describe("InvoicesDirectory Component", () => {
     render(
       <WorkNestProvider>
         <InvoicesDirectory />
-      </WorkNestProvider>
+      </WorkNestProvider>,
     );
 
     const row = screen.getByText("INV-2026-001");

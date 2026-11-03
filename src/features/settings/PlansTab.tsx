@@ -11,11 +11,7 @@ interface PlansTabProps {
   onUpdatePlan: (plan: MembershipPlan) => void;
 }
 
-export function PlansTab({
-  plans,
-  onTogglePlanActive,
-  onUpdatePlan,
-}: PlansTabProps) {
+export function PlansTab({ plans, onTogglePlanActive, onUpdatePlan }: PlansTabProps) {
   const [editingPlan, setEditingPlan] = useState<MembershipPlan | null>(null);
   const [monthlyRateDollars, setMonthlyRateDollars] = useState(0);
   const [meetingCredits, setMeetingCredits] = useState(0);
@@ -67,7 +63,9 @@ export function PlansTab({
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <h3 className="text-sm font-semibold text-charcoal-950">{plan.name}</h3>
-                  <span className="text-[11px] tabular-nums text-charcoal-700 uppercase">{plan.code}</span>
+                  <span className="text-[11px] tabular-nums text-charcoal-700 uppercase">
+                    {plan.code}
+                  </span>
                 </div>
                 <span
                   className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium ${
@@ -87,19 +85,24 @@ export function PlansTab({
                   </span>
                   <span className="text-xs text-charcoal-700">/ month</span>
                 </div>
-                <p className="mt-2 text-xs text-charcoal-700 min-h-[36px]">
-                  {plan.description}
-                </p>
+                <p className="mt-2 text-xs text-charcoal-700 min-h-[36px]">{plan.description}</p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-gray-100 space-y-1.5 text-xs text-charcoal-700" data-ui="ui-frame">
+              <div
+                className="mt-4 pt-3 border-t border-gray-100 space-y-1.5 text-xs text-charcoal-700"
+                data-ui="ui-frame"
+              >
                 <div className="flex items-center justify-between">
                   <span>Meeting Room Credits:</span>
-                  <strong className="text-gray-800 font-medium">{plan.meetingRoomCreditsHours} hrs/mo</strong>
+                  <strong className="text-gray-800 font-medium">
+                    {plan.meetingRoomCreditsHours} hrs/mo
+                  </strong>
                 </div>
                 <div className="flex items-center justify-between">
                   <span>Printing Allowance:</span>
-                  <strong className="text-gray-800 font-medium">{plan.printingCreditsPages} pages/mo</strong>
+                  <strong className="text-gray-800 font-medium">
+                    {plan.printingCreditsPages} pages/mo
+                  </strong>
                 </div>
                 <div className="flex items-center justify-between">
                   <span>Location Access:</span>
@@ -108,7 +111,10 @@ export function PlansTab({
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-gray-100 flex items-center justify-between" data-ui="ui-frame">
+            <div
+              className="mt-5 pt-3 border-t border-gray-100 flex items-center justify-between"
+              data-ui="ui-frame"
+            >
               <button
                 type="button"
                 onClick={() => onTogglePlanActive(plan.id)}
@@ -141,8 +147,14 @@ export function PlansTab({
           aria-modal="true"
           aria-labelledby="plan-modal-title"
         >
-          <div className="bg-white rounded-xl shadow-xl max-w-md w-full border border-gray-200 overflow-hidden" data-ui="overlay">
-            <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper" data-ui="ui-frame">
+          <div
+            className="bg-white rounded-xl shadow-xl max-w-md w-full border border-gray-200 overflow-hidden"
+            data-ui="overlay"
+          >
+            <div
+              className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper"
+              data-ui="ui-frame"
+            >
               <div className="flex items-center gap-2">
                 <CreditCard className="w-5 h-5 text-charcoal-950" />
                 <h3 id="plan-modal-title" className="text-sm font-semibold text-charcoal-950">
@@ -213,7 +225,10 @@ export function PlansTab({
                 />
               </div>
 
-              <div className="pt-4 border-t border-gray-100 flex items-center justify-end gap-3" data-ui="ui-frame">
+              <div
+                className="pt-4 border-t border-gray-100 flex items-center justify-end gap-3"
+                data-ui="ui-frame"
+              >
                 <button
                   type="button"
                   onClick={() => setEditingPlan(null)}

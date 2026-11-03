@@ -49,10 +49,7 @@ export function LeadsTable({
     return leads
       .filter((lead) => {
         // Location filter
-        if (
-          selectedLocationFilter !== "All" &&
-          lead.preferredLocation !== selectedLocationFilter
-        ) {
+        if (selectedLocationFilter !== "All" && lead.preferredLocation !== selectedLocationFilter) {
           return false;
         }
 
@@ -80,9 +77,7 @@ export function LeadsTable({
           const dateB = new Date(b.createdAt).getTime();
           return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
         } else {
-          return sortOrder === "asc"
-            ? a.name.localeCompare(b.name)
-            : b.name.localeCompare(a.name);
+          return sortOrder === "asc" ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
         }
       });
   }, [leads, selectedLocationFilter, selectedStatus, searchQuery, sortField, sortOrder]);
@@ -155,9 +150,7 @@ export function LeadsTable({
                 type="button"
                 onClick={() => setSelectedStatus(status)}
                 className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors shrink-0 ${
-                  isSelected
-                    ? "bg-ember text-white"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  isSelected ? "bg-ember text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                 }`}
               >
                 {status} ({count})
@@ -189,7 +182,10 @@ export function LeadsTable({
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse" aria-label="Leads list">
             <thead>
-              <tr className="border-b border-gray-200 bg-paper text-[10px] font-bold text-charcoal-700 uppercase tracking-[0.08em]" data-ui="ui-frame">
+              <tr
+                className="border-b border-gray-200 bg-paper text-[10px] font-bold text-charcoal-700 uppercase tracking-[0.08em]"
+                data-ui="ui-frame"
+              >
                 <th className="py-3 px-3">
                   <button
                     type="button"
@@ -274,7 +270,9 @@ export function LeadsTable({
                       )}
                     </div>
                     {lead.status === "Lost" && lead.lostReason && (
-                      <p className={`text-[10px] text-rose-600 italic mt-1 truncate ${condensed ? "max-w-[180px]" : "max-w-xs"}`}>
+                      <p
+                        className={`text-[10px] text-rose-600 italic mt-1 truncate ${condensed ? "max-w-[180px]" : "max-w-xs"}`}
+                      >
                         Reason: {lead.lostReason}
                       </p>
                     )}
@@ -295,7 +293,9 @@ export function LeadsTable({
                   </td>
 
                   {/* Date Created */}
-                  <td className={condensed ? "hidden" : "py-3.5 px-3 text-gray-500 whitespace-nowrap"}>
+                  <td
+                    className={condensed ? "hidden" : "py-3.5 px-3 text-gray-500 whitespace-nowrap"}
+                  >
                     {formatDate(lead.createdAt)}
                   </td>
 
@@ -345,7 +345,10 @@ export function LeadsTable({
       )}
 
       {/* Table Footer */}
-      <div className="p-3 bg-paper border-t border-[#e5e3df] text-xs text-gray-500 flex items-center justify-between" data-ui="ui-frame">
+      <div
+        className="p-3 bg-paper border-t border-[#e5e3df] text-xs text-gray-500 flex items-center justify-between"
+        data-ui="ui-frame"
+      >
         <span>
           Showing <strong>{filteredLeads.length}</strong> of <strong>{leads.length}</strong> leads
         </span>

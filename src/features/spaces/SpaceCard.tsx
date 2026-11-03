@@ -21,12 +21,7 @@ interface SpaceCardProps {
   onToggleActive: (spaceId: string) => void;
 }
 
-export function SpaceCard({
-  space,
-  onEdit,
-  onDelete,
-  onToggleActive,
-}: SpaceCardProps) {
+export function SpaceCard({ space, onEdit, onDelete, onToggleActive }: SpaceCardProps) {
   const [confirmDelete, setConfirmDelete] = useState(false);
 
   const getTypeColor = (type: Space["type"]) => {
@@ -64,7 +59,7 @@ export function SpaceCard({
             <div className="flex items-center gap-2 flex-wrap mb-1">
               <span
                 className={`text-xs px-2.5 py-0.5 rounded-full font-medium border ${getTypeColor(
-                  space.type
+                  space.type,
                 )}`}
               >
                 {space.type}
@@ -151,7 +146,10 @@ export function SpaceCard({
       </div>
 
       {/* Footer Actions */}
-      <div className="px-5 py-3 border-t border-neutral-100 bg-neutral-50/50 rounded-b-xl flex items-center justify-between text-xs" data-ui="ui-frame">
+      <div
+        className="px-5 py-3 border-t border-neutral-100 bg-neutral-50/50 rounded-b-xl flex items-center justify-between text-xs"
+        data-ui="ui-frame"
+      >
         <button
           onClick={() => onToggleActive(space.id)}
           className={`font-medium transition-colors ${

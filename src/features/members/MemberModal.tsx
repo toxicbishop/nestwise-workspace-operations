@@ -9,19 +9,13 @@ interface MemberModalProps {
   onClose: () => void;
   onSave: (
     member: Omit<Member, "id" | "joinedDate">,
-    membership?: Omit<Membership, "id" | "memberId">
+    membership?: Omit<Membership, "id" | "memberId">,
   ) => void;
   locations: Location[];
   plans: MembershipPlan[];
 }
 
-export function MemberModal({
-  isOpen,
-  onClose,
-  onSave,
-  locations,
-  plans,
-}: MemberModalProps) {
+export function MemberModal({ isOpen, onClose, onSave, locations, plans }: MemberModalProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -92,7 +86,7 @@ export function MemberModal({
           : undefined,
         notes: notes.trim() || undefined,
       },
-      membershipData
+      membershipData,
     );
 
     onClose();
@@ -105,8 +99,14 @@ export function MemberModal({
       aria-modal="true"
       aria-labelledby="member-modal-title"
     >
-      <div className="bg-white rounded-xl shadow-xl max-w-lg w-full border border-gray-200 overflow-hidden" data-ui="overlay">
-        <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper" data-ui="ui-frame">
+      <div
+        className="bg-white rounded-xl shadow-xl max-w-lg w-full border border-gray-200 overflow-hidden"
+        data-ui="overlay"
+      >
+        <div
+          className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper"
+          data-ui="ui-frame"
+        >
           <div className="flex items-center gap-2">
             <UserPlus className="w-5 h-5 text-charcoal-950" />
             <h3 id="member-modal-title" className="text-sm font-semibold text-charcoal-950">
@@ -239,7 +239,9 @@ export function MemberModal({
               </label>
               <select
                 value={billingInterval}
-                onChange={(e) => setBillingInterval(e.target.value as Membership["billingInterval"])}
+                onChange={(e) =>
+                  setBillingInterval(e.target.value as Membership["billingInterval"])
+                }
                 className="w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ember focus:outline-hidden bg-white"
               >
                 <option value="Monthly">Monthly</option>
@@ -314,7 +316,10 @@ export function MemberModal({
             </div>
           </div>
 
-          <div className="pt-4 border-t border-gray-100 flex items-center justify-end gap-3" data-ui="ui-frame">
+          <div
+            className="pt-4 border-t border-gray-100 flex items-center justify-end gap-3"
+            data-ui="ui-frame"
+          >
             <button
               type="button"
               onClick={onClose}

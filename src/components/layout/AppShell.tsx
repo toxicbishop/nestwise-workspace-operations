@@ -10,21 +10,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isNewLeadModalOpen, setIsNewLeadModalOpen] = useState(false);
 
-  const {
-    selectedLocation,
-    setSelectedLocation,
-    addLead,
-    leads,
-    locations,
-  } = useWorkNest();
+  const { selectedLocation, setSelectedLocation, addLead, leads, locations } = useWorkNest();
 
   return (
     <div className="h-screen bg-paper text-charcoal-950 flex overflow-hidden font-sans">
       {/* Navigation Sidebar (fixed/static to full screen height) */}
-      <Sidebar
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-      />
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
       {/* Main Content Area: Header stays fixed on top or scrolls naturally, content view scrolls independently */}
       <div className="flex-1 flex flex-col min-w-0 h-full overflow-y-auto">

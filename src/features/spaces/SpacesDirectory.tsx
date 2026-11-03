@@ -1,15 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import {
-  Building2,
-  Plus,
-  Search,
-  Filter,
-  Users,
-  CheckCircle2,
-  DoorOpen,
-} from "lucide-react";
+import { Building2, Plus, Search, Filter, Users, CheckCircle2, DoorOpen } from "lucide-react";
 import { useWorkNest } from "@/context/WorkNestContext";
 import { Space } from "@/types";
 import { SpaceCard } from "./SpaceCard";
@@ -58,9 +50,7 @@ export function SpacesDirectory() {
         const matchesLocation = space.locationName.toLowerCase().includes(query);
         const matchesType = space.type.toLowerCase().includes(query);
         const matchesFloor = space.floorOrZone?.toLowerCase().includes(query);
-        const matchesAmenities = space.amenities?.some((a) =>
-          a.toLowerCase().includes(query)
-        );
+        const matchesAmenities = space.amenities?.some((a) => a.toLowerCase().includes(query));
         if (
           !matchesName &&
           !matchesLocation &&
@@ -117,7 +107,9 @@ export function SpacesDirectory() {
             <span>Total Spaces</span>
           </div>
           <div className="text-2xl font-bold text-charcoal-950">{spaces.length}</div>
-          <div className="text-[11px] text-neutral-500 mt-0.5">Across {locations.length} locations</div>
+          <div className="text-[11px] text-neutral-500 mt-0.5">
+            Across {locations.length} locations
+          </div>
         </div>
 
         <div className="bg-white p-4 rounded-xl border border-[#e5e3df] shadow-[0_1px_3px_rgba(17,17,17,0.04)]">
@@ -241,7 +233,8 @@ export function SpacesDirectory() {
           <Building2 className="w-10 h-10 text-neutral-300 mx-auto mb-3" />
           <h3 className="text-sm font-semibold text-neutral-800 mb-1">No spaces found</h3>
           <p className="text-xs text-neutral-500 max-w-sm mx-auto mb-4">
-            No rooms or inventory match your current filters. Try resetting filters or adding a new space.
+            No rooms or inventory match your current filters. Try resetting filters or adding a new
+            space.
           </p>
           <div className="flex items-center justify-center gap-2">
             <button

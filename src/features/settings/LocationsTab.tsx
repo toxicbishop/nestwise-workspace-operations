@@ -127,7 +127,11 @@ export function LocationsTab({
       alert("At least one active location is required for the co-working network.");
       return;
     }
-    if (confirm(`Are you sure you want to remove '${locName}'? Leads and data linked to this location should be reviewed.`)) {
+    if (
+      confirm(
+        `Are you sure you want to remove '${locName}'? Leads and data linked to this location should be reviewed.`,
+      )
+    ) {
       onDeleteLocation(id);
     }
   };
@@ -141,7 +145,8 @@ export function LocationsTab({
             Co-working Locations ({locations.length})
           </h2>
           <p className="text-xs text-charcoal-700 mt-0.5">
-            Configure branches, building operating hours, capacity limits, and local management staff.
+            Configure branches, building operating hours, capacity limits, and local management
+            staff.
           </p>
         </div>
         <button
@@ -169,7 +174,9 @@ export function LocationsTab({
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold text-charcoal-950">{loc.name}</h3>
-                    <p className="text-xs text-charcoal-700">{loc.city}, {loc.state}</p>
+                    <p className="text-xs text-charcoal-700">
+                      {loc.city}, {loc.state}
+                    </p>
                   </div>
                 </div>
                 <span
@@ -177,8 +184,8 @@ export function LocationsTab({
                     loc.status === "Active"
                       ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
                       : loc.status === "Maintenance"
-                      ? "bg-amber-50 text-amber-700 border border-amber-200"
-                      : "bg-gray-100 text-gray-700 border border-gray-200"
+                        ? "bg-amber-50 text-amber-700 border border-amber-200"
+                        : "bg-gray-100 text-gray-700 border border-gray-200"
                   }`}
                 >
                   {loc.status}
@@ -189,7 +196,9 @@ export function LocationsTab({
               <div className="mt-4 space-y-2 text-xs text-charcoal-700">
                 <div className="flex items-start gap-2">
                   <span className="font-medium text-gray-700 shrink-0">Address:</span>
-                  <span className="truncate">{loc.address}, {loc.zip}</span>
+                  <span className="truncate">
+                    {loc.address}, {loc.zip}
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="w-3.5 h-3.5 text-gray-400 shrink-0" />
@@ -201,7 +210,10 @@ export function LocationsTab({
                 </div>
                 <div className="flex items-center gap-2">
                   <User className="w-3.5 h-3.5 text-gray-400 shrink-0" />
-                  <span>Manager: <strong className="text-gray-700 font-medium">{loc.managerName}</strong></span>
+                  <span>
+                    Manager:{" "}
+                    <strong className="text-gray-700 font-medium">{loc.managerName}</strong>
+                  </span>
                 </div>
               </div>
 
@@ -212,7 +224,9 @@ export function LocationsTab({
                     <Users className="w-3.5 h-3.5" />
                     Capacity: {loc.totalCapacity} desks
                   </span>
-                  <span className="font-semibold text-charcoal-950">{loc.currentOccupancyRate}% Occupied</span>
+                  <span className="font-semibold text-charcoal-950">
+                    {loc.currentOccupancyRate}% Occupied
+                  </span>
                 </div>
                 <div className="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
                   <div
@@ -224,7 +238,10 @@ export function LocationsTab({
             </div>
 
             {/* Actions */}
-            <div className="mt-5 pt-3 border-t border-gray-100 flex items-center justify-end gap-2" data-ui="ui-frame">
+            <div
+              className="mt-5 pt-3 border-t border-gray-100 flex items-center justify-end gap-2"
+              data-ui="ui-frame"
+            >
               <button
                 type="button"
                 onClick={() => openEditModal(loc)}
@@ -255,8 +272,14 @@ export function LocationsTab({
           aria-modal="true"
           aria-labelledby="location-modal-title"
         >
-          <div className="bg-white rounded-xl shadow-xl max-w-lg w-full border border-gray-200 overflow-hidden" data-ui="overlay">
-            <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper" data-ui="ui-frame">
+          <div
+            className="bg-white rounded-xl shadow-xl max-w-lg w-full border border-gray-200 overflow-hidden"
+            data-ui="overlay"
+          >
+            <div
+              className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-paper"
+              data-ui="ui-frame"
+            >
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-charcoal-950" />
                 <h3 id="location-modal-title" className="text-sm font-semibold text-charcoal-950">
@@ -311,9 +334,7 @@ export function LocationsTab({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-charcoal-950 mb-1">
-                    City *
-                  </label>
+                  <label className="block text-xs font-medium text-charcoal-950 mb-1">City *</label>
                   <input
                     type="text"
                     required
@@ -338,9 +359,7 @@ export function LocationsTab({
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-charcoal-950 mb-1">
-                      ZIP
-                    </label>
+                    <label className="block text-xs font-medium text-charcoal-950 mb-1">ZIP</label>
                     <input
                       type="text"
                       value={zip}
@@ -396,9 +415,7 @@ export function LocationsTab({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-charcoal-950 mb-1">
-                    Status
-                  </label>
+                  <label className="block text-xs font-medium text-charcoal-950 mb-1">Status</label>
                   <select
                     value={status}
                     onChange={(e) => setStatus(e.target.value as Location["status"])}
@@ -438,7 +455,10 @@ export function LocationsTab({
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-gray-100 flex items-center justify-end gap-3" data-ui="ui-frame">
+              <div
+                className="pt-4 border-t border-gray-100 flex items-center justify-end gap-3"
+                data-ui="ui-frame"
+              >
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}

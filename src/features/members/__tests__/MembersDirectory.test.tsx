@@ -22,7 +22,7 @@ describe("MembersDirectory Component", () => {
         onDeleteMember={vi.fn()}
         onUpdateStatus={vi.fn()}
         onRenew={vi.fn()}
-      />
+      />,
     );
 
     expect(screen.getByText("Maya Patel")).toBeInTheDocument();
@@ -43,12 +43,10 @@ describe("MembersDirectory Component", () => {
         onDeleteMember={vi.fn()}
         onUpdateStatus={vi.fn()}
         onRenew={vi.fn()}
-      />
+      />,
     );
 
-    const searchInput = screen.getByPlaceholderText(
-      "Search by name, company, email, or plan..."
-    );
+    const searchInput = screen.getByPlaceholderText("Search by name, company, email, or plan...");
     fireEvent.change(searchInput, { target: { value: "Malhotra" } });
 
     expect(screen.getByText("Vikram Malhotra")).toBeInTheDocument();
@@ -68,7 +66,7 @@ describe("MembersDirectory Component", () => {
         onDeleteMember={vi.fn()}
         onUpdateStatus={vi.fn()}
         onRenew={vi.fn()}
-      />
+      />,
     );
 
     fireEvent.click(screen.getByText("Maya Patel"));

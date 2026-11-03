@@ -1,15 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import {
-  Search,
-  Plus,
-  Building,
-  Calendar,
-  UserCheck,
-  ChevronRight,
-  Filter,
-} from "lucide-react";
+import { Search, Plus, Building, Calendar, UserCheck, ChevronRight, Filter } from "lucide-react";
 import { Member, Membership, Location, MembershipPlan, MembershipStatus } from "@/types";
 import { formatCurrency, formatDate } from "@/lib/utils";
 import { MemberModal } from "@/features/members/MemberModal";
@@ -23,7 +15,7 @@ interface MembersDirectoryProps {
   selectedLocation: string;
   onAddMember: (
     member: Omit<Member, "id" | "joinedDate">,
-    membership?: Omit<Membership, "id" | "memberId">
+    membership?: Omit<Membership, "id" | "memberId">,
   ) => void;
   onUpdateMember: (member: Member) => void;
   onDeleteMember: (memberId: string) => void;
@@ -60,10 +52,7 @@ export function MembersDirectory({
   const filteredMembers = useMemo(() => {
     return members.filter((member) => {
       // 1. Location filter
-      if (
-        selectedLocation !== "All" &&
-        member.homeLocation !== selectedLocation
-      ) {
+      if (selectedLocation !== "All" && member.homeLocation !== selectedLocation) {
         return false;
       }
 
@@ -95,9 +84,7 @@ export function MembersDirectory({
     });
   }, [members, selectedLocation, statusFilter, searchQuery, membershipMap]);
 
-  const activeMembershipForSelected = selectedMember
-    ? membershipMap.get(selectedMember.id)
-    : null;
+  const activeMembershipForSelected = selectedMember ? membershipMap.get(selectedMember.id) : null;
 
   const getStatusBadge = (status?: MembershipStatus) => {
     switch (status) {
@@ -162,9 +149,7 @@ export function MembersDirectory({
           All Members ({members.length})
         </button>
         {["Active", "Trial", "Expiring", "Past Due", "Cancelled"].map((st) => {
-          const count = members.filter(
-            (m) => membershipMap.get(m.id)?.status === st
-          ).length;
+          const count = members.filter((m) => membershipMap.get(m.id)?.status === st).length;
           const isSelected = statusFilter === st;
           return (
             <button
@@ -172,9 +157,7 @@ export function MembersDirectory({
               type="button"
               onClick={() => setStatusFilter(st)}
               className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors shrink-0 ${
-                isSelected
-                  ? "bg-ember text-white"
-                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                isSelected ? "bg-ember text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >
               {st} ({count})
@@ -188,13 +171,28 @@ export function MembersDirectory({
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs">
             <thead>
-              <tr className="bg-paper border-b border-[#e5e3df] text-charcoal-700 font-bold text-[10px] uppercase tracking-[0.08em]" data-ui="ui-frame">
-                <th scope="col" className="px-5 py-3.5">Member & Company</th>
-                <th scope="col" className="px-5 py-3.5">Plan & Monthly Fee</th>
-                <th scope="col" className="px-5 py-3.5">Home Branch</th>
-                <th scope="col" className="px-5 py-3.5">Contract Status</th>
-                <th scope="col" className="px-5 py-3.5">Renewal Date</th>
-                <th scope="col" className="px-5 py-3.5 text-right">Details</th>
+              <tr
+                className="bg-paper border-b border-[#e5e3df] text-charcoal-700 font-bold text-[10px] uppercase tracking-[0.08em]"
+                data-ui="ui-frame"
+              >
+                <th scope="col" className="px-5 py-3.5">
+                  Member & Company
+                </th>
+                <th scope="col" className="px-5 py-3.5">
+                  Plan & Monthly Fee
+                </th>
+                <th scope="col" className="px-5 py-3.5">
+                  Home Branch
+                </th>
+                <th scope="col" className="px-5 py-3.5">
+                  Contract Status
+                </th>
+                <th scope="col" className="px-5 py-3.5">
+                  Renewal Date
+                </th>
+                <th scope="col" className="px-5 py-3.5 text-right">
+                  Details
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 text-charcoal-950" data-ui="ui-list">
@@ -210,7 +208,10 @@ export function MembersDirectory({
                       <td className="px-5 py-3.5">
                         <div className="flex items-center gap-3">
                           <div className="w-8 h-8 rounded-full bg-charcoal-900/10 text-charcoal-950 flex items-center justify-center font-bold text-xs shrink-0">
-                            {member.name.split(" ").map((n) => n[0]).join("")}
+                            {member.name
+                              .split(" ")
+                              .map((n) => n[0])
+                              .join("")}
                           </div>
                           <div>
                             <div className="font-medium text-gray-900 group-hover:text-charcoal-950 flex items-center gap-1.5">
@@ -252,7 +253,7 @@ export function MembersDirectory({
                         {ms ? (
                           <span
                             className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium border ${getStatusBadge(
-                              ms.status
+                              ms.status,
                             )}`}
                           >
                             {ms.status}

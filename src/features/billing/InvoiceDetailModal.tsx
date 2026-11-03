@@ -1,16 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  X,
-  Receipt,
-  Printer,
-  CreditCard,
-  Send,
-  Ban,
-  CheckCircle2,
-  Clock,
-} from "lucide-react";
+import { X, Receipt, Printer, CreditCard, Send, Ban, CheckCircle2, Clock } from "lucide-react";
 import { Invoice, InvoiceStatus } from "@/types";
 import { formatCurrency } from "@/lib/utils";
 
@@ -77,20 +68,24 @@ export function InvoiceDetailModal({
       aria-modal="true"
       aria-labelledby="invoice-detail-title"
     >
-      <div className="bg-white rounded-xl shadow-2xl w-full max-w-2xl border border-neutral-200 overflow-hidden flex flex-col max-h-[92vh]" data-ui="overlay">
+      <div
+        className="bg-white rounded-xl shadow-2xl w-full max-w-2xl border border-neutral-200 overflow-hidden flex flex-col max-h-[92vh]"
+        data-ui="overlay"
+      >
         {/* Top Control Bar (Non-Printable) */}
-        <div className="px-6 py-3 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/70 print:hidden" data-ui="ui-frame">
+        <div
+          className="px-6 py-3 border-b border-neutral-100 flex items-center justify-between bg-neutral-50/70 print:hidden"
+          data-ui="ui-frame"
+        >
           <div className="flex items-center gap-2">
             <span
               className={`text-xs px-2.5 py-0.5 rounded-full font-semibold border ${getStatusBadge(
-                invoice.status
+                invoice.status,
               )}`}
             >
               {invoice.status}
             </span>
-            <span className="text-xs text-neutral-500">
-              Issued: {invoice.issueDate}
-            </span>
+            <span className="text-xs text-neutral-500">Issued: {invoice.issueDate}</span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -133,7 +128,10 @@ export function InvoiceDetailModal({
           )}
 
           {/* Invoice Header */}
-          <div className="flex items-start justify-between border-b border-neutral-200 pb-6" data-ui="ui-frame">
+          <div
+            className="flex items-start justify-between border-b border-neutral-200 pb-6"
+            data-ui="ui-frame"
+          >
             <div>
               <div className="flex items-center gap-2 text-charcoal-950 font-bold text-lg mb-1">
                 <Receipt className="w-5 h-5" />
@@ -149,7 +147,10 @@ export function InvoiceDetailModal({
             </div>
 
             <div className="text-right">
-              <h1 id="invoice-detail-title" className="text-xl font-bold tracking-tight text-neutral-900">
+              <h1
+                id="invoice-detail-title"
+                className="text-xl font-bold tracking-tight text-neutral-900"
+              >
                 TAX INVOICE
               </h1>
               <div className="text-sm font-semibold text-charcoal-950 mt-1">
@@ -202,7 +203,10 @@ export function InvoiceDetailModal({
           <div className="border border-neutral-200 rounded-lg overflow-hidden">
             <table className="w-full text-left text-xs">
               <thead>
-                <tr className="bg-neutral-100/70 border-b border-neutral-200 text-neutral-600 font-semibold" data-ui="ui-frame">
+                <tr
+                  className="bg-neutral-100/70 border-b border-neutral-200 text-neutral-600 font-semibold"
+                  data-ui="ui-frame"
+                >
                   <th className="py-2.5 px-4">Item & Description</th>
                   <th className="py-2.5 px-3 text-center w-16">Qty</th>
                   <th className="py-2.5 px-4 text-right w-28">Rate</th>
@@ -245,7 +249,10 @@ export function InvoiceDetailModal({
                   {formatCurrency(invoice.taxAmountCents, "INR")}
                 </span>
               </div>
-              <div className="flex justify-between text-sm font-bold text-neutral-900 pt-2 border-t border-neutral-200" data-ui="ui-frame">
+              <div
+                className="flex justify-between text-sm font-bold text-neutral-900 pt-2 border-t border-neutral-200"
+                data-ui="ui-frame"
+              >
                 <span>Total Amount:</span>
                 <span className="text-charcoal-950">
                   {formatCurrency(invoice.totalAmountCents, "INR")}
@@ -257,7 +264,10 @@ export function InvoiceDetailModal({
                   {formatCurrency(invoice.paidAmountCents, "INR")}
                 </span>
               </div>
-              <div className="flex justify-between text-sm font-bold pt-2 border-t border-neutral-200 text-amber-800" data-ui="ui-frame">
+              <div
+                className="flex justify-between text-sm font-bold pt-2 border-t border-neutral-200 text-amber-800"
+                data-ui="ui-frame"
+              >
                 <span>Balance Due:</span>
                 <span>{formatCurrency(balanceDueCents, "INR")}</span>
               </div>
@@ -271,12 +281,12 @@ export function InvoiceDetailModal({
                 <Clock className="w-3.5 h-3.5 text-neutral-500" />
                 Payment & Reconciliation History
               </div>
-              <div className="bg-neutral-50 rounded-lg border border-neutral-200 divide-y divide-neutral-100" data-ui="ui-list">
+              <div
+                className="bg-neutral-50 rounded-lg border border-neutral-200 divide-y divide-neutral-100"
+                data-ui="ui-list"
+              >
                 {invoice.paymentRecords.map((pay) => (
-                  <div
-                    key={pay.id}
-                    className="p-3 flex items-center justify-between text-xs"
-                  >
+                  <div key={pay.id} className="p-3 flex items-center justify-between text-xs">
                     <div>
                       <div className="font-semibold text-neutral-900 flex items-center gap-2">
                         <span>{pay.paymentMethod}</span>
@@ -285,7 +295,8 @@ export function InvoiceDetailModal({
                         </span>
                       </div>
                       <div className="text-[11px] text-neutral-500 mt-0.5">
-                        Recorded on: {new Date(pay.paidAt).toLocaleDateString("en-IN", {
+                        Recorded on:{" "}
+                        {new Date(pay.paidAt).toLocaleDateString("en-IN", {
                           day: "numeric",
                           month: "short",
                           year: "numeric",
@@ -314,7 +325,10 @@ export function InvoiceDetailModal({
         </div>
 
         {/* Footer Actions (Non-Printable) */}
-        <div className="px-6 py-3 border-t border-neutral-100 bg-neutral-50 flex items-center justify-between text-xs print:hidden" data-ui="ui-frame">
+        <div
+          className="px-6 py-3 border-t border-neutral-100 bg-neutral-50 flex items-center justify-between text-xs print:hidden"
+          data-ui="ui-frame"
+        >
           <div className="flex items-center gap-2">
             {invoice.status !== "Void" && (
               <button
