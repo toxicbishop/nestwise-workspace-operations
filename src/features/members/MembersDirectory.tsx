@@ -184,11 +184,11 @@ export function MembersDirectory({
       </div>
 
       {/* Members Table */}
-      <div className="bg-white border border-[#e5e3df] rounded-xl overflow-hidden ">
+      <div className="bg-white border border-[#e5e3df] rounded-xl shadow-[0_1px_3px_rgba(17,17,17,0.05)] overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs">
             <thead>
-              <tr className="bg-paper border-b border-[#e5e3df] text-charcoal-700 font-medium" data-ui="ui-frame">
+              <tr className="bg-paper border-b border-[#e5e3df] text-charcoal-700 font-bold text-[10px] uppercase tracking-[0.08em]" data-ui="ui-frame">
                 <th scope="col" className="px-5 py-3.5">Member & Company</th>
                 <th scope="col" className="px-5 py-3.5">Plan & Monthly Fee</th>
                 <th scope="col" className="px-5 py-3.5">Home Branch</th>

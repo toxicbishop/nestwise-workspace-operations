@@ -46,7 +46,7 @@ function LeadsPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-gray-200" data-ui="ui-frame">
         <div>
           <div className="flex items-center gap-2">
-            <Users2 className="w-5 h-5 text-emerald-800" />
+            <Users2 className="w-5 h-5 text-ember" />
             <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-charcoal-950">
               Leads & Opportunity Pipeline
             </h1>

@@ -99,7 +99,7 @@ export function LeadsTable({
   };
 
   return (
-    <div className="bg-white rounded-xl border border-[#e5e3df]  overflow-hidden">
+    <div className="bg-white rounded-xl border border-[#e5e3df] shadow-[0_1px_3px_rgba(17,17,17,0.05)] overflow-hidden">
       {/* Search and Filters Header */}
       <div className="p-4 sm:p-5 border-b border-[#e5e3df] space-y-3" data-ui="ui-frame">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
@@ -186,7 +186,7 @@ export function LeadsTable({
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse" aria-label="Leads list">
             <thead>
-              <tr className="border-b border-gray-200 bg-paper text-[11px] font-semibold text-gray-600 font-semibold" data-ui="ui-frame">
+              <tr className="border-b border-gray-200 bg-paper text-[10px] font-bold text-charcoal-700 uppercase tracking-[0.08em]" data-ui="ui-frame">
                 <th className="py-3 px-4">
                   <button
                     type="button"

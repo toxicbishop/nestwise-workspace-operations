@@ -115,7 +115,7 @@ function DashboardPage() {
         {/* Left Column (8 cols) */}
         <div className="lg:col-span-8 space-y-5">
           {/* Live Resource Availability and Bookings Timeline */}
-          <section className="bg-white border border-[#e5e3df] rounded-lg p-5">
+          <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)]">
             <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
               <div className="flex items-center gap-2.5">
                 <span className="font-bold text-[15px] text-charcoal-950">
@@ -278,7 +278,7 @@ function DashboardPage() {
           </section>
 
           {/* Inquiry Pipeline and Tours Table */}
-          <section className="bg-white border border-[#e5e3df] rounded-lg p-5 space-y-3">
+          <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)] space-y-3">
             <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
               <div>
                 <h2 className="text-[15px] font-bold text-charcoal-950">
@@ -311,7 +311,7 @@ function DashboardPage() {
         {/* Right Column (4 cols) */}
         <div className="lg:col-span-4 space-y-5">
           {/* 1. Scheduled Walkthroughs */}
-          <section className="bg-white border border-[#e5e3df] rounded-lg p-5">
+          <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)]">
             <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
               <span className="font-bold text-[15px] text-charcoal-950">
                 Scheduled Walkthroughs
@@ -361,7 +361,7 @@ function DashboardPage() {
           </section>
 
           {/* 2. Billing and Renewals Due */}
-          <section className="bg-white border border-[#e5e3df] rounded-lg p-5">
+          <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)]">
             <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
               <span className="font-bold text-[15px] text-charcoal-950">
                 Billing and Renewals Due

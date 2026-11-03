@@ -111,7 +111,7 @@ export function SpacesDirectory() {
     <div className="space-y-6">
       {/* Top Inventory Metrics */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-white p-4 rounded-xl border border-neutral-200">
+        <div className="bg-white p-4 rounded-xl border border-[#e5e3df] shadow-[0_1px_3px_rgba(17,17,17,0.04)]">
           <div className="flex items-center gap-2 text-xs text-neutral-500 mb-1">
             <Building2 className="w-4 h-4 text-charcoal-950" />
             <span>Total Spaces</span>
@@ -120,7 +120,7 @@ export function SpacesDirectory() {
           <div className="text-[11px] text-neutral-500 mt-0.5">Across {locations.length} locations</div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl border border-neutral-200">
+        <div className="bg-white p-4 rounded-xl border border-[#e5e3df] shadow-[0_1px_3px_rgba(17,17,17,0.04)]">
           <div className="flex items-center gap-2 text-xs text-neutral-500 mb-1">
             <CheckCircle2 className="w-4 h-4 text-emerald-600" />
             <span>Active & Bookable</span>
@@ -129,7 +129,7 @@ export function SpacesDirectory() {
           <div className="text-[11px] text-neutral-500 mt-0.5">Open for reservation</div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl border border-neutral-200">
+        <div className="bg-white p-4 rounded-xl border border-[#e5e3df] shadow-[0_1px_3px_rgba(17,17,17,0.04)]">
           <div className="flex items-center gap-2 text-xs text-neutral-500 mb-1">
             <DoorOpen className="w-4 h-4 text-blue-600" />
             <span>Meeting Rooms & Pods</span>
@@ -138,7 +138,7 @@ export function SpacesDirectory() {
           <div className="text-[11px] text-neutral-500 mt-0.5">Equipped with AV & screens</div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl border border-neutral-200">
+        <div className="bg-white p-4 rounded-xl border border-[#e5e3df] shadow-[0_1px_3px_rgba(17,17,17,0.04)]">
           <div className="flex items-center gap-2 text-xs text-neutral-500 mb-1">
             <Users className="w-4 h-4 text-sky-600" />
             <span>Total Seat Capacity</span>
@@ -149,7 +149,7 @@ export function SpacesDirectory() {
       </div>
 
       {/* Filter and Control Bar */}
-      <div className="bg-white p-4 rounded-xl border border-neutral-200  flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+      <div className="bg-white p-4 rounded-xl border border-[#e5e3df] shadow-[0_1px_3px_rgba(17,17,17,0.04)]  flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
         <div className="flex flex-1 flex-col sm:flex-row gap-3 items-stretch sm:items-center">
           {/* Search Box */}
           <div className="relative flex-1">
