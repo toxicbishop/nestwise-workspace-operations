@@ -33,10 +33,10 @@ export function ActivityFeed({ activities, onToggleComplete }: ActivityFeedProps
   const currentTimestamp = useCurrentTimestamp();
 
   return (
-    <div className="bg-white rounded-xl border border-[#E5E7EB] p-5 ">
+    <div className="bg-white rounded-xl border border-[#e5e3df] p-5 ">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h3 className="text-sm font-semibold text-[#1a1a1a]">Follow-ups & Scheduled Tasks</h3>
+          <h3 className="text-sm font-semibold text-charcoal-950">Follow-ups & Scheduled Tasks</h3>
           <p className="text-xs text-gray-500 mt-0.5">
             Pending tour walkthroughs, discovery calls, and outreach
           </p>
@@ -94,7 +94,7 @@ export function ActivityFeed({ activities, onToggleComplete }: ActivityFeedProps
                   </div>
 
                   {act.leadName && (
-                    <p className="text-[11px] text-[#1c1c1c] font-medium mt-0.5">
+                    <p className="text-[11px] text-charcoal-950 font-medium mt-0.5">
                       {act.leadName}
                     </p>
                   )}

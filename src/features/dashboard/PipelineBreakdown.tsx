@@ -26,10 +26,10 @@ export function PipelineBreakdown({ pipelineCounts }: PipelineBreakdownProps) {
   const total = Object.values(pipelineCounts).reduce((acc, count) => acc + count, 0);
 
   return (
-    <div className="bg-white rounded-xl border border-[#E5E7EB] p-5 ">
+    <div className="bg-white rounded-xl border border-[#e5e3df] p-5 ">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h3 className="text-sm font-semibold text-[#1a1a1a]">Lead Pipeline Distribution</h3>
+          <h3 className="text-sm font-semibold text-charcoal-950">Lead Pipeline Distribution</h3>
           <p className="text-xs text-gray-500 mt-0.5">
             Active funnel by operational stage ({total} total prospects tracked)
           </p>
@@ -63,7 +63,7 @@ export function PipelineBreakdown({ pipelineCounts }: PipelineBreakdownProps) {
           return (
             <div
               key={stage}
-              className="p-3 rounded-lg border border-gray-100 bg-[#f6f5f3] flex flex-col justify-between"
+              className="p-3 rounded-lg border border-gray-100 bg-paper flex flex-col justify-between"
             >
               <div className="flex items-center justify-between">
                 <StatusBadge status={stage} />

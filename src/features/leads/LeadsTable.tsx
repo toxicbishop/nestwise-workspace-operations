@@ -25,6 +25,8 @@ interface LeadsTableProps {
   onConvertLead: (lead: Lead) => void;
   onOpenNewLead: () => void;
   selectedLocationFilter: string;
+  /** Hide secondary columns when embedded in a narrow panel */
+  condensed?: boolean;
 }
 
 export function LeadsTable({
@@ -35,6 +37,7 @@ export function LeadsTable({
   onConvertLead,
   onOpenNewLead,
   selectedLocationFilter,
+  condensed = false,
 }: LeadsTableProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedStatus, setSelectedStatus] = useState<string>("All");
@@ -99,9 +102,9 @@ export function LeadsTable({
   };
 
   return (
-    <div className="bg-white rounded-xl border border-[#E5E7EB]  overflow-hidden">
+    <div className="bg-white rounded-xl border border-[#e5e3df] shadow-[0_1px_3px_rgba(17,17,17,0.05)] overflow-hidden">
       {/* Search and Filters Header */}
-      <div className="p-4 sm:p-5 border-b border-[#E5E7EB] space-y-3" data-ui="ui-frame">
+      <div className="p-4 sm:p-5 border-b border-[#e5e3df] space-y-3" data-ui="ui-frame">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
           {/* Search box */}
           <div className="relative flex-1 max-w-md">
@@ -111,7 +114,7 @@ export function LeadsTable({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by prospect name, email, or company..."
-              className="w-full text-xs rounded-lg border border-gray-300 pl-9 pr-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
+              className="w-full text-xs rounded-lg border border-gray-300 pl-9 pr-3 py-2 text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-ember"
             />
           </div>
 
@@ -119,7 +122,7 @@ export function LeadsTable({
             <button
               type="button"
               onClick={onOpenNewLead}
-              className="inline-flex items-center gap-1.5 bg-[#e85d3a] hover:bg-[#d14a2c] text-white text-xs font-semibold px-3.5 py-2 rounded-lg  transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#e85d3a]"
+              className="inline-flex items-center gap-1.5 bg-ember hover:bg-ember-deep text-white text-xs font-semibold px-3.5 py-2 rounded-lg  transition-colors focus:outline-hidden focus:ring-2 focus:ring-ember"
             >
               <Plus className="w-4 h-4" />
               <span>Add Lead</span>
@@ -137,7 +140,7 @@ export function LeadsTable({
             onClick={() => setSelectedStatus("All")}
             className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors shrink-0 ${
               selectedStatus === "All"
-                ? "bg-[#e85d3a] text-white"
+                ? "bg-ember text-white"
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             }`}
           >
@@ -153,7 +156,7 @@ export function LeadsTable({
                 onClick={() => setSelectedStatus(status)}
                 className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors shrink-0 ${
                   isSelected
-                    ? "bg-[#e85d3a] text-white"
+                    ? "bg-ember text-white"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                 }`}
               >
@@ -177,7 +180,7 @@ export function LeadsTable({
           <button
             type="button"
             onClick={resetFilters}
-            className="text-xs font-semibold text-[#1c1c1c] hover:underline"
+            className="text-xs font-semibold text-charcoal-950 hover:underline"
           >
             Reset active filters
           </button>
@@ -186,8 +189,8 @@ export function LeadsTable({
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse" aria-label="Leads list">
             <thead>
-              <tr className="border-b border-gray-200 bg-[#f6f5f3] text-[11px] font-semibold text-gray-600 font-semibold" data-ui="ui-frame">
-                <th className="py-3 px-4">
+              <tr className="border-b border-gray-200 bg-paper text-[10px] font-bold text-charcoal-700 uppercase tracking-[0.08em]" data-ui="ui-frame">
+                <th className="py-3 px-3">
                   <button
                     type="button"
                     onClick={() => toggleSort("name")}
@@ -197,10 +200,10 @@ export function LeadsTable({
                     <ArrowUpDown className="w-3 h-3" />
                   </button>
                 </th>
-                <th className="py-3 px-4">Status</th>
-                <th className="py-3 px-4">Plan & Location</th>
-                <th className="py-3 px-4">Assigned To</th>
-                <th className="py-3 px-4">
+                <th className="py-3 px-3">Status</th>
+                <th className={condensed ? "hidden" : "py-3 px-3"}>Plan & Location</th>
+                <th className="hidden 2xl:table-cell py-3 px-3">Assigned To</th>
+                <th className={condensed ? "hidden" : "py-3 px-3"}>
                   <button
                     type="button"
                     onClick={() => toggleSort("createdAt")}
@@ -210,27 +213,27 @@ export function LeadsTable({
                     <ArrowUpDown className="w-3 h-3" />
                   </button>
                 </th>
-                <th className="py-3 px-4 text-right">Actions</th>
+                <th className="py-3 px-3 text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 text-xs text-gray-700" data-ui="ui-list">
               {filteredLeads.map((lead) => (
-                <tr key={lead.id} className="hover:bg-gray-50/80 transition-colors">
+                <tr key={lead.id} className="hover:bg-paper-dim/70 transition-colors">
                   {/* Prospect & Contact */}
-                  <td className="py-3.5 px-4">
+                  <td className="py-3.5 px-3">
                     <div className="font-semibold text-gray-900">{lead.name}</div>
                     {lead.company && (
                       <div className="text-[11px] text-gray-500 flex items-center gap-1 mt-0.5">
                         <Building className="w-3 h-3 text-gray-400" />
                         <span>{lead.company}</span>
                         {lead.teamSize && lead.teamSize > 1 && (
-                          <span className="text-[10px] bg-gray-100 px-1.5 py-0.2 rounded text-gray-600">
+                          <span className="whitespace-nowrap text-[10px] bg-gray-100 px-1.5 py-0.2 rounded text-gray-600">
                             {lead.teamSize} people
                           </span>
                         )}
                       </div>
                     )}
-                    <div className="text-[11px] text-gray-500 flex items-center gap-2 mt-1">
+                    <div className="text-[11px] text-gray-500 flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1">
                       {lead.email && (
                         <span className="flex items-center gap-1">
                           <Mail className="w-3 h-3 text-gray-400" />
@@ -247,40 +250,44 @@ export function LeadsTable({
                   </td>
 
                   {/* Status Dropdown */}
-                  <td className="py-3.5 px-4">
+                  <td className="py-3.5 px-3">
                     <div className="flex items-center gap-2">
                       <StatusBadge status={lead.status} />
-                      <label htmlFor={`status-select-${lead.id}`} className="sr-only">
-                        Change status for {lead.name}
-                      </label>
-                      <select
-                        id={`status-select-${lead.id}`}
-                        value={lead.status}
-                        onChange={(e) => onStatusChange(lead.id, e.target.value as LeadStatus)}
-                        className="text-[11px] border border-gray-200 rounded px-1.5 py-1 text-gray-700 bg-white hover:border-gray-400 focus:outline-hidden cursor-pointer"
-                      >
-                        <option value="New">Move to New</option>
-                        <option value="Contacted">Move to Contacted</option>
-                        <option value="Tour Booked">Move to Tour Booked</option>
-                        <option value="Converted">Move to Converted</option>
-                        <option value="Lost">Move to Lost</option>
-                      </select>
+                      {!condensed && (
+                        <>
+                          <label htmlFor={`status-select-${lead.id}`} className="sr-only">
+                            Change status for {lead.name}
+                          </label>
+                          <select
+                            id={`status-select-${lead.id}`}
+                            value={lead.status}
+                            onChange={(e) => onStatusChange(lead.id, e.target.value as LeadStatus)}
+                            className="text-[11px] border border-gray-200 rounded px-1.5 py-1 text-gray-700 bg-white hover:border-gray-400 focus:outline-hidden cursor-pointer"
+                          >
+                            <option value="New">Move to New</option>
+                            <option value="Contacted">Move to Contacted</option>
+                            <option value="Tour Booked">Move to Tour Booked</option>
+                            <option value="Converted">Move to Converted</option>
+                            <option value="Lost">Move to Lost</option>
+                          </select>
+                        </>
+                      )}
                     </div>
                     {lead.status === "Lost" && lead.lostReason && (
-                      <p className="text-[10px] text-rose-600 italic mt-1 max-w-xs truncate">
+                      <p className={`text-[10px] text-rose-600 italic mt-1 truncate ${condensed ? "max-w-[180px]" : "max-w-xs"}`}>
                         Reason: {lead.lostReason}
                       </p>
                     )}
                   </td>
 
                   {/* Plan & Location */}
-                  <td className="py-3.5 px-4">
+                  <td className={condensed ? "hidden" : "py-3.5 px-3"}>
                     <div className="font-medium text-gray-900">{lead.interestedPlan}</div>
                     <div className="text-[11px] text-gray-500 mt-0.5">{lead.preferredLocation}</div>
                   </td>
 
                   {/* Assigned Owner */}
-                  <td className="py-3.5 px-4">
+                  <td className="hidden 2xl:table-cell py-3.5 px-3">
                     <span className="inline-flex items-center gap-1.5 text-gray-700">
                       <span className="w-2 h-2 rounded-full bg-emerald-600/40" />
                       {lead.assignedTo}
@@ -288,12 +295,12 @@ export function LeadsTable({
                   </td>
 
                   {/* Date Created */}
-                  <td className="py-3.5 px-4 text-gray-500 whitespace-nowrap">
+                  <td className={condensed ? "hidden" : "py-3.5 px-3 text-gray-500 whitespace-nowrap"}>
                     {formatDate(lead.createdAt)}
                   </td>
 
                   {/* Actions */}
-                  <td className="py-3.5 px-4 text-right whitespace-nowrap">
+                  <td className="py-3.5 px-3 text-right whitespace-nowrap">
                     <div className="flex items-center justify-end gap-1.5">
                       {lead.status !== "Converted" && (
                         <button
@@ -338,7 +345,7 @@ export function LeadsTable({
       )}
 
       {/* Table Footer */}
-      <div className="p-3 bg-[#f6f5f3] border-t border-[#E5E7EB] text-xs text-gray-500 flex items-center justify-between" data-ui="ui-frame">
+      <div className="p-3 bg-paper border-t border-[#e5e3df] text-xs text-gray-500 flex items-center justify-between" data-ui="ui-frame">
         <span>
           Showing <strong>{filteredLeads.length}</strong> of <strong>{leads.length}</strong> leads
         </span>
