@@ -118,7 +118,10 @@ function DashboardPage() {
           <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)]">
             <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
               <div className="flex items-center gap-2.5">
-                <span className="font-bold text-[15px] text-charcoal-950">
+                <span className="w-7 h-7 rounded-lg bg-charcoal-900 flex items-center justify-center shrink-0">
+                  <Calendar className="w-3.5 h-3.5 text-white" />
+                </span>
+                <span className="font-display font-bold text-[15px] text-charcoal-950">
                   Live Resource Availability and Bookings
                 </span>
                 <span className="tabular-nums text-[11px] font-semibold px-2 py-0.5 rounded bg-[#E4F4EC] text-[#144D33]">
@@ -280,13 +283,18 @@ function DashboardPage() {
           {/* Inquiry Pipeline and Tours Table */}
           <section className="bg-white border border-[#e5e3df] rounded-xl p-5 shadow-[0_1px_3px_rgba(17,17,17,0.05)] space-y-3">
             <div className="flex items-center justify-between pb-3 border-b border-[#e5e3df]" data-ui="ui-frame">
-              <div>
-                <h2 className="text-[15px] font-bold text-charcoal-950">
-                  Inquiry Pipeline and Tours
-                </h2>
-                <p className="text-xs text-charcoal-700">
-                  Filterable list with instant stage qualification and conversion
-                </p>
+              <div className="flex items-center gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-ember flex items-center justify-center shrink-0">
+                  <Users2 className="w-3.5 h-3.5 text-white" />
+                </span>
+                <div>
+                  <h2 className="text-[15px] font-display font-bold text-charcoal-950">
+                    Inquiry Pipeline and Tours
+                  </h2>
+                  <p className="text-xs text-charcoal-700">
+                    Filterable list with instant stage qualification and conversion
+                  </p>
+                </div>
               </div>
               <Link
                 to="/app/leads"
