@@ -198,7 +198,7 @@ export function LeadsTable({
                   </button>
                 </th>
                 <th className="py-3 px-3">Status</th>
-                <th className="@max-sm:hidden py-3 px-3">Plan & Location</th>
+                <th className="@max-md:hidden py-3 px-3">Plan & Location</th>
                 <th className="hidden 2xl:table-cell py-3 px-3">Assigned To</th>
                 <th className="py-3 px-3">
                   <button
@@ -274,7 +274,7 @@ export function LeadsTable({
                   </td>
 
                   {/* Plan & Location */}
-                  <td className="@max-sm:hidden py-3.5 px-3">
+                  <td className="@max-md:hidden py-3.5 px-3">
                     <div className="font-medium text-gray-900">{lead.interestedPlan}</div>
                     <div className="text-[11px] text-gray-500 mt-0.5">{lead.preferredLocation}</div>
                   </td>
