@@ -14,6 +14,10 @@
 
 $$\text{Discovery} \longrightarrow \text{Inquiry} \longrightarrow \text{Tour} \longrightarrow \text{Membership} \longrightarrow \text{Bookings} \longrightarrow \text{Billing} \longrightarrow \text{Retention}$$
 
+![Nestwise Operations Dashboard](public/dashboard.png)
+
+*The unified operations cockpit gives workspace managers real-time visibility into campus occupancy, active tour pipelines, space bookings, and daily recurring revenue.*
+
 ---
 
 ## Features
