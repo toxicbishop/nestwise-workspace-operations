@@ -1,14 +1,20 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import {
   ArrowRight,
+  ArrowUp,
+  ArrowUpRight,
   Building2,
   CalendarCheck2,
+  Check,
+  CheckCircle2,
   CreditCard,
+  Globe2,
   LayoutDashboard,
   LineChart,
+  Mail,
+  ShieldCheck,
   Users2,
-  Check,
 } from "lucide-react";
 import heroImg from "@/assets/hero-workspace.jpg";
 
@@ -68,7 +74,7 @@ function Hero() {
         width={1536}
         height={1024}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal-950/60 via-charcoal-950/75 to-charcoal-950" />
+      <div className="absolute inset-0 bg-linear-to-b from-charcoal-950/60 via-charcoal-950/75 to-charcoal-950" />
       <div className="relative mx-auto max-w-6xl px-5 pb-24 pt-24 sm:pt-32">
         <div className="inline-flex items-center gap-2 rounded-full border border-ember/30 bg-ember/10 px-3.5 py-1.5 text-xs font-semibold text-ember">
           <span className="h-1.5 w-1.5 rounded-full bg-ember" />
@@ -482,30 +488,380 @@ function FinalCta() {
 }
 
 function Footer() {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email.trim()) {
+      setSubscribed(true);
+      setEmail("");
+    }
+  };
+
   return (
-    <footer className="border-t border-white/10 bg-charcoal-950 py-10 text-paper/50">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 sm:flex-row">
-        <div className="flex items-center gap-2.5">
-          <span className="flex h-7 w-7 items-center justify-center rounded-md bg-ember font-display text-xs font-bold text-white">
-            W
-          </span>
-          <span className="font-display text-sm font-semibold text-paper">WorkNest</span>
+    <footer className="relative border-t border-white/10 bg-charcoal-950 text-paper">
+      {/* Subtle brand glow accent */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-ember/40 to-transparent" />
+
+      <div className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+        {/* Top Newsletter & Brand Section */}
+        <div className="grid grid-cols-1 gap-12 border-b border-white/10 pb-16 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-5">
+            <a
+              href="#top"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo("top");
+              }}
+              className="inline-flex items-center gap-2.5"
+            >
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-ember font-display text-base font-bold text-white shadow-lg shadow-ember/25">
+                W
+              </span>
+              <span className="font-display text-xl font-bold tracking-tight text-paper">
+                WorkNest
+              </span>
+            </a>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-paper/70">
+              The unified operations cockpit for coworking spaces, shared studios, and flexible real
+              estate. Turn inquiries into active members and maximize campus yield.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-400">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                </span>
+                All Systems Operational
+              </div>
+              <span className="text-xs text-paper/40">99.98% Uptime SLA</span>
+            </div>
+          </div>
+
+          <div className="lg:col-span-7 lg:pl-6">
+            <div className="rounded-2xl border border-white/10 bg-white/3 p-6 backdrop-blur-sm sm:p-8">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-ember">
+                <Mail className="h-3.5 w-3.5" />
+                Coworking Ops Dispatch
+              </div>
+              <h3 className="mt-2 font-display text-lg font-bold text-paper sm:text-xl">
+                Fortnightly benchmarks, tactics, and operational playbooks
+              </h3>
+              <p className="mt-1 text-xs text-paper/60 sm:text-sm">
+                Join 4,200+ flexible workspace operators mastering tour conversion and desk yield.
+              </p>
+
+              {subscribed ? (
+                <div className="mt-5 flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-3.5 text-xs font-medium text-emerald-300">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400" />
+                  <span>You are subscribed! Keep an eye on your inbox for the upcoming issue.</span>
+                </div>
+              ) : (
+                <form onSubmit={handleSubscribe} className="mt-5 flex flex-col gap-2.5 sm:flex-row">
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your work email"
+                    className="h-11 flex-1 rounded-lg border border-white/15 bg-charcoal-900/90 px-4 text-sm text-paper placeholder:text-paper/40 focus:border-ember focus:outline-none focus:ring-1 focus:ring-ember"
+                  />
+                  <button
+                    type="submit"
+                    className="inline-flex h-11 items-center justify-center rounded-lg bg-ember px-5 text-sm font-semibold text-white shadow-md shadow-ember/20 transition-colors hover:bg-ember-deep"
+                  >
+                    Subscribe Free
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
         </div>
-        <p className="text-xs">© 2026 WorkNest. All rights reserved.</p>
-        <div className="flex gap-5 text-xs">
-          <Link to="/app" className="transition-colors hover:text-paper">
-            Product
-          </Link>
-          <a
-            href="#pricing"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollTo("pricing");
-            }}
-            className="transition-colors hover:text-paper"
+
+        {/* Multi-column Navigation Grid */}
+        <div className="grid grid-cols-2 gap-8 py-16 sm:grid-cols-2 md:grid-cols-4 lg:gap-10">
+          {/* Column 1: Product & Cockpit */}
+          <div>
+            <h4 className="font-display text-xs font-bold uppercase tracking-wider text-paper">
+              Product & Cockpit
+            </h4>
+            <ul className="mt-4 space-y-2.5 text-xs text-paper/70">
+              <li>
+                <Link to="/app" className="transition-colors hover:text-ember">
+                  Operations Overview
+                </Link>
+              </li>
+              <li>
+                <Link to="/app/leads" className="transition-colors hover:text-ember">
+                  Lead & Tour Pipeline
+                </Link>
+              </li>
+              <li>
+                <Link to="/app/spaces" className="transition-colors hover:text-ember">
+                  Space & Desk Inventory
+                </Link>
+              </li>
+              <li>
+                <Link to="/app/bookings" className="transition-colors hover:text-ember">
+                  Meeting Room Bookings
+                </Link>
+              </li>
+              <li>
+                <Link to="/app/billing" className="transition-colors hover:text-ember">
+                  Invoicing & Collections
+                </Link>
+              </li>
+              <li>
+                <Link to="/app/members" className="transition-colors hover:text-ember">
+                  Member Directory
+                </Link>
+              </li>
+              <li>
+                <Link to="/app/analytics" className="transition-colors hover:text-ember">
+                  Occupancy & Yield Analytics
+                </Link>
+              </li>
+              <li>
+                <Link to="/app/settings" className="transition-colors hover:text-ember">
+                  Workspace Settings
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 2: Solutions */}
+          <div>
+            <h4 className="font-display text-xs font-bold uppercase tracking-wider text-paper">
+              Solutions
+            </h4>
+            <ul className="mt-4 space-y-2.5 text-xs text-paper/70">
+              <li>
+                <a
+                  href="#features"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo("features");
+                  }}
+                  className="transition-colors hover:text-ember"
+                >
+                  Single Flagship Hubs
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#product"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo("product");
+                  }}
+                  className="transition-colors hover:text-ember"
+                >
+                  Multi-Campus Networks
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#how"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo("how");
+                  }}
+                  className="transition-colors hover:text-ember"
+                >
+                  Incubators & Accelerators
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#pricing"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo("pricing");
+                  }}
+                  className="transition-colors hover:text-ember"
+                >
+                  Creative & Maker Studios
+                </a>
+              </li>
+              <li>
+                <span className="flex items-center gap-1.5 text-paper/50">
+                  Enterprise Satellite
+                  <span className="rounded bg-white/10 px-1 py-0.5 text-[9px] font-semibold text-paper/80">
+                    New
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span className="text-paper/50">Legacy Migration Guide</span>
+              </li>
+              <li>
+                <span className="text-paper/50">Turnkey Onboarding</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Platform & Trust */}
+          <div>
+            <h4 className="font-display text-xs font-bold uppercase tracking-wider text-paper">
+              Platform & Trust
+            </h4>
+            <ul className="mt-4 space-y-2.5 text-xs text-paper/70">
+              <li className="flex items-center gap-1.5">
+                <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-ember" />
+                <span>SOC 2 Type II Audited</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-400" />
+                <span>GDPR & CCPA Compliant</span>
+              </li>
+              <li>
+                <span className="text-paper/50">Kisi & Salto Door Access</span>
+              </li>
+              <li>
+                <span className="text-paper/50">Stripe Invoicing & ACH</span>
+              </li>
+              <li>
+                <span className="text-paper/50">Google & Outlook Calendar</span>
+              </li>
+              <li>
+                <span className="text-paper/50">REST Webhooks & API</span>
+              </li>
+              <li>
+                <span className="text-paper/50">Conflict Guard Engine</span>
+              </li>
+              <li>
+                <span className="text-paper/50">Zero-Config Offline Mode</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Company & Legal */}
+          <div>
+            <h4 className="font-display text-xs font-bold uppercase tracking-wider text-paper">
+              Company & Legal
+            </h4>
+            <ul className="mt-4 space-y-2.5 text-xs text-paper/70">
+              <li>
+                <Link to="/app" className="transition-colors hover:text-ember">
+                  Interactive Product Demo
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="#pricing"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo("pricing");
+                  }}
+                  className="transition-colors hover:text-ember"
+                >
+                  Pricing & Tier Plans
+                </a>
+              </li>
+              <li>
+                <span className="flex items-center gap-1.5 text-paper/50">
+                  Careers
+                  <span className="rounded bg-ember/20 px-1 py-0.5 text-[9px] font-semibold text-ember">
+                    We are hiring
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span className="text-paper/50">Security Whitepaper</span>
+              </li>
+              <li>
+                <span className="text-paper/50">Privacy Policy</span>
+              </li>
+              <li>
+                <span className="text-paper/50">Terms of Service</span>
+              </li>
+              <li>
+                <span className="text-paper/50">Cookie Preferences</span>
+              </li>
+              <li>
+                <a
+                  href="mailto:operators@worknest.co"
+                  className="inline-flex items-center gap-1 transition-colors hover:text-ember"
+                >
+                  Contact Operator Support
+                  <ArrowUpRight className="h-3 w-3" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Global Footprint Banner */}
+        <div className="flex flex-wrap items-center justify-between gap-4 border-y border-white/10 py-6 text-xs text-paper/60">
+          <div className="flex flex-wrap items-center gap-2">
+            <Globe2 className="h-4 w-4 shrink-0 text-ember" />
+            <span className="font-medium text-paper">Powering operators globally:</span>
+            <span>London</span>
+            <span className="text-white/20">•</span>
+            <span>New York</span>
+            <span className="text-white/20">•</span>
+            <span>Berlin</span>
+            <span className="text-white/20">•</span>
+            <span>Bengaluru</span>
+            <span className="text-white/20">•</span>
+            <span>Singapore</span>
+            <span className="text-white/20">•</span>
+            <span>Sydney</span>
+          </div>
+          <button
+            onClick={() => scrollTo("top")}
+            className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-paper/80 transition-colors hover:bg-white/10 hover:text-paper"
           >
-            Pricing
-          </a>
+            Back to top
+            <ArrowUp className="h-3.5 w-3.5" />
+          </button>
+        </div>
+
+        {/* Bottom Bar: Copyright & Socials */}
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 text-xs text-paper/50 sm:flex-row">
+          <div>© 2026 WorkNest Technologies Inc. All rights reserved.</div>
+          <div className="flex items-center gap-5">
+            <a
+              href="https://github.com/toxicbishop/WorkNest"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WorkNest on GitHub"
+              className="transition-colors hover:text-paper"
+            >
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WorkNest on X"
+              className="transition-colors hover:text-paper"
+            >
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WorkNest on LinkedIn"
+              className="transition-colors hover:text-paper"
+            >
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.91 0-1.64.73-1.64 1.64 0 .91.73 1.64 1.64 1.64s1.64-.73 1.64-1.64c0-.91-.73-1.64-1.64-1.64z" />
+              </svg>
+            </a>
+            <span className="text-white/20">•</span>
+            <span>Crafted for high-performing coworking spaces</span>
+          </div>
         </div>
       </div>
     </footer>
